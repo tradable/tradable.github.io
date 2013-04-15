@@ -4,7 +4,7 @@ tradable
 You will find on the tradable repositories tab a set of educational/starting points projects. Each project includes code that performs some trivial tasks such as printing the user's account Id in an App.
 The projects can be used both as an educational purpose (by simply reading the code and seeing what it does) and as starting points for your own Apps.
 
-Whether you want to leanr how it works by looking at code or start your own App using this code, here is how you go about doing so:
+Whether you want to learn how it works by looking at code or start your own App using this code, here is how you go about doing so:
 
 Cloning and opening the project in Eclipse
 -------------------------------------------------------
