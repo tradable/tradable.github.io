@@ -37,7 +37,7 @@ Cloning and opening the project in Eclipse
 3. You can now go about setting up appropriate names for your project: 
  * Update the JRE System Library the project uses by right-clicking on JRE System Library and using the latest version available. 
  * Right click the classes names to rename them by doing refactor -> rename.
- * You will have to edit the **src/main/resources/META-INF/MANIFEST.MF** and the **src/main/resources/META-INF/spring/app-context.xml** files as per the link mentioned in point 2 to reflect your project's and/or your company 's name (remember that the "*class=*" qualifier in the app-context file takes the inverse .com name of your factorie's class as an argument). 
+ * You will have to edit the **src/main/resources/META-INF/MANIFEST.MF** and the **src/main/resources/META-INF/spring/app-context.xml** files as per the link mentioned in point 2 to reflect your project's and/or your company 's name (remember that the "*class=*" qualifier in the app-context file takes the inverse .com name of your factorie's class as an argument). It is particularly important to rename the *Plugin-SymbolicName* value in the *MANIFEST.MF* file, as this is the value that the container will test against to see if the App is already installed in your tradable platform.
  * **But most importantly, you will have to edit the *pom.xml* file (preferably using the xml view of Eclipse) and change the GroupId and ArtifactId values.** Remember that the GroupId value should be in inverse .com notation and should reflect the name of the entity you are doing the project for and ArtifactId is quite simply the name of your project.  
  * Last, in your factory class, update the *getDisplayName()* and *getFactoryId()* methods so that they return appropriate values.
 
