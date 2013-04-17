@@ -34,6 +34,8 @@ Cloning and opening the project in Eclipse
 
  That's it. The project should now be opened in Eclipse with the name tradable-start-[name_of_start].
 
+Note: for those of you who do not use or want to use git or github, you can just go to the project's github page: *https://github.com/tradable/tradable-start-[name_of_start].git* then on this page, click on the Zip button to download the project as a zip file on your computer. Then extract it and rename the extracted folder. You can now do the Eclipse step mentioned above.
+
 3. You can now go about setting up appropriate names for your project: 
  * Update the JRE System Library the project uses by right-clicking on JRE System Library and using the latest version available. 
  * Right click the classes names to rename them by doing refactor -> rename.
