@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>tradable open source by tradable</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>tradable open source</h1>
+        <h2></h2>
+        <a href="https://github.com/tradable" class="button"><small>Follow me on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="example-apps" class="anchor" href="#example-apps"><span class="octicon octicon-link"></span></a>Example Apps</h1>
+
+<p>You will find here a list of repositories containing educational/starting points projects. Each project includes code that performs some trivial tasks such as printing the user's account Id in an App.
+The projects can be used both as an educational purpose (by simply reading the code and seeing what it does) and as starting points for your own Apps.</p>
+
+<p>Whether you want to learn how it works by looking at code or start your own App using this code, here is how you go about doing so:</p>
+
+<h2>
+<a name="cloning-and-opening-the-project-in-eclipse" class="anchor" href="#cloning-and-opening-the-project-in-eclipse"><span class="octicon octicon-link"></span></a>Cloning and opening the project in Eclipse</h2>
+
+<ol>
+<li>
+<p>Make sure you are running Eclipse Juno or a later version with the Maven and WindowBuilder plugins installed. If this is not the case, fear not. You can install them quite easily form within Eclipse. For Maven: </p>
+
+<ul>
+<li>Go to Help -&gt; Install New Software...</li>
+<li>If you don't have the juno realeases site set up as a repository. Click Add, name it however you wish, then in the location space write: <a href="http://download.eclipse.org/releases/juno">http://download.eclipse.org/releases/juno</a>. (Of course if you have a later version of Eclipse, the link will be adapted to the name of that version)</li>
+<li>Now in the search bar, search for m2e. Once the results pop up, select the <strong>m2e - Maven Integration for Eclipse</strong> packages from the <em>General Purpose Tool</em> and <em>Collaboration</em> packages. Also select the <strong>Xtend M2E extensions</strong>. Then next -&gt; next -&gt; finish</li>
+</ul>
+<p>For WindowBuilder The procedure is similar:</p>
+
+<ul>
+<li>Go to Help -&gt; Install New Software...</li>
+<li>Click Add, name the repository "WindoWBuilder" or the like. You will find the link to include <a href="http://www.eclipse.org/windowbuilder/download.php">here</a>. For instance, for Juno you might copy: <a href="http://download.eclipse.org/windowbuilder/WB/release/R201209281200/4.2/">http://download.eclipse.org/windowbuilder/WB/release/R201209281200/4.2/</a>
+</li>
+<li>Select all the packages, then click next -&gt; next -&gt; finish<br>
+</li>
+</ul>
+</li>
+<li>
+<p>Now That you are all setup and that you have made sure that you have setup your eclipse platform to develop tradable apps as per <a href="http://apps.tradable.com/files/tradable%20for%20dummies%20Java%20App%20Guide.pdf">this</a> link. Let's import the project to Eclipse.</p>
+
+<ul>
+<li>
+<p>Open up your Shell (or git Shell) then navigate to your Eclipse Workspace using:   </p>
+
+<pre><code>$ cd path/to/your/worksapce
+</code></pre>
+</li>
+<li>
+<p>Then clone the git repository using:</p>
+
+<pre><code>$ git clone https://github.com/tradable/tradable-start-[name_of_start].git [name_of_directory_to_copy_to]
+</code></pre>
+</li>
+<li>
+<p>Once the directory is cloned in your Worskpace, you will probably want to remove the origin remote from your local repo, as you probably will not want to be linked to this repository as no actual work is done on it:</p>
+
+<pre><code>$ git remote rm origin
+</code></pre>
+</li>
+<li><p>Open up Eclipse and import the project by doing File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects. Then Browse to the directory you just imported from github, select /pom.xml and then press Finish.</p></li>
+</ul>
+<p>That's it. The project should now be opened in Eclipse with the name tradable-start-[name_of_start].</p>
+</li>
+</ol><p>Note: for those of you who do not use or want to use git or github, you can just go to the project's github page: <em><a href="https://github.com/tradable/tradable-start-%5Bname_of_start%5D.git">https://github.com/tradable/tradable-start-[name_of_start].git</a></em> then on this page, click on the Zip button to download the project as a zip file on your computer. Then extract it and rename the extracted folder. You can now do the Eclipse step mentioned above.</p>
+
+<ol>
+<li>You can now go about setting up appropriate names for your project: 
+
+<ul>
+<li>Update the JRE System Library the project uses by right-clicking on JRE System Library and using the latest version available. </li>
+<li>Right click the classes names to rename them by doing refactor -&gt; rename.</li>
+<li>You will have to edit the <strong>src/main/resources/META-INF/MANIFEST.MF</strong> and the <strong>src/main/resources/META-INF/spring/app-context.xml</strong> files as per the link mentioned in point 2 to reflect your project's and/or your company 's name (remember that the "*class=*" qualifier in the app-context file takes the inverse .com name of your factorie's class as an argument). It is particularly important to rename the <em>Plugin-SymbolicName</em> value in the <em>MANIFEST.MF</em> file, as this is the value that the container will test against to see if the App is already installed in your tradable platform.</li>
+<li>
+<strong>But most importantly, you will have to edit the <em>pom.xml</em> file (preferably using the xml view of Eclipse) and change the GroupId and ArtifactId values.</strong> Remember that the GroupId value should be in inverse .com notation and should reflect the name of the entity you are doing the project for and ArtifactId is quite simply the name of your project.<br>
+</li>
+<li>Last, in your factory class, update the <em>getDisplayName()</em> and <em>getFactoryId()</em> methods so that they return appropriate values.</li>
+</ul>
+</li>
+</ol><p>This will allow you to quickly get acquainted with the presented tradable APIs by examining the functionalities implemented in the example projects. </p>
+
+<p>If you want to have an overall view of all our APIs, go <a href="https://developer.tradable.com/dms/dev/apidocs/latest/reference/packages.html">here</a>.</p>
+        </section>
+
+        <aside id="sidebar">
+
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
