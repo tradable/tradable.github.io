@@ -1,8 +1,52 @@
-tradable
+tradable example Apps
 ========
 
-You will find on the tradable repositories tab a set of educational/starting points projects. Each project includes code that performs some trivial tasks such as printing the user's account Id in an App.
-The projects can be used both as an educational purpose (by simply reading the code and seeing what it does) and as starting points for your own Apps.
+You will find here a list of repositories containing educational/starting points projects. Each project includes code that performs some trivial tasks such as printing the user's account Id in an App.
+The projects can be used both as an educational purpose (by simply reading the code and seeing what it does) and as starting points for your own Apps. 
+
+List of Examples:  
+ --------------------------
+ 
+  ###Standard Apps:  
+  
+  * [Hello World Example](https://github.com/tradable/tradable-start-HelloWorld)  
+  Simple Hello World app to get started from a roughly empty project.
+  * [Account ID](https://github.com/tradable/tradable-start-accountID)  
+  Simple app which displays the use of the *com.tradable.api.services.account* to display the
+  accountID in a JLabel.
+  * [Account Metrics](https://github.com/tradable/tradable-start-useAccountMetrics)  
+  App displaying the use of the *com.tradable.api.services.analytics* API to
+  display the account Metrics in a few JLabels.
+  * [Environment Service](https://github.com/tradable/tradable-start-useEnvironmentService)  
+  Learn how to use the *com.tradable.api.services.environment.EnvironmentService* API to
+  identify some information about the user.
+  * [Historic Market Data](https://github.com/tradable/tradable-start-useHistoricMarketData)  
+  App that prints all the historical times and prices (open, close etc...) for a certain
+  Symbol (chosen arbitrarily) at a given frequency between two dates. this is done by using
+  the *com.tradable.api.services.historicmarketdata* API.
+  * [Market Depth & VWAP](https://github.com/tradable/tradable-start-useMarketDepth)  
+  This app shows what recent volume moved the market and what the price associated to the move
+  is. It also uses the service to display how to compute the [VWAP](http://en.wikipedia.org/wiki/Volume-weighted_average_price).
+  * [Instruments](https://github.com/tradable/tradable-start-useInstruments)  
+  This app uses the *com.tradable.api.services.instrument* API to show how one would update
+  their list of instruments accessible to a user when instrument updates occur.
+  * [JavaFX Browser](https://github.com/tradable/tradable-start-JavaFXBrowser)  
+  A simple JavaFX browser project. You can use this as a starting point to integrate JavaFX in
+  your app.
+  * [Send and Manage Orders](https://github.com/tradable/tradable-start-np)  
+  A longer example apps than most others. Follow the link and you will find a tutorial on how
+  to send and manage orders in the tradable platform.
+  * [tradable Standard Widgets](https://github.com/tradable/tradable-start-useWidgets)  
+  This app displays in an app most of the widgets you can use from the tradable APIs.
+  
+  ###Algo Apps:
+  
+  * [Williams Percent Range Indicator](https://github.com/tradable/tradable-algo-start-wprIndicator)  
+  This App displays how one can use indicators by creating a WPR on for the platform.
+  * [MACD automatic trading strategy](https://github.com/tradable/tradable-algo-start-macd)
+  Use the algo API to create trading bots. This app uses the tradable algo API to implement a
+  bot that uses a MACD trading strategy.
+
 
 Whether you want to learn how it works by looking at code or start your own App using this code, here is how you go about doing so:
 
