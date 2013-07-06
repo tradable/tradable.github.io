@@ -1,14 +1,15 @@
 tradable example Apps
 ========
 
-You will find here a list of repositories containing educational/starting points projects. Each project includes code that performs some trivial tasks such as printing the user's account Id in an App.
-The projects can be used both as an educational purpose (by simply reading the code and seeing what it does) and as starting points for your own Apps. 
-
+Each project listed on this page includes code that performs some task, ranging from 
+trivial, like printing the user's account Id in an App to more involved like dealing with orders
+sent by a user and monitoring positions or building an algo trading bot.
 
 List of Examples:
 --------------------------
+You will find here a list of repositories containing educational/starting points projects. 
 
-###Example Apps:
+###Standard Apps:
    
   * [Hello World Example](https://github.com/tradable/tradable-start-HelloWorld)  
   Simple Hello World app to get started from a roughly empty project.
