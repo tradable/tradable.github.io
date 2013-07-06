@@ -4,11 +4,12 @@ tradable example Apps
 You will find here a list of repositories containing educational/starting points projects. Each project includes code that performs some trivial tasks such as printing the user's account Id in an App.
 The projects can be used both as an educational purpose (by simply reading the code and seeing what it does) and as starting points for your own Apps. 
 
-List of Examples:  
- --------------------------
- 
-  ###Standard Apps:  
-  
+
+List of Examples:
+--------------------------
+
+###Example Apps:
+   
   * [Hello World Example](https://github.com/tradable/tradable-start-HelloWorld)  
   Simple Hello World app to get started from a roughly empty project.
   * [Account ID](https://github.com/tradable/tradable-start-accountID)  
@@ -38,8 +39,8 @@ List of Examples:
   to send and manage orders in the tradable platform.
   * [tradable Standard Widgets](https://github.com/tradable/tradable-start-useWidgets)  
   This app displays in an app most of the widgets you can use from the tradable APIs.
-  
-  ###Algo Apps:
+
+###Algo Apps:
   
   * [Williams Percent Range Indicator](https://github.com/tradable/tradable-algo-start-wprIndicator)  
   This App displays how one can use indicators by creating a WPR on for the platform.
