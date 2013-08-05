@@ -45,6 +45,10 @@ You will find here a list of repositories containing educational/starting points
   
   * [Williams Percent Range Indicator](https://github.com/tradable/tradable-algo-start-wprIndicator)  
   This App displays how one can use indicators by creating a WPR on for the platform.
+  * [SMMA Indicator](https://github.com/tradable/tradable-algo-start-SMMA)  
+  This is an implementation of the Smoothed Moving Average Indicator as defined [here](http://www.dailyfx.com/forex_forum/signal-strategy-fxcm-marketscope/237441-smoothed-moving-average-smma.html).
+  * [Alligator Indicator](https://github.com/tradable/tradable-algo-start-alligatorIndicator)
+  This project displays how to use a custom indicator (here the SMMA) as input data in another project.
   * [MACD automatic trading strategy](https://github.com/tradable/tradable-algo-start-macd)
   Use the algo API to create trading bots. This app uses the tradable algo API to implement a
   bot that uses a MACD trading strategy.
