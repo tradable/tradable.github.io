@@ -40,6 +40,9 @@ You will find here a list of repositories containing educational/starting points
   to send and manage orders in the tradable platform.
   * [tradable Standard Widgets](https://github.com/tradable/tradable-start-useWidgets)  
   This app displays in an app most of the widgets you can use from the tradable APIs.
+  * [Order Entry pop-up Widget](https://github.com/tradable/tradable-start-OrderEntryWidget)
+  This app quite simply pops up an order entry widget identical in look and behavior to the
+  one in standard Order Entry app available by default in tradable
 
 ###Algo Apps:
   
