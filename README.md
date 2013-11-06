@@ -69,8 +69,9 @@ Cloning and opening the project in Eclipse
 
  For WindowBuilder The procedure is similar:
   * Go to Help -> Install New Software...
-  * Click Add, name the repository "WindoWBuilder" or the like. You will find the link to include [here](http://www.eclipse.org/windowbuilder/download.php). For instance, for Juno you might copy: http://download.eclipse.org/windowbuilder/WB/release/R201209281200/4.2/
-  * Select all the packages, then click next -> next -> finish   
+  * Using the Juno (or later) repository as for installing the Maven plugin, search for *windowbuilder* and select the *General Purpose Tools* package
+  * You will also need to make sure the SWT plugin is installed. This time search for *SWT* and select here too the *General Purpose Tools* package
+  * Click next -> next -> finish. Then restart Eclipse.
   
 
 2. Now That you are all setup and that you have made sure that you have setup your eclipse platform to develop tradable apps as per [this](http://apps.tradable.com/files/tradable%20for%20dummies%20Java%20App%20Guide.pdf) link. Let's import the project to Eclipse.
