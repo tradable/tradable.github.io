@@ -82,6 +82,10 @@ to send and manage orders in the tradable platform.</li>
 <li>
 <a href="https://github.com/tradable/tradable-start-useWidgets">tradable Standard Widgets</a><br>
 This app displays in an app most of the widgets you can use from the tradable APIs.</li>
+<li>
+<a href="https://github.com/tradable/tradable-start-OrderEntryWidget">Order Entry pop-up Widget</a>
+This app quite simply pops up an order entry widget identical in look and behavior to the
+one in standard Order Entry app available by default in tradable</li>
 </ul><h3>
 <a name="algo-apps" class="anchor" href="#algo-apps"><span class="octicon octicon-link"></span></a>Algo Apps:</h3>
 
@@ -129,19 +133,19 @@ bot that uses a MACD trading strategy.</li>
 <li>
 <p>Open up your Shell (or git Shell) then navigate to your Eclipse Workspace using:   </p>
 
-<pre><code>$ cd path/to/your/worksapce
+<pre><code>  $ cd path/to/your/worksapce
 </code></pre>
 </li>
 <li>
 <p>Then clone the git repository using:</p>
 
-<pre><code>$ git clone https://github.com/tradable/tradable-start-[name_of_start].git [name_of_directory_to_copy_to]
+<pre><code>  $ git clone https://github.com/tradable/tradable-start-[name_of_start].git [name_of_directory_to_copy_to]
 </code></pre>
 </li>
 <li>
 <p>Once the directory is cloned in your Worskpace, you will probably want to remove the origin remote from your local repo, as you probably will not want to be linked to this repository as no actual work is done on it:</p>
 
-<pre><code>$ git remote rm origin
+<pre><code>  $ git remote rm origin
 </code></pre>
 </li>
 <li><p>Open up Eclipse and import the project by doing File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects. Then Browse to the directory you just imported from github, select /pom.xml and then press Finish.</p></li>
@@ -156,7 +160,7 @@ bot that uses a MACD trading strategy.</li>
 <ul>
 <li>Update the JRE System Library the project uses by right-clicking on JRE System Library and using the latest version available. </li>
 <li>Right click the classes names to rename them by doing refactor -&gt; rename.</li>
-<li>You will have to edit the <strong>src/main/resources/META-INF/MANIFEST.MF</strong> and the <strong>src/main/resources/META-INF/spring/app-context.xml</strong> files as per the link mentioned in point 2 to reflect your project's and/or your company 's name (remember that the "*class=*" qualifier in the app-context file takes the inverse .com name of your factorie's class as an argument). It is particularly important to rename the <em>Plugin-SymbolicName</em> value in the <em>MANIFEST.MF</em> file, as this is the value that the container will test against to see if the App is already installed in your tradable platform.</li>
+<li>You will have to edit the <strong>src/main/resources/META-INF/MANIFEST.MF</strong> and the <strong>src/main/resources/META-INF/spring/app-context.xml</strong> files as per the link mentioned in point 2 to reflect your project's and/or your company 's name (remember that the "<em>class=</em>" qualifier in the app-context file takes the inverse .com name of your factorie's class as an argument). It is particularly important to rename the <em>Plugin-SymbolicName</em> value in the <em>MANIFEST.MF</em> file, as this is the value that the container will test against to see if the App is already installed in your tradable platform.</li>
 <li>
 <strong>But most importantly, you will have to edit the <em>pom.xml</em> file (preferably using the xml view of Eclipse) and change the GroupId and ArtifactId values.</strong> Remember that the GroupId value should be in inverse .com notation and should reflect the name of the entity you are doing the project for and ArtifactId is quite simply the name of your project.<br>
 </li>
