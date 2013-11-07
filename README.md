@@ -43,6 +43,8 @@ You will find here a list of repositories containing educational/starting points
   * [Order Entry pop-up Widget](https://github.com/tradable/tradable-start-OrderEntryWidget)  
   This app quite simply pops up an order entry widget identical in look and behavior to the
   one in standard Order Entry app available by default in tradable
+  * [Settings Dialog](https://github.com/john-dwuarin/tradable-start-SettingsDialog)  
+  This is an example of how to implement the settings dialog in tradable
 
 ###Algo Apps:
   
