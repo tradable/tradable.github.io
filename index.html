@@ -4,11 +4,165 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="tradable : " />
+    <meta name="description" content="tradable" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>tradable</title>
+    
+    <!-- Style overrides -->
+    <style>
+    	
+    	body {
+	    	background-color: #131E2C;
+	    	
+    	}
+    	
+    	
+    	h1 {
+	    	font-size: 1.8em;
+	    	font-weight: 100;
+    	}
+    	
+    	h2 {
+	    	font-size: 1.2em;
+	    	font-weight: 700;
+    	}
+    	
+    	h3 {
+	    	font-size: 1em;
+    	}
+    	
+    	#header_wrap, #footer_wrap {
+	    	background-color: #2B3641;
+	    	background-image: none;
+	    	border: 0;
+    	}
+    	
+    	#main_content_wrap {
+	    	border: 0;
+    	}
+    	
+    	.logo {
+	    	height: 2.5em;
+	    	border: 0;
+	    	box-shadow: none;
+    	}
+    	
+    	.box {
+	    	box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+	    	width: 50%;
+	    	text-align: center;
+	    	padding-top: 1em;
+	    	padding-bottom: 0.5em;
+	    	margin-top: 1em;
+	    	border-radius: 2;
+	    	cursor: pointer;
+	    	margin-top: 0;
+    	}
+    	
+    	
+    	.box.sub {
+	    	text-align: center;
+	    	padding: 1em;
+	    	border-radius: 2;
+	    	cursor: pointer;
+    	}
+    	
+    	.left {
+	    	float: left;
+    	}
+    	
+    	
+    	.right {
+	    	float: left;
+    	}
+    	
+    	.box .illustration {
+	    	margin: 0;
+	    	border: 0;
+	    	box-shadow: none;
+	    	transition: all 0.3s;
+			transition-timing: ease-in-out;
+    	}
+    	
+    	.box:hover, .platform-toggle:hover {
+	    	background-color: rgba(255,255,255,.8);
+    	}
+    	
+    	.box:hover .illustration {
+			-ms-transform: rotate(7deg); /* IE 9 */
+			-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+			transform: rotate(7deg);
+    	}
+    	
+    	.box:hover h1 {
+	    	color:#108993;
+    	}
+    	
+    	.box:active, .platform-toggle:active {
+	    	background-color: rgba(196,205,207,.3);
+    	}
+    	
+    	.hr {
+	    	width: 100%;
+	    	border-bottom: 1px solid #CCC;
+	    	clear: both;
+	    	padding-top: 1.5em;
+	    	margin-bottom: 1.5em;
+    	}
+    	
+		a, a:visited {
+		  color: #108993;
+		}
+		
+		.platform {
+			display: none;
+		}
+		
+		.platform-toggle {
+			text-align: center;
+			padding: 20px;
+			margin: 0;
+			border-radius: 2px;
+			text-decoration: none;
+		}
+		
+		a.toggle {
+			text-decoration: none;
+		}
+		
+		.spacer {
+			width: 50%;
+			position: relative;
+			padding:.5em 0;
+		}
+		
+		.spacer .line {
+			width: 50%;
+			border-top:1px dotted #CCC;
+			position: absolute;
+			left: 25%;
+		}
+		
+    
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+	    
+	    $( document ).ready(function() {
+ 			$('.platform-toggle').click(function(){
+	 			$('.platform').toggle();
+	 			$('html, body').animate({
+			        scrollTop: $(".platform").offset().top-100
+			    }, 300);
+ 			});
+		});
+	    
+    </script>
+    
   </head>
 
   <body>
@@ -17,9 +171,7 @@
     <div id="header_wrap" class="outer">
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/tradable">View on GitHub</a>
-
-          <h1 id="project_title">tradable</h1>
-          <h2 id="project_tagline"></h2>
+		  <img class="logo" src="tradable_logo_onDark_color.svg">
 
         </header>
     </div>
@@ -27,8 +179,56 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+	      
+	  	<a href="https://github.com/tradable/tradable-ios-sdk"> 
+	    <div class="left box">
+		    <img class="illustration" src="ios_sdk.svg">
+	        <h1>Tradable iOS</h1>
+	        Tradable iOS SDK
+	    </div>
+		</a>
+	    <a href="#">
+	    <div class="right box">
+		    <img class="illustration" src="js_sdk.svg">
+    	    <h1>Tradable JavaScript</h1>
+	        Tradable JavaScript SDK
+	    </div>
+	    </a>
+	    
+	    
+	    <div class="left spacer">
+		    <div class="line"></div>
+	    </div>
+	    
+	    <div class="right spacer">
+		    <div class="line"></div>
+	    </div>
+	    
+	    
+	  	<a href="ios/docs/index.html"> 
+	    <div class="left box sub">
+	        iOS SDK Docs
+	    </div>
+	  	</a>
+	    
+	    
+	  	<a href="#docs"> 
+	    <div class="right box sub">
+	        Javascript SDK Docs
+	    </div>
+	  	</a>
+	    
+		<div class="hr"></div>
+		<a class="toggle" href="#">
+		<div class="platform-toggle" onclick="showPlatform()">
+				Tradable Java Platform API
+		</div>
+		</a>
+
+<div class="platform">
+
         <h1>
-<a name="tradable-example-apps" class="anchor" href="#tradable-example-apps"><span class="octicon octicon-link"></span></a>tradable example Apps</h1>
+<a name="tradable-example-apps" class="anchor" href="#tradable-example-apps"><span class="octicon octicon-link"></span></a>Tradable example Apps</h1>
 
 <p>Each project listed on this page includes code that performs some task, ranging from 
 trivial, like printing the user's account Id in an App to more involved like dealing with orders
@@ -174,6 +374,9 @@ bot that uses a MACD trading strategy.</li>
 
 <p>If you want to have an overall view of all our APIs, go <a href="https://developer.tradable.com/dms/dev/apidocs/latest/reference/packages.html">here</a>.</p>
       </section>
+</div>
+      
+ 
     </div>
 
     <!-- FOOTER  -->
@@ -183,7 +386,8 @@ bot that uses a MACD trading strategy.</li>
       </footer>
     </div>
 
-    
+
+
 
   </body>
 </html>

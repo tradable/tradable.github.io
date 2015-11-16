@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TradableAPIDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/TradableAPIDelegate" class="dashAnchor"></a>
+    <a title="TradableAPIDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/tradable/Tradable-iOS-SDK"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        TradableAPIDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Tradable.html">Tradable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccessToken.html">TradableAccessToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccount.html">TradableAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccountList.html">TradableAccountList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccountMetrics.html">TradableAccountMetrics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccountSnapshot.html">TradableAccountSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAmount.html">TradableAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableBrokerLogos.html">TradableBrokerLogos</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableCandle.html">TradableCandle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableCandleRequest.html">TradableCandleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableCandles.html">TradableCandles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableError.html">TradableError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableInstrument.html">TradableInstrument</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOSUser.html">TradableOSUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrder.html">TradableOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrderCommand.html">TradableOrderCommand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrderModification.html">TradableOrderModification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrders.html">TradableOrders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradablePosition.html">TradablePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradablePositions.html">TradablePositions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradablePrice.html">TradablePrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableProtection.html">TradableProtection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableSymbols.html">TradableSymbols</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/TradableAggregation.html">TradableAggregation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableErrorType.html">TradableErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableInstrumentType.html">TradableInstrumentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableOrderSide.html">TradableOrderSide</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableOrderStatus.html">TradableOrderStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableOrderType.html">TradableOrderType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableSingleProtection.html">TradableSingleProtection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableUpdateFrequency.html">TradableUpdateFrequency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableUpdateType.html">TradableUpdateType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/TradableAPIDelegate.html">TradableAPIDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TradableAPIDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TradableAPIDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>The delegate protocol for the API. Provides a variety of hooks.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate13tradableReadyuRq_S0__Fq_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/tradableReady()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate13tradableReadyuRq_S0__Fq_FT_T_">tradableReady()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for knowing when the API methods are ready to be used. Called when the access token has been updated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableReady</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate26tradableAccountListUpdateduRq_S0__Fq_FCS_19TradableAccountListT_"></a>
+                    <a name="//apple_ref/swift/Method/tradableAccountListUpdated(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate26tradableAccountListUpdateduRq_S0__Fq_FCS_19TradableAccountListT_">tradableAccountListUpdated(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for knowing when the account list has been updated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableAccountListUpdated</span><span class="p">(</span><span class="nv">accounts</span><span class="p">:</span><span class="kt">TradableAccountList</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accounts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A TradableAccountList object that contains a list of available accounts.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate22tradableMetricsUpdateduRq_S0__Fq_FCS_22TradableAccountMetricsT_"></a>
+                    <a name="//apple_ref/swift/Method/tradableMetricsUpdated(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate22tradableMetricsUpdateduRq_S0__Fq_FCS_22TradableAccountMetricsT_">tradableMetricsUpdated(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for metrics updates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableMetricsUpdated</span><span class="p">(</span><span class="nv">metrics</span><span class="p">:</span><span class="kt">TradableAccountMetrics</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>metrics</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A TradableAccountMetrics object that contains information about current account metrics.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate21tradableOrdersUpdateduRq_S0__Fq_FCS_14TradableOrdersT_"></a>
+                    <a name="//apple_ref/swift/Method/tradableOrdersUpdated(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate21tradableOrdersUpdateduRq_S0__Fq_FCS_14TradableOrdersT_">tradableOrdersUpdated(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for orders updates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableOrdersUpdated</span><span class="p">(</span><span class="nv">orders</span><span class="p">:</span><span class="kt">TradableOrders</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orders</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A TradableOrders object that contains a list of orders.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate24tradablePositionsUpdateduRq_S0__Fq_FCS_17TradablePositionsT_"></a>
+                    <a name="//apple_ref/swift/Method/tradablePositionsUpdated(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate24tradablePositionsUpdateduRq_S0__Fq_FCS_17TradablePositionsT_">tradablePositionsUpdated(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for positions updates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradablePositionsUpdated</span><span class="p">(</span><span class="nv">positions</span><span class="p">:</span><span class="kt">TradablePositions</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>positions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A TradablePositions object that contains a list of positions.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate21tradablePricesUpdateduRq_S0__Fq_FGSaCS_13TradablePrice_T_"></a>
+                    <a name="//apple_ref/swift/Method/tradablePricesUpdated(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate21tradablePricesUpdateduRq_S0__Fq_FGSaCS_13TradablePrice_T_">tradablePricesUpdated(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for prices updates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradablePricesUpdated</span><span class="p">(</span><span class="nv">prices</span><span class="p">:[</span><span class="kt">TradablePrice</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>prices</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of TradablePrice objects.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate22tradableCandlesUpdateduRq_S0__Fq_FCS_15TradableCandlesT_"></a>
+                    <a name="//apple_ref/swift/Method/tradableCandlesUpdated(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate22tradableCandlesUpdateduRq_S0__Fq_FCS_15TradableCandlesT_">tradableCandlesUpdated(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for candles updates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableCandlesUpdated</span><span class="p">(</span><span class="nv">candles</span><span class="p">:</span><span class="kt">TradableCandles</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>candles</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A TradableCandles object that contains a list of candles.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11TradableAPI19TradableAPIDelegate19tradableUpdateErroruRq_S0__Fq_FCS_13TradableErrorT_"></a>
+                    <a name="//apple_ref/swift/Method/tradableUpdateError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI19TradableAPIDelegate19tradableUpdateErroruRq_S0__Fq_FCS_13TradableErrorT_">tradableUpdateError(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A delegate hook for updates error handling.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableUpdateError</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A TradableError object that contains detailed information about the error.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="https://embed.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2015-11-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

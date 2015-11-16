@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TradableAccount Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/TradableAccount" class="dashAnchor"></a>
+    <a title="TradableAccount Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/tradable/Tradable-iOS-SDK"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        TradableAccount Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Tradable.html">Tradable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccessToken.html">TradableAccessToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccount.html">TradableAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccountList.html">TradableAccountList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccountMetrics.html">TradableAccountMetrics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAccountSnapshot.html">TradableAccountSnapshot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAmount.html">TradableAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableBrokerLogos.html">TradableBrokerLogos</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableCandle.html">TradableCandle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableCandleRequest.html">TradableCandleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableCandles.html">TradableCandles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableError.html">TradableError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableInstrument.html">TradableInstrument</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOSUser.html">TradableOSUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrder.html">TradableOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrderCommand.html">TradableOrderCommand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrderModification.html">TradableOrderModification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableOrders.html">TradableOrders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradablePosition.html">TradablePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradablePositions.html">TradablePositions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradablePrice.html">TradablePrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableProtection.html">TradableProtection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableSymbols.html">TradableSymbols</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/TradableAggregation.html">TradableAggregation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableErrorType.html">TradableErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableInstrumentType.html">TradableInstrumentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableOrderSide.html">TradableOrderSide</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableOrderStatus.html">TradableOrderStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableOrderType.html">TradableOrderType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableSingleProtection.html">TradableSingleProtection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableUpdateFrequency.html">TradableUpdateFrequency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableUpdateType.html">TradableUpdateType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/TradableAPIDelegate.html">TradableAPIDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TradableAccount</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradableAccount</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>An account used for trading.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount8uniqueIdSS"></a>
+                    <a name="//apple_ref/swift/Property/uniqueId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount8uniqueIdSS">uniqueId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A unique identifier for the account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">uniqueId</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount11displayNameSS"></a>
+                    <a name="//apple_ref/swift/Property/displayName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount11displayNameSS">displayName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Display name for the account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">displayName</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount10brokerNameSS"></a>
+                    <a name="//apple_ref/swift/Property/brokerName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount10brokerNameSS">brokerName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the broker that the account belongs to.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">brokerName</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount18brokerageAccountIdSS"></a>
+                    <a name="//apple_ref/swift/Property/brokerageAccountId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount18brokerageAccountIdSS">brokerageAccountId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The id of the broker account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">brokerageAccountId</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount11endpointUrlSS"></a>
+                    <a name="//apple_ref/swift/Property/endpointUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount11endpointUrlSS">endpointUrl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The router endpoint URL for this account. <a href="../Classes/Tradable.html">Tradable</a> integrates with brokers in different regions of the world, to minimize the latency you must connect to a <a href="../Classes/Tradable.html">Tradable</a> endpoint in the same region as the broker&rsquo;s trading backend is located.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">endpointUrl</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount15currencyIsoCodeSS"></a>
+                    <a name="//apple_ref/swift/Property/currencyIsoCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount15currencyIsoCodeSS">currencyIsoCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ISO code for the currency.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">currencyIsoCode</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount12currencySignSS"></a>
+                    <a name="//apple_ref/swift/Property/currencySign" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount12currencySignSS">currencySign</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The symbolic sign for the currency.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">currencySign</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount24externalBackofficeReportSS"></a>
+                    <a name="//apple_ref/swift/Property/externalBackofficeReport" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount24externalBackofficeReportSS">externalBackofficeReport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>URL to the broker&rsquo;s backend reporting system.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">externalBackofficeReport</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount13isLiveAccountSb"></a>
+                    <a name="//apple_ref/swift/Property/isLiveAccount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount13isLiveAccountSb">isLiveAccount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates whether it is live account or not.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isLiveAccount</span><span class="p">:</span><span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount15smallBrokerLogoGSqCSo7UIImage_"></a>
+                    <a name="//apple_ref/swift/Property/smallBrokerLogo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount15smallBrokerLogoGSqCSo7UIImage_">smallBrokerLogo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A small broker logo for the account. Might not be available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">smallBrokerLogo</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount15lightBrokerLogoGSqCSo7UIImage_"></a>
+                    <a name="//apple_ref/swift/Property/lightBrokerLogo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount15lightBrokerLogoGSqCSo7UIImage_">lightBrokerLogo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A broker logo on a light background for the account. Might not be available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lightBrokerLogo</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount14darkBrokerLogoGSqCSo7UIImage_"></a>
+                    <a name="//apple_ref/swift/Property/darkBrokerLogo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount14darkBrokerLogoGSqCSo7UIImage_">darkBrokerLogo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A broker logo on a dark background for the account. Might not be available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">darkBrokerLogo</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount13svgBrokerLogoGSqCSo7UIImage_"></a>
+                    <a name="//apple_ref/swift/Property/svgBrokerLogo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount13svgBrokerLogoGSqCSo7UIImage_">svgBrokerLogo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A broker logo in SVG format for the account. Might not be available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">svgBrokerLogo</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI15TradableAccount11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI15TradableAccount11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simple description of this object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccountcFMS0_FT2idSS11displayNameSS10brokerNameSS18brokerageAccountIdSS11endpointUrlSS15currencyIsoCodeSS12currencySignSS24externalBackofficeReportSS11brokerLogosCS_19TradableBrokerLogos13isLiveAccountSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(id:displayName:brokerName:brokerageAccountId:endpointUrl:currencyIsoCode:currencySign:externalBackofficeReport:brokerLogos:isLiveAccount:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccountcFMS0_FT2idSS11displayNameSS10brokerNameSS18brokerageAccountIdSS11endpointUrlSS15currencyIsoCodeSS12currencySignSS24externalBackofficeReportSS11brokerLogosCS_19TradableBrokerLogos13isLiveAccountSb_S0_">init(id:displayName:brokerName:brokerageAccountId:endpointUrl:currencyIsoCode:currencySign:externalBackofficeReport:brokerLogos:isLiveAccount:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">displayName</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">brokerName</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">brokerageAccountId</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">endpointUrl</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">currencyIsoCode</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">currencySign</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">externalBackofficeReport</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">brokerLogos</span><span class="p">:</span><span class="kt">TradableBrokerLogos</span><span class="p">,</span> <span class="nv">isLiveAccount</span><span class="p">:</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccount18getSmallBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getSmallBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccount18getSmallBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_">getSmallBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches small broker logo and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSmallBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing the small broker logo for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccount18getLightBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getLightBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccount18getLightBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_">getLightBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a broker logo on light background and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLightBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing the broker logo on light background for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccount17getDarkBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getDarkBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccount17getDarkBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_">getDarkBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a broker logo on dark background and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDarkBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing the broker logo on dark background for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccount16getSvgBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getSvgBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccount16getSvgBrokerLogoFS0_FGSQFT7logoImgCSo7UIImage_T__T_">getSvgBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches broker logo in SVG format and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSvgBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing the broker logo in SVG format for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="https://embed.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2015-11-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

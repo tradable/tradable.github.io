@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="185px" height="185px" viewBox="0 0 185 185" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>js_sdk</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="185" height="185" rx="6"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-456.000000, -86.000000)">
+            <g id="js_sdk" sketch:type="MSLayerGroup" transform="translate(456.000000, 86.000000)">
+                <mask id="mask-2" sketch:name="Mask" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#2B3641" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <g id="js-logo-badge" mask="url(#mask-2)">
+                    <g transform="translate(91.887351, 92.579003) rotate(-345.000000) translate(-91.887351, -92.579003) translate(11.387351, 6.079003)" id="Group">
+                        <g transform="translate(80.500000, 86.500000) rotate(-15.000000) translate(-80.500000, -86.500000) translate(17.000000, 14.000000)">
+                            <path d="M11.6210826,130.056425 L0.0970948012,0.294677419 L126.860572,0.294677419 L115.336584,130.056425 L63.3384343,144.725202" id="Shape" fill="#D6BA32" sketch:type="MSShapeGroup"></path>
+                            <path d="M63.6192324,134.410323 L105.498939,122.844234 L115.336584,11.7005645 L63.6192324,11.7005645 L63.6192324,134.410323 L63.6192324,134.410323 Z" id="Shape" fill="#FFDA3E" sketch:type="MSShapeGroup"></path>
+                            <path d="M46.0870183,28.2890323 L46.0870183,92.9043538 C46.0870183,94.0053162 45.2282696,94.657741 44.1619747,94.3596354 L21.5542691,88.0391667 L21.5542691,102.892312 L50.6386303,111.022365 C54.8990543,112.213296 58.3528104,109.598851 58.3528104,105.173415 L58.3528104,28.2890323 L46.0870183,28.2890323 Z" id="Shape" fill="#EBEBEB" sketch:type="MSShapeGroup"></path>
+                            <path d="M107.653278,43.1421774 L108.940367,28.2890323 L68.6029144,28.2890323 L68.6029144,83.4389247 L93.7784312,78.9181989 L93.1352752,91.7565457 L68.6029144,98.2916801 L68.6029144,113.144046 L102.828055,104.148589 L106.045,62.8216398 L80.8687064,65.9360215 L80.8687064,43.1421774 L107.653278,43.1421774 Z" id="Shape" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
