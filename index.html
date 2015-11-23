@@ -72,7 +72,7 @@
     	}
     	
     	.left {
-	    	//float: left;
+	    	float: left;
     	}
     	
     	
@@ -146,10 +146,14 @@
 			position: absolute;
 			left: 25%;
 		}
+    
+        #main_content a.hover {
+            text-decoration: none;
+        }
 		
     
     </style>
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script>
 	    
 	    $( document ).ready(function() {
@@ -187,26 +191,22 @@
 	        Tradable iOS SDK
 	    </div>
 		</a>
-		<!-- JS
-	    <a href="#">
+
+	    <a href="js/docs/tradable-embed.js.html">
 	    <div class="right box">
 		    <img class="illustration" src="js_sdk.svg">
     	    <h1>Tradable JavaScript</h1>
 	        Tradable JavaScript SDK
 	    </div>
 	    </a>
-	    -->
-	    
-	    <!-- class="left spacer" -->
+
 	    <div class="left spacer">
 		    <div class="line"></div>
 	    </div>
 	    
-	    <!-- JS
 	    <div class="right spacer">
 		    <div class="line"></div>
 	    </div>
-	    -->
 	    
 	  	<a href="ios/docs/index.html"> 
 	    <div class="left box sub">
@@ -214,14 +214,12 @@
 	    </div>
 	  	</a>
 	    
-	    <!-- JS
-	  	<a href="#docs"> 
+	  	<a href="js/docs/tradable-embed.js.html">
 	    <div class="right box sub">
 	        Javascript SDK Docs
 	    </div>
 	  	</a>
-	  	-->
-	    
+        
 		<div class="hr"></div>
 		<a class="toggle" href="#">
 		<div class="platform-toggle" onclick="showPlatform()">

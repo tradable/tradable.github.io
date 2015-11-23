@@ -49,7 +49,7 @@
       
       footer iframe{vertical-align:middle;}
       
-    .language-javascript {display: none;} .bs-docs-sidenav > li > a {font-size: 12px;}.bs-docs-sidenav > li > a > span {width: 226px;display: inline-block;text-overflow: ellipsis;overflow: hidden;vertical-align: middle;}.alert-success {vertical-align: middle;} .smthingForAccount {display: none !important;} .bs-docs-sidenav > li > a {padding: 0px 15px !important;} .bs-docs-sidenav {margin: 15px 0 0 !important;}</style>
+    .language-javascript {display: none;} .bs-docs-sidenav > li > a {font-size: 12px;}.bs-docs-sidenav > li > a > span {width: 100%;display: inline-block;text-overflow: ellipsis;overflow: hidden;vertical-align: middle;}.alert-success {vertical-align: middle;} .smthingForAccount {display: none !important;} .bs-docs-sidenav > li > a {padding: 0px 15px !important;} .bs-docs-sidenav {margin: 15px 0 0 !important;}#overview {background: #2B3641; }.bs-docs-sidenav > li > a{border: 0; border-bottom: 1px solid #e5e5e5} li {line-height: 17px;}.bs-docs-sidenav i {width: 3px; height:3px}</style>
   </head>
   <body data-spy="scroll" data-target=".scrollspy">
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -212,7 +212,9 @@
           </div>
         </div>
         <div class="span9">
-          <div class="description"><p>Welcome to the tradable-embed documentation</p> </div>
+          <div class="description"><p>Welcome to the tradable-embed documentation. Tradable Embed is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the tradable-embed javascript SDK, which is split into 2 components:</p><ul><li><b>tradable-embed</b>: Lightweight wrapper of the Tradable Embed API that will make the integration with Tradable Embed API really easy.</li><li><b>tradable-embed-ui</b>: See <a href='tradable-embed-ui.js.html'>here</a> (optional)</li></ul>
+
+<p>In order to use tradable-embed include the following scripts in your site (we use jQuery in no coflict mode and we assign it to the variable &#39;trEmbJQ&#39;):</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;//js-api.tradable.com/1.2/tradable-embed.js&quot; id=&quot;tradable-api&quot; data-app-id=&quot;{your_app_id}&quot;&gt;&lt;/script&gt;</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
           <pre><code class="language-javascript">**/
 
     // Constructor
@@ -224,6 +226,9 @@
     var customOAuthUrl = $('#tradable-api').attr(&quot;data-custom-oauth-url&quot;);
 
     var redirectUrl = location.href;
+    if(!!$('#tradable-api').attr(&quot;data-redirect-uri&quot;)) {
+        redirectUrl = $('#tradable-api').attr(&quot;data-redirect-uri&quot;);
+    }
     var oauthHost = &quot;api.tradable.com&quot;;
     if(appId &gt; 200000) { // Staging app-id
         oauthHost = &quot;api-staging.tradable.com&quot;;
@@ -361,7 +366,7 @@ availableSymbols : [],
 },</code></pre>
           <h5>Example</h5>
           <p>
-            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/avPzgP/?height=268&amp;theme-id=0&amp;default-tab=js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/avPzgP/?height=268&amp;theme-id=21042&amp;default-tab=js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <section id="onAccountUpdated">
             <h1>onAccountUpdated</h1>
@@ -401,7 +406,7 @@ availableSymbols : [],
 },</code></pre>
           <h5>Example</h5>
           <p>
-            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/rObOqE/?height=268&amp;theme-id=0&amp;default-tab=js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/rObOqE/?height=268&amp;theme-id=21042&amp;default-tab=js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <section id="setAccountUpdateFrequencyMillis">
             <h1>setAccountUpdateFrequencyMillis</h1>
@@ -875,7 +880,7 @@ getInstrumentFromSymbol : function(symbol) {
 //v1/accounts/{accountId}/candles</code></pre>
           <h5>Example</h5>
           <p>
-            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/ZbZWbe/?height=268&amp;theme-id=0&amp;default-tab=js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/ZbZWbe/?height=268&amp;theme-id=21042&amp;default-tab=js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <section id="getCandles">
             <h1>getCandles</h1>

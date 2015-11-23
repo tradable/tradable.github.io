@@ -49,7 +49,7 @@
       
       footer iframe{vertical-align:middle;}
       
-    .language-javascript {display: none;} .bs-docs-sidenav > li > a {font-size: 12px;}.bs-docs-sidenav > li > a > span {width: 226px;display: inline-block;text-overflow: ellipsis;overflow: hidden;vertical-align: middle;}.alert-success {vertical-align: middle;} .smthingForAccount {display: none !important;} .bs-docs-sidenav > li > a {padding: 0px 15px !important;} .bs-docs-sidenav {margin: 15px 0 0 !important;}</style>
+    .language-javascript {display: none;} .bs-docs-sidenav > li > a {font-size: 12px;}.bs-docs-sidenav > li > a > span {width: 100%;display: inline-block;text-overflow: ellipsis;overflow: hidden;vertical-align: middle;}.alert-success {vertical-align: middle;} .smthingForAccount {display: none !important;} .bs-docs-sidenav > li > a {padding: 0px 15px !important;} .bs-docs-sidenav {margin: 15px 0 0 !important;}#overview {background: #2B3641; }.bs-docs-sidenav > li > a{border: 0; border-bottom: 1px solid #e5e5e5} li {line-height: 17px;}.bs-docs-sidenav i {width: 3px; height:3px}</style>
   </head>
   <body data-spy="scroll" data-target=".scrollspy">
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -84,21 +84,23 @@
           </div>
         </div>
         <div class="span9">
-          <div class="description"><p>Welcome to the tradable-embed-ui documentation</p> </div>
+          <div class="description"><p>Welcome to the tradable-embed documentation. Tradable Embed is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the tradable-embed javascript SDK, which is split into 2 components:</p><ul><li><b>tradable-embed</b>: See <a href='tradable-embed.js.html'>here</a></li><li><b>tradable-embed-ui</b>: Provides Widgets and the website scraper - plug and play! (requires &#39;tradable-embed&#39;)</li></ul>
+
+<p>In order to use tradable-embed-ui include the following scripts in your site (we use jQuery in no coflict mode and we assign it to the variable &#39;trEmbJQ&#39;):</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;//js-api.tradable.com/1.2/tradable-embed.js&quot; id=&quot;tradable-api&quot; data-app-id=&quot;{your_app_id}&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;//js-api.tradable.com/1.2/tradable-embed-ui.js&quot;&gt;&lt;/script&gt;</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
           <div class="description"><h1>Watch List</h1> </div>
           <h5>Example</h5>
           <p>
-            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/PPgzpp/?height=300&amp;theme-id=0&amp;default-tab=result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/PPgzpp/?height=200&amp;theme-id=21042&amp;default-tab=html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <div class="description"><h1>Portfolio</h1> </div>
           <h5>Example</h5>
           <p>
-            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/QjPEBB/?height=268&amp;theme-id=0&amp;default-tab=result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/QjPEBB/?height=200&amp;theme-id=21042&amp;default-tab=html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <div class="description"><h1>Dashboard</h1> </div>
           <h5>Example</h5>
           <p>
-            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/epozyx/?height=168&amp;theme-id=0&amp;default-tab=result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/epozyx/?height=200&amp;theme-id=21042&amp;default-tab=html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <div class="description"><h1>Buttons</h1> </div>
           <pre><code class="language-javascript">**/
@@ -141,7 +143,7 @@
 	///  Extensions to tradableEmbed  ///</code></pre>
           <h5>Example</h5>
           <p>
-            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/WQWxvE/?height=300&amp;theme-id=0&amp;default-tab=result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            <iframe width="100%" height="300" src="http://codepen.io/tradableEmbed/embed/WQWxvE/?height=250&amp;theme-id=21042&amp;default-tab=html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <section id="promptOrderEntry">
             <h1>promptOrderEntry</h1>
@@ -196,7 +198,7 @@
 	}
 	};
 
-	tradableEmbed.executePageScraper = function() {
+	function executePageScraper() {
 		// Clear links
 		$('.tr-embed-link-noauth').unbind();
 		$('.tr-embed-link-noauth').replaceWith(function() { return this.innerHTML; });
@@ -436,7 +438,7 @@ function initializeUI() {
 		buildPortfolioWidget();
 		buildWatchList();
 
-		tradableEmbed.executePageScraper();
+		executePageScraper();
 	});
 }
 
