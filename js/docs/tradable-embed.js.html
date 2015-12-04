@@ -214,20 +214,25 @@
         <div class="span9">
           <div class="description"><p>Welcome to the tradable-embed documentation. Tradable Embed is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the tradable-embed javascript SDK, which is split into 2 components:</p><ul><li><b>tradable-embed</b>: Lightweight wrapper of the Tradable Embed API that will make the integration with Tradable Embed API really easy.</li><li><b>tradable-embed-ui</b>: See <a href='tradable-embed-ui.js.html'>here</a> (optional)</li></ul>
 
-<p>In order to use tradable-embed include the following scripts in your site (we use jQuery in no coflict mode and we assign it to the variable &#39;trEmbJQ&#39;):</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;//js-api.tradable.com/1.2/tradable-embed.min.js&quot; id=&quot;tradable-api&quot; data-app-id=&quot;{your_app_id}&quot;&gt;&lt;/script&gt;</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
+<p>In order to use tradable-embed include the following scripts in your site (we use jQuery in no coflict mode and we assign it to the variable &#39;trEmbJQ&#39;):</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; id=&quot;tradable-embed&quot; src=&quot;//js-api.tradable.com/1.2/tradable-embed.min.js&quot; data-app-id=&quot;{your_app_id}&quot;&gt;&lt;/script&gt;</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
           <pre><code class="language-javascript">**/
 
     // Constructor
     function TradableEmbed () {}
+
+    var scriptId = &quot;tradable-embed&quot;;
+    if($('#' + scriptId).length == 0) { // Backwards compatibility
+        scriptId = &quot;tradable-api&quot;;
+    }
     
     var jsVersion = &quot;js-trEmbDevVersionX&quot;;
-    var appId = $('#tradable-api').attr(&quot;data-app-id&quot;);
+    var appId = $('#'+scriptId).attr(&quot;data-app-id&quot;);
     // Just for testing purposes
-    var customOAuthUrl = $('#tradable-api').attr(&quot;data-custom-oauth-url&quot;);
+    var customOAuthUrl = $('#'+scriptId).attr(&quot;data-custom-oauth-url&quot;);
 
     var redirectUrl = location.href;
-    if(!!$('#tradable-api').attr(&quot;data-redirect-uri&quot;)) {
-        redirectUrl = $('#tradable-api').attr(&quot;data-redirect-uri&quot;);
+    if(!!$('#'+scriptId).attr(&quot;data-redirect-uri&quot;)) {
+        redirectUrl = $('#'+scriptId).attr(&quot;data-redirect-uri&quot;);
     }
     var oauthHost = &quot;api.tradable.com&quot;;
     if(appId &gt; 200000) { // Staging app-id
@@ -3403,7 +3408,8 @@ tradableEmbed.getAccounts().then(
         tradableEmbed.tradingEnabled = false;
         localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
         notifyReadyCallbacks();
-    });
+    }
+);
     }
 
     function processAccountUpdate() {
