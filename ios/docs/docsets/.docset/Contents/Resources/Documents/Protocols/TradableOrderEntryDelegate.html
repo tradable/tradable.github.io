@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TradableInstrumentType Enum Reference</title>
+    <title>TradableOrderEntryDelegate Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TradableInstrumentType" class="dashAnchor"></a>
-    <a title="TradableInstrumentType Enum Reference"></a>
+    <a name="//apple_ref/swift/Protocol/TradableOrderEntryDelegate" class="dashAnchor"></a>
+    <a title="TradableOrderEntryDelegate Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TradableInstrumentType Enum Reference
+        TradableOrderEntryDelegate Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -158,14 +158,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TradableInstrumentType</h1>
+            <h1>TradableOrderEntryDelegate</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TradableInstrumentType</span><span class="p">:</span><span class="kt">Int</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TradableOrderEntryDelegate</span><span class="p">:</span> <span class="kd">class</span></code></pre>
 
                 </div>
               </div>
-            <p>Available instrument types.</p>
+            <p>The delegate protocol for the Order Entry widget.</p>
 
           </section>
           <section class="section task-group-section">
@@ -174,9 +174,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI22TradableInstrumentType5FOREXFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/FOREX" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI22TradableInstrumentType5FOREXFMS0_S0_">FOREX</a>
+                    <a name="/s:FP11TradableAPI26TradableOrderEntryDelegate27tradableOrderEntryDismisseduRq_S0__Fq_FGSqCS_13TradableOrder_T_"></a>
+                    <a name="//apple_ref/swift/Method/tradableOrderEntryDismissed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11TradableAPI26TradableOrderEntryDelegate27tradableOrderEntryDismisseduRq_S0__Fq_FGSqCS_13TradableOrder_T_">tradableOrderEntryDismissed(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -184,45 +184,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Foreign exchange instrument type.</p>
+                        <p>Order Entry delegate hook for knowing if an order was successfully placed. Called when the widget has been dismissed.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">FOREX</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO11TradableAPI22TradableInstrumentType3CFDFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/CFD" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI22TradableInstrumentType3CFDFMS0_S0_">CFD</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Contract for difference instrument type.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">CFD</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tradableOrderEntryDismissed</span><span class="p">(</span><span class="nv">order</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
