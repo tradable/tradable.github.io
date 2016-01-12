@@ -82,6 +82,10 @@
               </li>
               <li><a href="#authenticateWithWindow"><i class="alert alert-info"></i><span>authenticateWithWindow</span></a>
               </li>
+              <li><a href="#openAddBrokerWindow"><i class="alert alert-info"></i><span>openAddBrokerWindow</span></a>
+              </li>
+              <li><a href="#enableWithAccessToken"><i class="alert alert-info"></i><span>enableWithAccessToken</span></a>
+              </li>
               <li><a href="#signOut"><i class="alert alert-info"></i><span>signOut</span></a>
               </li>
               <li><a href="#onEmbedReady"><i class="alert alert-info"></i><span>onEmbedReady</span></a>
@@ -96,6 +100,8 @@
               </li>
               <li><a href="#onTokenExpired"><i class="alert alert-info"></i><span>onTokenExpired</span></a>
               </li>
+              <li><a href="#onError"><i class="alert alert-info"></i><span>onError</span></a>
+              </li>
               <li><a href="#onTokenWillExpire"><i class="alert alert-info"></i><span>onTokenWillExpire</span></a>
               </li>
               <li><a href="#getRemainingTokenMillis"><i class="alert alert-info"></i><span>getRemainingTokenMillis</span></a>
@@ -107,6 +113,8 @@
               <li><a href="#getAccountById"><i class="alert alert-info"></i><span>getAccountById</span></a>
               </li>
               <li><a href="#getUser"><i class="alert alert-info"></i><span>getUser</span></a>
+              </li>
+              <li><a href="#getAppInfo"><i class="alert alert-info"></i><span>getAppInfo</span></a>
               </li>
               <li><a href="#getAccounts"><i class="alert alert-info"></i><span>getAccounts</span></a>
               </li>
@@ -206,7 +214,7 @@
               </li>
               <li><a href="#smthingForAccount" class="smthingForAccount"><i class="alert alert-info"></i><span>getPricesForAccount</span></a>
               </li>
-              <li><a href="#getDailyClose"><i class="alert alert-info"></i><span>getDailyClose</span></a>
+              <li><a href="#getLastDailyClose"><i class="alert alert-info"></i><span>getLastDailyClose</span></a>
               </li>
             </ul>
           </div>
@@ -253,13 +261,17 @@
     var accountUpdatedCallbackHashes = [];
     var tokenExpirationCallbacks = [];
     var tokenWillExpireCallbacks = [];
+    var errorCallbacks = [];
     var processingUpdate = false;
 
     //Actual library obj
     var tradableEmbed = {
         app_id: appId,
+        oauth_host: oauthHost,
         auth_loc: (!customOAuthUrl) ? 'https://'+oauthHost+'/oauth/authorize?client_id='+appId+'&amp;scope=trade&amp;response_type=token&amp;redirect_uri='+redirectUrl
                                     : customOAuthUrl,
+        // https://api.tradable.com/addBroker?clientId=100005&amp;redirectURI=https://web.tradable.com
+        add_broker_loc: 'https://'+oauthHost+'/addBroker?clientId='+appId+'&amp;redirectURI='+redirectUrl,
         auth_window: null,
         authEndpoint : authEndpoint,
         accessToken : token,
@@ -276,6 +288,7 @@
 expirationTimeUTC : expirationTimeUTC, 
 readyCallbacks : [],
 accounts : [],
+accountIdsToExclude : [],
 accountMap: {},
 selectedAccount : null,
 selectedAccountId : null,
@@ -317,11 +330,58 @@ availableSymbols : [],
         return tradableEmbed.authenticate();
     }
     console.log(&quot;Opening oauth window...&quot;);
-    if (!tradableEmbed.tradingEnabled){
-        tradableEmbed.auth_window = popupwindow(tradableEmbed.auth_loc, 'osLaunch', 420, 420);
-    } else {
-        validateToken();
+    tradableEmbed.auth_window = popupwindow(tradableEmbed.auth_loc, 'osLaunch', 450, 450);
+},</code></pre>
+          <section id="openAddBrokerWindow">
+            <h1>openAddBrokerWindow</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>openAddBrokerWindow()</span>
+            </p>
+          </section>
+          <div class="description"><p>Opens the add broker account flow in a popup window(on IE versions below Edge the flow will happen on the same page)</p> </div>
+          <pre><code class="language-javascript">openAddBrokerWindow: function (){
+    if(ie()) {
+        window.open('https://api.tradable.com');
     }
+    tradableEmbed.auth_window = popupwindow(tradableEmbed.add_broker_loc, 'osAddBroker', 450, 450);
+},</code></pre>
+          <section id="enableWithAccessToken">
+            <h1>enableWithAccessToken</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>enableWithAccessToken()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>access_token</td>
+                <td>String</td>
+                <td><p>The authentication token granting access to the account</p></td>
+              </tr>
+              <tr>
+                <td>end_point</td>
+                <td>String</td>
+                <td><p>The endpoint to send API requests to</p></td>
+              </tr>
+              <tr>
+                <td>expires_in</td>
+                <td>String</td>
+                <td><p>The expiry date (in milliseconds) of the access token.</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Enables trading for the account corresponding to the given access token</p> </div>
+          <pre><code class="language-javascript">enableWithAccessToken : function(access_token, end_point, expires_in){
+    tradableEmbed.enableTrading(access_token, end_point, expires_in, true);
 },</code></pre>
           <section id="signOut">
             <h1>signOut</h1>
@@ -552,6 +612,35 @@ availableSymbols : [],
         tokenExpirationCallbacks.push(callback);
     }
 },</code></pre>
+          <section id="onError">
+            <h1>onError</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>onError()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>callback</td>
+                <td>Function</td>
+                <td><p>Callback function to be notified</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Gets called when a general error occurs, for example an account initialization error due to a password change</p> </div>
+          <pre><code class="language-javascript">onError: function(callback) {
+    if($.inArray(callback, errorCallbacks) === -1) {
+        errorCallbacks.push(callback);
+    }
+},</code></pre>
           <section id="onTokenWillExpire">
             <h1>onTokenWillExpire</h1>
             <h5 class="subheader"></h5>
@@ -608,7 +697,9 @@ availableSymbols : [],
 },
 makeOsRequest : function (reqType, type, accountId, method, postData, resolve, reject){
     var endpoint;
-    if(accountId !== undefined &amp;&amp; accountId !== null &amp;&amp; accountId.length === 0) {
+    if(reqType === &quot;apps&quot;) {
+        endpoint = 'https://'+oauthHost;
+    } else if(accountId !== undefined &amp;&amp; accountId !== null &amp;&amp; accountId.length === 0) {
         endpoint = tradableEmbed.authEndpoint;
     } else if(!!tradableEmbed.accountMap[accountId]) {
         endpoint = tradableEmbed.accountMap[accountId].endpointURL;
@@ -622,8 +713,8 @@ makeOsRequest : function (reqType, type, accountId, method, postData, resolve, r
             request.setRequestHeader(&quot;x-tr-embed-sdk&quot;, jsVersion);
         },
         crossDomain: true,
-        url: (!!accountId &amp;&amp; accountId.length &gt; 0) ? (endpoint + &quot;v1/&quot;+reqType+&quot;/&quot;+accountId+&quot;/&quot;+method) 
-                                                   : (endpoint + &quot;v1/&quot;+reqType+&quot;/&quot;+method),
+        url: (!!accountId &amp;&amp; accountId.length &gt; 0) ? (endpoint+&quot;/v1/&quot;+reqType+&quot;/&quot;+accountId+&quot;/&quot;+method) 
+                                                   : (endpoint+&quot;/v1/&quot;+reqType+&quot;/&quot;+method),
         contentType: &quot;application/json; charset=utf-8&quot;,
         data: (!!postData) ? JSON.stringify(postData) : undefined,
         dataType: 'json'
@@ -631,8 +722,9 @@ makeOsRequest : function (reqType, type, accountId, method, postData, resolve, r
 
     ajaxPromise.then(function(){}, 
         function(jqXHR, message, error){
-            if(!!jqXHR.responseJSON &amp;&amp; jqXHR.responseJSON.httpStatus === 403) {
+            if(!!jqXHR.responseJSON &amp;&amp; (jqXHR.responseJSON.httpStatus === 403 || jqXHR.responseJSON.httpStatus === 502)) {
                 notifyTokenExpired();
+                notifyErrorCallbacks(jqXHR.responseJSON);
             }
         });
     
@@ -693,11 +785,36 @@ makeAccountRequest : function (type, accountId, method, postData, resolve, rejec
     if(!!tradableEmbed.accountMap[accountId]) {
         tradableEmbed.selectedAccount = tradableEmbed.accountMap[accountId];
         tradableEmbed.selectedAccountId = accountId;
-        return initializeValuesForCurrentAccount(resolve, reject);
+        return initializeValuesForCurrentAccount(function() {
+            localStorage.setItem(&quot;selectedAccount:&quot;+appId, accountId);
+            if(!!resolve) {
+                resolve();
+            }
+        }, 
+        function(err) {
+            if(err.status === 502 || err.status === 403) {
+                tradableEmbed.excludeCurrentAccount();
+                if(tradableEmbed.accounts.length &gt; 0) {
+                    validateToken();
+                }
+            }
+            if(!!reject) {
+                reject(err);
+            }
+        });
         console.log('accountId is set to: ' + accountId);
     } else {
         console.error(&quot;Can't set account id to: &quot; + accountId);
     }
+},
+excludeCurrentAccount : function() {
+    var accountId = tradableEmbed.selectedAccountId;
+    var index = tradableEmbed.accounts.indexOf(tradableEmbed.selectedAccount);
+    if (index &gt; -1) {
+        tradableEmbed.accounts.splice(index, 1);
+    }
+    delete tradableEmbed.accountMap[accountId];
+    tradableEmbed.accountIdsToExclude.push(accountId);
 },
 /**
  * Returns the correspondent instrument obj to the symbol if it's in the current account
@@ -823,6 +940,44 @@ getInstrumentFromSymbol : function(symbol) {
           <pre><code class="language-javascript">getUser : function (resolve, reject) {
     return tradableEmbed.makeOsRequest(&quot;user&quot;, &quot;GET&quot;, &quot;&quot;, &quot;&quot;, null, resolve, reject);
 },
+//v1/apps</code></pre>
+          <section id="getAppInfo">
+            <h1>getAppInfo</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>getAppInfo()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Provides app information</p> </div>
+          <pre><code class="language-javascript">getAppInfo : function (resolve, reject) {
+    return tradableEmbed.makeOsRequest(&quot;apps&quot;, &quot;GET&quot;, &quot;&quot;, tradableEmbed.app_id, null, resolve, reject);
+},
 //v1/accounts</code></pre>
           <section id="getAccounts">
             <h1>getAccounts</h1>
@@ -863,7 +1018,8 @@ getInstrumentFromSymbol : function(symbol) {
         tradableEmbed.accounts.splice(0, tradableEmbed.accounts.length);
         tradableEmbed.accountMap = {};
         $(data.accounts).each(function(index, account){
-           if (!!account.uniqueId &amp;&amp; account.uniqueId !== &quot;NA&quot;){
+           if (!!account.uniqueId &amp;&amp; account.uniqueId !== &quot;NA&quot;
+                &amp;&amp; tradableEmbed.accountIdsToExclude.indexOf(account.uniqueId) &lt;= -1){
                tradableEmbed.accounts.push(account);
                tradableEmbed.accountMap[account.uniqueId] = account;
            }
@@ -3170,11 +3326,11 @@ makeCandleRequest : function (method, symbolsArray, resolve, reject) {
         }
     }
 },</code></pre>
-          <section id="getDailyClose">
-            <h1>getDailyClose</h1>
+          <section id="getLastDailyClose">
+            <h1>getLastDailyClose</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>getDailyClose()</span>
+              <div class="label label-info radius ctx-type">method</div><span>getLastDailyClose()</span>
             </p>
           </section>
           <table class="table table-bordered table-striped table-condensed">
@@ -3209,43 +3365,31 @@ makeCandleRequest : function (method, symbolsArray, resolve, reject) {
             </tbody>
           </table>
           <div class="description"><p>A list of close prices for the previous day for certain symbols (on a specific account) </p> </div>
-          <pre><code class="language-javascript">getDailyClose : function (symbolsArray, resolve, reject) {
+          <pre><code class="language-javascript">getLastDailyClose : function (symbolsArray, resolve, reject) {
     return tradableEmbed.makeCandleRequest(&quot;dailyClose&quot;, symbolsArray, resolve, reject);
 },
-enableTrading : function(access_token, end_point, expires_in){
+enableTrading : function(access_token, end_point, expires_in, set_latest_account){
     console.log(&quot;Activating TradableEmbed...&quot;);
 
-    //if(!!tradableEmbed.auth_window){
-    //    tradableEmbed.auth_window.close();
-    //}
+    if(!!access_token &amp;&amp; !!end_point) {
+        tradableEmbed.accessToken = access_token;
+        tradableEmbed.authEndpoint = end_point;
+        tradableEmbed.tradingEnabled = true;
 
-    tradableEmbed.accessToken = access_token;
-    tradableEmbed.authEndpoint = end_point;
-    tradableEmbed.tradingEnabled = true;
+        localStorage.setItem(&quot;accessToken:&quot;+appId, tradableEmbed.accessToken);
+        localStorage.setItem(&quot;authEndpoint:&quot;+appId, tradableEmbed.authEndpoint);
+        localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
 
-    localStorage.setItem(&quot;accessToken:&quot;+appId, tradableEmbed.accessToken);
-    localStorage.setItem(&quot;authEndpoint:&quot;+appId, tradableEmbed.authEndpoint);
-    localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
-
-    if(!!expires_in) {
-        tradableEmbed.expirationTimeUTC = new Date().getTime() + (parseInt(expires_in) * 1000); //expires conversion
-        localStorage.setItem(&quot;expirationTimeUTC:&quot;+appId, tradableEmbed.expirationTimeUTC);
+        if(!!expires_in) {
+            tradableEmbed.expirationTimeUTC = new Date().getTime() + (parseInt(expires_in) * 1000); //expires conversion
+            localStorage.setItem(&quot;expirationTimeUTC:&quot;+appId, tradableEmbed.expirationTimeUTC);
+        }
     }
 
-    if(tradableEmbed.accounts.length === 0) {
-        tradableEmbed.getAccounts().then(function(accounts) {
-            setSelectedAccountAndNotify();
-        });
-    } else {
-        setSelectedAccountAndNotify();
-    }
-
-    function setSelectedAccountAndNotify() {
-        console.log('Accounts initialized');
-        tradableEmbed.setSelectedAccount(tradableEmbed.accounts[0].uniqueId, function() {
-            notifyReadyCallbacks();
-        });
-    }
+    var accountQty = tradableEmbed.accounts.length;
+    tradableEmbed.getAccounts().then(function(accounts) {
+        setSelectedAccountAndNotify(set_latest_account, accountQty);
+    });
 }
     };
     
@@ -3256,7 +3400,12 @@ enableTrading : function(access_token, end_point, expires_in){
     function initializeLibrary(){
 var success = false;
 var opener = window.opener;
-if(!!opener &amp;&amp; window.name === &quot;osLaunch&quot;){            
+if(!!opener &amp;&amp; window.name === &quot;osAddBroker&quot;) {
+    try {
+        opener.tradableEmbed.enableTrading(undefined, undefined, undefined, true);
+    } catch(err) {}
+    window.close(); // execution stops
+} else if(!!opener &amp;&amp; window.name === &quot;osLaunch&quot;){            
     var hashFragment = window.location.hash;
     if(hashFragment) {
         try {
@@ -3344,6 +3493,12 @@ $(tokenExpirationCallbacks).each(function(index, callback){
 notifyReadyCallbacks();
     }
 
+    function notifyErrorCallbacks(error) {
+$(errorCallbacks).each(function(index, callback){
+    callback(error);
+});
+    }
+
     function initializeValuesForCurrentAccount(resolve, reject) {
 console.log('Initializing values for current account');
 var reset = false;
@@ -3410,6 +3565,24 @@ tradableEmbed.getAccounts().then(
         notifyReadyCallbacks();
     }
 );
+    }
+
+    function setSelectedAccountAndNotify(set_latest_account, account_qty) {
+console.log('Accounts initialized');
+var accountId;
+var savedAccId = localStorage.getItem(&quot;selectedAccount:&quot;+appId);
+if(!!set_latest_account &amp;&amp; tradableEmbed.accounts.length &gt; account_qty) {
+    var accIdxToSelect = tradableEmbed.accounts.length - 1;
+    accountId = tradableEmbed.accounts[accIdxToSelect].uniqueId;
+} else if(!!savedAccId &amp;&amp; !!tradableEmbed.accountMap[savedAccId]) {
+    accountId = savedAccId;
+} else {
+    var accIdxToSelect = tradableEmbed.accounts.length - 1;
+    accountId = tradableEmbed.accounts[accIdxToSelect].uniqueId;
+}
+tradableEmbed.setSelectedAccount(accountId, function() {
+    notifyReadyCallbacks();
+});
     }
 
     function processAccountUpdate() {
