@@ -116,6 +116,8 @@
               </li>
               <li><a href="#getAppInfo"><i class="alert alert-info"></i><span>getAppInfo</span></a>
               </li>
+              <li><a href="#getBrokers"><i class="alert alert-info"></i><span>getBrokers</span></a>
+              </li>
               <li><a href="#getAccounts"><i class="alert alert-info"></i><span>getAccounts</span></a>
               </li>
               <li><a href="#getCandles"><i class="alert alert-info"></i><span>getCandles</span></a>
@@ -307,11 +309,27 @@ availableSymbols : [],
               <div class="label label-info radius ctx-type">method</div><span>authenticate()</span>
             </p>
           </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>brokerId(optional)</td>
+                <td>long</td>
+                <td><p>If the authentication flow needs to be opened for a certain broker, this is the id (v1/brokers)</p></td>
+              </tr>
+            </tbody>
+          </table>
           <div class="description"><p>Start oauth flow within the page</p> </div>
-          <pre><code class="language-javascript">authenticate: function () {
+          <pre><code class="language-javascript">authenticate: function (brokerId) {
     console.log(&quot;Starting oauth flow...&quot;);
     if (!tradableEmbed.tradingEnabled){
-        location.href = tradableEmbed.auth_loc;
+        location.href = getAuthUrl(brokerId);
     } else {
         validateToken();
     }
@@ -323,14 +341,30 @@ availableSymbols : [],
               <div class="label label-info radius ctx-type">method</div><span>authenticateWithWindow()</span>
             </p>
           </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>brokerId(optional)</td>
+                <td>long</td>
+                <td><p>If the authentication flow needs to be opened for a certain broker, this is the id (v1/brokers)</p></td>
+              </tr>
+            </tbody>
+          </table>
           <div class="description"><p>Start oauth flow in a popup window (on IE versions below Edge authentication will happen in the same window)</p> </div>
-          <pre><code class="language-javascript">authenticateWithWindow: function (){
+          <pre><code class="language-javascript">authenticateWithWindow: function (brokerId){
     if(ie()) {
         console.log('Window opener no supported in IE, redirecting to oauth...');
-        return tradableEmbed.authenticate();
+        return tradableEmbed.authenticate(brokerId);
     }
     console.log(&quot;Opening oauth window...&quot;);
-    tradableEmbed.auth_window = popupwindow(tradableEmbed.auth_loc, 'osLaunch', 450, 450);
+    tradableEmbed.auth_window = popupwindow(getAuthUrl(brokerId), 'osLaunch', 450, 450);
 },</code></pre>
           <section id="openAddBrokerWindow">
             <h1>openAddBrokerWindow</h1>
@@ -697,7 +731,7 @@ availableSymbols : [],
 },
 makeOsRequest : function (reqType, type, accountId, method, postData, resolve, reject){
     var endpoint;
-    if(reqType === &quot;apps&quot;) {
+    if(reqType === &quot;apps&quot; || reqType === &quot;brokers&quot;) {
         endpoint = 'https://'+oauthHost;
     } else if(accountId !== undefined &amp;&amp; accountId !== null &amp;&amp; accountId.length === 0) {
         endpoint = tradableEmbed.authEndpoint;
@@ -977,6 +1011,44 @@ getInstrumentFromSymbol : function(symbol) {
           <div class="description"><p>Provides app information</p> </div>
           <pre><code class="language-javascript">getAppInfo : function (resolve, reject) {
     return tradableEmbed.makeOsRequest(&quot;apps&quot;, &quot;GET&quot;, &quot;&quot;, tradableEmbed.app_id, null, resolve, reject);
+},
+//v1/brokers</code></pre>
+          <section id="getBrokers">
+            <h1>getBrokers</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>getBrokers()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Provides account id and tokens granting access to the requested account</p> </div>
+          <pre><code class="language-javascript">getBrokers : function (resolve, reject) {
+    return tradableEmbed.makeOsRequest(&quot;brokers&quot;, &quot;GET&quot;, &quot;&quot;, &quot;&quot;, null, resolve, reject);
 },
 //v1/accounts</code></pre>
           <section id="getAccounts">
@@ -3605,6 +3677,16 @@ if(tradableEmbed.tradingEnabled &amp;&amp; !processingUpdate) {
         processingUpdate = false;
     });
 }
+    }
+
+    function getAuthUrl(brokerId) {
+var url;
+if(!!brokerId) {
+    url = tradableEmbed.auth_loc + &quot;&amp;broker_id=&quot; + brokerId;
+} else {
+    url = tradableEmbed.auth_loc;
+}
+return url;
     }
 
     var i;

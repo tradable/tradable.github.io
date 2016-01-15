@@ -297,10 +297,11 @@ function initializeUI() {
 	});
 
 	tradableEmbed.onError(function(err) {
-		notifications.handleError(err.message);
+		notifications.handleError(err.message, err);
 	});
 }
 
+var scheduledTradePrompt;
 function tradingEnabled(){
 	$(document).ready(function() {
 		var trEnabled = localStorage.getItem(&quot;uiTradingEnabled&quot;);
@@ -331,9 +332,10 @@ function tradingEnabled(){
 			}
 		});
 
-		if(!responsiveMode) {
+		if(!responsiveMode &amp;&amp; !scheduledTradePrompt) {
 			// New user trade prompt
 			notifications.scheduleNewUserTradePromptIfNeeded();
+			scheduledTradePrompt = true;
 		}
 	});
 }
