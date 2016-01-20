@@ -148,6 +148,10 @@
               </li>
               <li><a href="#smthingForAccount" class="smthingForAccount"><i class="alert alert-info"></i><span>placeLimitOrderForAccount</span></a>
               </li>
+              <li><a href="#placeStopOrder"><i class="alert alert-info"></i><span>placeStopOrder</span></a>
+              </li>
+              <li><a href="#smthingForAccount" class="smthingForAccount"><i class="alert alert-info"></i><span>placeStopOrderForAccount</span></a>
+              </li>
               <li><a href="#getPendingOrders"><i class="alert alert-info"></i><span>getPendingOrders</span></a>
               </li>
               <li><a href="#smthingForAccount" class="smthingForAccount"><i class="alert alert-info"></i><span>getPendingOrdersForAccount</span></a>
@@ -1793,6 +1797,125 @@ getInstrumentFromSymbol : function(symbol) {
           <div class="description"><p>Place a LIMIT order on a specific account</p> </div>
           <pre><code class="language-javascript">placeLimitOrderForAccount : function (accountId, amount, price, side, symbol, resolve, reject){
     return tradableEmbed.placeOrderForAccount(accountId, amount, price, side, symbol, &quot;LIMIT&quot;, resolve, reject);
+},</code></pre>
+          <section id="placeStopOrder">
+            <h1>placeStopOrder</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>placeStopOrder()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>amount</td>
+                <td>double</td>
+                <td><p>The order amount</p></td>
+              </tr>
+              <tr>
+                <td>price</td>
+                <td>double</td>
+                <td><p>The trigger price for the order</p></td>
+              </tr>
+              <tr>
+                <td>side</td>
+                <td>String</td>
+                <td><p>The order side (&#39;BUY&#39; or &#39;SELL&#39;)</p></td>
+              </tr>
+              <tr>
+                <td>symbol</td>
+                <td>String</td>
+                <td><p>The instrument symbol for the order</p></td>
+              </tr>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Place a STOP order on the selectedAccount</p> </div>
+          <pre><code class="language-javascript">placeStopOrder : function (amount, price, side, symbol, resolve, reject){
+    return tradableEmbed.placeOrder(amount, price, side, symbol, &quot;STOP&quot;, resolve, reject);
+},</code></pre>
+          <section id="placeStopOrderForAccount">
+            <h1>placeStopOrderForAccount</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>placeStopOrderForAccount()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>uniqueId</td>
+                <td>String</td>
+                <td><p>The unique id for the account the request goes to</p></td>
+              </tr>
+              <tr>
+                <td>amount</td>
+                <td>double</td>
+                <td><p>The order amount</p></td>
+              </tr>
+              <tr>
+                <td>price</td>
+                <td>double</td>
+                <td><p>The trigger price for the order.</p></td>
+              </tr>
+              <tr>
+                <td>side</td>
+                <td>String</td>
+                <td><p>The order side (&#39;BUY&#39; or &#39;SELL&#39;)</p></td>
+              </tr>
+              <tr>
+                <td>symbol</td>
+                <td>String</td>
+                <td><p>The instrument symbol for the order</p></td>
+              </tr>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Place a STOP order on a specific account</p> </div>
+          <pre><code class="language-javascript">placeStopOrderForAccount : function (accountId, amount, price, side, symbol, resolve, reject){
+    return tradableEmbed.placeOrderForAccount(accountId, amount, price, side, symbol, &quot;STOP&quot;, resolve, reject);
 },
 placeOrder : function (amount, price, side, symbol, type, resolve, reject){
     return tradableEmbed.placeOrderForAccount(tradableEmbed.selectedAccountId, amount, price, side, symbol, type, resolve, reject);
