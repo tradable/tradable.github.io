@@ -204,9 +204,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI19TradableBrokerLogoscFMS0_FT5smallSS7onLightSS6onDarkSS3svgSS_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(small:onLight:onDark:svg:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI19TradableBrokerLogoscFMS0_FT5smallSS7onLightSS6onDarkSS3svgSS_S0_">init(small:onLight:onDark:svg:)</a>
+                    <a name="/s:FC11TradableAPI19TradableBrokerLogoscFMS0_FT5smallSS7onLightSS6onDarkSS3svgSS8svgSolidSS_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(small:onLight:onDark:svg:svgSolid:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI19TradableBrokerLogoscFMS0_FT5smallSS7onLightSS6onDarkSS3svgSS8svgSolidSS_S0_">init(small:onLight:onDark:svg:svgSolid:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -221,9 +221,244 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">small</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">onLight</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">onDark</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">svg</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">small</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">onLight</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">onDark</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">svg</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">svgSolid</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI19TradableBrokerLogos18getSmallBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getSmallBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI19TradableBrokerLogos18getSmallBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_">getSmallBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches small broker logo and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSmallBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing an optional small broker logo for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI19TradableBrokerLogos18getLightBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getLightBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI19TradableBrokerLogos18getLightBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_">getLightBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a broker logo on light background and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLightBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing an optional broker logo on light background for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI19TradableBrokerLogos17getDarkBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getDarkBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI19TradableBrokerLogos17getDarkBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_">getDarkBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a broker logo on dark background and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDarkBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing an optional broker logo on dark background for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI19TradableBrokerLogos16getSvgBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getSvgBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI19TradableBrokerLogos16getSvgBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_">getSvgBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches broker logo in SVG format and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSvgBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing an optional broker logo in SVG format for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI19TradableBrokerLogos21getSvgSolidBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getSvgSolidBrokerLogo(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI19TradableBrokerLogos21getSvgSolidBrokerLogoFS0_FGSQFT7logoImgGSqCSo7UIImage__T__T_">getSvgSolidBrokerLogo(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches broker solid logo in SVG format and caches it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSvgSolidBrokerLogo</span><span class="p">(</span><span class="nv">logoCompleted</span><span class="p">:</span> <span class="p">((</span><span class="nv">logoImg</span><span class="p">:</span><span class="kt">UIImage</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logoCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure containing an optional broker solid logo in SVG format for this account.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -233,7 +468,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://embed.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-01-28)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-01-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

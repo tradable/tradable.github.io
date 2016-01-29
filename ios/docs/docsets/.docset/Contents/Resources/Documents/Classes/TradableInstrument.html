@@ -177,33 +177,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI18TradableInstrument6symbolSS"></a>
-                    <a name="//apple_ref/swift/Property/symbol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument6symbolSS">symbol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The instrument symbol. This is unified across different brokerage accounts and is the symbol to use when referring to the instrument in the API communication.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">symbol</span><span class="p">:</span><span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:vC11TradableAPI18TradableInstrument22brokerageAccountSymbolSS"></a>
                     <a name="//apple_ref/swift/Property/brokerageAccountSymbol" class="dashAnchor"></a>
                     <a class="token" href="#/s:vC11TradableAPI18TradableInstrument22brokerageAccountSymbolSS">brokerageAccountSymbol</a>
@@ -222,6 +195,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">brokerageAccountSymbol</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI18TradableInstrument8decimalsSi"></a>
+                    <a name="//apple_ref/swift/Property/decimals" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument8decimalsSi">decimals</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The recommended number of decimals when formatting the instrument price.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">decimals</span><span class="p">:</span><span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -258,9 +258,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI18TradableInstrument16shortDescriptionSS"></a>
-                    <a name="//apple_ref/swift/Property/shortDescription" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument16shortDescriptionSS">shortDescription</a>
+                    <a name="/s:vC11TradableAPI18TradableInstrument9maxAmountSd"></a>
+                    <a name="//apple_ref/swift/Property/maxAmount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument9maxAmountSd">maxAmount</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -268,14 +268,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A short description of the instrument.</p>
+                        <p>The maximum long order amount for this instrument.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">shortDescription</span><span class="p">:</span><span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">maxAmount</span><span class="p">:</span><span class="kt">Double</span></code></pre>
 
                         </div>
                       </div>
@@ -285,9 +285,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI18TradableInstrument4typeOS_22TradableInstrumentType"></a>
-                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument4typeOS_22TradableInstrumentType">type</a>
+                    <a name="/s:vC11TradableAPI18TradableInstrument14maxShortAmountSd"></a>
+                    <a name="//apple_ref/swift/Property/maxShortAmount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument14maxShortAmountSd">maxShortAmount</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -295,41 +295,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The instrument type.</p>
+                        <p>The maximum short order amount for this instrument. If 0, instrument cannot be shorted.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">type</span><span class="p">:</span><span class="kt">TradableInstrumentType</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC11TradableAPI18TradableInstrument12pipPrecisionSi"></a>
-                    <a name="//apple_ref/swift/Property/pipPrecision" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument12pipPrecisionSi">pipPrecision</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The pip precisionfor the instrument; specifies at which decimal place the pip is placed.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">pipPrecision</span><span class="p">:</span><span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">maxShortAmount</span><span class="p">:</span><span class="kt">Double</span></code></pre>
 
                         </div>
                       </div>
@@ -366,33 +339,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI18TradableInstrument9maxAmountSd"></a>
-                    <a name="//apple_ref/swift/Property/maxAmount" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument9maxAmountSd">maxAmount</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The maximum order amount for this instrument.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">maxAmount</span><span class="p">:</span><span class="kt">Double</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:vC11TradableAPI18TradableInstrument19multipleOfMinAmountSb"></a>
                     <a name="//apple_ref/swift/Property/multipleOfMinAmount" class="dashAnchor"></a>
                     <a class="token" href="#/s:vC11TradableAPI18TradableInstrument19multipleOfMinAmountSb">multipleOfMinAmount</a>
@@ -411,6 +357,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">multipleOfMinAmount</span><span class="p">:</span><span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI18TradableInstrument12pipPrecisionGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/pipPrecision" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument12pipPrecisionGSqSi_">pipPrecision</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The pip precisionfor the instrument; specifies at which decimal place the pip is placed. This may be null for stocks and other instrument types that do not have notion of pips.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">pipPrecision</span><span class="p">:</span><span class="kt">Int</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -447,6 +420,87 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:vC11TradableAPI18TradableInstrument16shortDescriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/shortDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument16shortDescriptionSS">shortDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A short description of the instrument.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">shortDescription</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI18TradableInstrument6symbolSS"></a>
+                    <a name="//apple_ref/swift/Property/symbol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument6symbolSS">symbol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The instrument symbol. This is unified across different brokerage accounts and is the symbol to use when referring to the instrument in the API communication.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">symbol</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI18TradableInstrument4typeOS_22TradableInstrumentType"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI18TradableInstrument4typeOS_22TradableInstrumentType">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The instrument type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">type</span><span class="p">:</span><span class="kt">TradableInstrumentType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:vC11TradableAPI18TradableInstrument11descriptionSS"></a>
                     <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
                     <a class="token" href="#/s:vC11TradableAPI18TradableInstrument11descriptionSS">description</a>
@@ -474,9 +528,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI18TradableInstrumentcFMS0_FT6symbolSS22brokerageAccountSymbolSS11displayNameSS16shortDescriptionSS4typeOS_22TradableInstrumentType12pipPrecisionSi9minAmountSd9maxAmountSd13multipleOfMinSb13quoteCurrencySS_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(symbol:brokerageAccountSymbol:displayName:shortDescription:type:pipPrecision:minAmount:maxAmount:multipleOfMin:quoteCurrency:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrumentcFMS0_FT6symbolSS22brokerageAccountSymbolSS11displayNameSS16shortDescriptionSS4typeOS_22TradableInstrumentType12pipPrecisionSi9minAmountSd9maxAmountSd13multipleOfMinSb13quoteCurrencySS_S0_">init(symbol:brokerageAccountSymbol:displayName:shortDescription:type:pipPrecision:minAmount:maxAmount:multipleOfMin:quoteCurrency:)</a>
+                    <a name="/s:FC11TradableAPI18TradableInstrumentcFMS0_FT6symbolSS22brokerageAccountSymbolSS11displayNameSS16shortDescriptionSS4typeOS_22TradableInstrumentType12pipPrecisionGSqSi_9minAmountSd9maxAmountSd13multipleOfMinSb13quoteCurrencySS14maxShortAmountSd8decimalsSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(symbol:brokerageAccountSymbol:displayName:shortDescription:type:pipPrecision:minAmount:maxAmount:multipleOfMin:quoteCurrency:maxShortAmount:decimals:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrumentcFMS0_FT6symbolSS22brokerageAccountSymbolSS11displayNameSS16shortDescriptionSS4typeOS_22TradableInstrumentType12pipPrecisionGSqSi_9minAmountSd9maxAmountSd13multipleOfMinSb13quoteCurrencySS14maxShortAmountSd8decimalsSi_S0_">init(symbol:brokerageAccountSymbol:displayName:shortDescription:type:pipPrecision:minAmount:maxAmount:multipleOfMin:quoteCurrency:maxShortAmount:decimals:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -491,7 +545,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">symbol</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">brokerageAccountSymbol</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">displayName</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">shortDescription</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span><span class="kt">TradableInstrumentType</span><span class="p">,</span> <span class="nv">pipPrecision</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">minAmount</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">maxAmount</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">multipleOfMin</span><span class="p">:</span><span class="kt">Bool</span><span class="p">,</span> <span class="nv">quoteCurrency</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">brokerageAccountSymbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">displayName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">shortDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">TradableInstrumentType</span><span class="p">,</span> <span class="nv">pipPrecision</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">minAmount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">maxAmount</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">multipleOfMin</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">quoteCurrency</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">maxShortAmount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">decimals</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -503,7 +557,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://embed.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-01-28)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-01-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
