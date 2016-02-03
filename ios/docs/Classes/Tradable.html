@@ -52,6 +52,12 @@
                 <a href="../Classes/TradableAmount.html">TradableAmount</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableApp.html">TradableApp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableBroker.html">TradableBroker</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableBrokerLogos.html">TradableBrokerLogos</a>
               </li>
               <li class="nav-group-task">
@@ -65,6 +71,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableError.html">TradableError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableIndicator.html">TradableIndicator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableIndicatorInfo.html">TradableIndicatorInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableIndicatorInfoParam.html">TradableIndicatorInfoParam</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableIndicatorParam.html">TradableIndicatorParam</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableIndicatorPlot.html">TradableIndicatorPlot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableIndicatorRequest.html">TradableIndicatorRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableInstrument.html">TradableInstrument</a>
@@ -95,6 +119,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableProtection.html">TradableProtection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableRequestedIndicator.html">TradableRequestedIndicator</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableSymbols.html">TradableSymbols</a>
@@ -562,6 +589,113 @@ When the access token is successfully created, tradableReady delegate method is 
                 </a>
               </div>
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable10getBrokersFS0_FGSQFT7brokersGSqGSaCS_14TradableBroker__5errorGSqCS_13TradableError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getBrokers(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable10getBrokersFS0_FGSQFT7brokersGSqGSaCS_14TradableBroker__5errorGSqCS_13TradableError__T__T_">getBrokers(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the list of available brokers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getBrokers</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">brokers</span><span class="p">:[</span><span class="kt">TradableBroker</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional list of TradableBroker objects and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable10getAppInfoFS0_FTVSs6UInt6410completionGSQFT3appGSqCS_11TradableApp_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getAppInfo(_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable10getAppInfoFS0_FTVSs6UInt6410completionGSQFT3appGSqCS_11TradableApp_5errorGSqCS_13TradableError__T___T_">getAppInfo(_:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the app information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAppInfo</span><span class="p">(</span><span class="nv">clientId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">app</span><span class="p">:</span><span class="kt">TradableApp</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the app to retrieve information for.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional TradableApp object and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -1905,6 +2039,66 @@ When the access token is successfully created, tradableReady delegate method is 
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC11TradableAPI8Tradable17getIndicatorsInfoFS0_FTCS_15TradableAccount10completionGSQFT14indicatorsInfoGSqGSaCS_21TradableIndicatorInfo__5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getIndicatorsInfo(_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable17getIndicatorsInfoFS0_FTCS_15TradableAccount10completionGSQFT14indicatorsInfoGSqGSaCS_21TradableIndicatorInfo__5errorGSqCS_13TradableError__T___T_">getIndicatorsInfo(_:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the indicators information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getIndicatorsInfo</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">indicatorsInfo</span><span class="p">:[</span><span class="kt">TradableIndicatorInfo</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the indicators info should be fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional list of TradableIndicatorInfo objects and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC11TradableAPI8Tradable14getCurrentUserFS0_FGSQFT4userGSqCS_14TradableOSUser_5errorGSqCS_13TradableError__T__T_"></a>
                     <a name="//apple_ref/swift/Method/getCurrentUser(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11TradableAPI8Tradable14getCurrentUserFS0_FGSQFT4userGSqCS_14TradableOSUser_5errorGSqCS_13TradableError__T__T_">getCurrentUser(_:)</a>
@@ -1915,9 +2109,7 @@ When the access token is successfully created, tradableReady delegate method is 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the list of available brokers.</p>
-
-<p>Gets the current OS user.</p>
+                        <p>Gets the current OS user.</p>
 
                       </div>
                       <div class="declaration">
@@ -2809,7 +3001,7 @@ When the access token is successfully created, tradableReady delegate method is 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-01-29)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
