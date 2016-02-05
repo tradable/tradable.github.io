@@ -34,6 +34,15 @@
                 <a href="../Classes/Tradable.html">Tradable</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableAPIAuthentication.html">TradableAPIAuthentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAPIAuthenticationRequest.html">TradableAPIAuthenticationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableAPIRefreshAuthenticationRequest.html">TradableAPIRefreshAuthenticationRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableAccessToken.html">TradableAccessToken</a>
               </li>
               <li class="nav-group-task">
@@ -68,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableCandles.html">TradableCandles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableDemoAPIAuthenticationRequest.html">TradableDemoAPIAuthenticationRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableError.html">TradableError</a>
@@ -138,6 +150,9 @@
                 <a href="../Enums/TradableAggregation.html">TradableAggregation</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/TradableDemoAccountType.html">TradableDemoAccountType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/TradableErrorType.html">TradableErrorType</a>
               </li>
               <li class="nav-group-task">
@@ -170,10 +185,13 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/TradableAPIDelegate.html">TradableAPIDelegate</a>
+                <a href="../Protocols/TradableAuthDelegate.html">TradableAuthDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/TradableEditOrderDelegate.html">TradableEditOrderDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TradableEventsDelegate.html">TradableEventsDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/TradableInstrumentSelectorDelegate.html">TradableInstrumentSelectorDelegate</a>
@@ -555,39 +573,12 @@
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11TradableAPI18TradableInstrumentcFMS0_FT6symbolSS22brokerageAccountSymbolSS11displayNameSS16shortDescriptionSS4typeOS_22TradableInstrumentType12pipPrecisionGSqSi_9minAmountSd9maxAmountSd13multipleOfMinSb13quoteCurrencySS14maxShortAmountSd8decimalsSi_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(symbol:brokerageAccountSymbol:displayName:shortDescription:type:pipPrecision:minAmount:maxAmount:multipleOfMin:quoteCurrency:maxShortAmount:decimals:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrumentcFMS0_FT6symbolSS22brokerageAccountSymbolSS11displayNameSS16shortDescriptionSS4typeOS_22TradableInstrumentType12pipPrecisionGSqSi_9minAmountSd9maxAmountSd13multipleOfMinSb13quoteCurrencySS14maxShortAmountSd8decimalsSi_S0_">init(symbol:brokerageAccountSymbol:displayName:shortDescription:type:pipPrecision:minAmount:maxAmount:multipleOfMin:quoteCurrency:maxShortAmount:decimals:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates an object with given parameters.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">brokerageAccountSymbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">displayName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">shortDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">TradableInstrumentType</span><span class="p">,</span> <span class="nv">pipPrecision</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">minAmount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">maxAmount</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">multipleOfMin</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">quoteCurrency</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">maxShortAmount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">decimals</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-03)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
