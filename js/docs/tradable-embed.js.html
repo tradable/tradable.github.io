@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
-    <title>tradable-embed 1.2</title>
+    <title>tradable-embed 1.11</title>
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/docs.css">
@@ -63,7 +63,7 @@
     </div>
     <header id="overview" class="jumbotron subhead">
       <div class="container">
-        <h1>tradable-embed 1.2</h1>
+        <h1>tradable-embed 1.11</h1>
         <p class="lead"></p>
       </div>
     </header>
@@ -97,6 +97,8 @@
               <li><a href="#addSymbolToUpdates"><i class="alert alert-info"></i><span>addSymbolToUpdates</span></a>
               </li>
               <li><a href="#removeSymbolFromUpdates"><i class="alert alert-info"></i><span>removeSymbolFromUpdates</span></a>
+              </li>
+              <li><a href="#onAccountSwitch"><i class="alert alert-info"></i><span>onAccountSwitch</span></a>
               </li>
               <li><a href="#onTokenExpired"><i class="alert alert-info"></i><span>onTokenExpired</span></a>
               </li>
@@ -261,8 +263,11 @@
 
     if(tradingEnabled &amp;&amp; (!authEndpoint || !token || !expirationTimeUTC)) {
         tradingEnabled = false;
-        localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradingEnabled);
+        if(isLocalStorageSupported()) {
+            localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradingEnabled);
+        }
     }
+    var accountSwitchCallbacks = [];
     var accountUpdatedCallbacks = [];
     var accountUpdatedCallbackHashes = [];
     var tokenExpirationCallbacks = [];
@@ -361,7 +366,7 @@ availableSymbols : [],
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Start oauth flow in a popup window (on IE versions below Edge authentication will happen in the same window)</p> </div>
+          <div class="description"> </div>
           <pre><code class="language-javascript">authenticateWithWindow: function (brokerId){
     if(ie()) {
         console.log('Window opener no supported in IE, redirecting to oauth...');
@@ -430,10 +435,12 @@ availableSymbols : [],
           </section>
           <div class="description"><p>Drops authentication token and notifies embed callbacks</p> </div>
           <pre><code class="language-javascript">signOut: function() {
-    localStorage.removeItem(&quot;accessToken:&quot;+appId);
-    localStorage.removeItem(&quot;authEndpoint:&quot;+appId);
-    localStorage.removeItem(&quot;tradingEnabled:&quot;+appId);
-    localStorage.removeItem(&quot;expirationTimeUTC:&quot;+appId);
+    if(isLocalStorageSupported()) {
+        localStorage.removeItem(&quot;accessToken:&quot;+appId);
+        localStorage.removeItem(&quot;authEndpoint:&quot;+appId);
+        localStorage.removeItem(&quot;tradingEnabled:&quot;+appId);
+        localStorage.removeItem(&quot;expirationTimeUTC:&quot;+appId);
+    }
     tradableEmbed.tradingEnabled = false;
     notifyReadyCallbacks();
 },</code></pre>
@@ -494,7 +501,7 @@ availableSymbols : [],
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Start a timer that will request and notify a new account snapshot every certain time (700 millis by default) </p> </div>
+          <div class="description"><p>Gets notified with a new account snapshot every certain time (700 millis by default)</p> </div>
           <pre><code class="language-javascript">onAccountUpdated : function(callback) {
     if(!!callback) {
         if(accountUpdatedCallbacks.length === 0) {
@@ -621,6 +628,37 @@ availableSymbols : [],
         return value != symbolKey;
     });  
 },</code></pre>
+          <section id="onAccountSwitch">
+            <h1>onAccountSwitch</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>onAccountSwitch()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>callback</td>
+                <td>Function</td>
+                <td><p>Callback function to be notified</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Gets notified every time the selectedAccount is changed (through the setSelectedAccount method)</p> </div>
+          <pre><code class="language-javascript">onAccountSwitch : function(callback) {
+    if(!!callback) {
+         if($.inArray(callback, accountSwitchCallbacks) === -1) {
+            accountSwitchCallbacks.push(callback);
+        }
+    }
+},</code></pre>
           <section id="onTokenExpired">
             <h1>onTokenExpired</h1>
             <h5 class="subheader"></h5>
@@ -646,8 +684,10 @@ availableSymbols : [],
           </table>
           <div class="description"><p>Gets called back when the token expires</p> </div>
           <pre><code class="language-javascript">onTokenExpired: function(callback) {
-    if($.inArray(callback, tokenExpirationCallbacks) === -1) {
-        tokenExpirationCallbacks.push(callback);
+    if(!!callback) {
+        if($.inArray(callback, tokenExpirationCallbacks) === -1) {
+            tokenExpirationCallbacks.push(callback);
+        }                
     }
 },</code></pre>
           <section id="onError">
@@ -824,7 +864,9 @@ makeAccountRequest : function (type, accountId, method, postData, resolve, rejec
         tradableEmbed.selectedAccount = tradableEmbed.accountMap[accountId];
         tradableEmbed.selectedAccountId = accountId;
         return initializeValuesForCurrentAccount(function() {
-            localStorage.setItem(&quot;selectedAccount:&quot;+appId, accountId);
+            if(isLocalStorageSupported()) {
+                localStorage.setItem(&quot;selectedAccount:&quot;+appId, accountId);
+            }
             if(!!resolve) {
                 resolve();
             }
@@ -860,6 +902,9 @@ excludeCurrentAccount : function() {
  * @return      {Object} Correspondent instrument obj to the symbol or null if not found
  */ 
 getInstrumentFromSymbol : function(symbol) {
+    if(!symbol) {
+        return null;
+    }
     var instrument = null;
     $(tradableEmbed.availableInstruments).each(function(index, ins){
         if(ins.symbol.toUpperCase() === symbol.toUpperCase()) {
@@ -3479,8 +3524,11 @@ makeProtectionRequestForAccount : function (method, accountId, positionId, newPr
     var symbolsObj = {&quot;symbols&quot;: symbols};
     return tradableEmbed.makeAccountRequest(&quot;POST&quot;, accountId, &quot;prices/&quot;, symbolsObj, resolve, reject);
 },
-makeCandleRequest : function (method, symbolsArray, resolve, reject) {
+makeCandleRequest : function (method, symbolsArray, resolve, reject, postObject) {
     var symbolsObj = {symbols: symbolsArray};
+    if(!!postObject) {
+        symbolsObj = postObject;
+    }
     var ajaxPromise = $.ajax({
         type: &quot;POST&quot;,
         crossDomain: true,
@@ -3571,14 +3619,16 @@ enableTrading : function(access_token, end_point, expires_in, set_latest_account
         tradableEmbed.authEndpoint = end_point;
         tradableEmbed.tradingEnabled = true;
 
-        localStorage.setItem(&quot;accessToken:&quot;+appId, tradableEmbed.accessToken);
-        localStorage.setItem(&quot;authEndpoint:&quot;+appId, tradableEmbed.authEndpoint);
-        localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
+        if(isLocalStorageSupported()) {
+            localStorage.setItem(&quot;accessToken:&quot;+appId, tradableEmbed.accessToken);
+            localStorage.setItem(&quot;authEndpoint:&quot;+appId, tradableEmbed.authEndpoint);
+            localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
 
-        if(!!expires_in) {
-            tradableEmbed.expirationTimeUTC = new Date().getTime() + (parseInt(expires_in) * 1000); //expires conversion
-            localStorage.setItem(&quot;expirationTimeUTC:&quot;+appId, tradableEmbed.expirationTimeUTC);
-        }
+            if(!!expires_in) {
+                tradableEmbed.expirationTimeUTC = new Date().getTime() + (parseInt(expires_in) * 1000); //expires conversion
+                localStorage.setItem(&quot;expirationTimeUTC:&quot;+appId, tradableEmbed.expirationTimeUTC);
+            }
+        }                
     }
 
     var accountQty = tradableEmbed.accounts.length;
@@ -3636,7 +3686,9 @@ function processHashFragment(hashFragment, tradableEmbed){
     var expiresIn;
 
     tradableEmbed.tradingEnabled = false;
-    localStorage.setItem(&quot;tradingEnabled:&quot;+appId, false);
+    if(isLocalStorageSupported()) {
+        localStorage.setItem(&quot;tradingEnabled:&quot;+appId, false);
+    }
 
     var keyValues = hashFragment.replace('#', '').split('&amp;');
     $(keyValues).each(function(index, keyValuePair){
@@ -3663,6 +3715,17 @@ function processHashFragment(hashFragment, tradableEmbed){
 }
     }
 
+    function isLocalStorageSupported() {
+var testKey = 'test';
+try {
+    localStorage.setItem(testKey, '1');
+    localStorage.removeItem(testKey);
+    return true;
+} catch (error) {
+    return false;
+}
+    }
+
     function popupwindow(url, windowName, w, h){
 var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
 var wTop = window.screenTop ? window.screenTop : window.screenY;
@@ -3681,7 +3744,9 @@ tradableEmbed.notifiedCallbacks = true;
 
     function notifyTokenExpired() {
 tradableEmbed.tradingEnabled = false;
-localStorage.setItem(&quot;tradingEnabled:&quot;+appId, false);
+if(isLocalStorageSupported()) {
+    localStorage.setItem(&quot;tradingEnabled:&quot;+appId, false);
+}
 $(tokenExpirationCallbacks).each(function(index, callback){
     callback();
 });
@@ -3691,6 +3756,12 @@ notifyReadyCallbacks();
     function notifyErrorCallbacks(error) {
 $(errorCallbacks).each(function(index, callback){
     callback(error);
+});
+    }
+
+    function notifyAccountSwitchCallbacks() {
+$(accountSwitchCallbacks).each(function(index, callback){
+    callback();
 });
     }
 
@@ -3732,6 +3803,7 @@ return tradableEmbed.getInstruments().then(function(acctInstruments){
     if(reset) {
         tradableEmbed.tradingEnabled = true;
     }
+    notifyAccountSwitchCallbacks();
     if(!!resolve &amp;&amp; typeof resolve === &quot;function&quot;) {
         return resolve(tradableEmbed.accounts);
     } else {
@@ -3756,7 +3828,9 @@ tradableEmbed.getAccounts().then(
     }, 
     function() {
         tradableEmbed.tradingEnabled = false;
-        localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
+        if(isLocalStorageSupported()) {
+            localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
+        }
         notifyReadyCallbacks();
     }
 );
