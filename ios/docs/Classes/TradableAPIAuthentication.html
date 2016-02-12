@@ -218,7 +218,7 @@
             <h1>TradableAPIAuthentication</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradableAPIAuthentication</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradableAPIAuthentication</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCoding</span></code></pre>
 
                 </div>
               </div>
@@ -312,9 +312,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI25TradableAPIAuthentication7expiresVSs6UInt64"></a>
-                    <a name="//apple_ref/swift/Property/expires" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI25TradableAPIAuthentication7expiresVSs6UInt64">expires</a>
+                    <a name="/s:vC11TradableAPI25TradableAPIAuthentication14expirationDateCSo6NSDate"></a>
+                    <a name="//apple_ref/swift/Property/expirationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI25TradableAPIAuthentication14expirationDateCSo6NSDate">expirationDate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -322,14 +322,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The expiry date (in milliseconds) of the access token.</p>
+                        <p>The expiration date of the access token.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">expires</span><span class="p">:</span><span class="kt">UInt64</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">expirationDate</span><span class="p">:</span><span class="kt">NSDate</span></code></pre>
 
                         </div>
                       </div>
@@ -339,9 +339,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI25TradableAPIAuthentication19refreshTokenExpiresVSs6UInt64"></a>
-                    <a name="//apple_ref/swift/Property/refreshTokenExpires" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI25TradableAPIAuthentication19refreshTokenExpiresVSs6UInt64">refreshTokenExpires</a>
+                    <a name="/s:vC11TradableAPI25TradableAPIAuthentication26refreshTokenExpirationDateCSo6NSDate"></a>
+                    <a name="//apple_ref/swift/Property/refreshTokenExpirationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI25TradableAPIAuthentication26refreshTokenExpirationDateCSo6NSDate">refreshTokenExpirationDate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -349,14 +349,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The expiry date (in milliseconds) of the refresh token.</p>
+                        <p>The expiration date of the refresh token.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">refreshTokenExpires</span><span class="p">:</span><span class="kt">UInt64</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">refreshTokenExpirationDate</span><span class="p">:</span><span class="kt">NSDate</span></code></pre>
 
                         </div>
                       </div>
@@ -417,12 +417,104 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableAPIAuthenticationcFMS0_FT13apiTokenValueSS20apiRefreshTokenValueSS11apiEndpointSS14expirationDateCSo6NSDate26refreshTokenExpirationDateS1__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(apiTokenValue:apiRefreshTokenValue:apiEndpoint:expirationDate:refreshTokenExpirationDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableAPIAuthenticationcFMS0_FT13apiTokenValueSS20apiRefreshTokenValueSS11apiEndpointSS14expirationDateCSo6NSDate26refreshTokenExpirationDateS1__S0_">init(apiTokenValue:apiRefreshTokenValue:apiEndpoint:expirationDate:refreshTokenExpirationDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">apiTokenValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">apiRefreshTokenValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">apiEndpoint</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">expirationDate</span><span class="p">:</span> <span class="kt">NSDate</span><span class="p">,</span> <span class="nv">refreshTokenExpirationDate</span><span class="p">:</span> <span class="kt">NSDate</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/NSCoding"></a>
+                <a name="//apple_ref/swift/Section/NSCoding" class="dashAnchor"></a>
+                <a href="#/NSCoding">
+                  <h3 class="section-name">NSCoding</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableAPIAuthenticationcFMS0_FT5coderCSo7NSCoder_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableAPIAuthenticationcFMS0_FT5coderCSo7NSCoder_GSqS0__">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters. Conforms to NSCoding protocol.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">required</span> <span class="n">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableAPIAuthentication15encodeWithCoderFS0_FCSo7NSCoderT_"></a>
+                    <a name="//apple_ref/swift/Method/encodeWithCoder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableAPIAuthentication15encodeWithCoderFS0_FCSo7NSCoderT_">encodeWithCoder(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encoding method, conforming to NSCoding protocol.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">encodeWithCoder</span><span class="p">(</span><span class="nv">coder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-11)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
