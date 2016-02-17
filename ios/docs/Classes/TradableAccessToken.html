@@ -34,9 +34,6 @@
                 <a href="../Classes/Tradable.html">Tradable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/TradableAPIAuthentication.html">TradableAPIAuthentication</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/TradableAPIAuthenticationRequest.html">TradableAPIAuthenticationRequest</a>
               </li>
               <li class="nav-group-task">
@@ -121,6 +118,9 @@
                 <a href="../Classes/TradableOrderModification.html">TradableOrderModification</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableOrderSupport.html">TradableOrderSupport</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableOrders.html">TradableOrders</a>
               </li>
               <li class="nav-group-task">
@@ -203,6 +203,9 @@
                 <a href="../Protocols/TradableOrderEntryDelegate.html">TradableOrderEntryDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/TradableOrderStatusDelegate.html">TradableOrderStatusDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/TradablePositionDetailDelegate.html">TradablePositionDetailDelegate</a>
               </li>
               <li class="nav-group-task">
@@ -258,6 +261,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:vC11TradableAPI19TradableAccessToken12refreshTokenGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/refreshToken" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI19TradableAccessToken12refreshTokenGSqSS_">refreshToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The refresh token to use in order to refresh the API authentication. Will be nil for OAuth flow.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">refreshToken</span><span class="p">:</span><span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:vC11TradableAPI19TradableAccessToken11endpointURLSS"></a>
                     <a name="//apple_ref/swift/Property/endpointURL" class="dashAnchor"></a>
                     <a class="token" href="#/s:vC11TradableAPI19TradableAccessToken11endpointURLSS">endpointURL</a>
@@ -303,6 +333,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">expirationDate</span><span class="p">:</span><span class="kt">NSDate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI19TradableAccessToken26refreshTokenExpirationDateGSqCSo6NSDate_"></a>
+                    <a name="//apple_ref/swift/Property/refreshTokenExpirationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI19TradableAccessToken26refreshTokenExpirationDateGSqCSo6NSDate_">refreshTokenExpirationDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The expiration date of the refresh token.  Will be nil for OAuth flow.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">refreshTokenExpirationDate</span><span class="p">:</span><span class="kt">NSDate</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -390,6 +447,33 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI19TradableAccessToken7disposeFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/dispose()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI19TradableAccessToken7disposeFS0_FT_T_">dispose()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the token from the keychain. If it&rsquo;s an active token, nulls the SDK&rsquo;s access token for the session.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">dispose</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -460,7 +544,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-12)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
