@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
-    <title>tradable-embed-core 1.11</title>
+    <title>tradable-embed-core 1.12</title>
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/docs.css">
@@ -63,7 +63,7 @@
     </div>
     <header id="overview" class="jumbotron subhead">
       <div class="container">
-        <h1>tradable-embed-core 1.11</h1>
+        <h1>tradable-embed-core 1.12</h1>
         <p class="lead"></p>
       </div>
     </header>
@@ -119,6 +119,14 @@
               </li>
               <li><a href="#getBrokers"><i class="alert alert-info"></i><span>getBrokers</span></a>
               </li>
+              <li><a href="#authenticateWithCredentials"><i class="alert alert-info"></i><span>authenticateWithCredentials</span></a>
+              </li>
+              <li><a href="#createForexDemoAccount"><i class="alert alert-info"></i><span>createForexDemoAccount</span></a>
+              </li>
+              <li><a href="#createStocksDemoAccount"><i class="alert alert-info"></i><span>createStocksDemoAccount</span></a>
+              </li>
+              <li><a href="#refreshAuthentication"><i class="alert alert-info"></i><span>refreshAuthentication</span></a>
+              </li>
               <li><a href="#getAccounts"><i class="alert alert-info"></i><span>getAccounts</span></a>
               </li>
               <li><a href="#getCandles"><i class="alert alert-info"></i><span>getCandles</span></a>
@@ -152,6 +160,10 @@
               <li><a href="#placeStopOrder"><i class="alert alert-info"></i><span>placeStopOrder</span></a>
               </li>
               <li><a href="#smthingForAccount" class="smthingForAccount"><i class="alert alert-info"></i><span>placeStopOrderForAccount</span></a>
+              </li>
+              <li><a href="#placeOrderWithProtections"><i class="alert alert-info"></i><span>placeOrderWithProtections</span></a>
+              </li>
+              <li><a href="#smthingForAccount" class="smthingForAccount"><i class="alert alert-info"></i><span>placeOrderWithProtectionsForAccount</span></a>
               </li>
               <li><a href="#getPendingOrders"><i class="alert alert-info"></i><span>getPendingOrders</span></a>
               </li>
@@ -229,10 +241,15 @@
         <div class="span9">
           <div class="description"><p>Welcome to the tradable-embed documentation. Tradable Embed is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the tradable-embed javascript SDK, which offers 2 kits:</p><ul><li><b>core</b>: Lightweight wrapper of the Tradable Embed API that will make the integration with Tradable Embed API really easy.</li><li><b>ui-kit</b>: See <a href='tradable-embed-ui.js.html'>here</a> (optional)</li></ul>
 
-<p>In order to use the tradable-embed core, you need to include the following scripts in your site. We use jQuery in no coflict mode (<a href="https://api.jquery.com/jquery.noconflict/">what?</a>) and we assign it to the variable &#39;trEmbJQ&#39;:</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; id=&quot;tradable-embed&quot; src=&quot;//js-api.tradable.com/core/1.11/tradable-embed.min.js&quot; data-app-id=&quot;{your_app_id}&quot; <i>data-redirect-uri=&quot;optional-custom-redirect-uri&quot;</i>&gt;&lt;/script&gt;</pre><br />Alternatively, you can require our <a href="https://www.npmjs.com/package/tradable-embed-core">npm module</a></p><p><pre>npm install tradable-embed-core</pre><br />If you do, you will have to define the tradableEmbedConfig object before requiring the module:</p><p><pre>window.tradableEmbedConfig = {&quot;appId&quot;: <i>your-app-id</i>, <i>&quot;redirectURI&quot;: &quot;optional-custom-redirect-uri&quot;</i>};<br>require(&quot;tradable-embed-core&quot;)</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
+<p>In order to use the tradable-embed core, you need to include the following scripts in your site. We use jQuery in no coflict mode (<a href="https://api.jquery.com/jquery.noconflict/">what?</a>) and we assign it to the variable &#39;trEmbJQ&#39;:</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; id=&quot;tradable-embed&quot; src=&quot;//js-api.tradable.com/core/1.12/tradable-embed.min.js&quot; data-app-id=&quot;{your_app_id}&quot; <i>data-redirect-uri=&quot;optional-custom-redirect-uri&quot;</i>&gt;&lt;/script&gt;</pre><br />Alternatively, you can require our <a href="https://www.npmjs.com/package/tradable-embed-core">npm module</a></p><p><pre>npm install tradable-embed-core</pre><br />If you do, you will have to define the tradableEmbedConfig object before requiring the module:</p><p><pre>window.tradableEmbedConfig = {&quot;appId&quot;: <i>your-app-id</i>, <i>&quot;redirectURI&quot;: &quot;optional-custom-redirect-uri&quot;</i>};<br>require(&quot;tradable-embed-core&quot;)</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
           <pre><code class="language-javascript">**/
-    
-    var jsVersion = &quot;js-1.11&quot;;
+
+    // Avoid console errors when not supported
+    if (typeof console === &quot;undefined&quot; || typeof console.log === &quot;undefined&quot;) {
+        global.console = { log: function() {} };
+    }
+
+    var jsVersion = &quot;js-1.12&quot;;
     var appId;
     var redirectUrl = location.href;
     var customOAuthUrl;
@@ -244,12 +261,12 @@
         }
     } else {
         var scriptId = &quot;tradable-embed&quot;;
-        if($('#' + scriptId).length == 0) { // Backwards compatibility
+        if($('#' + scriptId).length === 0) { // Backwards compatibility
             scriptId = &quot;tradable-api&quot;;
         }
         appId = $('#'+scriptId).attr(&quot;data-app-id&quot;);
         customOAuthUrl = $('#'+scriptId).attr(&quot;data-custom-oauth-url&quot;); // Just for testing purposes
-        var rURI = $('#'+scriptId).attr(&quot;data-redirect-uri&quot;)
+        var rURI = $('#'+scriptId).attr(&quot;data-redirect-uri&quot;);
         if(!!rURI) {
             redirectUrl = rURI;
         }
@@ -300,7 +317,7 @@
           </section>
           <div class="description"><p>Boolean that indicates if the user is authenticated</p> </div>
           <pre><code class="language-javascript">tradingEnabled : tradingEnabled,
-expirationTimeUTC : expirationTimeUTC, 
+expirationTimeUTC : expirationTimeUTC,
 readyCallbacks : [],
 accounts : [],
 accountIdsToExclude : [],
@@ -310,11 +327,11 @@ selectedAccountId : null,
 availableCategories : [],
 availableInstruments : [],
 availableSymbols : [],
-		availableCurrencies : [],
-		lastSnapshot: null,
-		symbolKeysForAccountUpdates: [],
-		accountUpdateInterval: null,
-		accountUpdateMillis: 700,</code></pre>
+availableCurrencies : [],
+lastSnapshot: null,
+symbolKeysForAccountUpdates: [],
+accountUpdateInterval: null,
+accountUpdateMillis: 700,</code></pre>
           <section id="authenticate">
             <h1>authenticate</h1>
             <h5 class="subheader"></h5>
@@ -592,8 +609,8 @@ availableSymbols : [],
         return;
     }
     var symbolKey = symbolToAdd + &quot;:&quot; + updateClientId;
-    if($.inArray(symbolKey, tradableEmbed.symbolKeysForAccountUpdates) === -1
-            &amp;&amp; $.inArray(symbolToAdd, tradableEmbed.availableSymbols) !== -1) {
+    if($.inArray(symbolKey, tradableEmbed.symbolKeysForAccountUpdates) === -1 &amp;&amp;
+        $.inArray(symbolToAdd, tradableEmbed.availableSymbols) !== -1) {
         tradableEmbed.symbolKeysForAccountUpdates.push(symbolKey);
     }
 },</code></pre>
@@ -630,7 +647,7 @@ availableSymbols : [],
     var symbolKey = symbolToRemove + &quot;:&quot; + updateClientId;
     tradableEmbed.symbolKeysForAccountUpdates = $.grep(tradableEmbed.symbolKeysForAccountUpdates, function(value) {
         return value != symbolKey;
-    });  
+    });
 },</code></pre>
           <section id="onAccountSwitch">
             <h1>onAccountSwitch</h1>
@@ -691,7 +708,7 @@ availableSymbols : [],
     if(!!callback) {
         if($.inArray(callback, tokenExpirationCallbacks) === -1) {
             tokenExpirationCallbacks.push(callback);
-        }                
+        }
     }
 },</code></pre>
           <section id="onError">
@@ -779,7 +796,7 @@ availableSymbols : [],
 },
 makeOsRequest : function (reqType, type, accountId, method, postData, resolve, reject){
     var endpoint;
-    if(reqType === &quot;apps&quot; || reqType === &quot;brokers&quot;) {
+    if(reqType !== &quot;user&quot; &amp;&amp; reqType !== &quot;accounts&quot;) {
         endpoint = 'https://'+oauthHost;
     } else if(accountId !== undefined &amp;&amp; accountId !== null &amp;&amp; accountId.length === 0) {
         endpoint = tradableEmbed.authEndpoint;
@@ -795,21 +812,21 @@ makeOsRequest : function (reqType, type, accountId, method, postData, resolve, r
             request.setRequestHeader(&quot;x-tr-embed-sdk&quot;, jsVersion);
         },
         crossDomain: true,
-        url: (!!accountId &amp;&amp; accountId.length &gt; 0) ? (endpoint+&quot;/v1/&quot;+reqType+&quot;/&quot;+accountId+&quot;/&quot;+method) 
+        url: (!!accountId &amp;&amp; accountId.length &gt; 0) ? (endpoint+&quot;/v1/&quot;+reqType+&quot;/&quot;+accountId+&quot;/&quot;+method)
                                                    : (endpoint+&quot;/v1/&quot;+reqType+&quot;/&quot;+method),
         contentType: &quot;application/json; charset=utf-8&quot;,
         data: (!!postData) ? JSON.stringify(postData) : undefined,
         dataType: 'json'
     });
 
-    ajaxPromise.then(function(){}, 
+    ajaxPromise.then(function(){},
         function(jqXHR, message, error){
             if(!!jqXHR.responseJSON &amp;&amp; (jqXHR.responseJSON.httpStatus === 403 || jqXHR.responseJSON.httpStatus === 502)) {
                 notifyTokenExpired();
                 notifyErrorCallbacks(jqXHR.responseJSON);
             }
         });
-    
+
     if(!!resolve || !!reject){
         return ajaxPromise.then(function(data){
             if(typeof resolve === &quot;function&quot;)
@@ -867,6 +884,7 @@ makeAccountRequest : function (type, accountId, method, postData, resolve, rejec
     if(!!tradableEmbed.accountMap[accountId]) {
         tradableEmbed.selectedAccount = tradableEmbed.accountMap[accountId];
         tradableEmbed.selectedAccountId = accountId;
+        console.log('accountId is set to: ' + accountId);
         return initializeValuesForCurrentAccount(function() {
             if(isLocalStorageSupported()) {
                 localStorage.setItem(&quot;selectedAccount:&quot;+appId, accountId);
@@ -874,7 +892,7 @@ makeAccountRequest : function (type, accountId, method, postData, resolve, rejec
             if(!!resolve) {
                 resolve();
             }
-        }, 
+        },
         function(err) {
             if(err.status === 502 || err.status === 403) {
                 tradableEmbed.excludeCurrentAccount();
@@ -886,7 +904,6 @@ makeAccountRequest : function (type, accountId, method, postData, resolve, rejec
                 reject(err);
             }
         });
-        console.log('accountId is set to: ' + accountId);
     } else {
         console.error(&quot;Can't set account id to: &quot; + accountId);
     }
@@ -904,7 +921,7 @@ excludeCurrentAccount : function() {
  * Returns the correspondent instrument obj to the symbol if it's in the current account
  * @param      {String}   symbol Instrument symbol
  * @return      {Object} Correspondent instrument obj to the symbol or null if not found
- */ 
+ */
 getInstrumentFromSymbol : function(symbol) {
     if(!symbol) {
         return null;
@@ -1103,6 +1120,227 @@ getInstrumentFromSymbol : function(symbol) {
           <pre><code class="language-javascript">getBrokers : function (resolve, reject) {
     return tradableEmbed.makeOsRequest(&quot;brokers&quot;, &quot;GET&quot;, &quot;&quot;, &quot;&quot;, null, resolve, reject);
 },
+//v1/authenticate</code></pre>
+          <section id="authenticateWithCredentials">
+            <h1>authenticateWithCredentials</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>authenticateWithCredentials()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>brokerId</td>
+                <td>long</td>
+                <td><p>The id of the broker that the account is at</p></td>
+              </tr>
+              <tr>
+                <td>login</td>
+                <td>String</td>
+                <td><p>The login for the account</p></td>
+              </tr>
+              <tr>
+                <td>password</td>
+                <td>String</td>
+                <td><p>The password for the account</p></td>
+              </tr>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Gets a token granting access to the account(s) associated with the given login and enables trading</p> </div>
+          <pre><code class="language-javascript">authenticateWithCredentials : function (brokerId, login, password, resolve, reject) {
+    var deferred = new $.Deferred();
+
+    var apiAuthenticationRequest = {&quot;appId&quot;: tradableEmbed.app_id, &quot;brokerId&quot;: brokerId, &quot;login&quot;: login, &quot;password&quot;: password};
+    var apiAuthentication;
+    tradableEmbed.makeOsRequest(&quot;authenticate&quot;, &quot;POST&quot;, &quot;&quot;, &quot;&quot;, apiAuthenticationRequest).then(function(auth) {
+        apiAuthentication = auth;
+        return tradableEmbed.enableTrading(auth.apiTokenValue, auth.apiEndpoint, auth.expires);
+    }).then(function() {
+        deferred.resolve(apiAuthentication);
+    }, function(err) {
+        deferred.reject();
+    });
+
+    return resolveDeferred(deferred, resolve, reject);
+},
+//v1/createDemoAccount
+createDemoAccount : function (type, resolve, reject) {
+    var deferred = new $.Deferred();
+
+    var demoAPIAuthenticationRequest = {&quot;appId&quot;: tradableEmbed.app_id, &quot;type&quot;: type};
+    var apiAuthentication;
+    tradableEmbed.makeOsRequest(&quot;createDemoAccount&quot;, &quot;POST&quot;, &quot;&quot;, &quot;&quot;, demoAPIAuthenticationRequest).then(function(auth) {
+        apiAuthentication = auth;
+        return tradableEmbed.enableTrading(auth.apiTokenValue, auth.apiEndpoint, auth.expires);
+    }).then(function() {
+        deferred.resolve(apiAuthentication);
+    }, function(err) {
+        deferred.reject();
+    });
+
+    return resolveDeferred(deferred, resolve, reject);
+},</code></pre>
+          <section id="createForexDemoAccount">
+            <h1>createForexDemoAccount</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>createForexDemoAccount()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Creates a Forex demo account, gets an authentication token granting access to that account and enables trading for it</p> </div>
+          <pre><code class="language-javascript">createForexDemoAccount : function (resolve, reject) {
+    return tradableEmbed.createDemoAccount(&quot;FOREX&quot;, resolve, reject);
+},</code></pre>
+          <section id="createStocksDemoAccount">
+            <h1>createStocksDemoAccount</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>createStocksDemoAccount()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Creates a Stock demo account, gets an authentication token granting access to that account and enables trading for it</p> </div>
+          <pre><code class="language-javascript">createStocksDemoAccount : function (resolve, reject) {
+    return tradableEmbed.createDemoAccount(&quot;STOCKS&quot;, resolve, reject);
+},</code></pre>
+          <section id="refreshAuthentication">
+            <h1>refreshAuthentication</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>refreshAuthentication()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>refreshTokenValue</td>
+                <td>String</td>
+                <td><p>The value of the refresh token.</p></td>
+              </tr>
+              <tr>
+                <td>appSecret</td>
+                <td>String</td>
+                <td><p>The client secret of the app that is requesting the refresh</p></td>
+              </tr>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Refreshes the authentication that was granted when the refresh token was issued</p> </div>
+          <pre><code class="language-javascript">refreshAuthentication : function (refreshTokenValue, appSecret, resolve, reject) {
+    var deferred = new $.Deferred();
+
+    var apiRefreshAuthenticationRequest = { &quot;refreshTokenValue&quot;: refreshTokenValue };
+    if(!!appSecret) {
+        // Autogenerated demo accounts don't require a secret
+        apiRefreshAuthenticationRequest = { &quot;refreshTokenValue&quot;: refreshTokenValue, &quot;appSecret&quot;: appSecret };
+    }
+    var apiAuthentication;
+    tradableEmbed.makeOsRequest(&quot;refreshAuthentication&quot;, &quot;POST&quot;, &quot;&quot;, &quot;&quot;, apiRefreshAuthenticationRequest).then(function(auth) {
+        apiAuthentication = auth;
+        return tradableEmbed.enableTrading(auth.apiTokenValue, auth.apiEndpoint, auth.expires);
+    }).then(function() {
+        deferred.resolve(apiAuthentication);
+    }, function(err) {
+        deferred.reject();
+    });
+
+    return resolveDeferred(deferred, resolve, reject);
+},
 //v1/accounts</code></pre>
           <section id="getAccounts">
             <h1>getAccounts</h1>
@@ -1143,25 +1381,15 @@ getInstrumentFromSymbol : function(symbol) {
         tradableEmbed.accounts.splice(0, tradableEmbed.accounts.length);
         tradableEmbed.accountMap = {};
         $(data.accounts).each(function(index, account){
-           if (!!account.uniqueId &amp;&amp; account.uniqueId !== &quot;NA&quot;
-                &amp;&amp; tradableEmbed.accountIdsToExclude.indexOf(account.uniqueId) &lt;= -1){
+           if (!!account.uniqueId &amp;&amp; account.uniqueId !== &quot;NA&quot; &amp;&amp;
+                tradableEmbed.accountIdsToExclude.indexOf(account.uniqueId) &lt;= -1){
                tradableEmbed.accounts.push(account);
                tradableEmbed.accountMap[account.uniqueId] = account;
            }
         });
     });
 
-    if(!!resolve || !!reject){
-        return accountsPromise.then(function(data){
-            if(typeof resolve === &quot;function&quot;)
-                return resolve(data);
-        }, function(jqXHR, message, error){
-            if(typeof reject === &quot;function&quot;)
-                return reject(jqXHR, message, error);
-        });
-    } else {
-        return accountsPromise;
-    }
+    return resolveDeferred(accountsPromise, resolve, reject);
 },
 //v1/accounts/{accountId}/candles</code></pre>
           <h5>Example</h5>
@@ -1971,6 +2199,160 @@ placeOrder : function (amount, price, side, symbol, type, resolve, reject){
 },
 placeOrderForAccount : function (accountId, amount, price, side, symbol, type, resolve, reject){
     var order = {&quot;amount&quot;: amount, &quot;price&quot;: price, &quot;side&quot;: side, &quot;symbol&quot;: symbol, &quot;type&quot;: type};
+    return tradableEmbed.makeAccountRequest(&quot;POST&quot;, accountId, &quot;orders/&quot;, order, resolve, reject);
+},</code></pre>
+          <section id="placeOrderWithProtections">
+            <h1>placeOrderWithProtections</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>placeOrderWithProtections()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>amount</td>
+                <td>double</td>
+                <td><p>The order amount</p></td>
+              </tr>
+              <tr>
+                <td>price</td>
+                <td>double</td>
+                <td><p>The trigger price for the order</p></td>
+              </tr>
+              <tr>
+                <td>side</td>
+                <td>String</td>
+                <td><p>The order side (&#39;BUY&#39; or &#39;SELL&#39;)</p></td>
+              </tr>
+              <tr>
+                <td>symbol</td>
+                <td>String</td>
+                <td><p>The instrument symbol for the order</p></td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>String</td>
+                <td><p>Order type (&#39;MARKET&#39;,&#39;LIMIT&#39; or &#39;STOP&#39;)</p></td>
+              </tr>
+              <tr>
+                <td>tpDistance</td>
+                <td>double</td>
+                <td><p>The distance from the filled price where the take profit trigger price will be set. This is only supported for some account types, use the API getAccounts call to check if it is supported. (Set to null if not wanted)</p></td>
+              </tr>
+              <tr>
+                <td>slDistance</td>
+                <td>double</td>
+                <td><p>The distance from the filled price where the stop loss trigger price will be set. This is only supported for some account types, use the API getAccounts call to check if it is supported. (Set to null if not wanted)</p></td>
+              </tr>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on the selectedAccount</p> </div>
+          <pre><code class="language-javascript">placeOrderWithProtections : function (amount, price, side, symbol, type, tpDistance, slDistance, resolve, reject){
+    return tradableEmbed.placeOrderWithProtectionsForAccount(tradableEmbed.selectedAccountId, amount, price, side, symbol, type, tpDistance, slDistance, resolve, reject);
+},</code></pre>
+          <section id="placeOrderWithProtectionsForAccount">
+            <h1>placeOrderWithProtectionsForAccount</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>placeOrderWithProtectionsForAccount()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>uniqueId</td>
+                <td>String</td>
+                <td><p>The unique id for the account the request goes to</p></td>
+              </tr>
+              <tr>
+                <td>amount</td>
+                <td>double</td>
+                <td><p>The order amount</p></td>
+              </tr>
+              <tr>
+                <td>price</td>
+                <td>double</td>
+                <td><p>The trigger price for the order</p></td>
+              </tr>
+              <tr>
+                <td>side</td>
+                <td>String</td>
+                <td><p>The order side (&#39;BUY&#39; or &#39;SELL&#39;)</p></td>
+              </tr>
+              <tr>
+                <td>symbol</td>
+                <td>String</td>
+                <td><p>The instrument symbol for the order</p></td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>String</td>
+                <td><p>Order type (&#39;MARKET&#39;,&#39;LIMIT&#39; or &#39;STOP&#39;)</p></td>
+              </tr>
+              <tr>
+                <td>tpDistance</td>
+                <td>double</td>
+                <td><p>The distance from the filled price where the take profit trigger price will be set. This is only supported for some account types, use the API getAccounts call to check if it is supported. (Set to null if not wanted)</p></td>
+              </tr>
+              <tr>
+                <td>slDistance</td>
+                <td>double</td>
+                <td><p>The distance from the filled price where the stop loss trigger price will be set. This is only supported for some account types, use the API getAccounts call to check if it is supported. (Set to null if not wanted)</p></td>
+              </tr>
+              <tr>
+                <td>resolve(optional)</td>
+                <td>Function</td>
+                <td><p>Success callback for the API call, errors don&#39;t get called through this callback</p></td>
+              </tr>
+              <tr>
+                <td>reject(optional)</td>
+                <td>Function</td>
+                <td><p>Error callback for the API call</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Object</td>
+                <td><p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on a specific account</p> </div>
+          <pre><code class="language-javascript">placeOrderWithProtectionsForAccount : function (accountId, amount, price, side, symbol, type, tpDistance, slDistance, resolve, reject){
+    var order = {&quot;amount&quot;: amount, &quot;price&quot;: price, &quot;side&quot;: side, &quot;symbol&quot;: symbol, &quot;type&quot;: type};
+    if(!!tpDistance)
+        order[&quot;takeProfitDistance&quot;] = tpDistance;
+    if(!!slDistance)
+        order[&quot;stopLossDistance&quot;] = slDistance
     return tradableEmbed.makeAccountRequest(&quot;POST&quot;, accountId, &quot;orders/&quot;, order, resolve, reject);
 },
 //v1/accounts/{accountId}/orders/pending</code></pre>
@@ -2899,7 +3281,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Adds or modifies stoploss AND takeprofit on a position (on the selectedAccount) </p> </div>
+          <div class="description"><p>Adds or modifies stoploss AND takeprofit on a position (on the selectedAccount)</p> </div>
           <pre><code class="language-javascript">addOrModifyProtections : function (positionId, takeProfit, stopLoss, resolve, reject) {
     return tradableEmbed.addOrModifyProtectionsForAccount(tradableEmbed.selectedAccountId, positionId, takeProfit, stopLoss, resolve, reject);
 },</code></pre>
@@ -2956,7 +3338,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Adds or modifies stoploss AND takeprofit on a position (on a specific account) </p> </div>
+          <div class="description"><p>Adds or modifies stoploss AND takeprofit on a position (on a specific account)</p> </div>
           <pre><code class="language-javascript">addOrModifyProtectionsForAccount : function (accountId, positionId, takeProfit, stopLoss, resolve, reject) {
     var protection = {&quot;takeprofit&quot;: takeProfit, &quot;stoploss&quot;: stopLoss};
     return tradableEmbed.makeAccountRequest(&quot;PUT&quot;, accountId, &quot;positions/&quot;+positionId+&quot;/protections/&quot;, protection, resolve, reject);
@@ -2999,7 +3381,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Cancel stoploss and takeprofit protections on a position (on the selectedAccount) </p> </div>
+          <div class="description"><p>Cancel stoploss and takeprofit protections on a position (on the selectedAccount)</p> </div>
           <pre><code class="language-javascript">cancelProtections : function (positionId, resolve, reject) {
     return tradableEmbed.cancelProtectionsForAccount(tradableEmbed.selectedAccountId, positionId, resolve, reject);
 },</code></pre>
@@ -3046,7 +3428,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Cancel stoploss and takeprofit protections on a position (on a specific account) </p> </div>
+          <div class="description"><p>Cancel stoploss and takeprofit protections on a position (on a specific account)</p> </div>
           <pre><code class="language-javascript">cancelProtectionsForAccount : function (accountId, positionId, resolve, reject) {
     return tradableEmbed.makeAccountRequest(&quot;DELETE&quot;, accountId, &quot;positions/&quot;+positionId+&quot;/protections/&quot;, null, resolve, reject);
 },
@@ -3146,7 +3528,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Adds or modifies the take profit order on a position. (on a specific account) </p> </div>
+          <div class="description"><p>Adds or modifies the take profit order on a position. (on a specific account)</p> </div>
           <pre><code class="language-javascript">addOrModifyTakeProfitForAccount : function (accountId, positionId, newPrice, resolve, reject) {
     return tradableEmbed.makeProtectionRequestForAccount(&quot;PUT&quot;, accountId, positionId, newPrice, &quot;TAKEPROFIT&quot;, resolve, reject);
 },</code></pre>
@@ -3245,7 +3627,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Adds or modifies the stop loss order on a position. (on a specific account) </p> </div>
+          <div class="description"><p>Adds or modifies the stop loss order on a position. (on a specific account)</p> </div>
           <pre><code class="language-javascript">addOrModifyStopLossForAccount : function (accountId, positionId, newPrice, resolve, reject) {
     return tradableEmbed.makeProtectionRequestForAccount(&quot;PUT&quot;, accountId, positionId, newPrice, &quot;STOPLOSS&quot;, resolve, reject);
 },</code></pre>
@@ -3287,7 +3669,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Cancel the take profit order on a position. (on the selectedAccount) </p> </div>
+          <div class="description"><p>Cancel the take profit order on a position. (on the selectedAccount)</p> </div>
           <pre><code class="language-javascript">cancelTakeProfit : function (positionId, resolve, reject) {
     return tradableEmbed.makeProtectionRequest(&quot;DELETE&quot;, positionId, 0, &quot;TAKEPROFIT&quot;, resolve, reject);
 },</code></pre>
@@ -3334,7 +3716,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Cancel the take profit order on a position. (on a specific account) </p> </div>
+          <div class="description"><p>Cancel the take profit order on a position. (on a specific account)</p> </div>
           <pre><code class="language-javascript">cancelTakeProfitForAccount : function (accountId, positionId, resolve, reject) {
     return tradableEmbed.makeProtectionRequestForAccount(&quot;DELETE&quot;, accountId, positionId, 0, &quot;TAKEPROFIT&quot;, resolve, reject);
 },</code></pre>
@@ -3376,7 +3758,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Cancel the stop loss order on a position. (on the selectedAccount) </p> </div>
+          <div class="description"><p>Cancel the stop loss order on a position. (on the selectedAccount)</p> </div>
           <pre><code class="language-javascript">cancelStopLoss : function (positionId, resolve, reject) {
     return tradableEmbed.makeProtectionRequest(&quot;DELETE&quot;, positionId, 0, &quot;STOPLOSS&quot;, resolve, reject);
 },</code></pre>
@@ -3423,7 +3805,7 @@ placeOrderForAccount : function (accountId, amount, price, side, symbol, type, r
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Cancel the stop loss order on a position. (on a specific account) </p> </div>
+          <div class="description"><p>Cancel the stop loss order on a position. (on a specific account)</p> </div>
           <pre><code class="language-javascript">cancelStopLossForAccount : function (accountId, positionId, resolve, reject) {
     return tradableEmbed.makeProtectionRequestForAccount(&quot;DELETE&quot;, accountId, positionId, 0, &quot;STOPLOSS&quot;, resolve, reject);
 },
@@ -3476,7 +3858,7 @@ makeProtectionRequestForAccount : function (method, accountId, positionId, newPr
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>A list of prices for certain symbols (on the selectedAccount) </p> </div>
+          <div class="description"><p>A list of prices for certain symbols (on the selectedAccount)</p> </div>
           <pre><code class="language-javascript">getPrices : function (symbols, resolve, reject) {
     return tradableEmbed.getPricesForAccount(tradableEmbed.selectedAccountId, symbols, resolve, reject);
 },</code></pre>
@@ -3523,7 +3905,7 @@ makeProtectionRequestForAccount : function (method, accountId, positionId, newPr
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>A list of prices for certain symbols (on a specific account) </p> </div>
+          <div class="description"><p>A list of prices for certain symbols (on a specific account)</p> </div>
           <pre><code class="language-javascript">getPricesForAccount : function (accountId, symbols, resolve, reject) {
     var symbolsObj = {&quot;symbols&quot;: symbols};
     return tradableEmbed.makeAccountRequest(&quot;POST&quot;, accountId, &quot;prices/&quot;, symbolsObj, resolve, reject);
@@ -3541,7 +3923,7 @@ makeCandleRequest : function (method, symbolsArray, resolve, reject, postObject)
         data: JSON.stringify(symbolsObj),
         dataType: 'json'
     });
-    
+
     if(!!resolve || !!reject){
         return ajaxPromise.then(function(data){
             if(typeof resolve === &quot;function&quot;) {
@@ -3611,11 +3993,13 @@ makeCandleRequest : function (method, symbolsArray, resolve, reject, postObject)
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>A list of close prices for the previous day for certain symbols (on a specific account) </p> </div>
+          <div class="description"><p>A list of close prices for the previous day for certain symbols (on a specific account)</p> </div>
           <pre><code class="language-javascript">getLastDailyClose : function (symbolsArray, resolve, reject) {
     return tradableEmbed.makeCandleRequest(&quot;dailyClose&quot;, symbolsArray, resolve, reject);
 },
 enableTrading : function(access_token, end_point, expires_in, set_latest_account){
+    var deferred = new $.Deferred();
+
     console.log(&quot;Activating TradableEmbed...&quot;);
 
     if(!!access_token &amp;&amp; !!end_point) {
@@ -3632,19 +4016,23 @@ enableTrading : function(access_token, end_point, expires_in, set_latest_account
                 tradableEmbed.expirationTimeUTC = new Date().getTime() + (parseInt(expires_in) * 1000); //expires conversion
                 localStorage.setItem(&quot;expirationTimeUTC:&quot;+appId, tradableEmbed.expirationTimeUTC);
             }
-        }                
+        }
     }
 
     var accountQty = tradableEmbed.accounts.length;
     tradableEmbed.getAccounts().then(function(accounts) {
-        setSelectedAccountAndNotify(set_latest_account, accountQty);
+        return setSelectedAccountAndNotify(set_latest_account, accountQty);
+    }).then(function() {
+        deferred.resolve();
+    }, function() {
+        deferred.reject();
     });
+
+    return deferred;
 }
     };
-    
+
     initializeLibrary();
-	
-    return tradableEmbed;
 
     function initializeLibrary(){
 var success = false;
@@ -3654,7 +4042,7 @@ if(!!opener &amp;&amp; window.name === &quot;osAddBroker&quot;) {
         opener.tradableEmbed.enableTrading(undefined, undefined, undefined, true);
     } catch(err) {}
     window.close(); // execution stops
-} else if(!!opener &amp;&amp; window.name === &quot;osLaunch&quot;){            
+} else if(!!opener &amp;&amp; window.name === &quot;osLaunch&quot;){
     var hashFragment = window.location.hash;
     if(hashFragment) {
         try {
@@ -3667,10 +4055,10 @@ if(!!opener &amp;&amp; window.name === &quot;osAddBroker&quot;) {
             success = processHashFragment(hashFragment, tradableEmbed);
         }
     }
-} else if(window.location.hash 
-            &amp;&amp; (window.location.hash.indexOf(&quot;access_token&quot;) !== -1 
-            &amp;&amp; window.location.hash.indexOf(&quot;endpointURL&quot;) !== -1
-            &amp;&amp; window.location.hash.indexOf(&quot;expires_in&quot;) !== -1)) {
+} else if(window.location.hash &amp;&amp;
+            window.location.hash.indexOf(&quot;access_token&quot;) !== -1 &amp;&amp;
+            window.location.hash.indexOf(&quot;endpointURL&quot;) !== -1 &amp;&amp;
+            window.location.hash.indexOf(&quot;expires_in&quot;) !== -1) {
     success = processHashFragment(window.location.hash, tradableEmbed);
 } else if(tradableEmbed.tradingEnabled) {
     validateToken();
@@ -3735,8 +4123,8 @@ var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
 var wTop = window.screenTop ? window.screenTop : window.screenY;
 var left = wLeft + (window.innerWidth / 2) - (w / 2);
 var top = wTop + (window.innerHeight / 2) - (h / 2);
-return window.open(url, windowName, 'toolbar=no, titlebar=no, directories=no, status=no, menubar=no, '
-    + 'scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+return window.open(url, windowName, 'toolbar=no, titlebar=no, directories=no, status=no, menubar=no, ' +
+    'scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
     }
 
     function notifyReadyCallbacks() {
@@ -3781,28 +4169,28 @@ return tradableEmbed.getInstruments().then(function(acctInstruments){
     tradableEmbed.availableInstruments.splice(0, tradableEmbed.availableInstruments.length);
     tradableEmbed.availableSymbols.splice(0, tradableEmbed.availableSymbols.length);
     tradableEmbed.availableCurrencies.splice(0, tradableEmbed.availableCurrencies.length);
-    
+
     var nonValidCurrencies = [&quot;100&quot;, &quot;200&quot;, &quot;225&quot;, &quot;spx&quot;, &quot;h33&quot;, &quot;nas&quot;, &quot;u30&quot;, &quot;e50&quot;, &quot;f40&quot;, &quot;d30&quot;, &quot;e35&quot;, &quot;i40&quot;, &quot;z30&quot;, &quot;s30&quot;, &quot;uso&quot;, &quot;uko&quot;];
     $(acctInstruments).each(function(index, instrument){
          tradableEmbed.availableInstruments.push(instrument);
          tradableEmbed.availableSymbols.push(instrument.symbol);
-         
+
          if(instrument.type === &quot;FOREX&quot; &amp;&amp; instrument.symbol.length === 6) {
              var ccy1 = instrument.symbol.toLowerCase().substring(0, 3);
              var ccy2 = instrument.symbol.toLowerCase().substring(3, 6);
-             if ($.inArray(ccy1, tradableEmbed.availableCurrencies) === -1
-                    &amp;&amp; $.inArray(ccy1, nonValidCurrencies) === -1){ // doesn't exist
+             if ($.inArray(ccy1, tradableEmbed.availableCurrencies) === -1 &amp;&amp;
+                    $.inArray(ccy1, nonValidCurrencies) === -1){ // doesn't exist
                  tradableEmbed.availableCurrencies.push(ccy1);
              }
-             if ($.inArray(ccy2, tradableEmbed.availableCurrencies) === -1
-                     &amp;&amp; $.inArray(ccy1, nonValidCurrencies) === -1){
+             if ($.inArray(ccy2, tradableEmbed.availableCurrencies) === -1 &amp;&amp;
+                    $.inArray(ccy1, nonValidCurrencies) === -1){
                  tradableEmbed.availableCurrencies.push(ccy2);
              }
          }
 
          if ($.inArray(instrument.type, tradableEmbed.availableCategories) === -1){
              tradableEmbed.availableCategories.push(instrument.type);
-         } 
+         }
     });
     if(reset) {
         tradableEmbed.tradingEnabled = true;
@@ -3829,7 +4217,7 @@ console.log(&quot;Validating token...&quot;);
 tradableEmbed.getAccounts().then(
     function(accounts) {
         tradableEmbed.enableTrading(tradableEmbed.accessToken, tradableEmbed.authEndpoint);
-    }, 
+    },
     function() {
         tradableEmbed.tradingEnabled = false;
         if(isLocalStorageSupported()) {
@@ -3841,21 +4229,27 @@ tradableEmbed.getAccounts().then(
     }
 
     function setSelectedAccountAndNotify(set_latest_account, account_qty) {
+var deferred = new $.Deferred();
+
 console.log('Accounts initialized');
 var accountId;
 var savedAccId = localStorage.getItem(&quot;selectedAccount:&quot;+appId);
+var accIdxToSelect = tradableEmbed.accounts.length - 1;
 if(!!set_latest_account &amp;&amp; tradableEmbed.accounts.length &gt; account_qty) {
-    var accIdxToSelect = tradableEmbed.accounts.length - 1;
     accountId = tradableEmbed.accounts[accIdxToSelect].uniqueId;
 } else if(!!savedAccId &amp;&amp; !!tradableEmbed.accountMap[savedAccId]) {
     accountId = savedAccId;
 } else {
-    var accIdxToSelect = tradableEmbed.accounts.length - 1;
     accountId = tradableEmbed.accounts[accIdxToSelect].uniqueId;
 }
 tradableEmbed.setSelectedAccount(accountId, function() {
     notifyReadyCallbacks();
+    deferred.resolve();
+}, function() {
+    deferred.reject();
 });
+
+return deferred;
     }
 
     function processAccountUpdate() {
@@ -3880,6 +4274,20 @@ if(tradableEmbed.tradingEnabled &amp;&amp; !processingUpdate) {
 }
     }
 
+    function resolveDeferred(deferred, resolve, reject) {
+if(!!resolve || !!reject){
+    return deferred.then(function(data){
+        if(typeof resolve === &quot;function&quot;)
+            return resolve(data);
+    }, function(jqXHR, message, error){
+        if(typeof reject === &quot;function&quot;)
+            return reject(jqXHR, message, error);
+    });
+} else {
+    return deferred;
+}
+    }
+
     function getAuthUrl(brokerId) {
 var url;
 if(!!brokerId) {
@@ -3890,11 +4298,11 @@ if(!!brokerId) {
 return url;
     }
 
-    var i;
-    var char;
     function hashCode(str){
+var i;
+var char;
 var hash = 0;
-if (str.length == 0) return hash;
+if (str.length === 0) return hash;
 for (i = 0; i &lt; str.length; i++) {
     char = str.charCodeAt(i);
     hash = ((hash&lt;&lt;5)-hash)+char;
@@ -3904,10 +4312,19 @@ return hash;
     }
 
     function ie() {
-return ((navigator.userAgent.indexOf(&quot;MSIE&quot;) != -1) || (/rv:11.0/i.test(navigator.userAgent)))
+return ((navigator.userAgent.indexOf(&quot;MSIE&quot;) != -1) || (/rv:11.0/i.test(navigator.userAgent)));
     }
 
-})(trEmbJQ);</code></pre>
+    // Global
+    global.trEmbJQ = trEmbJQ;
+    global.tradableEmbed = tradableEmbed;
+
+    // CommonJS
+    if (typeof require === &quot;function&quot; &amp;&amp; typeof module === &quot;object&quot; &amp;&amp; module &amp;&amp; module.exports) {
+module.exports = tradableEmbed;
+    }
+
+})(jsGlobalObject, trEmbJQ);</code></pre>
         </div>
       </div>
     </div>
