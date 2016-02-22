@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TradableSingleProtection Enum Reference</title>
+    <title>TradableUtilities Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TradableSingleProtection" class="dashAnchor"></a>
-    <a title="TradableSingleProtection Enum Reference"></a>
+    <a name="//apple_ref/swift/Class/TradableUtilities" class="dashAnchor"></a>
+    <a title="TradableUtilities Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TradableSingleProtection Enum Reference
+        TradableUtilities Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -227,14 +227,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TradableSingleProtection</h1>
+            <h1>TradableUtilities</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TradableSingleProtection</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradableUtilities</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>Available protection types.</p>
+            <p>A helper class providing methods for easy price/pip conversion and more.</p>
 
           </section>
           <section class="section task-group-section">
@@ -243,9 +243,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI24TradableSingleProtection10TAKEPROFITFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/TAKEPROFIT" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI24TradableSingleProtection10TAKEPROFITFMS0_S0_">TAKEPROFIT</a>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities31getPipDistanceFromPriceDistanceFMS0_FzTSd10instrumentCS_18TradableInstrument_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPipDistanceFromPriceDistance(_:instrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities31getPipDistanceFromPriceDistanceFMS0_FzTSd10instrumentCS_18TradableInstrument_Sd">getPipDistanceFromPriceDistance(_:instrument:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -253,30 +253,70 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Take profit protection.</p>
+                        <p>Converts price distance to pip distance.</p>
+
+<div class="aside aside-throws">
+          <p class="aside-title">Throws</p>
+          <p><a href="../Enums/TradableUtilitiesError.html">TradableUtilitiesError</a>.UnsupportedInstrument if there is no possibility of making conversion for specified instrument.</p>
+
+        </div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">TAKEPROFIT</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPipDistanceFromPriceDistance</span><span class="p">(</span><span class="nv">distance</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>distance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The price distance to be converted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instrument</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instrument for which the conversion should be made.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A distance in pips.</p>
+
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI24TradableSingleProtection8STOPLOSSFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/STOPLOSS" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI24TradableSingleProtection8STOPLOSSFMS0_S0_">STOPLOSS</a>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities27getPipDistanceBetweenPricesFMS0_FzTSd11higherPriceSd10instrumentCS_18TradableInstrument_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPipDistanceBetweenPrices(_:higherPrice:instrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities27getPipDistanceBetweenPricesFMS0_FzTSd11higherPriceSd10instrumentCS_18TradableInstrument_Sd">getPipDistanceBetweenPrices(_:higherPrice:instrument:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -284,16 +324,144 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stop loss protection.</p>
+                        <p>Converts a difference between two prices to pip distance.</p>
+
+<div class="aside aside-throws">
+          <p class="aside-title">Throws</p>
+          <p><a href="../Enums/TradableUtilitiesError.html">TradableUtilitiesError</a>.UnsupportedInstrument if there is no possibility of making conversion for specified instrument.</p>
+
+        </div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">STOPLOSS</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPipDistanceBetweenPrices</span><span class="p">(</span><span class="nv">lowerPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">higherPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lowerPrice</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The lower price to be used in conversion.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>higherPrice</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The higher price to be used in conversion.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instrument</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instrument for which the conversion should be made.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A distance in pips.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities31getPriceDistanceFromPipDistanceFMS0_FzTSd10instrumentCS_18TradableInstrument_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPriceDistanceFromPipDistance(_:instrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities31getPriceDistanceFromPipDistanceFMS0_FzTSd10instrumentCS_18TradableInstrument_Sd">getPriceDistanceFromPipDistance(_:instrument:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Converts pip distance to price distance.</p>
+
+<div class="aside aside-throws">
+          <p class="aside-title">Throws</p>
+          <p><a href="../Enums/TradableUtilitiesError.html">TradableUtilitiesError</a>.UnsupportedInstrument if there is no possibility of making conversion for specified instrument.</p>
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPriceDistanceFromPipDistance</span><span class="p">(</span><span class="nv">distance</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>distance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The pip distance to be converted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instrument</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instrument for which the conversion should be made.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A price distance.</p>
+
                       </div>
                     </section>
                   </div>
