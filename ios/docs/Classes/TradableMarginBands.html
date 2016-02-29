@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TradableAuthDelegate Protocol Reference</title>
+    <title>TradableMarginBands Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/TradableAuthDelegate" class="dashAnchor"></a>
-    <a title="TradableAuthDelegate Protocol Reference"></a>
+    <a name="//apple_ref/swift/Class/TradableMarginBands" class="dashAnchor"></a>
+    <a title="TradableMarginBands Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TradableAuthDelegate Protocol Reference
+        TradableMarginBands Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -233,14 +233,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TradableAuthDelegate</h1>
+            <h1>TradableMarginBands</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TradableAuthDelegate</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradableMarginBands</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>A delegate protocol for authentication/authorization events.</p>
+            <p>A collection of margin factors for an instrument, can be used to estimate the margin requirement before placing an order.</p>
 
           </section>
           <section class="section task-group-section">
@@ -249,9 +249,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP11TradableAPI20TradableAuthDelegate13tradableReadyuRq_S0__Fq_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/tradableReady()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP11TradableAPI20TradableAuthDelegate13tradableReadyuRq_S0__Fq_FT_T_">tradableReady()</a>
+                    <a name="/s:vC11TradableAPI19TradableMarginBands11marginBandsGSaCS_18TradableMarginBand_"></a>
+                    <a name="//apple_ref/swift/Property/marginBands" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI19TradableMarginBands11marginBandsGSaCS_18TradableMarginBand_">marginBands</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -259,14 +259,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A delegate hook for knowing when the API methods are ready to be used. Called when the access token has been updated.</p>
+                        <p>A list of margin bands.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableReady</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">marginBands</span><span class="p">:[</span><span class="kt">TradableMarginBand</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
 
                         </div>
                       </div>
@@ -276,9 +276,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP11TradableAPI20TradableAuthDelegate27tradableAuthenticationErroruRq_S0__Fq_FCS_13TradableErrorT_"></a>
-                    <a name="//apple_ref/swift/Method/tradableAuthenticationError(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP11TradableAPI20TradableAuthDelegate27tradableAuthenticationErroruRq_S0__Fq_FCS_13TradableErrorT_">tradableAuthenticationError(_:)</a>
+                    <a name="/s:vC11TradableAPI19TradableMarginBands11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI19TradableMarginBands11descriptionSS">description</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -286,36 +286,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A delegate hook for authentication error handling.</p>
+                        <p>Simple description of this object.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">tradableAuthenticationError</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span><span class="kt">String</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>error</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A TradableError object that contains detailed information about the error.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
