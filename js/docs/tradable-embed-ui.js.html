@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
-    <title>tradable-embed-ui 1.11</title>
+    <title>tradable-embed-ui 1.12</title>
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/docs.css">
@@ -63,7 +63,7 @@
     </div>
     <header id="overview" class="jumbotron subhead">
       <div class="container">
-        <h1>tradable-embed-ui 1.11</h1>
+        <h1>tradable-embed-ui 1.12</h1>
         <p class="lead"></p>
       </div>
     </header>
@@ -88,7 +88,7 @@
 <p>There are 2 ways to add tradable-embed-ui to your site. In both approaches we use jQuery in no coflict mode (<a href="https://api.jquery.com/jquery.noconflict/">what?</a>) and we assign it to the variable &#39;trEmbJQ&#39;.</p><p>The recommended approach is to link the JS file that we generate for your app, if you do, the global configuration will be automatically handled:</p><pre>&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="//js-api.tradable.com/app/<i>your-app-id</i>.js"&gt;&lt;/script&gt;</pre>
 
-<p>Alternatively, if you want to maintain the configuration yourself, you can define the configuration object and link tradable-embed-ui directly:</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot;&gt; <br> window.tradableEmbedConfig = {&quot;appId&quot;: <i>your-app-id</i>};<br>&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;//js-api.tradable.com/ui/1.11/tradable-embed-ui.min.js&quot;&gt;&lt;/script&gt;</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
+<p>Alternatively, if you want to maintain the configuration yourself, you can define the configuration object and link tradable-embed-ui directly:</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot;&gt; <br> window.tradableEmbedConfig = {&quot;appId&quot;: <i>your-app-id</i>};<br>&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; src=&quot;//js-api.tradable.com/ui/1.12/tradable-embed-ui.min.js&quot;&gt;&lt;/script&gt;</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
           <div class="description"><h1>Bottom Banner</h1><p>Adding the Tradable Embed UI script to your page will automatically add our bottom banner with the trader&#39;s dashboard &amp; portfolio. If you are in the auto configuration mode and you want to turn it off, you just need to tell us.<br />On the other hand, if you manage the configuration, you need to add the following option in your tradableEmbedConfig object:</p><pre>&lt;script type="text/javascript"&gt; <br> window.tradableEmbedConfig = {"appId": <i>your-app-id</i>, <b>"showBottomBanner": false</b>};<br>&lt;/script&gt; </pre> </div>
           <div class="description"><h1>Watch List</h1> </div>
           <h5>Example</h5>
@@ -106,105 +106,138 @@
             <iframe width="100%" height="300" src="//codepen.io/tradableEmbed/embed/epozyx/?height=200&amp;theme-id=21042&amp;default-tab=html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
           <div class="description"><h1>Buttons</h1> </div>
-          <pre><code class="language-javascript">**/
-
-	// Get dependencies
-
- 	var instrumentHelper = require(&quot;./helpers/instrument-helper.js&quot;);
-	var trackingHelper = require(&quot;./helpers/tracking-helper.js&quot;);
-	var priceHelper = require(&quot;./helpers/price-helper.js&quot;);
-	var util = require(&quot;./helpers/util.js&quot;);
-
-	var svgResources = require(&quot;./ui/svg-resources.js&quot;);
-	var pulseAnimation = require(&quot;./ui/pulse-animation.js&quot;);
-	var numericField = require(&quot;./ui/numeric-field.js&quot;);
-	var notifications = require(&quot;./ui/notifications.js&quot;);
-
-	var tradeButtons = require(&quot;./embed/trade-buttons.js&quot;);
-	var bottomBanner = require(&quot;./embed/bottom-banner.js&quot;);
-	var tradeExecutor = require(&quot;./embed/trade-executor.js&quot;);
-	var tpSlPopup = require(&quot;./embed/tp-sl-popup.js&quot;);
-	var scraper = require(&quot;./embed/scraper.js&quot;);
-	var portfolioScraper = require(&quot;./embed/scraper.js&quot;);
-	var splashModal = require(&quot;./embed/splash-modal.js&quot;);
-	var orderEntry = require(&quot;./embed/order-entry.js&quot;);
-	var watchlist = require(&quot;./embed/watchlist.js&quot;);
-	var offlineWidgets = require(&quot;./embed/offline-widgets.js&quot;);
-	var dashboard = require(&quot;./embed/dashboard.js&quot;);
-	var portfolioBuilder = require(&quot;./embed/portfolio-builder.js&quot;);
-	var accountsController = require(&quot;./embed/accounts-controller.js&quot;);
-
-	// In order to avoid circular dependencies, some of them are set afterwards
-	orderEntry.initDependencies(bottomBanner, accountsController);
-	accountsController.initDependencies(watchlist, portfolioBuilder, orderEntry);
-	notifications.initDependencies(orderEntry);
-	util.initDependencies(trackingHelper);
-
-	var embedOptionsObj = {
-		showBottomBanner : true
-	};
-	if($('#tradable-embed-ui').length !== 0 &amp;&amp; $('#tradable-embed-ui').hasClass(&quot;tr-embed-bottom-banner-off&quot;)) {
-		embedOptionsObj.showBottomBanner = false;
-	} 
-	if(typeof tradableEmbedConfig !== &quot;undefined&quot;) {
-        if(tradableEmbedConfig.showBottomBanner !== undefined) {
-        	embedOptionsObj.showBottomBanner = tradableEmbedConfig.showBottomBanner;
-        }
-    }
-
-	var jsVersion = &quot;js-1.11&quot;;
-    var path = util.getJSPath();
-
-    var scripts = document.getElementsByTagName('script');
-	var lastScript = scripts[scripts.length-1];
-	var scriptName = lastScript.src;
-	var extension = &quot;.css&quot;;
-	if(scriptName.indexOf(&quot;min&quot;) !== -1) {
-		extension = &quot;.min.css&quot;;
-	}
-
-	//Require &amp; Inject all CSS
-
-	//injectCSS('robotoFont', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=latin');
-	injectCSS('robotoFont', path + 'ext/roboto/tradable_roboto.css');
-
-	require(&quot;../css/dev_css/tradable-embed-reset.css&quot;);
-	require(&quot;../ext/jquery-ui.min.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-splash-modal.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-core.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-ext.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-portfolio.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-watch-list.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-dashboard.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-order-entry.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-bottom-banner.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-tp-sl-popup.css&quot;);
-	require(&quot;../css/dev_css/tradable-embed-portfolio-popup.css&quot;);
-
-	// Uses a regular expresiion to find out if the responsive mode needs to be started
-	initializeResponsiveOrNormalMode();
-
-	// This will change the css according to the screen width
-	var parent = this;
-	$(window).resize(function() {
-		adjustStyle($(this).width());
-	});
-	
-	// Load Library requirements
-	$.when($.getScript(path + &quot;ext/tr-embed-jquery-ui.js&quot;))
-	  .done(function( script, textStatus ) {
-		console.log('jQuery UI dynamically loaded');
-		adjustStyle($(parent).width());
-		initializeUI();
-	  }).fail(function( jqxhr, settings, exception ) {
-		console.error('Error dynamically loading jQuery UI');
-	});
-	
-	///  Extensions to tradableEmbed  ///</code></pre>
           <h5>Example</h5>
           <p>
             <iframe width="100%" height="300" src="//codepen.io/tradableEmbed/embed/WQWxvE/?height=250&amp;theme-id=21042&amp;default-tab=html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
           </p>
+          <div class="description"><h1>Broker Sign In Buttons</h1> </div>
+          <h5>Example</h5>
+          <p>
+            <iframe width="100%" height="300" src="//codepen.io/tradableEmbed/embed/bpEWra/?height=250&amp;theme-id=21042&amp;default-tab=html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+          </p>
+          <div class="description"> </div>
+          <pre><code class="language-javascript">// Get dependencies
+
+ 	var instrumentHelper = require(&quot;./helpers/instrument-helper.js&quot;);
+var trackingHelper = require(&quot;./helpers/tracking-helper.js&quot;);
+var priceHelper = require(&quot;./helpers/price-helper.js&quot;);
+var util = require(&quot;./helpers/util.js&quot;);
+var userStorage = require(&quot;./helpers/user-storage.js&quot;);
+var emailHelper = require(&quot;./helpers/email-helper.js&quot;);
+
+var svgResources = require(&quot;./ui/svg-resources.js&quot;);
+var pulseAnimation = require(&quot;./ui/pulse-animation.js&quot;);
+var numericField = require(&quot;./ui/numeric-field.js&quot;);
+var notifications = require(&quot;./ui/notifications.js&quot;);
+
+var tradeButtons = require(&quot;./embed/trade-buttons.js&quot;);
+var bottomBanner = require(&quot;./embed/bottom-banner.js&quot;);
+var tradeExecutor = require(&quot;./embed/trade-executor.js&quot;);
+var tpSlPopup = require(&quot;./embed/tp-sl-popup.js&quot;);
+var scraper = require(&quot;./embed/scraper.js&quot;);
+var portfolioScraper = require(&quot;./embed/portfolio-scraper.js&quot;);
+var splashModal = require(&quot;./embed/splash-modal.js&quot;);
+var orderEntry = require(&quot;./embed/order-entry.js&quot;);
+var watchlist = require(&quot;./embed/watchlist.js&quot;);
+var offlineWidgets = require(&quot;./embed/offline-widgets.js&quot;);
+var dashboard = require(&quot;./embed/dashboard.js&quot;);
+var portfolioBuilder = require(&quot;./embed/portfolio-builder.js&quot;);
+var accountsController = require(&quot;./embed/accounts-controller.js&quot;);
+var tradeEnablePopup = require(&quot;./embed/trade-enable-popup.js&quot;);
+var authController = require(&quot;./embed/auth-controller.js&quot;);
+
+// In order to avoid circular dependencies, some of them are set afterwards
+orderEntry.initDependencies(bottomBanner, accountsController);
+accountsController.initDependencies(watchlist, portfolioBuilder, orderEntry);
+notifications.initDependencies(orderEntry);
+util.initDependencies(trackingHelper);
+tradeEnablePopup.initDependencies(util, orderEntry, splashModal, authController);
+emailHelper.initDependencies(trackingHelper);
+authController.initDependencies(trackingHelper, tradeEnablePopup);
+
+tradableEmbed.options = {
+	showBottomBanner : true,
+	showEmailPopup : true
+};
+if($('#tradable-embed-ui').length !== 0 &amp;&amp; $('#tradable-embed-ui').hasClass(&quot;tr-embed-bottom-banner-off&quot;)) {
+	tradableEmbed.options.showBottomBanner = false;
+} 
+if(typeof tradableEmbedConfig !== &quot;undefined&quot;) {
+        if(tradableEmbedConfig.showBottomBanner !== undefined) {
+        	tradableEmbed.options.showBottomBanner = tradableEmbedConfig.showBottomBanner;
+        }
+        if(tradableEmbedConfig.showEmailPopup !== undefined) {
+        	tradableEmbed.options.showEmailPopup = tradableEmbedConfig.showEmailPopup;
+        }
+    }
+
+var jsVersion = &quot;js-1.12&quot;;
+    var path = util.getJSPath();
+
+    var scripts = document.getElementsByTagName('script');
+var lastScript = scripts[scripts.length-1];
+var scriptName = lastScript.src;
+var extension = &quot;.css&quot;;
+if(scriptName.indexOf(&quot;min&quot;) !== -1) {
+	extension = &quot;.min.css&quot;;
+}
+
+//Require &amp; Inject all CSS
+
+//injectCSS('robotoFont', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=latin');
+injectCSS('robotoFont', path + 'ext/roboto/tradable_roboto.css');
+
+require(&quot;../css/dev_css/tradable-embed-reset.css&quot;);
+require(&quot;../ext/jquery-ui.min.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-splash-modal.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-core.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-trade-buttons.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-ext.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-portfolio.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-watch-list.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-dashboard.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-order-entry.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-bottom-banner.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-tp-sl-popup.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-portfolio-popup.css&quot;);
+require(&quot;../css/dev_css/tradable-embed-trade-enable-popup.css&quot;);
+
+//Require all HTML
+
+dashboard.setHTML(require(&quot;html!../html/dashboard.html&quot;), require(&quot;html!../html/dashboard-vertical.html&quot;));
+watchlist.setHTML(require(&quot;html!../html/watch-list.html&quot;));
+bottomBanner.setHTML(require(&quot;html!../html/bottom-banner.html&quot;),require(&quot;html!../html/bottom-banner-unauth.html&quot;));
+orderEntry.setHTML(require(&quot;html!../html/order-entry.html&quot;));
+portfolioBuilder.setHTML(require(&quot;html!../html/positions.html&quot;), require(&quot;html!../html/orders.html&quot;), 
+						 require(&quot;html!../html/positions-vertical.html&quot;), require(&quot;html!../html/orders-vertical.html&quot;));
+portfolioScraper.setHTML(require(&quot;html!../html/portfolio-scraper.html&quot;));
+splashModal.setHTML(require(&quot;html!../html/splash-modal.html&quot;), require(&quot;html!../html/enable-trading-modal.html&quot;));
+tpSlPopup.setHTML(require(&quot;html!../html/tradable-embed-tp-sl-popup.html&quot;));
+notifications.setHTML(require(&quot;html!../html/trade-prompt.html&quot;));
+tradeEnablePopup.setHTML(require(&quot;html!../html/trade-enable-popup.html&quot;));
+
+// Uses a regular expresiion to find out if the responsive mode needs to be started
+initializeResponsiveOrNormalMode();
+
+// This will change the css according to the screen width
+var parent = this;
+$(window).resize(function() {
+	adjustStyle($(this).width());
+});
+
+// Load Library requirements
+$.when($.getScript(path + &quot;ext/tr-embed-jquery-ui.js&quot;))
+  .done(function( script, textStatus ) {
+	console.log('jQuery UI ready');
+	$(document).ready(function() {
+		adjustStyle($(parent).width());
+		initializeUI();
+	});
+}).fail(function( jqxhr, settings, exception ) {
+	console.error('Error dynamically loading jQuery UI');
+});
+
+///  Extensions to tradableEmbed  ///</code></pre>
           <section id="promptOrderEntry">
             <h1>promptOrderEntry</h1>
             <h5 class="subheader"></h5>
@@ -235,17 +268,12 @@
           </table>
           <div class="description"><p>Opens the order entry light box in the center of the window - This method can be called when trading is not enabled too and an information message will be diplayed.</p> </div>
           <pre><code class="language-javascript">tradableEmbed.promptOrderEntry = function(symbol, options) {
-    	if(!$(&quot;.tr-embed-modal-overlay&quot;).length) {
-			$(&quot;#trEmbedUIEnableTradingModal&quot;).append(&quot;&lt;div class='tr-embed tr-embed-modal-overlay'&gt;&lt;/div&gt;&quot;);
-			$('.tr-embed-modal-overlay').transition({ opacity: .7 }, 100); // Using jQuery transit for CSS3 animations
-    	}
-    	
-    	if(!tradableEmbed.tradingEnabled) {
-    		orderEntry.adjustModalLocation();
-    		splashModal.openEnableTradingModal();
-    	} else {
-    		orderEntry.openOrderEntryModal(symbol, options);
-    	}
+	if(!tradableEmbed.tradingEnabled) {
+		authController.enableTradingAndOpenOrderEntry(symbol, options);
+	} else {
+		util.showOverlay();
+		orderEntry.openOrderEntryModal(symbol, options);
+	}
 	};</code></pre>
           <section id="scrapeContent">
             <h1>scrapeContent</h1>
@@ -279,7 +307,8 @@
 ///  Initialize UI  ///
 
 function initializeUI() {
-	console.log('Initializing tradableEmbedUI');
+	console.log('Loading Embed UI');
+	$(&quot;body&quot;).append(&quot;&lt;div id='trEmbedUI' class='tr-embed'&gt;&lt;/div&gt;&quot;);
 
 	notifications.initializeNotifications();
 	
@@ -287,26 +316,35 @@ function initializeUI() {
 	orderEntry.buildOrderEntryModal();
 	tpSlPopup.buildTPSLPopup();
 	tradeButtons.initializeTradeButtons();
+	tradeEnablePopup.initialize();
 
 	trackingHelper.trackPage();
 	tradableEmbed.onEmbedReady(function () {
-		console.log(&quot;Initializing Tradable Components... &quot;);
+		console.log(&quot;Initializing Embed UI&quot;);
 		
 		orderEntry.setCurrentModeOnPlaceOrderButton();
 
 		if(tradableEmbed.tradingEnabled) {
-			trackingHelper.initTracking();
 			tradingEnabled();
 		} else {
 			scraper.clearLinks();
 			tradingNotEnabled();
 		}
-		bottomBanner.buildBottomBanner(embedOptionsObj.showBottomBanner, tradableEmbed.responsiveMode);
+
+		tradeButtons.refreshButtonsState();
+		
+		bottomBanner.buildBottomBanner(tradableEmbed.options.showBottomBanner, tradableEmbed.responsiveMode);
 		dashboard.buildDashboard();
 		portfolioBuilder.buildPortfolioWidget();
 		watchlist.buildWatchList();
 
 		scraper.executePageScraper();
+	});
+
+	tradableEmbed.onAccountSwitch(function() {
+		userStorage.accountSwitch();
+		accountsController.handleExternalAccountSwitch(tradableEmbed.selectedAccount.uniqueId);
+		tradeButtons.refreshButtonsState();
 	});
 
 	tradableEmbed.onError(function(err) {
@@ -316,57 +354,50 @@ function initializeUI() {
 
 var scheduledTradePrompt;
 function tradingEnabled(){
-	$(document).ready(function() {
-		var trEnabled = localStorage.getItem(&quot;uiTradingEnabled&quot;);
-		if(!trEnabled &amp;&amp; util.isLocalStorageSupported()) {
-			localStorage.setItem(&quot;uiTradingEnabled&quot;, &quot;uiTradingEnabled&quot;);
-		}
-		trackingHelper.trackEvent('Trading Enabled');
+	trackingHelper.initTracking();
+	userStorage.accountSwitch();
 
-		tradeButtons.initializeAuthTradeEnableButton();
-		
-		// Add widget update listener
-		tradableEmbed.onAccountUpdated(function(account) {
-			if(!!account) {
-				if(dashboard.dashboardVertical !== undefined) {
-					dashboard.setSnapshotValuesOnDashboard(account);
-				}
-				if(portfolioBuilder.portfolioVertical !== undefined) {
-					portfolioBuilder.initializeOrUpdateRows(account);
-				}
-				if(watchlist.watchListVertical !== undefined) {
-					watchlist.updatePricesOnWatchList(account.prices);
-				}
-				if(bottomBanner.bottomBannerShowing) {
-					portfolioBuilder.initializeOrUpdateRows(tradableEmbed.lastSnapshot, true, &quot;positions&quot;);
-					portfolioBuilder.initializeOrUpdateRows(tradableEmbed.lastSnapshot, true, &quot;orders&quot;);
-				}
-				bottomBanner.setSnapshotValuesOnBottomBanner(account);
+	userStorage.tradingEnabled();
+	trackingHelper.trackEvent('Trading Enabled');
+	
+	// Add widget update listener
+	tradableEmbed.onAccountUpdated(function(account) {
+		if(!!account) {
+			if(dashboard.dashboardVertical !== undefined) {
+				dashboard.setSnapshotValuesOnDashboard(account);
 			}
-		});
-
-		if(!tradableEmbed.responsiveMode &amp;&amp; !scheduledTradePrompt) {
-			// New user trade prompt
-			notifications.scheduleNewUserTradePromptIfNeeded();
-			scheduledTradePrompt = true;
+			if(portfolioBuilder.portfolioVertical !== undefined) {
+				portfolioBuilder.initializeOrUpdateRows(account);
+			}
+			if(watchlist.watchListVertical !== undefined) {
+				watchlist.updatePricesOnWatchList(account.prices);
+			}
+			if(bottomBanner.bottomBannerShowing) {
+				portfolioBuilder.initializeOrUpdateRows(tradableEmbed.lastSnapshot, true, &quot;positions&quot;);
+				portfolioBuilder.initializeOrUpdateRows(tradableEmbed.lastSnapshot, true, &quot;orders&quot;);
+			}
+			bottomBanner.setSnapshotValuesOnBottomBanner(account);
 		}
 	});
+
+	if(!tradableEmbed.responsiveMode &amp;&amp; !scheduledTradePrompt) {
+		// New user trade prompt
+		notifications.scheduleNewUserTradePromptIfNeeded();
+		scheduledTradePrompt = true;
+	}
 }
 
 function tradingNotEnabled(){
-        $(document).ready(function() {
-        	tradeButtons.initializeUnauthTradeEnableButton();
+	if($(&quot;#tr-embed-dashboard&quot;).length) {
+		$(&quot;#tr-embed-dashboard&quot;).empty();
+	}
+	if($(&quot;#tr-embed-portfolio&quot;).length) {
+		$(&quot;#tr-embed-portfolio&quot;).empty();
+	}
+	if($(&quot;#tr-embed-watch-list&quot;).length) {
+		$(&quot;#tr-embed-watch-list&quot;).empty();
+	}
 
-		if($(&quot;#tr-embed-dashboard&quot;).length) {
-			$(&quot;#tr-embed-dashboard&quot;).empty();
-		}
-		if($(&quot;#tr-embed-portfolio&quot;).length) {
-			$(&quot;#tr-embed-portfolio&quot;).empty();
-		}
-		if($(&quot;#tr-embed-watch-list&quot;).length) {
-			$(&quot;#tr-embed-watch-list&quot;).empty();
-		}
-        });
         orderEntry.stopQuotesTimer();
     }
 
@@ -395,7 +426,6 @@ function tradingNotEnabled(){
 ///  Adjusting styles according to size  ///
 
     function adjustStyle(width) {
-
 	// Adjust widget styles
 
 	dashboard.adjustDashboardStyle();
