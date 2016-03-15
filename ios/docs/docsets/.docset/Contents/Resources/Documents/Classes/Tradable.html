@@ -109,6 +109,9 @@
                 <a href="../Classes/TradableLastSessionClose.html">TradableLastSessionClose</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableLastSessionCloseRequest.html">TradableLastSessionCloseRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableMarginBand.html">TradableMarginBand</a>
               </li>
               <li class="nav-group-task">
@@ -711,9 +714,9 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable19getLastSessionCloseFS0_FTCS_15TradableAccount7symbolsGSaSS_10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_"></a>
-                    <a name="//apple_ref/swift/Method/getLastSessionClose(_:symbols:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable19getLastSessionCloseFS0_FTCS_15TradableAccount7symbolsGSaSS_10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_">getLastSessionClose(_:symbols:completion:)</a>
+                    <a name="/s:FC11TradableAPI8Tradable19getLastSessionCloseFS0_FTCS_15TradableAccount23lastSessionCloseRequestCS_31TradableLastSessionCloseRequest10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getLastSessionClose(_:lastSessionCloseRequest:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable19getLastSessionCloseFS0_FTCS_15TradableAccount23lastSessionCloseRequestCS_31TradableLastSessionCloseRequest10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_">getLastSessionClose(_:lastSessionCloseRequest:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -721,14 +724,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the last session&rsquo;s close price for given symbols.</p>
+                        <p>Gets the last session&rsquo;s close price for given symbols and timestamp.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLastSessionClose</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbols</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">lastSessionClose</span><span class="p">:[</span><span class="kt">TradableLastSessionClose</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLastSessionClose</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">lastSessionCloseRequest</span><span class="p">:</span> <span class="kt">TradableLastSessionCloseRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">lastSessionClose</span><span class="p">:[</span><span class="kt">TradableLastSessionClose</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -744,7 +747,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The account for which the prices should be retrieved.</p>
+                                  <p>The account for which the last session close prices should be retrieved.</p>
 
                                 </div>
                               </td>
@@ -752,12 +755,12 @@ When the access token is successfully created, tradableReady auth delegate metho
                             <tr>
                               <td>
                                 <code>
-                                <em>symbols</em>
+                                <em>lastSessionCloseRequest</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The list symbol for which the close prices should be retrieved.</p>
+                                  <p>The request to be made.</p>
 
                                 </div>
                               </td>
@@ -3816,7 +3819,7 @@ When the access token is successfully created, tradableReady auth delegate metho
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-02-29)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-03-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
