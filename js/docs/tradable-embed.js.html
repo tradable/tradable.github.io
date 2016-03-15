@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
-    <title>tradable-embed-core 1.13</title>
+    <title>tradable-embed-core 1.14</title>
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
     <link rel="stylesheet" href="//getbootstrap.com/2.3.2/assets/css/docs.css">
@@ -63,7 +63,7 @@
     </div>
     <header id="overview" class="jumbotron subhead">
       <div class="container">
-        <h1>tradable-embed-core 1.13</h1>
+        <h1>tradable-embed-core 1.14</h1>
         <p class="lead"></p>
       </div>
     </header>
@@ -96,6 +96,10 @@
               <li><a href="#enableWithAccessToken"><i class="alert alert-info"></i><span>enableWithAccessToken</span></a>
               </li>
               <li><a href="#signOut"><i class="alert alert-info"></i><span>signOut</span></a>
+              </li>
+              <li><a href="#on"><i class="alert alert-info"></i><span>on</span></a>
+              </li>
+              <li><a href="#off"><i class="alert alert-info"></i><span>off</span></a>
               </li>
               <li><a href="#onEmbedReady"><i class="alert alert-info"></i><span>onEmbedReady</span></a>
               </li>
@@ -251,7 +255,7 @@
         <div class="span9">
           <div class="description"><p>Welcome to the tradable-embed documentation. Tradable Embed is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the tradable-embed javascript SDK, which offers 2 kits:</p><ul><li><b>core</b>: Lightweight wrapper of the Tradable Embed API that will make the integration with Tradable Embed API really easy.</li><li><b>ui-kit</b>: See <a href='tradable-embed-ui.js.html'>here</a> (optional)</li></ul>
 
-<p>In order to use the tradable-embed core, you need to include the following scripts in your site. We use jQuery in no coflict mode (<a href="https://api.jquery.com/jquery.noconflict/">what?</a>) and we assign it to the variable &#39;trEmbJQ&#39;:</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; id=&quot;tradable-embed&quot; src=&quot;//js-api.tradable.com/core/1.13/tradable-embed.min.js&quot; data-app-id=&quot;{your_app_id}&quot; <i>data-redirect-uri=&quot;optional-custom-redirect-uri&quot;</i>&gt;&lt;/script&gt;</pre><br />Alternatively, you can require our <a href="https://www.npmjs.com/package/tradable-embed-core">npm module</a></p><p><pre>npm install tradable-embed-core</pre><br />If you do, you will have to define the tradableEmbedConfig object before requiring the module:</p><p><pre>window.tradableEmbedConfig = {&quot;appId&quot;: <i>your-app-id</i>, <i>&quot;redirectURI&quot;: &quot;optional-custom-redirect-uri&quot;</i>};<br>require(&quot;tradable-embed-core&quot;)</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
+<p>In order to use the tradable-embed core, you need to include the following scripts in your site. We use jQuery in no coflict mode (<a href="https://api.jquery.com/jquery.noconflict/">what?</a>) and we assign it to the variable &#39;trEmbJQ&#39;:</p><p><pre>&lt;script type=&quot;text/javascript&quot; src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;<br />&lt;script type=&quot;text/javascript&quot; id=&quot;tradable-embed&quot; src=&quot;//js-api.tradable.com/core/1.14/tradable-embed.min.js&quot; data-app-id=&quot;{your_app_id}&quot; <i>data-redirect-uri=&quot;optional-custom-redirect-uri&quot;</i>&gt;&lt;/script&gt;</pre><br />Alternatively, you can require our <a href="https://www.npmjs.com/package/tradable-embed-core">npm module</a></p><p><pre>npm install tradable-embed-core</pre><br />If you do, you will have to define the tradableEmbedConfig object before requiring the module:</p><p><pre>window.tradableEmbedConfig = {&quot;appId&quot;: <i>your-app-id</i>, <i>&quot;redirectURI&quot;: &quot;optional-custom-redirect-uri&quot;</i>};<br>require(&quot;tradable-embed-core&quot;)</pre><br /><b>NOTE! The oauth flow doesn&#39;t work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the &quot;Edit on Codepen&quot; link</b></p> </div>
           <pre><code class="language-javascript">**/
 
     // Avoid console errors when not supported
@@ -259,13 +263,16 @@
         global.console = { log: function() {} };
     }
 
-    var jsVersion = &quot;js-1.13&quot;;
+    var jsVersion = &quot;js-1.14&quot;;
     var appId;
     var redirectUrl = location.href;
     var customOAuthUrl;
+    var customOAuthHost;
+    // Initialize config
     if(typeof tradableEmbedConfig !== &quot;undefined&quot;) {
         appId = tradableEmbedConfig.appId;
         customOAuthUrl = tradableEmbedConfig.customOAuthURL;
+        customOAuthHost = tradableEmbedConfig.customOAuthHost;
         if(!!tradableEmbedConfig.redirectURI) {
             redirectUrl = tradableEmbedConfig.redirectURI;
         }
@@ -276,18 +283,25 @@
         }
         appId = $('#'+scriptId).attr(&quot;data-app-id&quot;);
         customOAuthUrl = $('#'+scriptId).attr(&quot;data-custom-oauth-url&quot;); // Just for testing purposes
+        customOAuthHost = $('#'+scriptId).attr(&quot;data-custom-oauth-host&quot;);
         var rURI = $('#'+scriptId).attr(&quot;data-redirect-uri&quot;);
         if(!!rURI) {
             redirectUrl = rURI;
         }
     }
+    // URI encode the redirectUrl
+    redirectUrl = encodeURIComponent(redirectUrl);
 
-    var oauthHost = &quot;api.tradable.com&quot;;
+    var oauthHost = &quot;api.tradable.com/&quot;;
     if(appId &gt; 200000) { // Staging app-id
-        oauthHost = &quot;api-staging.tradable.com&quot;;
+        oauthHost = &quot;api-staging.tradable.com/&quot;;
         console.log(&quot;Starting in staging mode...&quot;);
     }
-    var oauthURL = 'https://'+oauthHost+'/oauth/authorize?client_id='+appId+'&amp;scope=trade&amp;response_type=token&amp;redirect_uri='+redirectUrl;
+    if(!!customOAuthHost) {
+        oauthHost = customOAuthHost;
+    }
+    var defaultOAuthURL = 'https://'+oauthHost+'oauth/authorize?client_id='+appId+'&amp;scope=trade&amp;response_type=token&amp;redirect_uri='+redirectUrl;
+    var oauthURL = (!customOAuthUrl) ? defaultOAuthURL : customOAuthUrl;
 
     var token = localStorage.getItem(&quot;accessToken:&quot;+appId);
     var authEndpoint = localStorage.getItem(&quot;authEndpoint:&quot;+appId);
@@ -300,6 +314,9 @@
             localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradingEnabled);
         }
     }
+
+    var availableEvents = [&quot;embedReady&quot;, &quot;accountUpdated&quot;, &quot;accountSwitch&quot;, &quot;tokenExpired&quot;, &quot;tokenWillExpire&quot;, &quot;error&quot;];
+    var callbackHolder = {};
     var accountSwitchCallbacks = [];
     var accountUpdatedCallbacks = [];
     var accountUpdatedCallbackHashes = [];
@@ -312,11 +329,10 @@
     var tradableEmbed = {
         app_id: appId,
         oauth_host: oauthHost,
-        auth_loc: (!customOAuthUrl) ? oauthURL : customOAuthUrl,
-        add_broker_loc: 'https://'+oauthHost+'/addBroker?clientId='+appId+'&amp;redirectURI='+redirectUrl,
-        login_page_loc: oauthURL + '&amp;showLogin=true',
+        auth_loc: oauthURL,
+        login_loc : oauthURL + '&amp;showLogin=true',
         approval_page_loc : oauthURL + '&amp;showApproval=true',
-        broker_signup_loc : 'https://' + oauthHost + '/brokerSignup',
+        broker_signup_loc : 'https://' + oauthHost + 'brokerSignup?client_id='+appId+'&amp;redirect_uri='+redirectUrl,
         auth_window: null,
         authEndpoint : authEndpoint,
         accessToken : token,
@@ -332,6 +348,7 @@
           <pre><code class="language-javascript">tradingEnabled : tradingEnabled,
 expirationTimeUTC : expirationTimeUTC,
 readyCallbacks : [],
+allAccounts : [],
 accounts : [],
 accountIdsToExclude : [],
 accountMap: {},
@@ -343,7 +360,6 @@ availableSymbols : [],
 availableCurrencies : [],
 lastSnapshot: null,
 symbolKeysForAccountUpdates: [],
-accountUpdateInterval: null,
 accountUpdateMillis: 700,</code></pre>
           <section id="authenticate">
             <h1>authenticate</h1>
@@ -370,9 +386,8 @@ accountUpdateMillis: 700,</code></pre>
           </table>
           <div class="description"><p>Start oauth flow within the page</p> </div>
           <pre><code class="language-javascript">authenticate: function (brokerId) {
-    console.log(&quot;Starting oauth flow...&quot;);
     if (!tradableEmbed.tradingEnabled){
-        location.href = getAuthUrl(brokerId);
+        tradableEmbed.openOAuthPage(&quot;AUTHENTICATE&quot;, true, brokerId);
     } else {
         validateToken();
     }
@@ -402,12 +417,7 @@ accountUpdateMillis: 700,</code></pre>
           </table>
           <div class="description"> </div>
           <pre><code class="language-javascript">authenticateWithWindow: function (brokerId){
-    if(ie()) {
-        console.log('Window opener no supported in IE, redirecting to oauth...');
-        return tradableEmbed.authenticate(brokerId);
-    }
-    console.log(&quot;Opening oauth window...&quot;);
-    tradableEmbed.auth_window = popupwindow(getAuthUrl(brokerId), 'osLaunch');
+    tradableEmbed.openOAuthPage(&quot;AUTHENTICATE&quot;, false, brokerId);
 },</code></pre>
           <section id="showLoginPage">
             <h1>showLoginPage</h1>
@@ -416,9 +426,25 @@ accountUpdateMillis: 700,</code></pre>
               <div class="label label-info radius ctx-type">method</div><span>showLoginPage()</span>
             </p>
           </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>brokerId(optional)</td>
+                <td>long</td>
+                <td><p>If the login page needs to be opened for a certain broker, this is the id (v1/brokers)</p></td>
+              </tr>
+            </tbody>
+          </table>
           <div class="description"><p>Redirect to the Tradable Login page</p> </div>
-          <pre><code class="language-javascript">showLoginPage: function () {
-    tradableEmbed.openOAuthPage(&quot;LOGIN&quot;, true);
+          <pre><code class="language-javascript">showLoginPage: function (brokerId) {
+    tradableEmbed.openOAuthPage(&quot;LOGIN&quot;, true, brokerId);
 },</code></pre>
           <section id="showLoginPageInWindow">
             <h1>showLoginPageInWindow</h1>
@@ -427,9 +453,25 @@ accountUpdateMillis: 700,</code></pre>
               <div class="label label-info radius ctx-type">method</div><span>showLoginPageInWindow()</span>
             </p>
           </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>brokerId(optional)</td>
+                <td>long</td>
+                <td><p>If the login page needs to be opened for a certain broker, this is the id (v1/brokers)</p></td>
+              </tr>
+            </tbody>
+          </table>
           <div class="description"><p>Open the Tradable Login page in a popup window</p> </div>
-          <pre><code class="language-javascript">showLoginPageInWindow: function () {
-    tradableEmbed.openOAuthPage(&quot;LOGIN&quot;, false);
+          <pre><code class="language-javascript">showLoginPageInWindow: function (brokerId) {
+    tradableEmbed.openOAuthPage(&quot;LOGIN&quot;, false, brokerId);
 },</code></pre>
           <section id="showApprovalPage">
             <h1>showApprovalPage</h1>
@@ -475,18 +517,23 @@ accountUpdateMillis: 700,</code></pre>
           <pre><code class="language-javascript">showBrokerSignUpPageInWindow: function () {
     tradableEmbed.openOAuthPage(&quot;BROKER_SIGNUP&quot;, false);
 },
-openOAuthPage: function (type, redirect) {
-    var url = (type.toUpperCase() === &quot;LOGIN&quot;) ? tradableEmbed.login_page_loc :
+openOAuthPage: function (type, redirect, brokerId) {
+    var url = (type.toUpperCase() === &quot;AUTHENTICATE&quot;) ? tradableEmbed.auth_loc :
+              (type.toUpperCase() === &quot;LOGIN&quot;) ? tradableEmbed.login_loc :
               (type.toUpperCase() === &quot;APPROVAL&quot;) ? tradableEmbed.approval_page_loc : 
               (type.toUpperCase() === &quot;BROKER_SIGNUP&quot;) ? tradableEmbed.broker_signup_loc : undefined;
     if(!url) {
-        console.error(&quot;Choose a correct type: LOGIN, APPROVAL or BROKER_SIGNUP&quot;);
+        console.error(&quot;Choose a correct type: AUTHENTICATE, LOGIN, APPROVAL or BROKER_SIGNUP&quot;);
         return;
     }
+    if(typeof brokerId !== &quot;undefined&quot;) {
+        url = url + &quot;&amp;broker_id=&quot; + brokerId;
+    }
+
     if((typeof redirect !== &quot;undefined&quot; &amp;&amp; redirect) || ie()) {
         location.href = url;
     } else {
-        var windowName = 'os' + type.toUpperCase();
+        var windowName = (type.toUpperCase() === &quot;BROKER_SIGNUP&quot;) ? 'osBrokerSignUp' : 'osLaunch';
         tradableEmbed.auth_window = popupwindow(url, windowName);
     }
 },</code></pre>
@@ -536,6 +583,7 @@ openOAuthPage: function (type, redirect) {
           </section>
           <div class="description"><p>Drops authentication token and notifies embed callbacks</p> </div>
           <pre><code class="language-javascript">signOut: function() {
+    internalSignOut();
     if(isLocalStorageSupported()) {
         localStorage.removeItem(&quot;accessToken:&quot;+appId);
         localStorage.removeItem(&quot;authEndpoint:&quot;+appId);
@@ -544,6 +592,128 @@ openOAuthPage: function (type, redirect) {
     }
     tradableEmbed.tradingEnabled = false;
     notifyReadyCallbacks();
+},
+isEventValid : function(eventName) {
+    return (typeof eventName === &quot;string&quot; &amp;&amp; $.inArray(eventName, availableEvents) !== -1);
+},</code></pre>
+          <section id="on">
+            <h1>on</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>on()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>namespace</td>
+                <td>String</td>
+                <td><p>A unique name that will identify your listener and that you will have to use to turn the listener off</p></td>
+              </tr>
+              <tr>
+                <td>eventName</td>
+                <td>String</td>
+                <td><p>The available events are &quot;embedReady&quot;, &quot;accountUpdated&quot;, &quot;accountSwitch&quot;, &quot;tokenExpired&quot;, &quot;tokenWillExpire&quot;, &quot;error&quot;</p></td>
+              </tr>
+              <tr>
+                <td>callback</td>
+                <td>Function</td>
+                <td><p>Event listener callback function</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Add an event listener with an specific name that can be turned off calling &#39;off&#39;.</p> </div>
+          <pre><code class="language-javascript">on : function(namespace, eventName, callback) {
+    if(!tradableEmbed.isEventValid(eventName)) {
+        console.error(&quot;Plase provide a valid eventName: &quot; + availableEvents);
+        return;
+    }
+
+    if(!callbackHolder[eventName]) {
+        // Initialize event callbacks
+        callbackHolder[eventName] = {};
+    }
+
+    // Check namespace validity
+    if(typeof namespace !== &quot;string&quot;) {
+        console.error(&quot;The given event namespace is invalid (needs to be a string)&quot;);
+        return;
+    } else if(typeof callbackHolder[eventName][namespace] !== &quot;undefined&quot;) {
+        console.error(&quot;The given event namespace is already taken, 'off' the event first to change it&quot;);
+        return;
+    }
+
+    // Check callback validity
+    if(typeof callback !== &quot;function&quot;) {
+        console.error(&quot;Please provide a valid callback function&quot;);
+        return;
+    }
+
+    switch(eventName) {
+        case &quot;embedReady&quot;:
+            tradableEmbed.initEmbedReady(callback);
+            break;
+        case &quot;accountUpdated&quot;:
+            tradableEmbed.initAccountUpdated();
+            break;
+        case &quot;tokenWillExpire&quot;:
+            tradableEmbed.initTokenWillExpire();
+            break;
+    }
+
+    callbackHolder[eventName][namespace] = callback;
+},</code></pre>
+          <section id="off">
+            <h1>off</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>off()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>namespace</td>
+                <td>String</td>
+                <td><p>The unique name that identifies your listener</p></td>
+              </tr>
+              <tr>
+                <td>eventName(optional)</td>
+                <td>String</td>
+                <td><p>The event&#39;s name, if not specified all events for the given namespace will be turned off</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Turn off an specific event listener with a namespace</p> </div>
+          <pre><code class="language-javascript">off : function(namespace, eventName) {
+    if(typeof eventName === &quot;undefined&quot;) {
+        for(var evtName in callbackHolder) {
+            if(namespace in callbackHolder[evtName]) {
+                delete callbackHolder[evtName][namespace];
+            }
+        }
+    } else if(tradableEmbed.isEventValid(eventName) &amp;&amp; !!callbackHolder[eventName] &amp;&amp; (namespace in callbackHolder[eventName])) {
+        delete callbackHolder[eventName][namespace];
+    }
+},
+initEmbedReady : function(callback) {
+    if(tradableEmbed.notifiedCallbacks) {
+        callback();
+    }
 },</code></pre>
           <section id="onEmbedReady">
             <h1>onEmbedReady</h1>
@@ -571,8 +741,12 @@ openOAuthPage: function (type, redirect) {
           <div class="description"><p>Main library state notifier, called every time the state of tradingEnabled changes</p> </div>
           <pre><code class="language-javascript">onEmbedReady : function (callback) {
     tradableEmbed.readyCallbacks.push(callback);
-    if(tradableEmbed.notifiedCallbacks) {
-        callback();
+    tradableEmbed.initEmbedReady(callback);
+},
+accountUpdateInterval: null,
+initAccountUpdated : function() {
+    if(tradableEmbed.accountUpdateInterval === null) {
+        tradableEmbed.accountUpdateInterval = setInterval(processAccountUpdate, tradableEmbed.accountUpdateMillis);
     }
 },</code></pre>
           <h5>Example</h5>
@@ -605,9 +779,7 @@ openOAuthPage: function (type, redirect) {
           <div class="description"><p>Gets notified with a new account snapshot every certain time (700 millis by default)</p> </div>
           <pre><code class="language-javascript">onAccountUpdated : function(callback) {
     if(!!callback) {
-        if(accountUpdatedCallbacks.length === 0) {
-            tradableEmbed.accountUpdateInterval = setInterval(processAccountUpdate, tradableEmbed.accountUpdateMillis);
-        }
+        tradableEmbed.initAccountUpdated();
         var callbackHash = hashCode(callback.toString());
         if($.inArray(callbackHash, accountUpdatedCallbackHashes) === -1) {
             accountUpdatedCallbacks.push(callback);
@@ -644,7 +816,7 @@ openOAuthPage: function (type, redirect) {
           </table>
           <div class="description"><p>Customize the frequency for account snapshot updates (onAccountUpdated)</p> </div>
           <pre><code class="language-javascript">setAccountUpdateFrequencyMillis: function(accUpdateMillis) {
-    if(!!accUpdateMillis &amp;&amp; accUpdateMillis &gt; 0) {
+    if(!!accUpdateMillis &amp;&amp; accUpdateMillis &gt; 0 &amp;&amp; typeof accUpdateMillis === &quot;number&quot;) {
         tradableEmbed.accountUpdateMillis = accUpdateMillis;
         if(!!tradableEmbed.accountUpdateInterval) {
             clearInterval(tradableEmbed.accountUpdateInterval);
@@ -819,6 +991,21 @@ openOAuthPage: function (type, redirect) {
     if($.inArray(callback, errorCallbacks) === -1) {
         errorCallbacks.push(callback);
     }
+},
+tokenWillExpireInterval : null,
+initTokenWillExpire : function() {
+    if(tradableEmbed.tokenWillExpireInterval === null) {
+        tradableEmbed.tokenWillExpireInterval = setInterval(processTokenWillExpire, 300000); // 5 minutes
+    }
+    function processTokenWillExpire() {
+        var remainingMillis = tradableEmbed.getRemainingTokenMillis();
+        if(!!remainingMillis &amp;&amp; remainingMillis &gt; 0 &amp;&amp; remainingMillis &lt; 1800000) { // 30 minutes
+            $(tokenWillExpireCallbacks).each(function(index, callback){
+                callback(remainingMillis);
+            });
+            notifyNamespaceCallbacks(&quot;tokenWillExpire&quot;, remainingMillis);
+        }
+    }
 },</code></pre>
           <section id="onTokenWillExpire">
             <h1>onTokenWillExpire</h1>
@@ -845,19 +1032,9 @@ openOAuthPage: function (type, redirect) {
           </table>
           <div class="description"><p>Gets called back every 5 minutes when the remaining token time is less than 30 minutes</p> </div>
           <pre><code class="language-javascript">onTokenWillExpire: function(callback) {
-    if(tokenWillExpireCallbacks.length === 0) {
-        setInterval(processTokenWillExpire, 300000); // 5 minutes
-    }
+    tradableEmbed.initTokenWillExpire();
     if($.inArray(callback, tokenWillExpireCallbacks) === -1) {
         tokenWillExpireCallbacks.push(callback);
-    }
-    function processTokenWillExpire() {
-        var remainingMillis = tradableEmbed.getRemainingTokenMillis();
-        if(!!remainingMillis &amp;&amp; remainingMillis &gt; 0 &amp;&amp; remainingMillis &lt; 1800000) { // 30 minutes
-            $(tokenWillExpireCallbacks).each(function(index, callback){
-                callback(remainingMillis);
-            });
-        }
     }
 },</code></pre>
           <section id="getRemainingTokenMillis">
@@ -875,6 +1052,7 @@ openOAuthPage: function (type, redirect) {
     return (tradableEmbed.expirationTimeUTC - new Date().getTime());
 },
 makeOsRequest : function (reqType, type, accountId, method, postData, resolve, reject){
+    var version = (reqType === &quot;internal&quot;) ? &quot;&quot; : &quot;v1/&quot;;
     var endpoint;
     if(reqType !== &quot;user&quot; &amp;&amp; reqType !== &quot;accounts&quot;) {
         endpoint = 'https://'+oauthHost;
@@ -888,12 +1066,17 @@ makeOsRequest : function (reqType, type, accountId, method, postData, resolve, r
     var ajaxPromise = $.ajax({
         type: type,
         beforeSend: function (request) {
-            request.setRequestHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + tradableEmbed.accessToken);
+            if(reqType !== &quot;internal&quot;) {
+                request.setRequestHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + tradableEmbed.accessToken);
+            }
             request.setRequestHeader(&quot;x-tr-embed-sdk&quot;, jsVersion);
         },
         crossDomain: true,
-        url: (!!accountId &amp;&amp; accountId.length &gt; 0) ? (endpoint+&quot;/v1/&quot;+reqType+&quot;/&quot;+accountId+&quot;/&quot;+method)
-                                                   : (endpoint+&quot;/v1/&quot;+reqType+&quot;/&quot;+method),
+        xhrFields: {
+            withCredentials: true
+        },
+        url: (!!accountId &amp;&amp; accountId.length &gt; 0) ? (endpoint + version + reqType + &quot;/&quot; + accountId + &quot;/&quot; + method)
+                                                   : (endpoint + version + reqType + &quot;/&quot; + method),
         contentType: &quot;application/json; charset=utf-8&quot;,
         data: (!!postData) ? JSON.stringify(postData) : undefined,
         dataType: 'json'
@@ -901,8 +1084,10 @@ makeOsRequest : function (reqType, type, accountId, method, postData, resolve, r
 
     ajaxPromise.then(function(){},
         function(jqXHR, message, error){
-            if(!!jqXHR.responseJSON &amp;&amp; (jqXHR.responseJSON.httpStatus === 403 || jqXHR.responseJSON.httpStatus === 502)) {
-                notifyTokenExpired();
+            if(!!jqXHR.responseJSON) {
+                if(jqXHR.responseJSON.httpStatus === 403 || jqXHR.responseJSON.httpStatus === 502) {
+                    notifyTokenExpired();
+                }
                 notifyErrorCallbacks(jqXHR.responseJSON);
             }
         });
@@ -962,9 +1147,10 @@ makeAccountRequest : function (type, accountId, method, postData, resolve, rejec
           <div class="description"><p>Sets the account unique id that will be used for account related API calls</p> </div>
           <pre><code class="language-javascript">setSelectedAccount : function (accountId, resolve, reject){
     if(!!tradableEmbed.accountMap[accountId]) {
+        tradableEmbed.lastSnapshot = undefined;
         tradableEmbed.selectedAccount = tradableEmbed.accountMap[accountId];
         tradableEmbed.selectedAccountId = accountId;
-        console.log('accountId is set to: ' + accountId);
+        console.log('New accountId is set');
         return initializeValuesForCurrentAccount(function() {
             if(isLocalStorageSupported()) {
                 localStorage.setItem(&quot;selectedAccount:&quot;+appId, accountId);
@@ -974,10 +1160,12 @@ makeAccountRequest : function (type, accountId, method, postData, resolve, rejec
             }
         },
         function(err) {
-            if(err.status === 502 || err.status === 403) {
+            if(err.status === 502 || err.status === 500 || err.status === 403) {
                 tradableEmbed.excludeCurrentAccount();
                 if(tradableEmbed.accounts.length &gt; 0) {
                     validateToken();
+                } else {
+                    tradableEmbed.signOut();
                 }
             }
             if(!!reject) {
@@ -1459,6 +1647,7 @@ createDemoAccount : function (type, resolve, reject) {
           <pre><code class="language-javascript">getAccounts : function (resolve, reject){
     var accountsPromise = tradableEmbed.makeAccountRequest(&quot;GET&quot;, &quot;&quot;, &quot;&quot;, null).then(function(data){
         tradableEmbed.accounts.splice(0, tradableEmbed.accounts.length);
+        tradableEmbed.allAccounts.splice(0, tradableEmbed.allAccounts.length);
         tradableEmbed.accountMap = {};
         $(data.accounts).each(function(index, account){
            if (!!account.uniqueId &amp;&amp; account.uniqueId !== &quot;NA&quot; &amp;&amp;
@@ -1466,6 +1655,7 @@ createDemoAccount : function (type, resolve, reject) {
                tradableEmbed.accounts.push(account);
                tradableEmbed.accountMap[account.uniqueId] = account;
            }
+           tradableEmbed.allAccounts.push(account);
         });
     });
 
@@ -4080,17 +4270,17 @@ makeCandleRequest : function (method, symbolsArray, resolve, reject, postObject)
 enableTrading : function(access_token, end_point, expires_in, set_latest_account){
     var deferred = new $.Deferred();
 
-    console.log(&quot;Activating TradableEmbed...&quot;);
+    console.log(&quot;Enabling Trading...&quot;);
+    tradableEmbed.tradingEnabled = false;
+    tradableEmbed.lastSnapshot = undefined;
 
     if(!!access_token &amp;&amp; !!end_point) {
         tradableEmbed.accessToken = access_token;
         tradableEmbed.authEndpoint = end_point;
-        tradableEmbed.tradingEnabled = true;
 
         if(isLocalStorageSupported()) {
             localStorage.setItem(&quot;accessToken:&quot;+appId, tradableEmbed.accessToken);
             localStorage.setItem(&quot;authEndpoint:&quot;+appId, tradableEmbed.authEndpoint);
-            localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
 
             if(!!expires_in) {
                 tradableEmbed.expirationTimeUTC = new Date().getTime() + (parseInt(expires_in) * 1000); //expires conversion
@@ -4117,12 +4307,9 @@ enableTrading : function(access_token, end_point, expires_in, set_latest_account
     function initializeLibrary(){
 var success = false;
 var opener = window.opener;
-if(!!opener &amp;&amp; window.name === &quot;osAddBroker&quot;) {
-    try {
-        opener.tradableEmbed.enableTrading(undefined, undefined, undefined, true);
-    } catch(err) {}
-    window.close(); // execution stops
-} else if(!!opener &amp;&amp; window.name === &quot;osLaunch&quot;){
+if(!!opener &amp;&amp; window.name === &quot;osBrokerSignUp&quot;) {
+    window.close();
+} else if(!!opener &amp;&amp; window.name === &quot;osLaunch&quot;) {
     var hashFragment = window.location.hash;
     if(hashFragment) {
         try {
@@ -4209,44 +4396,13 @@ return window.open(url, windowName, 'toolbar=no, titlebar=no, directories=no, st
     'scrollbars=no, resizable=no, copyhistory=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
     }
 
-    function notifyReadyCallbacks() {
-$(tradableEmbed.readyCallbacks).each(function(index, callback){
-    callback();
-});
-tradableEmbed.notifiedCallbacks = true;
-    }
-
-    function notifyTokenExpired() {
-tradableEmbed.tradingEnabled = false;
-if(isLocalStorageSupported()) {
-    localStorage.setItem(&quot;tradingEnabled:&quot;+appId, false);
-}
-$(tokenExpirationCallbacks).each(function(index, callback){
-    callback();
-});
-notifyReadyCallbacks();
-    }
-
-    function notifyErrorCallbacks(error) {
-$(errorCallbacks).each(function(index, callback){
-    callback(error);
-});
-    }
-
-    function notifyAccountSwitchCallbacks() {
-$(accountSwitchCallbacks).each(function(index, callback){
-    callback();
-});
-    }
-
     function initializeValuesForCurrentAccount(resolve, reject) {
-console.log('Initializing values for current account');
 var reset = false;
 if(tradableEmbed.tradingEnabled) {
     tradableEmbed.tradingEnabled = false;
     reset = true;
 }
-return tradableEmbed.getInstruments().then(function(acctInstruments){
+return tradableEmbed.getInstruments().then(function(acctInstruments) {
     tradableEmbed.availableCategories.splice(0, tradableEmbed.availableCategories.length);
     tradableEmbed.availableInstruments.splice(0, tradableEmbed.availableInstruments.length);
     tradableEmbed.availableSymbols.splice(0, tradableEmbed.availableSymbols.length);
@@ -4274,10 +4430,11 @@ return tradableEmbed.getInstruments().then(function(acctInstruments){
              tradableEmbed.availableCategories.push(instrument.type);
          }
     });
+    console.log('Instruments ready');
     if(reset) {
         tradableEmbed.tradingEnabled = true;
+        notifyAccountSwitchCallbacks();
     }
-    notifyAccountSwitchCallbacks();
     if(!!resolve &amp;&amp; typeof resolve === &quot;function&quot;) {
         return resolve(tradableEmbed.accounts);
     } else {
@@ -4325,7 +4482,13 @@ if(!!set_latest_account &amp;&amp; tradableEmbed.accounts.length &gt; account_qt
     accountId = tradableEmbed.accounts[accIdxToSelect].uniqueId;
 }
 tradableEmbed.setSelectedAccount(accountId, function() {
-    notifyReadyCallbacks();
+    if(!tradableEmbed.tradingEnabled) {
+        tradableEmbed.tradingEnabled = true;
+        if(isLocalStorageSupported()) {
+            localStorage.setItem(&quot;tradingEnabled:&quot;+appId, tradableEmbed.tradingEnabled);
+        }
+        notifyReadyCallbacks();
+    }
     deferred.resolve();
 }, function(error) {
     deferred.reject(error);
@@ -4334,8 +4497,19 @@ tradableEmbed.setSelectedAccount(accountId, function() {
 return deferred;
     }
 
+    // Notify events
+
+    function notifyReadyCallbacks() {
+$(tradableEmbed.readyCallbacks).each(function(index, callback) {
+    callback();
+});
+notifyNamespaceCallbacks(&quot;embedReady&quot;);
+tradableEmbed.notifiedCallbacks = true;
+    }
+
     function processAccountUpdate() {
-if(tradableEmbed.tradingEnabled &amp;&amp; !processingUpdate) {
+if(tradableEmbed.tradingEnabled &amp;&amp; !processingUpdate &amp;&amp;
+    (accountUpdatedCallbacks.length &gt; 0 || typeof callbackHolder[&quot;accountUpdated&quot;] !== undefined)) {
     processingUpdate = true;
     var symbolArray = [];
     $(tradableEmbed.symbolKeysForAccountUpdates).each(function(idx, elem) {
@@ -4349,10 +4523,53 @@ if(tradableEmbed.tradingEnabled &amp;&amp; !processingUpdate) {
         $.each(accountUpdatedCallbacks, function(idx, call) {
             call(account);
         });
+        notifyNamespaceCallbacks(&quot;accountUpdated&quot;, account);
         processingUpdate = false;
     }, function() {
         processingUpdate = false;
     });
+}
+    }
+
+    function notifyTokenExpired() {
+tradableEmbed.tradingEnabled = false;
+if(isLocalStorageSupported()) {
+    localStorage.setItem(&quot;tradingEnabled:&quot;+appId, false);
+}
+$(tokenExpirationCallbacks).each(function(index, callback) {
+    callback();
+});
+notifyNamespaceCallbacks(&quot;tokenExpired&quot;);
+notifyReadyCallbacks();
+    }
+
+    function notifyErrorCallbacks(error) {
+$(errorCallbacks).each(function(index, callback) {
+    callback(error);
+});
+notifyNamespaceCallbacks(&quot;error&quot;, error);
+    }
+
+    function notifyAccountSwitchCallbacks() {
+$(accountSwitchCallbacks).each(function(index, callback) {
+    callback();
+});
+notifyNamespaceCallbacks(&quot;accountSwitch&quot;);
+    }
+
+    function notifyNamespaceCallbacks(eventName, data) {
+if(tradableEmbed.isEventValid(eventName)) {
+    if(typeof callbackHolder[eventName] !== undefined) {
+        for(var namespace in callbackHolder[eventName]) {
+            if(typeof data !== &quot;undefined&quot;) {
+                callbackHolder[eventName][namespace](data);
+            } else {
+                callbackHolder[eventName][namespace]();
+            }
+        }
+    }
+} else {
+    console.error(&quot;Careful, can't notify '&quot; + eventName + &quot;', it's an invalid event name&quot;);
 }
     }
 
@@ -4368,6 +4585,25 @@ if(!!resolve || !!reject){
 } else {
     return deferred;
 }
+    }
+
+    function internalSignOut() {
+var deferred = new $.Deferred();
+
+if(!tradableEmbed.tradingEnabled 
+    || (tradableEmbed.selectedAccount.brokerId &lt; 0 &amp;&amp; tradableEmbed.allAccounts.length === 1)) {
+    deferred.resolve();
+    return deferred;
+}
+
+var signOutData = {tokenValue: tradableEmbed.accessToken};
+tradableEmbed.makeOsRequest(&quot;internal&quot;, &quot;POST&quot;, &quot;&quot;, &quot;signOut&quot;, signOutData).then(function() {
+    deferred.resolve();
+}, function() {
+    deferred.reject();
+});
+
+return deferred;
     }
 
     function getAuthUrl(brokerId) {
