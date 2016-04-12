@@ -399,7 +399,7 @@
                       <div class="abstract">
                         <p>A method used to create and/or activate DEMO accounts.
 Tries to activate Tradable SDK with the last known tokens; if fails, falls back to creating a demo account.
-If the current tokens exist and are not expired, the SDK uses the current tokens for the session. Otherwise tries to restore previous session&rsquo;s tokens and use them for the current session. If those tokens are expired, tries to refresh them and uses the refreshed tokens; if they don&rsquo;t exist, the method creates a new demo account, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI.</p>
+If the current tokens exist and are not expired, the SDK uses the current tokens for the session. Otherwise tries to restore previous session&rsquo;s tokens and use them for the current session. If those tokens are expired, tries to refresh them and uses the refreshed tokens; if they don&rsquo;t exist, the method creates a new demo account, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI. This method handles token refreshing, if found tokens are refreshable.</p>
 
                       </div>
                       <div class="declaration">
@@ -461,7 +461,7 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                       <div class="abstract">
                         <p>A method used to create and/or activate LIVE accounts.
 Tries to activate Tradable SDK with the last known tokens; if fails, falls back to authentication flow.
-If the current tokens exist and are not expired, the SDK uses the current tokens for the session. Otherwise tries to restore previous session&rsquo;s tokens and use them for the current session. If those tokens are expired or don&rsquo;t exist, the method invokes the authentication flow for Tradable, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI.</p>
+If the current tokens exist and are not expired, the SDK uses the current tokens for the session. Otherwise tries to restore previous session&rsquo;s tokens and use them for the current session. If those tokens are expired or don&rsquo;t exist, the method invokes the authentication flow for Tradable, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI. This method handles token refreshing, if found tokens are refreshable.</p>
 
                       </div>
                       <div class="declaration">
@@ -1291,7 +1291,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts candle updates for specified account after stopping previous updates.</p>
+                        <p>Starts candle updates for specified account after stopping previous updates for this account.</p>
 
                       </div>
                       <div class="declaration">
@@ -1367,9 +1367,9 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable17stopCandleUpdatesFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/stopCandleUpdates()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable17stopCandleUpdatesFT_T_">stopCandleUpdates()</a>
+                    <a name="/s:FC11TradableAPI8Tradable17stopCandleUpdatesFCS_15TradableAccountT_"></a>
+                    <a name="//apple_ref/swift/Method/stopCandleUpdates(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable17stopCandleUpdatesFCS_15TradableAccountT_">stopCandleUpdates(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1377,16 +1377,36 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops candle updates.</p>
+                        <p>Stops candle updates for specified account.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopCandleUpdates</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopCandleUpdates</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the updates should be stopped.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -4104,7 +4124,7 @@ When the access token is successfully created, tradableReady auth delegate metho
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-04-08)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-04-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
