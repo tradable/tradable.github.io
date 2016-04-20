@@ -107,6 +107,15 @@
                 <a href="../Classes/TradableInstrument.html">TradableInstrument</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentList.html">TradableInstrumentList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchQuery.html">TradableInstrumentSearchQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchResult.html">TradableInstrumentSearchResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableLastSessionClose.html">TradableLastSessionClose</a>
               </li>
               <li class="nav-group-task">
@@ -155,7 +164,13 @@
                 <a href="../Classes/TradableRequestedIndicator.html">TradableRequestedIndicator</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableSymbolList.html">TradableSymbolList</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableSymbols.html">TradableSymbols</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableUpdateRequest.html">TradableUpdateRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableUtilities.html">TradableUtilities</a>
@@ -173,6 +188,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TradableErrorType.html">TradableErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableInstrumentRetrieval.html">TradableInstrumentRetrieval</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TradableInstrumentType.html">TradableInstrumentType</a>
@@ -240,7 +258,7 @@
             <h1>Tradable</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Tradable</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Tradable</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -270,7 +288,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span><span class="kt">TradableEventsDelegate</span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">TradableEventsDelegate</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -297,7 +315,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">authDelegate</span><span class="p">:</span><span class="kt">TradableAuthDelegate</span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">authDelegate</span><span class="p">:</span> <span class="kt">TradableAuthDelegate</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -324,7 +342,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">searchDelegate</span><span class="p">:</span><span class="kt">TradableSearchDelegate</span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">searchDelegate</span><span class="p">:</span> <span class="kt">TradableSearchDelegate</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -351,7 +369,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">sharedInstance</span><span class="p">:</span><span class="kt">Tradable</span> <span class="o">=</span> <span class="kt">Tradable</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">sharedInstance</span><span class="p">:</span> <span class="kt">Tradable</span> <span class="o">=</span> <span class="kt">Tradable</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -383,15 +401,15 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A method used to create and/or activate DEMO accounts.
-Tries to activate Tradable SDK with the last known token, if fails, falls back to creating a demo account.
-If the current token exists and is not expired, it uses the current token for the session. Otherwise tries to restore previous session&rsquo;s token and use it for the current session. If that token is expired, tries to refresh it and use the refreshed token; if it doesn&rsquo;t exist, the method creates a new demo account, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI.</p>
+Tries to activate Tradable SDK with the last known tokens; if fails, falls back to creating a demo account.
+If the current tokens exist and are not expired, the SDK uses the current tokens for the session. Otherwise tries to restore previous session&rsquo;s tokens and use them for the current session. If those tokens are expired, tries to refresh them and uses the refreshed tokens; if they don&rsquo;t exist, the method creates a new demo account, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI. This method handles token refreshing, if found tokens are refreshable.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateOrCreateDemoAccount</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">accountType</span><span class="p">:</span> <span class="kt">TradableDemoAccountType</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateOrCreateDemoAccount</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">accountType</span><span class="p">:</span> <span class="kt">TradableDemoAccountType</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -445,15 +463,15 @@ If the current token exists and is not expired, it uses the current token for th
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A method used to create and/or activate LIVE accounts.
-Tries to activate Tradable SDK with the last known token, if fails, falls back to authentication flow.
-If the current token exists and is not expired, it uses the current token for the session. Otherwise tries to restore previous session&rsquo;s token and use it for the current session. If that token is expired or doesn&rsquo;t exist, the method invokes the authentication flow for Tradable, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI.</p>
+Tries to activate Tradable SDK with the last known tokens; if fails, falls back to authentication flow.
+If the current tokens exist and are not expired, the SDK uses the current tokens for the session. Otherwise tries to restore previous session&rsquo;s tokens and use them for the current session. If those tokens are expired or don&rsquo;t exist, the method invokes the authentication flow for Tradable, with params specified by the user. This is the preferred method to use and should be the first call made to TradableAPI. This method handles token refreshing, if found tokens are refreshable.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateOrAuthenticate</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">webView</span><span class="p">:</span> <span class="kt">UIWebView</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateOrAuthenticate</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">webView</span><span class="p">:</span> <span class="kt">UIWebView</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -526,7 +544,7 @@ If the current token exists and is not expired, it uses the current token for th
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticateWithAppIdAndUri</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">webView</span><span class="p">:</span> <span class="kt">UIWebView</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticateWithAppIdAndUri</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">webView</span><span class="p">:</span> <span class="kt">UIWebView</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -600,7 +618,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateAfterLaunchWithURL</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateAfterLaunchWithURL</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -640,14 +658,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Tells the API to activate with an access token. When the activation is successful, tradableReady auth delegate method is called.</p>
+                        <p>Tells the API to activate with an access token. When the activation is successful, tradableReady auth delegate method is called; if activation fails, tradableAuthenticationError auth delegate method is called.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateAfterLaunchWithAccessToken</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">TradableAccessToken</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">activateAfterLaunchWithAccessToken</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">TradableAccessToken</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -664,117 +682,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The access token to activate the API with.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11TradableAPI8Tradable21getCurrentAccessTokenFT_GSqCS_19TradableAccessToken_"></a>
-                    <a name="//apple_ref/swift/Method/getCurrentAccessToken()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable21getCurrentAccessTokenFT_GSqCS_19TradableAccessToken_">getCurrentAccessToken()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns the current access token (may be nil).</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCurrentAccessToken</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">TradableAccessToken</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Public%20API%20methods"></a>
-                <a name="//apple_ref/swift/Section/Public API methods" class="dashAnchor"></a>
-                <a href="#/Public%20API%20methods">
-                  <h3 class="section-name">Public API methods</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11TradableAPI8Tradable19getLastSessionCloseFTCS_15TradableAccount23lastSessionCloseRequestCS_31TradableLastSessionCloseRequest10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_"></a>
-                    <a name="//apple_ref/swift/Method/getLastSessionClose(_:lastSessionCloseRequest:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable19getLastSessionCloseFTCS_15TradableAccount23lastSessionCloseRequestCS_31TradableLastSessionCloseRequest10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_">getLastSessionClose(_:lastSessionCloseRequest:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Gets the last session&rsquo;s close price for given symbols and timestamp.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLastSessionClose</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">lastSessionCloseRequest</span><span class="p">:</span> <span class="kt">TradableLastSessionCloseRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">lastSessionClose</span><span class="p">:[</span><span class="kt">TradableLastSessionClose</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>forAccount</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The account for which the last session close prices should be retrieved.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lastSessionCloseRequest</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The request to be made.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The closure to be called when the response comes back, with optional list of TradableLastSessionClose objects and optional TradableError object.</p>
 
                                 </div>
                               </td>
@@ -805,7 +712,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticate</span><span class="p">(</span><span class="nv">authRequest</span><span class="p">:</span> <span class="kt">TradableAPIAuthenticationRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accessToken</span><span class="p">:</span><span class="kt">TradableAccessToken</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticate</span><span class="p">(</span><span class="nv">authRequest</span><span class="p">:</span> <span class="kt">TradableAPIAuthenticationRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">TradableAccessToken</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -865,7 +772,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">createDemoAccount</span><span class="p">(</span><span class="nv">demoAuthRequest</span><span class="p">:</span> <span class="kt">TradableDemoAPIAuthenticationRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accessToken</span><span class="p">:</span><span class="kt">TradableAccessToken</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">createDemoAccount</span><span class="p">(</span><span class="nv">demoAuthRequest</span><span class="p">:</span> <span class="kt">TradableDemoAPIAuthenticationRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">TradableAccessToken</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -925,7 +832,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshAuthentication</span><span class="p">(</span><span class="nv">refreshAuthRequest</span><span class="p">:</span> <span class="kt">TradableAPIRefreshAuthenticationRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accessToken</span><span class="p">:</span><span class="kt">TradableAccessToken</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshAuthentication</span><span class="p">(</span><span class="nv">refreshAuthRequest</span><span class="p">:</span> <span class="kt">TradableAPIRefreshAuthenticationRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">TradableAccessToken</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -968,6 +875,98 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC11TradableAPI8Tradable17getActiveAccountsFT_GSaCS_15TradableAccount_"></a>
+                    <a name="//apple_ref/swift/Method/getActiveAccounts()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable17getActiveAccountsFT_GSaCS_15TradableAccount_">getActiveAccounts()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of active accounts.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getActiveAccounts</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">TradableAccount</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable14getAccessTokenFCS_15TradableAccountGSqCS_19TradableAccessToken_"></a>
+                    <a name="//apple_ref/swift/Method/getAccessToken(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable14getAccessTokenFCS_15TradableAccountGSqCS_19TradableAccessToken_">getAccessToken(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the access token for specified account (may be nil).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAccessToken</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">TradableAccessToken</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable26getLastSessionAccessTokensFT_GSqGVs10DictionarySSCS_19TradableAccessToken__"></a>
+                    <a name="//apple_ref/swift/Method/getLastSessionAccessTokens()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable26getLastSessionAccessTokensFT_GSqGVs10DictionarySSCS_19TradableAccessToken__">getLastSessionAccessTokens()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an account&rsquo;s unique ID to token dictionary consisting of the last session&rsquo;s access tokens, if such were stored; nil otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLastSessionAccessTokens</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">TradableAccessToken</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20API%20methods"></a>
+                <a name="//apple_ref/swift/Section/Public API methods" class="dashAnchor"></a>
+                <a href="#/Public%20API%20methods">
+                  <h3 class="section-name">Public API methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC11TradableAPI8Tradable10getBrokersFGSQFT7brokersGSqGSaCS_14TradableBroker__5errorGSqCS_13TradableError__T__T_"></a>
                     <a name="//apple_ref/swift/Method/getBrokers(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11TradableAPI8Tradable10getBrokersFGSQFT7brokersGSqGSaCS_14TradableBroker__5errorGSqCS_13TradableError__T__T_">getBrokers(_:)</a>
@@ -985,7 +984,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getBrokers</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">brokers</span><span class="p">:[</span><span class="kt">TradableBroker</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getBrokers</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">brokers</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradableBroker</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1032,7 +1031,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAppInfo</span><span class="p">(</span><span class="nv">clientId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">app</span><span class="p">:</span><span class="kt">TradableApp</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAppInfo</span><span class="p">(</span><span class="nv">clientId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">app</span><span class="p">:</span> <span class="kt">TradableApp</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1075,6 +1074,186 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC11TradableAPI8Tradable14getCurrentUserFTCS_19TradableAccessToken10completionGSQFT4userGSqCS_14TradableOSUser_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getCurrentUser(_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable14getCurrentUserFTCS_19TradableAccessToken10completionGSQFT4userGSqCS_14TradableOSUser_5errorGSqCS_13TradableError__T___T_">getCurrentUser(_:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the current OS user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCurrentUser</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">TradableAccessToken</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">user</span><span class="p">:</span> <span class="kt">TradableOSUser</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The access token to be used when calling the API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional TradableOSUser object and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable20getAvailableAccountsFTCS_19TradableAccessToken10completionGSQFT8accountsGSqCS_19TradableAccountList_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getAvailableAccounts(_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable20getAvailableAccountsFTCS_19TradableAccessToken10completionGSQFT8accountsGSqCS_19TradableAccountList_5errorGSqCS_13TradableError__T___T_">getAvailableAccounts(_:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets available accounts.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAvailableAccounts</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">TradableAccessToken</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accounts</span><span class="p">:</span> <span class="kt">TradableAccountList</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The access token to be used when calling the API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional TradableAccountList object and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable17getIndicatorsInfoFTCS_15TradableAccount10completionGSQFT14indicatorsInfoGSqGSaCS_21TradableIndicatorInfo__5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getIndicatorsInfo(_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable17getIndicatorsInfoFTCS_15TradableAccount10completionGSQFT14indicatorsInfoGSqGSaCS_21TradableIndicatorInfo__5errorGSqCS_13TradableError__T___T_">getIndicatorsInfo(_:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the indicators information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getIndicatorsInfo</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">indicatorsInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradableIndicatorInfo</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the indicators info should be fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional list of TradableIndicatorInfo objects and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC11TradableAPI8Tradable12startUpdatesFTCS_15TradableAccount10updateTypeOS_18TradableUpdateType9frequencyOS_23TradableUpdateFrequency7symbolsGSqCS_15TradableSymbols__T_"></a>
                     <a name="//apple_ref/swift/Method/startUpdates(_:updateType:frequency:symbols:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11TradableAPI8Tradable12startUpdatesFTCS_15TradableAccount10updateTypeOS_18TradableUpdateType9frequencyOS_23TradableUpdateFrequency7symbolsGSqCS_15TradableSymbols__T_">startUpdates(_:updateType:frequency:symbols:)</a>
@@ -1085,7 +1264,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts updates for specified account after stopping previous updates.</p>
+                        <p>Starts updates for specified account after stopping previous updates for this account.</p>
 
                       </div>
                       <div class="declaration">
@@ -1161,9 +1340,9 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable20setSymbolsForUpdatesFCS_15TradableSymbolsT_"></a>
-                    <a name="//apple_ref/swift/Method/setSymbolsForUpdates(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable20setSymbolsForUpdatesFCS_15TradableSymbolsT_">setSymbolsForUpdates(_:)</a>
+                    <a name="/s:FC11TradableAPI8Tradable20setSymbolsForUpdatesFTCS_15TradableAccount7symbolsCS_15TradableSymbols_T_"></a>
+                    <a name="//apple_ref/swift/Method/setSymbolsForUpdates(_:symbols:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable20setSymbolsForUpdatesFTCS_15TradableAccount7symbolsCS_15TradableSymbols_T_">setSymbolsForUpdates(_:symbols:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1171,14 +1350,18 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set symbols for updates.</p>
+                        <p>Sets symbols for updates for specified account.</p>
+
+<ul>
+<li>forAccount:          The account for which the symbols should be used.</li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">setSymbolsForUpdates</span><span class="p">(</span><span class="nv">symbols</span><span class="p">:</span> <span class="kt">TradableSymbols</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">setSymbolsForUpdates</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbols</span><span class="p">:</span> <span class="kt">TradableSymbols</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1208,9 +1391,9 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable11stopUpdatesFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/stopUpdates()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable11stopUpdatesFT_T_">stopUpdates()</a>
+                    <a name="/s:FC11TradableAPI8Tradable11stopUpdatesFCS_15TradableAccountT_"></a>
+                    <a name="//apple_ref/swift/Method/stopUpdates(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable11stopUpdatesFCS_15TradableAccountT_">stopUpdates(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1218,14 +1401,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops updates and clears symbol list.</p>
+                        <p>Stops updates for specified account and clears symbol list.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopUpdates</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopUpdates</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1245,7 +1428,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts candle updates for specified account after stopping previous updates.</p>
+                        <p>Starts candle updates for specified account after stopping previous updates for this account.</p>
 
                       </div>
                       <div class="declaration">
@@ -1321,9 +1504,9 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable17stopCandleUpdatesFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/stopCandleUpdates()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable17stopCandleUpdatesFT_T_">stopCandleUpdates()</a>
+                    <a name="/s:FC11TradableAPI8Tradable17stopCandleUpdatesFCS_15TradableAccountT_"></a>
+                    <a name="//apple_ref/swift/Method/stopCandleUpdates(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable17stopCandleUpdatesFCS_15TradableAccountT_">stopCandleUpdates(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1331,16 +1514,36 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops candle updates.</p>
+                        <p>Stops candle updates for specified account.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopCandleUpdates</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopCandleUpdates</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the updates should be stopped.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1365,7 +1568,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelProtections</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelProtections</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1438,7 +1641,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelSingleProtection</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">protection</span><span class="p">:</span> <span class="kt">TradableSingleProtection</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelSingleProtection</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">protection</span><span class="p">:</span> <span class="kt">TradableSingleProtection</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1524,7 +1727,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">closeAllPositions</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">closeAllPositions</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1577,14 +1780,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Closes position.</p>
+                        <p>Closes a position.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">closePosition</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">closePosition</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1650,14 +1853,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Cancels order.</p>
+                        <p>Cancels an order.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forOrder</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forOrder</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1723,14 +1926,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds or modifies single protection.</p>
+                        <p>Adds or modifies a single protection.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifySingleProtection</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">protection</span><span class="p">:</span> <span class="kt">TradableSingleProtection</span><span class="p">,</span> <span class="nv">orderModification</span><span class="p">:</span> <span class="kt">TradableOrderModification</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifySingleProtection</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">protection</span><span class="p">:</span> <span class="kt">TradableSingleProtection</span><span class="p">,</span> <span class="nv">orderModification</span><span class="p">:</span> <span class="kt">TradableOrderModification</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1829,7 +2032,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifyProtections</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">protection</span><span class="p">:</span> <span class="kt">TradableProtection</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifyProtections</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">protection</span><span class="p">:</span> <span class="kt">TradableProtection</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1908,14 +2111,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reduces position size to specified amount.</p>
+                        <p>Reduces a position size to the specified amount.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">reducePositionSize</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">newAmount</span><span class="p">:</span> <span class="kt">TradableAmount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">reducePositionSize</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forPosition</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">,</span> <span class="nv">newAmount</span><span class="p">:</span> <span class="kt">TradableAmount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1994,14 +2197,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Modifies order.</p>
+                        <p>Modifies an order.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifyOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forOrder</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">,</span> <span class="nv">orderModification</span><span class="p">:</span> <span class="kt">TradableOrderModification</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifyOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">forOrder</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">,</span> <span class="nv">orderModification</span><span class="p">:</span> <span class="kt">TradableOrderModification</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2080,14 +2283,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Issues new order.</p>
+                        <p>Issues a new order.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">issueNewOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">orderCommand</span><span class="p">:</span> <span class="kt">TradableOrderCommand</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span><span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">issueNewOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">orderCommand</span><span class="p">:</span> <span class="kt">TradableOrderCommand</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2153,14 +2356,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Issues new market order.</p>
+                        <p>Issues a new market order.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">issueNewMarketOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">side</span><span class="p">:</span> <span class="kt">TradableOrderSide</span><span class="p">,</span> <span class="nv">orderDelegate</span><span class="p">:</span> <span class="kt">TradableOrderStatusDelegate</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span><span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">issueNewMarketOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">side</span><span class="p">:</span> <span class="kt">TradableOrderSide</span><span class="p">,</span> <span class="nv">orderDelegate</span><span class="p">:</span> <span class="kt">TradableOrderStatusDelegate</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2265,14 +2468,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Issues new market order with protections.</p>
+                        <p>Issues a new market order with protections.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">issueNewMarketOrderWithProtections</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">side</span><span class="p">:</span> <span class="kt">TradableOrderSide</span><span class="p">,</span> <span class="nv">takeProfitDistance</span><span class="p">:</span> <span class="kt">TradableDistance</span><span class="p">?,</span> <span class="nv">stopLossDistance</span><span class="p">:</span> <span class="kt">TradableDistance</span><span class="p">?,</span> <span class="nv">orderDelegate</span><span class="p">:</span> <span class="kt">TradableOrderStatusDelegate</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span><span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">issueNewMarketOrderWithProtections</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">side</span><span class="p">:</span> <span class="kt">TradableOrderSide</span><span class="p">,</span> <span class="nv">takeProfitDistance</span><span class="p">:</span> <span class="kt">TradableDistance</span><span class="p">?,</span> <span class="nv">stopLossDistance</span><span class="p">:</span> <span class="kt">TradableDistance</span><span class="p">?,</span> <span class="nv">orderDelegate</span><span class="p">:</span> <span class="kt">TradableOrderStatusDelegate</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2393,79 +2596,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable9getPricesFTCS_15TradableAccount7symbolsCS_15TradableSymbols10completionGSQFT6pricesGSqCS_14TradablePrices_5errorGSqCS_13TradableError__T___T_"></a>
-                    <a name="//apple_ref/swift/Method/getPrices(_:symbols:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable9getPricesFTCS_15TradableAccount7symbolsCS_15TradableSymbols10completionGSQFT6pricesGSqCS_14TradablePrices_5errorGSqCS_13TradableError__T___T_">getPrices(_:symbols:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Gets prices.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPrices</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbols</span><span class="p">:</span> <span class="kt">TradableSymbols</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">prices</span><span class="p">:</span><span class="kt">TradablePrices</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>forAccount</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The account for which the prices should be fetched.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>symbols</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The symbols for which the prices should be fetched.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The closure to be called when the response comes back, with optional array of TradablePrice objects and optional TradableError object.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:FC11TradableAPI8Tradable10getCandlesFTCS_15TradableAccount13candleRequestCS_21TradableCandleRequest10completionGSQFT7candlesGSqCS_15TradableCandles_5errorGSqCS_13TradableError__T___T_"></a>
                     <a name="//apple_ref/swift/Method/getCandles(_:candleRequest:completion:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11TradableAPI8Tradable10getCandlesFTCS_15TradableAccount13candleRequestCS_21TradableCandleRequest10completionGSQFT7candlesGSqCS_15TradableCandles_5errorGSqCS_13TradableError__T___T_">getCandles(_:candleRequest:completion:)</a>
@@ -2489,7 +2619,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCandles</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">candleRequest</span><span class="p">:</span> <span class="kt">TradableCandleRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">candles</span><span class="p">:</span><span class="kt">TradableCandles</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCandles</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">candleRequest</span><span class="p">:</span> <span class="kt">TradableCandleRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">candles</span><span class="p">:</span> <span class="kt">TradableCandles</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2555,14 +2685,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a snapshot of the account.</p>
+                        <p>Gets a snapshot of specified account.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAccountSnapshot</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbols</span><span class="p">:</span> <span class="kt">TradableSymbols</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">snapshot</span><span class="p">:</span> <span class="kt">TradableAccountSnapshot</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAccountSnapshot</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbols</span><span class="p">:</span> <span class="kt">TradableSymbols</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">snapshot</span><span class="p">:</span> <span class="kt">TradableAccountSnapshot</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2618,9 +2748,9 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable20getAvailableAccountsFGSQFT8accountsGSqCS_19TradableAccountList_5errorGSqCS_13TradableError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/getAvailableAccounts(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable20getAvailableAccountsFGSQFT8accountsGSqCS_19TradableAccountList_5errorGSqCS_13TradableError__T__T_">getAvailableAccounts(_:)</a>
+                    <a name="/s:FC11TradableAPI8Tradable9getPricesFTCS_15TradableAccount7symbolsCS_15TradableSymbols10completionGSQFT6pricesGSqCS_14TradablePrices_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getPrices(_:symbols:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable9getPricesFTCS_15TradableAccount7symbolsCS_15TradableSymbols10completionGSQFT6pricesGSqCS_14TradablePrices_5errorGSqCS_13TradableError__T___T_">getPrices(_:symbols:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2628,61 +2758,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets available accounts.</p>
+                        <p>Gets prices.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAvailableAccounts</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">accounts</span><span class="p">:</span> <span class="kt">TradableAccountList</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableAccountList object and optional TradableError object.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11TradableAPI8Tradable17getIndicatorsInfoFTCS_15TradableAccount10completionGSQFT14indicatorsInfoGSqGSaCS_21TradableIndicatorInfo__5errorGSqCS_13TradableError__T___T_"></a>
-                    <a name="//apple_ref/swift/Method/getIndicatorsInfo(_:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable17getIndicatorsInfoFTCS_15TradableAccount10completionGSQFT14indicatorsInfoGSqGSaCS_21TradableIndicatorInfo__5errorGSqCS_13TradableError__T___T_">getIndicatorsInfo(_:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Gets the indicators information.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getIndicatorsInfo</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">indicatorsInfo</span><span class="p">:[</span><span class="kt">TradableIndicatorInfo</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPrices</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbols</span><span class="p">:</span> <span class="kt">TradableSymbols</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">prices</span><span class="p">:</span> <span class="kt">TradablePrices</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2698,7 +2781,20 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The account for which the indicators info should be fetched.</p>
+                                  <p>The account for which the prices should be fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>symbols</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The symbols for which the prices should be fetched.</p>
 
                                 </div>
                               </td>
@@ -2711,54 +2807,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional list of TradableIndicatorInfo objects and optional TradableError object.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11TradableAPI8Tradable14getCurrentUserFGSQFT4userGSqCS_14TradableOSUser_5errorGSqCS_13TradableError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/getCurrentUser(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable14getCurrentUserFGSQFT4userGSqCS_14TradableOSUser_5errorGSqCS_13TradableError__T__T_">getCurrentUser(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Gets the current OS user.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCurrentUser</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">user</span><span class="p">:</span><span class="kt">TradableOSUser</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableOSUser object and optional TradableError object.</p>
+                                  <p>The closure to be called when the response comes back, with optional array of TradablePrice objects and optional TradableError object.</p>
 
                                 </div>
                               </td>
@@ -2782,14 +2831,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets instruments.</p>
+                        <p>Gets instruments available for specified account. Should only be used if account&rsquo;s instrumentRetrieval param equals .FULL_INSTRUMENT_LIST.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInstruments</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">instruments</span><span class="p">:[</span><span class="kt">TradableInstrument</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInstruments</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">instruments</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradableInstrument</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2832,6 +2881,152 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC11TradableAPI8Tradable14getInstrumentsFTCS_15TradableAccount10symbolListCS_18TradableSymbolList10completionGSQFT14instrumentListGSqCS_22TradableInstrumentList_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getInstruments(_:symbolList:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable14getInstrumentsFTCS_15TradableAccount10symbolListCS_18TradableSymbolList10completionGSQFT14instrumentListGSqCS_22TradableInstrumentList_5errorGSqCS_13TradableError__T___T_">getInstruments(_:symbolList:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets instruments by specifying a list of symbols. Should be used if account&rsquo;s instrumentRetrieval param equals .SEARCH_2_CHARACTERS_MINIMUM.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInstruments</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbolList</span><span class="p">:</span> <span class="kt">TradableSymbolList</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">instrumentList</span><span class="p">:</span> <span class="kt">TradableInstrumentList</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the instruments should be fetched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>symbolList</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The TradableSymbolList object containing symbols for which the instruments should be retrieved.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional TradableInstrumentList object and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable16instrumentSearchFTCS_15TradableAccount21instrumentSearchQueryCS_29TradableInstrumentSearchQuery10completionGSQFT22instrumentSearchResultGSqCS_30TradableInstrumentSearchResult_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/instrumentSearch(_:instrumentSearchQuery:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable16instrumentSearchFTCS_15TradableAccount21instrumentSearchQueryCS_29TradableInstrumentSearchQuery10completionGSQFT22instrumentSearchResultGSqCS_30TradableInstrumentSearchResult_5errorGSqCS_13TradableError__T___T_">instrumentSearch(_:instrumentSearchQuery:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs an instrument search for given query. If getInstruments(forAccount:symbolList:completion) does not return any instruments, you have to use this method to search for the instruments.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">instrumentSearch</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">instrumentSearchQuery</span><span class="p">:</span> <span class="kt">TradableInstrumentSearchQuery</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">instrumentSearchResult</span><span class="p">:</span> <span class="kt">TradableInstrumentSearchResult</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the instrument search should be performed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instrumentSearchQuery</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The TradableInstrumentSearchQuery object containing search query.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional TradableInstrumentSearchResult object and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC11TradableAPI8Tradable11getPositionFTCS_15TradableAccount10positionIdSS10completionGSQFT8positionGSqCS_16TradablePosition_5errorGSqCS_13TradableError__T___T_"></a>
                     <a name="//apple_ref/swift/Method/getPosition(_:positionId:completion:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11TradableAPI8Tradable11getPositionFTCS_15TradableAccount10positionIdSS10completionGSQFT8positionGSqCS_16TradablePosition_5errorGSqCS_13TradableError__T___T_">getPosition(_:positionId:completion:)</a>
@@ -2842,14 +3037,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets position by ID.</p>
+                        <p>Gets a position by ID.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPosition</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">positionId</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">position</span><span class="p">:</span><span class="kt">TradablePosition</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPosition</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">positionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">position</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2922,7 +3117,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPositions</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">positions</span><span class="p">:</span><span class="kt">TradablePositions</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPositions</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">positions</span><span class="p">:</span> <span class="kt">TradablePositions</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -2975,14 +3170,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get open positions.</p>
+                        <p>Gets open positions.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOpenPositions</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">openPositions</span><span class="p">:[</span><span class="kt">TradablePosition</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOpenPositions</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">openPositions</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradablePosition</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3035,14 +3230,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets order by ID.</p>
+                        <p>Gets an order by ID.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">orderId</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span><span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOrder</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">orderId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">order</span><span class="p">:</span> <span class="kt">TradableOrder</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3115,7 +3310,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOrders</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">orders</span><span class="p">:</span><span class="kt">TradableOrders</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOrders</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">orders</span><span class="p">:</span> <span class="kt">TradableOrders</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3175,7 +3370,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPendingOrders</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">pendingOrders</span><span class="p">:[</span><span class="kt">TradableOrder</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPendingOrders</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">pendingOrders</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradableOrder</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3228,14 +3423,14 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets instrument by specifying symbol and account.</p>
+                        <p>Gets instrument by specifying symbol and account. Should only be used if account&rsquo;s instrumentRetrieval param equals .FULL_INSTRUMENT_LIST.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInstrumentBySymbol</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span><span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInstrumentBySymbol</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3301,7 +3496,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Searches for instruments that contain a specified phrase. Returns the results using current searchDelegate&rsquo;s tradableInstrumentsFound method.</p>
+                        <p>Searches for instruments that contain a specified phrase. Returns the results using current searchDelegate&rsquo;s tradableInstrumentsFound method. Should only be used if account&rsquo;s instrumentRetrieval param equals .FULL_INSTRUMENT_LIST.</p>
 
                       </div>
                       <div class="declaration">
@@ -3411,6 +3606,79 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC11TradableAPI8Tradable19getLastSessionCloseFTCS_15TradableAccount23lastSessionCloseRequestCS_31TradableLastSessionCloseRequest10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getLastSessionClose(_:lastSessionCloseRequest:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable19getLastSessionCloseFTCS_15TradableAccount23lastSessionCloseRequestCS_31TradableLastSessionCloseRequest10completionGSQFT16lastSessionCloseGSqGSaCS_24TradableLastSessionClose__5errorGSqCS_13TradableError__T___T_">getLastSessionClose(_:lastSessionCloseRequest:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the last session&rsquo;s close price for given symbols and timestamp.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getLastSessionClose</span><span class="p">(</span><span class="nv">forAccount</span><span class="p">:</span> <span class="kt">TradableAccount</span><span class="p">,</span> <span class="nv">lastSessionCloseRequest</span><span class="p">:</span> <span class="kt">TradableLastSessionCloseRequest</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">lastSessionClose</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradableLastSessionClose</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the last session close prices should be retrieved.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lastSessionCloseRequest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request to be made.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional list of TradableLastSessionClose objects and optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC11TradableAPI8Tradable17getGroupedCandlesFTCS_15TradableAccount6symbolSS17candleAggregationOS_19TradableAggregation8sessionsSi10completionGSQFT14groupedCandlesGSqGVs10DictionarySuGSaCS_14TradableCandle___5errorGSqCS_13TradableError__T___T_"></a>
                     <a name="//apple_ref/swift/Method/getGroupedCandles(_:symbol:candleAggregation:sessions:completion:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11TradableAPI8Tradable17getGroupedCandlesFTCS_15TradableAccount6symbolSS17candleAggregationOS_19TradableAggregation8sessionsSi10completionGSQFT14groupedCandlesGSqGVs10DictionarySuGSaCS_14TradableCandle___5errorGSqCS_13TradableError__T___T_">getGroupedCandles(_:symbol:candleAggregation:sessions:completion:)</a>
@@ -3422,12 +3690,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns candles grouped into open market sessions.</p>
-
-<ul>
-<li>candleAggregation:       The candle aggregation.</li>
-<li>sessions:                The number of sessions to retrieve. Must be greater than 0.</li>
-<li>completion:              he closure to be called when the response comes back, with optional dictionary of Int to list of TradableCandle objects and optional TradableError object.</li>
-</ul>
 
                       </div>
                       <div class="declaration">
@@ -3464,6 +3726,45 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The symbol for which the candles should be retrieved.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>candleAggregation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The candle aggregation.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sessions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of sessions to retrieve. Must be greater than 0.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with optional dictionary of UInt to list of TradableCandle objects and optional TradableError object.</p>
 
                                 </div>
                               </td>
@@ -3886,8 +4187,8 @@ When the access token is successfully created, tradableReady auth delegate metho
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-03-23)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-04-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
