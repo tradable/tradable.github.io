@@ -15,7 +15,7 @@
       <div class='fixed md-show fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>tradable-embed-core</h3>
-          <div class='mb1'><code>1.15</code></div>
+          <div class='mb1'><code>1.15.1</code></div>
           <input
 placeholder='Filter'
 id='filter-input'
@@ -481,8 +481,22 @@ type='text' />
         </div>
       </div>
       <div class='fix-margin-3'>
-        
+        <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Source+Sans+Pro::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); 
+</script>
+
 <style type="text/css">
+
      pre.intro {
          display: block;
          padding: 9.5px;
@@ -567,9 +581,7 @@ type='text' />
         font-size: 16px;
      }
 
-</style>
-
-<div style="padding: 1rem;">
+</style><div style="padding: 1rem;">
      Welcome to the tradable-embed documentation. Tradable Embed is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the tradable-embed javascript SDK, which offers 2 kits:
 
      <ul>
@@ -1996,11 +2008,11 @@ type='text' />
   "brokerId": 1,
   "brokerageAccountId": "Some id",
   "brokerLogos": {
-    "small": "",
-    "onLight": "",
-    "onDark": "",
-    "svg": "",
-    "svgSolid": ""
+    "small": "https://www.example.com/broker/small.png",
+    "onLight": "https://www.example.com/broker/onLight.png",
+    "onDark": "https://www.example.com/broker/onDark.png",
+    "svg": "https://www.example.com/broker/image.svg",
+    "svgSolid": "https://www.example.com/broker/imageSolid.svg"
   },
   "endpointURL": "https://router-eu-west-1-prod.tradable.com/",
   "externalBackofficeReport": "https://www.example.com/brokerBackendReporting",
@@ -2071,7 +2083,41 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "accounts": []
+  "accounts": {
+    "uniqueId": "c3ae8ff5d44f9c8833b0af6c02194cab50758ddg",
+    "displayName": "My Brokerage Account",
+    "brokerName": "Some company",
+    "brokerId": 1,
+    "brokerageAccountId": "Some id",
+    "brokerLogos": {
+      "small": "https://www.example.com/broker/small.png",
+      "onLight": "https://www.example.com/broker/onLight.png",
+      "onDark": "https://www.example.com/broker/onDark.png",
+      "svg": "https://www.example.com/broker/image.svg",
+      "svgSolid": "https://www.example.com/broker/imageSolid.svg"
+    },
+    "endpointURL": "https://router-eu-west-1-prod.tradable.com/",
+    "externalBackofficeReport": "https://www.example.com/brokerBackendReporting",
+    "currency": "USD",
+    "currencySign": "$",
+    "isLiveAccount": false,
+    "trackConfiguration": "MULTI",
+    "stopLossSupported": true,
+    "takeProfitSupported": true,
+    "marketOrdersSupport": {
+      "takeProfit": true,
+      "stopLoss": true
+    },
+    "limitOrdersSupport": {
+      "takeProfit": true,
+      "stopLoss": true
+    },
+    "stopOrdersSupport": {
+      "takeProfit": true,
+      "stopLoss": true
+    },
+    "instrumentRetrieval": "FULL_INSTRUMENT_LIST"
+  }
 }</pre>
 </section>
           </div>
@@ -2119,9 +2165,20 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "brokers": [],
-  "iconURL": "",
-  "name": ""
+  "brokers": {
+    "brokerLogos": {
+      "small": "https://www.example.com/broker/small.png",
+      "onLight": "https://www.example.com/broker/onLight.png",
+      "onDark": "https://www.example.com/broker/onDark.png",
+      "svg": "https://www.example.com/broker/image.svg",
+      "svgSolid": "https://www.example.com/broker/imageSolid.svg"
+    },
+    "brokerId": -2,
+    "brokerName": "Forex Demo Account",
+    "isLive": false
+  },
+  "iconURL": "http://www.example.com/myLogo.png",
+  "name": "My Tradable App"
 }</pre>
 </section>
           </div>
@@ -2168,44 +2225,46 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "brokerLogos": {
-    "small": "",
-    "onLight": "",
-    "onDark": "",
-    "svg": "",
-    "svgSolid": ""
-  },
-  "brokerId": 0,
-  "brokerName": "",
-  "isLive": true
-}]</pre>
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "brokerLogos": {
+      "small": "https://www.example.com/broker/small.png",
+      "onLight": "https://www.example.com/broker/onLight.png",
+      "onDark": "https://www.example.com/broker/onDark.png",
+      "svg": "https://www.example.com/broker/image.svg",
+      "svgSolid": "https://www.example.com/broker/imageSolid.svg"
+    },
+    "brokerId": -2,
+    "brokerName": "Forex Demo Account",
+    "isLive": false
+  }
+]</pre>
 </section>
           </div>
         </div>
         <div class='collapsible' id='tradableEmbed.getCandles'>
           <a href='#tradableEmbed.getCandles'>
 <code>
-  .getCandles<span class='gray'>(symbol, from, to, aggregation, resolve, reject)</span>
+  .getCandles<span class='gray'>(instrumentId, from, to, aggregation, resolve, reject)</span>
 </code>
 <div class='force-inline'>
-  <p>Provides candles for the selectedAccount, given symbol, aggregation and range (from-to)</p>
+  <p>Provides candles for the selectedAccount, given instrument Id, aggregation and range (from-to)</p>
 
 </div>
           </a>
           <div class='collapser border px2 m2'>
 <section class='py2 clearfix'>
   <h2 id='tradableEmbed.getCandles' class='mt0'>
-    getCandles<span class='gray'>(symbol, from, to, aggregation, resolve, reject)</span>
+    getCandles<span class='gray'>(instrumentId, from, to, aggregation, resolve, reject)</span>
   </h2>
-  <p>Provides candles for the selectedAccount, given symbol, aggregation and range (from-to)</p>
+  <p>Provides candles for the selectedAccount, given instrument Id, aggregation and range (from-to)</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>symbol</strong>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
           :
           <div class='force-inline'>
-<p>The symbol to get candles for</p>
+<p>The instrument id for the candles</p>
 
           </div>
         </li>
@@ -2253,9 +2312,28 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "candles": [],
-  "indicators": []
+<pre class='overflow-auto'><span class="hljs-comment">// Day Candles for last week:</span>
+<span class="hljs-keyword">var</span> id = <span class="hljs-string">"someInsturmentId"</span>;
+<span class="hljs-keyword">var</span> fromDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+fromDate.setDate(fromDate.getDate() - <span class="hljs-number">7</span>);
+<span class="hljs-keyword">var</span> dayRes = <span class="hljs-number">60</span> * <span class="hljs-number">24</span>;
+
+tradableEmbed.getCandles(id, fromDate.getTime(), <span class="hljs-built_in">Date</span>.now(), dayRes).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Received candles: "</span> + <span class="hljs-built_in">JSON</span>.stringify(data, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>)</span>{
+    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Error requesting candles: "</span> + jqXHR.responseJSON.message);
+});
+
+<p class='example-intro'>This is an example object returned by the callback from this method:</p>{
+  "candles": {
+    "timestamp": 1433908800000,
+    "open": 1.10023,
+    "close": 1.100054,
+    "high": 1.100101,
+    "low": 1.100001,
+    "volume": 160
+  },
+  "indicators": {}
 }</pre>
 </section>
           </div>
@@ -2263,19 +2341,19 @@ type='text' />
         <div class='collapsible' id='tradableEmbed.getCandlesForAccount'>
           <a href='#tradableEmbed.getCandlesForAccount'>
 <code>
-  .getCandlesForAccount<span class='gray'>(accountId, symbol, from, to, aggregation, resolve, reject)</span>
+  .getCandlesForAccount<span class='gray'>(accountId, instrumentId, from, to, aggregation, resolve, reject)</span>
 </code>
 <div class='force-inline'>
-  <p>Provides candles for a specific account, the given symbol, aggregation and range (from-to)</p>
+  <p>Provides candles for a specific account, the given instrument Id, aggregation and range (from-to)</p>
 
 </div>
           </a>
           <div class='collapser border px2 m2'>
 <section class='py2 clearfix'>
   <h2 id='tradableEmbed.getCandlesForAccount' class='mt0'>
-    getCandlesForAccount<span class='gray'>(accountId, symbol, from, to, aggregation, resolve, reject)</span>
+    getCandlesForAccount<span class='gray'>(accountId, instrumentId, from, to, aggregation, resolve, reject)</span>
   </h2>
-  <p>Provides candles for a specific account, the given symbol, aggregation and range (from-to)</p>
+  <p>Provides candles for a specific account, the given instrument Id, aggregation and range (from-to)</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
@@ -2286,10 +2364,10 @@ type='text' />
 
           </div>
         </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>symbol</strong>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
           :
           <div class='force-inline'>
-<p>The symbol to get candles for</p>
+<p>The instrument id for the candles</p>
 
           </div>
         </li>
@@ -2337,9 +2415,29 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "candles": [],
-  "indicators": []
+<pre class='overflow-auto'><span class="hljs-comment">// Hourly Candles for last 2 days:</span>
+<span class="hljs-keyword">var</span> actId = tradableEmbed.selectedAccount.uniqueId;
+<span class="hljs-keyword">var</span> id = <span class="hljs-string">"someInsturmentId"</span>;
+<span class="hljs-keyword">var</span> fromDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+fromDate.setDate(fromDate.getDate() - <span class="hljs-number">2</span>);
+<span class="hljs-keyword">var</span> hourRes = <span class="hljs-number">60</span>;
+
+tradableEmbed.getCandlesForAccount(actId, id, fromDate.getTime(), <span class="hljs-built_in">Date</span>.now(), hourRes).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Received candles: "</span> + <span class="hljs-built_in">JSON</span>.stringify(data, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>)</span>{
+    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Error requesting candles: "</span> + jqXHR.responseJSON.message);
+});
+
+<p class='example-intro'>This is an example object returned by the callback from this method:</p>{
+  "candles": {
+    "timestamp": 1433908800000,
+    "open": 1.10023,
+    "close": 1.100054,
+    "high": 1.100101,
+    "low": 1.100001,
+    "volume": 160
+  },
+  "indicators": {}
 }</pre>
 </section>
           </div>
@@ -2375,25 +2473,25 @@ type='text' />
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
       :
       <div class='force-inline'>
-        <p>Correspondent instrument obj to the symbol or null if not found</p>
+        <p>Correspondent instrument obj to the Brokerage Account Symbol or null if not found</p>
 
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by this method:</p>{
   "instrumentId": "abc123",
-  "brokerageAccountSymbol": "",
-  "decimals": 0,
-  "displayName": "",
-  "exchangeID": "",
-  "maxAmount": 0,
-  "maxShortAmount": 0,
-  "minAmount": 0,
+  "brokerageAccountSymbol": "EUR/USD",
+  "decimals": 5,
+  "displayName": "EUR/USD",
+  "exchangeID": null,
+  "maxAmount": 50000000,
+  "maxShortAmount": 5000000,
+  "minAmount": 1000,
   "multipleOfMinAmount": true,
-  "pipPrecision": 0,
-  "quoteCurrency": "",
+  "pipPrecision": 4,
+  "quoteCurrency": "USD",
   "shortDescription": "",
-  "symbol": "",
-  "type": ""
+  "symbol": "EURUSD",
+  "type": "FOREX"
 }</pre>
 </section>
           </div>
@@ -2435,19 +2533,19 @@ type='text' />
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by this method:</p>{
   "instrumentId": "abc123",
-  "brokerageAccountSymbol": "",
-  "decimals": 0,
-  "displayName": "",
-  "exchangeID": "",
-  "maxAmount": 0,
-  "maxShortAmount": 0,
-  "minAmount": 0,
+  "brokerageAccountSymbol": "EUR/USD",
+  "decimals": 5,
+  "displayName": "EUR/USD",
+  "exchangeID": null,
+  "maxAmount": 50000000,
+  "maxShortAmount": 5000000,
+  "minAmount": 1000,
   "multipleOfMinAmount": true,
-  "pipPrecision": 0,
-  "quoteCurrency": "",
+  "pipPrecision": 4,
+  "quoteCurrency": "USD",
   "shortDescription": "",
-  "symbol": "",
-  "type": ""
+  "symbol": "EURUSD",
+  "type": "FOREX"
 }</pre>
 </section>
           </div>
@@ -2489,19 +2587,19 @@ type='text' />
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by this method:</p>{
   "instrumentId": "abc123",
-  "brokerageAccountSymbol": "",
-  "decimals": 0,
-  "displayName": "",
-  "exchangeID": "",
-  "maxAmount": 0,
-  "maxShortAmount": 0,
-  "minAmount": 0,
+  "brokerageAccountSymbol": "EUR/USD",
+  "decimals": 5,
+  "displayName": "EUR/USD",
+  "exchangeID": null,
+  "maxAmount": 50000000,
+  "maxShortAmount": 5000000,
+  "minAmount": 1000,
   "multipleOfMinAmount": true,
-  "pipPrecision": 0,
-  "quoteCurrency": "",
+  "pipPrecision": 4,
+  "quoteCurrency": "USD",
   "shortDescription": "",
-  "symbol": "",
-  "type": ""
+  "symbol": "EURUSD",
+  "type": "FOREX"
 }</pre>
 </section>
           </div>
@@ -2555,7 +2653,13 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
+<pre class='overflow-auto'>tradableEmbed.getInstrumentsFromIds([<span class="hljs-string">"xyz456"</span>]).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">instruments</span>) </span>{
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(instruments, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>) </span>{
+     <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Error trying to retrieve instruments: "</span> + jqXHR.responseJSON.message);
+});
+
+<p class='example-intro'>This is an example object returned by the callback from this method:</p>{
   "instruments": [
     {
       "minAmount": 1000,
@@ -2573,7 +2677,7 @@ type='text' />
       "maxAmount": 50000000
     }
   ],
-  "sequenceId": 0
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -2634,7 +2738,14 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
+<pre class='overflow-auto'><span class="hljs-keyword">var</span> accountId = tradableEmbed.selectedAccount.uniqueId;
+tradableEmbed.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"xyz456"</span>]).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">instruments</span>) </span>{
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(instruments, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>) </span>{
+     <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Error trying to retrieve instruments: "</span> + jqXHR.responseJSON.message);
+});
+
+<p class='example-intro'>This is an example object returned by the callback from this method:</p>{
   "instruments": [
     {
       "minAmount": 1000,
@@ -2652,7 +2763,7 @@ type='text' />
       "maxAmount": 50000000
     }
   ],
-  "sequenceId": 0
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -2751,12 +2862,12 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "availableForTrading": 0,
-  "balance": 0,
+  "availableForTrading": 10900,
+  "balance": 10000,
   "closedProfit": 0,
-  "equity": 0,
-  "marginUsed": 0,
-  "openProfit": 0
+  "equity": 11000,
+  "marginUsed": 100,
+  "openProfit": 1000
 }</pre>
 </section>
           </div>
@@ -2811,12 +2922,12 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "availableForTrading": 0,
-  "balance": 0,
+  "availableForTrading": 10900,
+  "balance": 10000,
   "closedProfit": 0,
-  "equity": 0,
-  "marginUsed": 0,
-  "openProfit": 0
+  "equity": 11000,
+  "marginUsed": 100,
+  "openProfit": 1000
 }</pre>
 </section>
           </div>
@@ -2863,25 +2974,27 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "id": "",
-  "instrumentId": "abc123",
-  "side": "",
-  "amount": 0,
-  "openPrice": 0,
-  "lastPrice": 0,
-  "openProfit": 0,
-  "closedProfit": 0,
-  "openNotionalProfit": 0,
-  "closedNotionalProfit": 0,
-  "rolloverFees": 0,
-  "otherFees": 0,
-  "creationTime": 0,
-  "lastModified": 0,
-  "stoploss": 0,
-  "takeprofit": 0,
-  "sequenceId": 0
-}]</pre>
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "id": "yh-14-e",
+    "instrumentId": "abc123",
+    "side": "BUY",
+    "amount": 10000,
+    "openPrice": 0.9,
+    "lastPrice": 1,
+    "openProfit": 1000,
+    "closedProfit": null,
+    "openNotionalProfit": 1000,
+    "closedNotionalProfit": null,
+    "rolloverFees": null,
+    "otherFees": null,
+    "creationTime": 1461149630,
+    "lastModified": 1461149630,
+    "stoploss": null,
+    "takeprofit": null,
+    "sequenceId": 647594837
+  }
+]</pre>
 </section>
           </div>
         </div>
@@ -2934,25 +3047,27 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "id": "",
-  "instrumentId": "abc123",
-  "side": "",
-  "amount": 0,
-  "openPrice": 0,
-  "lastPrice": 0,
-  "openProfit": 0,
-  "closedProfit": 0,
-  "openNotionalProfit": 0,
-  "closedNotionalProfit": 0,
-  "rolloverFees": 0,
-  "otherFees": 0,
-  "creationTime": 0,
-  "lastModified": 0,
-  "stoploss": 0,
-  "takeprofit": 0,
-  "sequenceId": 0
-}]</pre>
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "id": "yh-14-e",
+    "instrumentId": "abc123",
+    "side": "BUY",
+    "amount": 10000,
+    "openPrice": 0.9,
+    "lastPrice": 1,
+    "openProfit": 1000,
+    "closedProfit": null,
+    "openNotionalProfit": 1000,
+    "closedNotionalProfit": null,
+    "rolloverFees": null,
+    "otherFees": null,
+    "creationTime": 1461149630,
+    "lastModified": 1461149630,
+    "stoploss": null,
+    "takeprofit": null,
+    "sequenceId": 647594837
+  }
+]</pre>
 </section>
           </div>
         </div>
@@ -3006,20 +3121,20 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3081,20 +3196,20 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3142,10 +3257,57 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "pending": [],
-  "recentlyCancelled": [],
-  "recentlyExecuted": [],
-  "sequenceId": 0
+  "pending": {
+    "id": "1234",
+    "instrumentId": "abc123",
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "type": "MARKET",
+    "amount": 10000,
+    "status": "PENDING",
+    "price": 0,
+    "lastPrice": 1,
+    "creationDate": 1461247040564,
+    "affectedPositions": [],
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": null
+  },
+  "recentlyCancelled": {
+    "id": "1236",
+    "instrumentId": "abc123",
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "type": "STOP",
+    "amount": 10000,
+    "status": "CANCELLED",
+    "price": 1.1,
+    "lastPrice": 1,
+    "creationDate": 1461247040564,
+    "affectedPositions": [],
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": null
+  },
+  "recentlyExecuted": {
+    "id": "1235",
+    "instrumentId": "abc123",
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "type": "LIMIT",
+    "amount": 10000,
+    "status": "EXECUTED",
+    "price": 0.9,
+    "lastPrice": 1,
+    "creationDate": 1461247040564,
+    "affectedPositions": [
+      "1235"
+    ],
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": 0.9
+  },
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3200,10 +3362,57 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "pending": [],
-  "recentlyCancelled": [],
-  "recentlyExecuted": [],
-  "sequenceId": 0
+  "pending": {
+    "id": "1234",
+    "instrumentId": "abc123",
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "type": "MARKET",
+    "amount": 10000,
+    "status": "PENDING",
+    "price": 0,
+    "lastPrice": 1,
+    "creationDate": 1461247040564,
+    "affectedPositions": [],
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": null
+  },
+  "recentlyCancelled": {
+    "id": "1236",
+    "instrumentId": "abc123",
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "type": "STOP",
+    "amount": 10000,
+    "status": "CANCELLED",
+    "price": 1.1,
+    "lastPrice": 1,
+    "creationDate": 1461247040564,
+    "affectedPositions": [],
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": null
+  },
+  "recentlyExecuted": {
+    "id": "1235",
+    "instrumentId": "abc123",
+    "symbol": "EURUSD",
+    "side": "BUY",
+    "type": "LIMIT",
+    "amount": 10000,
+    "status": "EXECUTED",
+    "price": 0.9,
+    "lastPrice": 1,
+    "creationDate": 1461247040564,
+    "affectedPositions": [
+      "1235"
+    ],
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": 0.9
+  },
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3250,22 +3459,24 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "id": "",
-  "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
-  "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
-}]</pre>
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "id": "oteF-6eh4",
+    "instrumentId": "abc123",
+    "side": "BUY",
+    "type": "MARKET",
+    "amount": 10000,
+    "status": "PENDING",
+    "price": 0,
+    "lastPrice": 1,
+    "creationDate": 1461149630,
+    "affectedPositions": {},
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": null,
+    "sequenceId": 647594837
+  }
+]</pre>
 </section>
           </div>
         </div>
@@ -3318,22 +3529,24 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "id": "",
-  "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
-  "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
-}]</pre>
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "id": "oteF-6eh4",
+    "instrumentId": "abc123",
+    "side": "BUY",
+    "type": "MARKET",
+    "amount": 10000,
+    "status": "PENDING",
+    "price": 0,
+    "lastPrice": 1,
+    "creationDate": 1461149630,
+    "affectedPositions": {},
+    "stopLossDistance": null,
+    "takeProfitDistance": null,
+    "executionPrice": null,
+    "sequenceId": 647594837
+  }
+]</pre>
 </section>
           </div>
         </div>
@@ -3387,23 +3600,23 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "yh-14-e",
   "instrumentId": "abc123",
-  "side": "",
-  "amount": 0,
-  "openPrice": 0,
-  "lastPrice": 0,
-  "openProfit": 0,
-  "closedProfit": 0,
-  "openNotionalProfit": 0,
-  "closedNotionalProfit": 0,
-  "rolloverFees": 0,
-  "otherFees": 0,
-  "creationTime": 0,
-  "lastModified": 0,
-  "stoploss": 0,
-  "takeprofit": 0,
-  "sequenceId": 0
+  "side": "BUY",
+  "amount": 10000,
+  "openPrice": 0.9,
+  "lastPrice": 1,
+  "openProfit": 1000,
+  "closedProfit": null,
+  "openNotionalProfit": 1000,
+  "closedNotionalProfit": null,
+  "rolloverFees": null,
+  "otherFees": null,
+  "creationTime": 1461149630,
+  "lastModified": 1461149630,
+  "stoploss": null,
+  "takeprofit": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3465,23 +3678,23 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "yh-14-e",
   "instrumentId": "abc123",
-  "side": "",
-  "amount": 0,
-  "openPrice": 0,
-  "lastPrice": 0,
-  "openProfit": 0,
-  "closedProfit": 0,
-  "openNotionalProfit": 0,
-  "closedNotionalProfit": 0,
-  "rolloverFees": 0,
-  "otherFees": 0,
-  "creationTime": 0,
-  "lastModified": 0,
-  "stoploss": 0,
-  "takeprofit": 0,
-  "sequenceId": 0
+  "side": "BUY",
+  "amount": 10000,
+  "openPrice": 0.9,
+  "lastPrice": 1,
+  "openProfit": 1000,
+  "closedProfit": null,
+  "openNotionalProfit": 1000,
+  "closedNotionalProfit": null,
+  "rolloverFees": null,
+  "otherFees": null,
+  "creationTime": 1461149630,
+  "lastModified": 1461149630,
+  "stoploss": null,
+  "takeprofit": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3529,9 +3742,43 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "open": [],
-  "recentlyClosed": [],
-  "sequenceId": 0
+  "open": {
+    "id": "1235",
+    "instrumentId": "abc123",
+    "side": "BUY",
+    "amount": 10000,
+    "openPrice": 0.9,
+    "lastPrice": 1,
+    "openProfit": 1000,
+    "closedProfit": null,
+    "openNotionalProfit": 1000,
+    "closedNotionalProfit": null,
+    "rolloverFees": null,
+    "otherFees": null,
+    "creationTime": 1461247040576,
+    "lastModified": 1461247040576,
+    "stoploss": null,
+    "takeprofit": null
+  },
+  "recentlyClosed": {
+    "id": "1236",
+    "instrumentId": "abc123",
+    "side": null,
+    "amount": 0,
+    "openPrice": 0,
+    "lastPrice": 1,
+    "openProfit": 0,
+    "closedProfit": null,
+    "openNotionalProfit": null,
+    "closedNotionalProfit": -10,
+    "rolloverFees": null,
+    "otherFees": null,
+    "creationTime": 1461247040576,
+    "lastModified": 1461247040576,
+    "stoploss": null,
+    "takeprofit": null
+  },
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3586,9 +3833,43 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "open": [],
-  "recentlyClosed": [],
-  "sequenceId": 0
+  "open": {
+    "id": "1235",
+    "instrumentId": "abc123",
+    "side": "BUY",
+    "amount": 10000,
+    "openPrice": 0.9,
+    "lastPrice": 1,
+    "openProfit": 1000,
+    "closedProfit": null,
+    "openNotionalProfit": 1000,
+    "closedNotionalProfit": null,
+    "rolloverFees": null,
+    "otherFees": null,
+    "creationTime": 1461247040576,
+    "lastModified": 1461247040576,
+    "stoploss": null,
+    "takeprofit": null
+  },
+  "recentlyClosed": {
+    "id": "1236",
+    "instrumentId": "abc123",
+    "side": null,
+    "amount": 0,
+    "openPrice": 0,
+    "lastPrice": 1,
+    "openProfit": 0,
+    "closedProfit": null,
+    "openNotionalProfit": null,
+    "closedNotionalProfit": -10,
+    "rolloverFees": null,
+    "otherFees": null,
+    "creationTime": 1461247040576,
+    "lastModified": 1461247040576,
+    "stoploss": null,
+    "takeprofit": null
+  },
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3642,16 +3923,21 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "instrumentId": "abc123",
-  "bid": 0,
-  "ask": 0,
-  "spread": 0,
-  "pipValue": 0,
-  "margin": {
-    "marginBands": []
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "instrumentId": "abc123",
+    "bid": 0.99231,
+    "ask": 0.99251,
+    "spread": 2,
+    "pipValue": 0.0001,
+    "margin": {
+      "marginBands": {
+        "lowerBound": 0,
+        "marginFactor": 0.001234
+      }
+    }
   }
-}]</pre>
+]</pre>
 </section>
           </div>
         </div>
@@ -3711,16 +3997,21 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "instrumentId": "abc123",
-  "bid": 0,
-  "ask": 0,
-  "spread": 0,
-  "pipValue": 0,
-  "margin": {
-    "marginBands": []
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "instrumentId": "abc123",
+    "bid": 0.99231,
+    "ask": 0.99251,
+    "spread": 2,
+    "pipValue": 0.0001,
+    "margin": {
+      "marginBands": {
+        "lowerBound": 0,
+        "marginFactor": 0.001234
+      }
+    }
   }
-}]</pre>
+]</pre>
 </section>
           </div>
         </div>
@@ -3802,26 +4093,119 @@ type='text' />
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
   "metrics": {
-    "availableForTrading": 0,
-    "balance": 0,
+    "availableForTrading": 10900,
+    "balance": 10000,
     "closedProfit": 0,
-    "equity": 0,
-    "marginUsed": 0,
-    "openProfit": 0
+    "equity": 11000,
+    "marginUsed": 100,
+    "openProfit": 1000
   },
   "orders": {
-    "pending": [],
-    "recentlyCancelled": [],
-    "recentlyExecuted": [],
-    "sequenceId": 0
+    "pending": {
+      "id": "1234",
+      "instrumentId": "abc123",
+      "symbol": "EURUSD",
+      "side": "BUY",
+      "type": "MARKET",
+      "amount": 10000,
+      "status": "PENDING",
+      "price": 0,
+      "lastPrice": 1,
+      "creationDate": 1461247040548,
+      "affectedPositions": [],
+      "stopLossDistance": null,
+      "takeProfitDistance": null,
+      "executionPrice": null
+    },
+    "recentlyCancelled": {
+      "id": "1236",
+      "instrumentId": "abc123",
+      "symbol": "EURUSD",
+      "side": "BUY",
+      "type": "STOP",
+      "amount": 10000,
+      "status": "CANCELLED",
+      "price": 1.1,
+      "lastPrice": 1,
+      "creationDate": 1461247040548,
+      "affectedPositions": [],
+      "stopLossDistance": null,
+      "takeProfitDistance": null,
+      "executionPrice": null
+    },
+    "recentlyExecuted": {
+      "id": "1235",
+      "instrumentId": "abc123",
+      "symbol": "EURUSD",
+      "side": "BUY",
+      "type": "LIMIT",
+      "amount": 10000,
+      "status": "EXECUTED",
+      "price": 0.9,
+      "lastPrice": 1,
+      "creationDate": 1461247040548,
+      "affectedPositions": [
+        "1235"
+      ],
+      "stopLossDistance": null,
+      "takeProfitDistance": null,
+      "executionPrice": 0.9
+    },
+    "sequenceId": 647594837
   },
   "positions": {
-    "open": [],
-    "recentlyClosed": [],
-    "sequenceId": 0
+    "open": {
+      "id": "1235",
+      "instrumentId": "abc123",
+      "side": "BUY",
+      "amount": 10000,
+      "openPrice": 0.9,
+      "lastPrice": 1,
+      "openProfit": 1000,
+      "closedProfit": null,
+      "openNotionalProfit": 1000,
+      "closedNotionalProfit": null,
+      "rolloverFees": null,
+      "otherFees": null,
+      "creationTime": 1461247040551,
+      "lastModified": 1461247040551,
+      "stoploss": null,
+      "takeprofit": null
+    },
+    "recentlyClosed": {
+      "id": "1236",
+      "instrumentId": "abc123",
+      "side": null,
+      "amount": 0,
+      "openPrice": 0,
+      "lastPrice": 1,
+      "openProfit": 0,
+      "closedProfit": null,
+      "openNotionalProfit": null,
+      "closedNotionalProfit": -10,
+      "rolloverFees": null,
+      "otherFees": null,
+      "creationTime": 1461247040551,
+      "lastModified": 1461247040551,
+      "stoploss": null,
+      "takeprofit": null
+    },
+    "sequenceId": 647594837
   },
-  "prices": [],
-  "sequenceId": 0
+  "prices": {
+    "instrumentId": "abc123",
+    "bid": 0.99231,
+    "ask": 0.99251,
+    "spread": 2,
+    "pipValue": 0.0001,
+    "margin": {
+      "marginBands": {
+        "lowerBound": 0,
+        "marginFactor": 0.001234
+      }
+    }
+  },
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -3884,26 +4268,119 @@ type='text' />
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
   "metrics": {
-    "availableForTrading": 0,
-    "balance": 0,
+    "availableForTrading": 10900,
+    "balance": 10000,
     "closedProfit": 0,
-    "equity": 0,
-    "marginUsed": 0,
-    "openProfit": 0
+    "equity": 11000,
+    "marginUsed": 100,
+    "openProfit": 1000
   },
   "orders": {
-    "pending": [],
-    "recentlyCancelled": [],
-    "recentlyExecuted": [],
-    "sequenceId": 0
+    "pending": {
+      "id": "1234",
+      "instrumentId": "abc123",
+      "symbol": "EURUSD",
+      "side": "BUY",
+      "type": "MARKET",
+      "amount": 10000,
+      "status": "PENDING",
+      "price": 0,
+      "lastPrice": 1,
+      "creationDate": 1461247040548,
+      "affectedPositions": [],
+      "stopLossDistance": null,
+      "takeProfitDistance": null,
+      "executionPrice": null
+    },
+    "recentlyCancelled": {
+      "id": "1236",
+      "instrumentId": "abc123",
+      "symbol": "EURUSD",
+      "side": "BUY",
+      "type": "STOP",
+      "amount": 10000,
+      "status": "CANCELLED",
+      "price": 1.1,
+      "lastPrice": 1,
+      "creationDate": 1461247040548,
+      "affectedPositions": [],
+      "stopLossDistance": null,
+      "takeProfitDistance": null,
+      "executionPrice": null
+    },
+    "recentlyExecuted": {
+      "id": "1235",
+      "instrumentId": "abc123",
+      "symbol": "EURUSD",
+      "side": "BUY",
+      "type": "LIMIT",
+      "amount": 10000,
+      "status": "EXECUTED",
+      "price": 0.9,
+      "lastPrice": 1,
+      "creationDate": 1461247040548,
+      "affectedPositions": [
+        "1235"
+      ],
+      "stopLossDistance": null,
+      "takeProfitDistance": null,
+      "executionPrice": 0.9
+    },
+    "sequenceId": 647594837
   },
   "positions": {
-    "open": [],
-    "recentlyClosed": [],
-    "sequenceId": 0
+    "open": {
+      "id": "1235",
+      "instrumentId": "abc123",
+      "side": "BUY",
+      "amount": 10000,
+      "openPrice": 0.9,
+      "lastPrice": 1,
+      "openProfit": 1000,
+      "closedProfit": null,
+      "openNotionalProfit": 1000,
+      "closedNotionalProfit": null,
+      "rolloverFees": null,
+      "otherFees": null,
+      "creationTime": 1461247040551,
+      "lastModified": 1461247040551,
+      "stoploss": null,
+      "takeprofit": null
+    },
+    "recentlyClosed": {
+      "id": "1236",
+      "instrumentId": "abc123",
+      "side": null,
+      "amount": 0,
+      "openPrice": 0,
+      "lastPrice": 1,
+      "openProfit": 0,
+      "closedProfit": null,
+      "openNotionalProfit": null,
+      "closedNotionalProfit": -10,
+      "rolloverFees": null,
+      "otherFees": null,
+      "creationTime": 1461247040551,
+      "lastModified": 1461247040551,
+      "stoploss": null,
+      "takeprofit": null
+    },
+    "sequenceId": 647594837
   },
-  "prices": [],
-  "sequenceId": 0
+  "prices": {
+    "instrumentId": "abc123",
+    "bid": 0.99231,
+    "ask": 0.99251,
+    "spread": 2,
+    "pipValue": 0.0001,
+    "margin": {
+      "marginBands": {
+        "lowerBound": 0,
+        "marginFactor": 0.001234
+      }
+    }
+  },
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -4422,20 +4899,20 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -4518,20 +4995,20 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -4599,27 +5076,27 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'>tradableEmbed.placeMarketOrder(<span class="hljs-number">10000</span>, <span class="hljs-string">"BUY"</span>, <span class="hljs-string">"401155666"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">order</span>) </span>{
+<pre class='overflow-auto'>tradableEmbed.placeMarketOrder(<span class="hljs-number">10000</span>, <span class="hljs-string">"BUY"</span>, <span class="hljs-string">"abc123"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">order</span>) </span>{
      <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(order, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
 }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>) </span>{
      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Trade rejected: "</span> + jqXHR.responseJSON.message);
 });
 
 <p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -4695,27 +5172,27 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><span class="hljs-keyword">var</span> accountId = tradableEmbed.selectedAccount.uniqueId;
-tradableEmbed.placeMarketOrder(accountId, <span class="hljs-number">10000</span>, <span class="hljs-string">"BUY"</span>, <span class="hljs-string">"401155666"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">order</span>) </span>{
+tradableEmbed.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</span>, <span class="hljs-string">"BUY"</span>, <span class="hljs-string">"abc123"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">order</span>) </span>{
      <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(order, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
 }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>) </span>{
      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Trade rejected: "</span> + jqXHR.responseJSON.message);
 });
 
 <p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -4812,20 +5289,20 @@ tradableEmbed.placeMarketOrder(accountId, <span class="hljs-number">10000</span>
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -4929,20 +5406,20 @@ tradableEmbed.placeMarketOrder(accountId, <span class="hljs-number">10000</span>
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -5018,20 +5495,20 @@ tradableEmbed.placeMarketOrder(accountId, <span class="hljs-number">10000</span>
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -5114,20 +5591,20 @@ tradableEmbed.placeMarketOrder(accountId, <span class="hljs-number">10000</span>
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "",
+  "id": "oteF-6eh4",
   "instrumentId": "abc123",
-  "side": "",
-  "type": "",
-  "amount": 0,
-  "status": "",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
   "price": 0,
-  "lastPrice": 0,
-  "creationDate": 0,
-  "affectedPositions": [],
-  "stopLossDistance": 0,
-  "takeProfitDistance": 0,
-  "executionPrice": 0,
-  "sequenceId": 0
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLossDistance": null,
+  "takeProfitDistance": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
 }</pre>
 </section>
           </div>
@@ -5401,14 +5878,22 @@ tradableEmbed.placeMarketOrder(accountId, <span class="hljs-number">10000</span>
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "instrumentId": "1",
-  "symbol": "",
-  "brokerageAccountSymbol": "",
-  "displayName": "",
-  "shortDescription": "",
-  "type": ""
-}]</pre>
+<pre class='overflow-auto'>tradableEmbed.searchInstruments(<span class="hljs-string">"EURUS"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">instrumentResults</span>) </span>{
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(instrumentResults, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>) </span>{
+     <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Error trying to find instruments: "</span> + jqXHR.responseJSON.message);
+});
+
+<p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "instrumentId": "1",
+    "symbol": "EURUSD",
+    "brokerageAccountSymbol": "EUR/USD",
+    "displayName": "EUR/USD",
+    "shortDescription": "",
+    "type": null
+  }
+]</pre>
 </section>
           </div>
         </div>
@@ -5468,14 +5953,23 @@ tradableEmbed.placeMarketOrder(accountId, <span class="hljs-number">10000</span>
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>[{
-  "instrumentId": "1",
-  "symbol": "",
-  "brokerageAccountSymbol": "",
-  "displayName": "",
-  "shortDescription": "",
-  "type": ""
-}]</pre>
+<pre class='overflow-auto'><span class="hljs-keyword">var</span> accountId = tradableEmbed.selectedAccount.uniqueId;
+tradableEmbed.searchInstrumentsForAccount(accountId, <span class="hljs-string">"EURUS"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">instrumentResults</span>) </span>{
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(instrumentResults, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR</span>) </span>{
+     <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Error trying to find instruments: "</span> + jqXHR.responseJSON.message);
+});
+
+<p class='example-intro'>This is an example object returned by the callback from this method:</p>[
+  {
+    "instrumentId": "1",
+    "symbol": "EURUSD",
+    "brokerageAccountSymbol": "EUR/USD",
+    "displayName": "EUR/USD",
+    "shortDescription": "",
+    "type": null
+  }
+]</pre>
 </section>
           </div>
         </div>
