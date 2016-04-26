@@ -15,7 +15,7 @@
       <div class='fixed md-show fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>tradable-embed-ui</h3>
-          <div class='mb1'><code>1.15</code></div>
+          <div class='mb1'><code>1.16</code></div>
           <input
 placeholder='Filter'
 id='filter-input'
@@ -157,7 +157,7 @@ type='text' />
 
      <p>Alternatively, if you want to maintain the configuration yourself, you can define the configuration object and link tradable-embed-ui directly:</p>
 
-     <pre class="intro">&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;<br/>&lt;script type="text/javascript"&gt; <br> window.tradableEmbedConfig = {"appId": <i>your-app-id</i>};<br>&lt;/script&gt;<br>&lt;script type="text/javascript" src="//js-api.tradable.com/ui/1.15/tradable-embed-ui.min.js"&gt;&lt;/script&gt;</pre>
+     <pre class="intro">&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;<br/>&lt;script type="text/javascript"&gt; <br> window.tradableEmbedConfig = {"appId": <i>your-app-id</i>};<br>&lt;/script&gt;<br>&lt;script type="text/javascript" src="//js-api.tradable.com/ui/1.16/tradable-embed-ui.min.js"&gt;&lt;/script&gt;</pre>
 
      <b>NOTE! The oauth flow doesn't work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the "Edit on Codepen" link</b>
 
@@ -211,7 +211,7 @@ type='text' />
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>symbol</strong>
           :
           <div class='force-inline'>
-<p>(optional) Instrument symbol or currency to display in the order entry</p>
+<p>(optional) Instrument symbol or currency to display in the order entry. If you want to specify options, this parameter must be sent.</p>
 
           </div>
         </li>
@@ -222,6 +222,9 @@ type='text' />
 
           </div>
 <ul>
+    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> options.instrumentId
+      <p>If specified and valid, the instrument id will override the defined symbol (optional)</p>
+</li>
     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> options.type
       <p>&quot;MARKET&quot;, &quot;LIMIT&quot; or &quot;STOP&quot; (optional)</p>
 </li>
@@ -238,7 +241,9 @@ type='text' />
         </li>
     </ul>
     <h4>Examples</h4>
-<pre class='overflow-auto'>tradableEmbed.promptOrderEntry(<span class="hljs-string">"EURUSD"</span>, {<span class="hljs-string">'type'</span>: <span class="hljs-string">'MARKET'</span>, <span class="hljs-string">'side'</span>: <span class="hljs-string">'BUY'</span>});</pre>
+<pre class='overflow-auto'>tradableEmbed.promptOrderEntry();
+tradableEmbed.promptOrderEntry(<span class="hljs-string">"EURUSD"</span>, {<span class="hljs-string">'type'</span>: <span class="hljs-string">'MARKET'</span>, <span class="hljs-string">'side'</span>: <span class="hljs-string">'BUY'</span>});
+tradableEmbed.promptOrderEntry(<span class="hljs-string">"EUR/GBP"</span>, {<span class="hljs-string">"instrumentId"</span> : <span class="hljs-string">"401155662"</span>});</pre>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='scrapeContent' class='mt0'>
