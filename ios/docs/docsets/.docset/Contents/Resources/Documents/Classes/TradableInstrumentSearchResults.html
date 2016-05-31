@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TradablePositionDetailDelegate Protocol Reference</title>
+    <title>TradableInstrumentSearchResults Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/TradablePositionDetailDelegate" class="dashAnchor"></a>
-    <a title="TradablePositionDetailDelegate Protocol Reference"></a>
+    <a name="//apple_ref/swift/Class/TradableInstrumentSearchResults" class="dashAnchor"></a>
+    <a title="TradableInstrumentSearchResults Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TradablePositionDetailDelegate Protocol Reference
+        TradableInstrumentSearchResults Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -261,14 +261,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TradablePositionDetailDelegate</h1>
+            <h1>TradableInstrumentSearchResults</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TradablePositionDetailDelegate</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradableInstrumentSearchResults</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>The delegate protocol for the Position Detail widget.</p>
+            <p>The results of an instrument search.</p>
 
           </section>
           <section class="section task-group-section">
@@ -277,9 +277,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP11TradableAPI30TradablePositionDetailDelegate31tradablePositionDetailDismissedFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/tradablePositionDetailDismissed()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP11TradableAPI30TradablePositionDetailDelegate31tradablePositionDetailDismissedFT_T_">tradablePositionDetailDismissed()</a>
+                    <a name="/s:vC11TradableAPI31TradableInstrumentSearchResults11instrumentsGSaCS_30TradableInstrumentSearchResult_"></a>
+                    <a name="//apple_ref/swift/Property/instruments" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI31TradableInstrumentSearchResults11instrumentsGSaCS_30TradableInstrumentSearchResult_">instruments</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -287,14 +287,95 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Position Detail delegate hook for knowing when the widget has been dismissed.</p>
+                        <p>The instruments matching the search query.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tradablePositionDetailDismissed</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">instruments</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradableInstrumentSearchResult</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI31TradableInstrumentSearchResults20moreResultsAvailableSb"></a>
+                    <a name="//apple_ref/swift/Property/moreResultsAvailable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI31TradableInstrumentSearchResults20moreResultsAvailableSb">moreResultsAvailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>he maximum number of results were returned, this means that some matches may not be displayed, and that you should refine the search in order to see them.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">moreResultsAvailable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI31TradableInstrumentSearchResults8forQuerySS"></a>
+                    <a name="//apple_ref/swift/Property/forQuery" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI31TradableInstrumentSearchResults8forQuerySS">forQuery</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The search query that the results matched.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">forQuery</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI31TradableInstrumentSearchResults11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI31TradableInstrumentSearchResults11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simple description of this object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
