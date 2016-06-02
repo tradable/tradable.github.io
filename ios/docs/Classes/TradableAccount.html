@@ -113,7 +113,13 @@
                 <a href="../Classes/TradableInstrumentSearchQuery.html">TradableInstrumentSearchQuery</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchRequest.html">TradableInstrumentSearchRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableInstrumentSearchResult.html">TradableInstrumentSearchResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchResults.html">TradableInstrumentSearchResults</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableLastSessionClose.html">TradableLastSessionClose</a>
@@ -1734,7 +1740,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPositionById</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">position</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPositionById</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">position</span><span class="p">:</span> <span class="kt">TradablePosition</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1800,7 +1806,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCandlesWithRequest</span><span class="p">(</span><span class="nv">candleRequest</span><span class="p">:</span> <span class="kt">TradableCandleRequest</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">candles</span><span class="p">:</span> <span class="kt">TradableCandles</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCandlesWithRequest</span><span class="p">(</span><span class="nv">candleRequest</span><span class="p">:</span> <span class="kt">TradableCandleRequest</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">candles</span><span class="p">:</span> <span class="kt">TradableCandles</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1986,6 +1992,173 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccount30searchForInstrumentsWithPhraseFTSS17completionHandlerGSQFT13searchResultsGSqCS_31TradableInstrumentSearchResults_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/searchForInstrumentsWithPhrase(_:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccount30searchForInstrumentsWithPhraseFTSS17completionHandlerGSQFT13searchResultsGSqCS_31TradableInstrumentSearchResults_5errorGSqCS_13TradableError__T___T_">searchForInstrumentsWithPhrase(_:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Searches for instruments that contain a specified phrase.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">searchForInstrumentsWithPhrase</span><span class="p">(</span><span class="nv">searchPhrase</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">searchResults</span><span class="p">:</span> <span class="kt">TradableInstrumentSearchResults</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>searchPhrase</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The phrase that the instruments will be searched for.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with an optional TradableInstrumentSearchResults object and an optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccount30searchForInstrumentsWithPhraseFSST_"></a>
+                    <a name="//apple_ref/swift/Method/searchForInstrumentsWithPhrase(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccount30searchForInstrumentsWithPhraseFSST_">searchForInstrumentsWithPhrase(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Searches for instruments that contain a specified phrase. Returns the results using current searchDelegate&rsquo;s tradableInstrumentsFound method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">searchForInstrumentsWithPhrase</span><span class="p">(</span><span class="nv">searchPhrase</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>searchPhrase</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The phrase that the instruments will be searched for.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI15TradableAccount25getInstrumentsWithRequestFTCS_31TradableInstrumentSearchRequest17completionHandlerGSQFT14instrumentListGSqCS_22TradableInstrumentList_5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getInstrumentsWithRequest(_:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI15TradableAccount25getInstrumentsWithRequestFTCS_31TradableInstrumentSearchRequest17completionHandlerGSQFT14instrumentListGSqCS_22TradableInstrumentList_5errorGSqCS_13TradableError__T___T_">getInstrumentsWithRequest(_:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets instruments.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getInstrumentsWithRequest</span><span class="p">(</span><span class="nv">instrumentSearchRequest</span><span class="p">:</span> <span class="kt">TradableInstrumentSearchRequest</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">instrumentList</span><span class="p">:</span> <span class="kt">TradableInstrumentList</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">TradableError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instrumentSearchRequest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request object containing a list of instrument IDs for which the instruments should be retrieved.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with an optional TradableInstrumentList object and an optional TradableError object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -2056,7 +2229,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-04-15)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-05-31)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

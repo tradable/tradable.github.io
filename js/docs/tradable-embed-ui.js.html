@@ -14,8 +14,8 @@
     <div class='clearfix md-mxn2'>
       <div class='fixed md-show fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'>tradable-embed-ui</h3>
-          <div class='mb1'><code>1.16</code></div>
+          <h3 class='mb0 no-anchor'>tradable-ui</h3>
+          <div class='mb1'><code>1.17</code></div>
           <input
 placeholder='Filter'
 id='filter-input'
@@ -36,6 +36,11 @@ type='text' />
     href='#scrapeContent'
     class='block bold'>
     scrapeContent
+  </a>
+  <a
+    href='#startDemoTrading'
+    class='block bold'>
+    startDemoTrading
   </a>
           </div>
         </div>
@@ -142,22 +147,22 @@ type='text' />
      }
 
 </style><div style="padding: 1rem;">
-     Welcome to the tradable-embed documentation. Tradable Embed is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the tradable-embed javascript SDK, which offers 2 kits:
+    Welcome to the Tradable JS documentation. Tradable is an open API to easily build financial trading features into any app, through any brokerage. This is the documentation for the Tradable JavaScript SDK, which offers 2 kits:
 
-     <ul>
+    <ul>
         <li><b>core</b>: See <a href='index.html'>here</a></li>
         <li><b>ui-kit</b>: Provides different components like the website scraper and other Widgets - plug and play! (includes 'core')</li>
     </ul>
 
-     <p>There are 2 ways to add tradable-embed-ui to your site. In both approaches we use jQuery in no coflict mode (<a href="https://api.jquery.com/jquery.noconflict/">what?</a>) and we assign it to the variable 'trEmbJQ'.</p>
+     <p>There are 2 ways to add tradable-ui to your site. In both approaches we use jQuery in no coflict mode (<a href="https://api.jquery.com/jquery.noconflict/">what?</a>) and we assign it to the variable 'trEmbJQ'.</p>
 
      <p>The recommended approach is to link the JS file that we generate for your app, if you do, the global configuration will be automatically handled:</p>
 
      <pre class="intro">&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;<br>&lt;script type="text/javascript" src="//js-api.tradable.com/app/<i>your-app-id</i>.js"&gt;&lt;/script&gt;</pre>
 
-     <p>Alternatively, if you want to maintain the configuration yourself, you can define the configuration object and link tradable-embed-ui directly:</p>
+     <p>Alternatively, if you want to maintain the configuration yourself, you can define the configuration object and link tradable-ui directly:</p>
 
-     <pre class="intro">&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;<br/>&lt;script type="text/javascript"&gt; <br> window.tradableEmbedConfig = {"appId": <i>your-app-id</i>};<br>&lt;/script&gt;<br>&lt;script type="text/javascript" src="//js-api.tradable.com/ui/1.16/tradable-embed-ui.min.js"&gt;&lt;/script&gt;</pre>
+     <pre class="intro">&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;<br/>&lt;script type="text/javascript"&gt; <br> window.tradableConfig = {"appId": <i>your-app-id</i>};<br>&lt;/script&gt;<br>&lt;script type="text/javascript" src="//js-api.tradable.com/ui/1.17/tradable-ui.min.js"&gt;&lt;/script&gt;</pre>
 
      <b>NOTE! The oauth flow doesn't work properly in this documentation site for the codepen examples, for the best experience please see the examples on Codepen.io, you can do that clicking on the "Edit on Codepen" link</b>
 
@@ -165,11 +170,10 @@ type='text' />
 
      <h1>Bottom Banner</h1>
      
-     <p>Adding the Tradable Embed UI script to your page will automatically add our bottom banner with the trader's dashboard & portfolio. If you are in the auto configuration mode and you want to turn it off, you just need to tell us. 
-     On the other hand, if you manage the configuration, you need to add the following option in your tradableEmbedConfig object:<p>
+     <p>Adding the Tradable UI script to your page will automatically add our bottom banner with the trader's dashboard & portfolio. If you are in the auto configuration mode and you want to turn it off, you just need to tell us. 
+     On the other hand, if you manage the configuration, you need to add the following option in your tradableConfig object:<p>
 
-     <pre class="intro">&lt;script type="text/javascript"&gt; <br> window.tradableEmbedConfig = {"appId": <i>your-app-id</i>, <b>"showBottomBanner": false</b>};<br>&lt;/script&gt; </pre>
-     
+     <pre class="intro">&lt;script type="text/javascript"&gt; <br> window.tradableConfig = {"appId": <i>your-app-id</i>, <b>"showBottomBanner": false</b>};<br>&lt;/script&gt; </pre>
     
      <h1>Watch List</h1>
      <iframe width="100%" height="300" allowfullscreen="allowfullscreen" frameborder="0" src="//codepen.io/tradableEmbed/embed/PPgzpp/?height=300&theme-id=21042&default-tab=html"></iframe>
@@ -190,15 +194,22 @@ type='text' />
      <h1>Broker Sign In Buttons</h1>
      <iframe width="100%" height="300" allowfullscreen="allowfullscreen" frameborder="0" src="//codepen.io/tradableEmbed/embed/bpEWra/?height=300&theme-id=21042&default-tab=html"></iframe>
 
+    <h1>Confirmation Dialog</h1>
+
+    <p>From version 1.17 of Tradable UI a confirmation dialog is shown before closing positions or cancelling orders, it is possible to turn it off as follows:<p>
+
+    <pre class="intro">&lt;script type="text/javascript"&gt; <br> window.tradableConfig = {"appId": <i>your-app-id</i>, <b>"showConfirmation": false</b>};<br>&lt;/script&gt; </pre>
+
+
 </div><div class='px2'>
 <div class='py1'><section class='py2 clearfix'>
   <h2 id='executeEnableTrading' class='mt0'>
     executeEnableTrading<span class='gray'></span>
   </h2>
-  <p>Executes the same action as the Enable Trading button</p>
+  <p>Executes the same action as the Enable Trading button - If the user has not connected an account it will start practice trading, otherwise it will start the oauth flow for authentication.</p>
 
     <h4>Examples</h4>
-<pre class='overflow-auto'>tradableEmbed.executeEnableTrading();</pre>
+<pre class='overflow-auto'>tradable.executeEnableTrading();</pre>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='promptOrderEntry' class='mt0'>
@@ -241,9 +252,9 @@ type='text' />
         </li>
     </ul>
     <h4>Examples</h4>
-<pre class='overflow-auto'>tradableEmbed.promptOrderEntry();
-tradableEmbed.promptOrderEntry(<span class="hljs-string">"EURUSD"</span>, {<span class="hljs-string">'type'</span>: <span class="hljs-string">'MARKET'</span>, <span class="hljs-string">'side'</span>: <span class="hljs-string">'BUY'</span>});
-tradableEmbed.promptOrderEntry(<span class="hljs-string">"EUR/GBP"</span>, {<span class="hljs-string">"instrumentId"</span> : <span class="hljs-string">"401155662"</span>});</pre>
+<pre class='overflow-auto'>tradable.promptOrderEntry();
+tradable.promptOrderEntry(<span class="hljs-string">"EURUSD"</span>, {<span class="hljs-string">'type'</span>: <span class="hljs-string">'MARKET'</span>, <span class="hljs-string">'side'</span>: <span class="hljs-string">'BUY'</span>});
+tradable.promptOrderEntry(<span class="hljs-string">"EUR/GBP"</span>, {<span class="hljs-string">"instrumentId"</span> : <span class="hljs-string">"401155662"</span>});</pre>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='scrapeContent' class='mt0'>
@@ -262,9 +273,28 @@ tradableEmbed.promptOrderEntry(<span class="hljs-string">"EUR/GBP"</span>, {<spa
         </li>
     </ul>
     <h4>Examples</h4>
-<pre class='overflow-auto'>tradableEmbed.onEmbedReady(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-	tradableEmbed.scrapeContent(<span class="hljs-string">"#myContainerId"</span>);
+<pre class='overflow-auto'>tradable.onEmbedReady(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+	tradable.scrapeContent(<span class="hljs-string">"#myContainerId"</span>);
 });</pre>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='startDemoTrading' class='mt0'>
+    startDemoTrading<span class='gray'>(type)</span>
+  </h2>
+  <p>Starts demo trading for a Forex or Stocks account, if the user has used a demo account before it will be reused. If the user is logged in, the user will be first signed out</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>type</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) &quot;FOREX&quot; or &quot;STOCKS&quot;. If not specified, the app&apos;s default (tradableConfig.defaultDemoAccountType) or the previously picked will be used.</p>
+
+          </div>
+        </li>
+    </ul>
+    <h4>Examples</h4>
+<pre class='overflow-auto'>tradable.startDemoTrading(<span class="hljs-string">"STOCKS"</span>);</pre>
 </section>
 </div>
         </div>

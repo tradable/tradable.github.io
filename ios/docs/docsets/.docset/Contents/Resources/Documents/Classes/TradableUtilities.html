@@ -113,7 +113,13 @@
                 <a href="../Classes/TradableInstrumentSearchQuery.html">TradableInstrumentSearchQuery</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchRequest.html">TradableInstrumentSearchRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableInstrumentSearchResult.html">TradableInstrumentSearchResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchResults.html">TradableInstrumentSearchResults</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableLastSessionClose.html">TradableLastSessionClose</a>
@@ -271,9 +277,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC11TradableAPI17TradableUtilities31getPipDistanceFromPriceDistanceFzTSd10instrumentCS_18TradableInstrument_Sd"></a>
-                    <a name="//apple_ref/swift/Method/getPipDistanceFromPriceDistance(_:instrument:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities31getPipDistanceFromPriceDistanceFzTSd10instrumentCS_18TradableInstrument_Sd">getPipDistanceFromPriceDistance(_:instrument:)</a>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities31getPipDistanceFromPriceDistanceFzTSd13forInstrumentCS_18TradableInstrument_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPipDistanceFromPriceDistance(_:forInstrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities31getPipDistanceFromPriceDistanceFzTSd13forInstrumentCS_18TradableInstrument_Sd">getPipDistanceFromPriceDistance(_:forInstrument:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -281,7 +287,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Converts price distance to pip distance.</p>
+                        <p>Converts a price distance to a pip distance.</p>
 
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
@@ -294,7 +300,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPipDistanceFromPriceDistance</span><span class="p">(</span><span class="nv">distance</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPipDistanceFromPriceDistance</span><span class="p">(</span><span class="nv">distance</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">forInstrument</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
 
                         </div>
                       </div>
@@ -318,7 +324,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>instrument</em>
+                                <em>forInstrument</em>
                                 </code>
                               </td>
                               <td>
@@ -342,9 +348,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC11TradableAPI17TradableUtilities27getPipDistanceBetweenPricesFzTSd11higherPriceSd10instrumentCS_18TradableInstrument_Sd"></a>
-                    <a name="//apple_ref/swift/Method/getPipDistanceBetweenPrices(_:higherPrice:instrument:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities27getPipDistanceBetweenPricesFzTSd11higherPriceSd10instrumentCS_18TradableInstrument_Sd">getPipDistanceBetweenPrices(_:higherPrice:instrument:)</a>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities27getPipDistanceBetweenPricesFzTSd11higherPriceSd13forInstrumentCS_18TradableInstrument_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPipDistanceBetweenPrices(_:higherPrice:forInstrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities27getPipDistanceBetweenPricesFzTSd11higherPriceSd13forInstrumentCS_18TradableInstrument_Sd">getPipDistanceBetweenPrices(_:higherPrice:forInstrument:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -352,7 +358,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Converts a difference between two prices to pip distance.</p>
+                        <p>Converts a difference between two prices to a pip distance.</p>
 
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
@@ -365,7 +371,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPipDistanceBetweenPrices</span><span class="p">(</span><span class="nv">lowerPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">higherPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPipDistanceBetweenPrices</span><span class="p">(</span><span class="nv">lowerPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">higherPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">forInstrument</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
 
                         </div>
                       </div>
@@ -402,7 +408,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>instrument</em>
+                                <em>forInstrument</em>
                                 </code>
                               </td>
                               <td>
@@ -426,9 +432,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC11TradableAPI17TradableUtilities31getPriceDistanceFromPipDistanceFzTSd10instrumentCS_18TradableInstrument_Sd"></a>
-                    <a name="//apple_ref/swift/Method/getPriceDistanceFromPipDistance(_:instrument:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities31getPriceDistanceFromPipDistanceFzTSd10instrumentCS_18TradableInstrument_Sd">getPriceDistanceFromPipDistance(_:instrument:)</a>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities31getPriceDistanceFromPipDistanceFzTSd13forInstrumentCS_18TradableInstrument_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPriceDistanceFromPipDistance(_:forInstrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities31getPriceDistanceFromPipDistanceFzTSd13forInstrumentCS_18TradableInstrument_Sd">getPriceDistanceFromPipDistance(_:forInstrument:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -436,7 +442,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Converts pip distance to price distance.</p>
+                        <p>Converts a pip distance to a price distance.</p>
 
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
@@ -449,7 +455,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPriceDistanceFromPipDistance</span><span class="p">(</span><span class="nv">distance</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPriceDistanceFromPipDistance</span><span class="p">(</span><span class="nv">distance</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">forInstrument</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
 
                         </div>
                       </div>
@@ -473,7 +479,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>instrument</em>
+                                <em>forInstrument</em>
                                 </code>
                               </td>
                               <td>
@@ -494,12 +500,180 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities32getPriceWithPipDistanceFromPriceFzTSd8distanceSd13forInstrumentCS_18TradableInstrument_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPriceWithPipDistanceFromPrice(_:distance:forInstrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities32getPriceWithPipDistanceFromPriceFzTSd8distanceSd13forInstrumentCS_18TradableInstrument_Sd">getPriceWithPipDistanceFromPrice(_:distance:forInstrument:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculates a price with a price and a pip distance.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>TradableUtilitiesError.UnsupportedInstrument if there is no possibility of making conversion for specified instrument.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPriceWithPipDistanceFromPrice</span><span class="p">(</span><span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">distance</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">forInstrument</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>price</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The price to which the pip distance should be added.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>distance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The pip distance to be added.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forInstrument</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instrument for which the conversion should be made.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A price.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11TradableAPI17TradableUtilities19getProfitLossInPipsFzTSd12currentPriceSd13forInstrumentCS_18TradableInstrument_Si"></a>
+                    <a name="//apple_ref/swift/Method/getProfitLossInPips(_:currentPrice:forInstrument:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11TradableAPI17TradableUtilities19getProfitLossInPipsFzTSd12currentPriceSd13forInstrumentCS_18TradableInstrument_Si">getProfitLossInPips(_:currentPrice:forInstrument:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculates a PnL in whole pips.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>TradableUtilitiesError.UnsupportedInstrument if there is no possibility of making conversion for specified instrument.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getProfitLossInPips</span><span class="p">(</span><span class="nv">openPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">currentPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">forInstrument</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt">TradableInstrument</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>openPrice</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The price from which the PnL in pips should be calculated.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currentPrice</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The price for which the PnL in pips should be calculated.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forInstrument</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instrument for which the conversion should be made.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A PnL value in whole pips.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-04-15)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-05-31)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -113,7 +113,13 @@
                 <a href="../Classes/TradableInstrumentSearchQuery.html">TradableInstrumentSearchQuery</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchRequest.html">TradableInstrumentSearchRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableInstrumentSearchResult.html">TradableInstrumentSearchResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableInstrumentSearchResults.html">TradableInstrumentSearchResults</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TradableLastSessionClose.html">TradableLastSessionClose</a>
@@ -268,6 +274,33 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI21TradableCandleRequest12instrumentIdSS"></a>
+                    <a name="//apple_ref/swift/Property/instrumentId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI21TradableCandleRequest12instrumentIdSS">instrumentId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The unique instrument identifier to get candles for.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">instrumentId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -511,12 +544,93 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI21TradableCandleRequestcFT12instrumentIdSS4fromVs6UInt642toS1_11aggregationSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(instrumentId:from:to:aggregation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI21TradableCandleRequestcFT12instrumentIdSS4fromVs6UInt642toS1_11aggregationSi_S0_">init(instrumentId:from:to:aggregation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">instrumentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">aggregation</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI21TradableCandleRequestcFT12instrumentIdSS8fromDateCSo6NSDate6toDateS1_11aggregationSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(instrumentId:fromDate:toDate:aggregation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI21TradableCandleRequestcFT12instrumentIdSS8fromDateCSo6NSDate6toDateS1_11aggregationSi_S0_">init(instrumentId:fromDate:toDate:aggregation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">instrumentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">fromDate</span><span class="p">:</span> <span class="kt">NSDate</span><span class="p">,</span> <span class="nv">toDate</span><span class="p">:</span> <span class="kt">NSDate</span><span class="p">,</span> <span class="nv">aggregation</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI21TradableCandleRequestcFT12instrumentIdSS4fromVs6UInt642toS1_11aggregationSi16indicatorRequestGSqCS_24TradableIndicatorRequest__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(instrumentId:from:to:aggregation:indicatorRequest:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI21TradableCandleRequestcFT12instrumentIdSS4fromVs6UInt642toS1_11aggregationSi16indicatorRequestGSqCS_24TradableIndicatorRequest__S0_">init(instrumentId:from:to:aggregation:indicatorRequest:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">instrumentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">aggregation</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">indicatorRequest</span><span class="p">:</span> <span class="kt">TradableIndicatorRequest</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-04-15)</p>
+          <p>&copy; 2016 <a class="link" href="https://tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-05-31)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
