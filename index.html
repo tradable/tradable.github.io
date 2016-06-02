@@ -1,395 +1,199 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="tradable" />
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+    <meta name="description" content="tradable"/>
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>Tradable</title>
-    
+
     <!-- Style overrides -->
     <style>
-    	
-    	body {
-	    	background-color: #131E2C;
-	    	
-    	}
-    	
-    	
-    	h1 {
-	    	font-size: 1.8em;
-	    	font-weight: 100;
-    	}
-    	
-    	h2 {
-	    	font-size: 1.2em;
-	    	font-weight: 700;
-    	}
-    	
-    	h3 {
-	    	font-size: 1em;
-    	}
-    	
-    	#header_wrap, #footer_wrap {
-	    	background-color: #2B3641;
-	    	background-image: none;
-	    	border: 0;
-    	}
-    	
-    	#main_content_wrap {
-	    	border: 0;
-    	}
-    	
-    	.logo {
-	    	height: 2.5em;
-	    	border: 0;
-	    	box-shadow: none;
-    	}
-    	
-    	.box {
-	    	box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			-webkit-box-sizing: border-box;
-	    	width: 50%;
-	    	text-align: center;
-	    	padding-top: 1em;
-	    	padding-bottom: 0.5em;
-	    	margin-top: 1em;
-	    	border-radius: 2;
-	    	cursor: pointer;
-	    	margin-top: 0;
-    	}
-    	
-    	
-    	.box.sub {
-	    	text-align: center;
-	    	padding: 1em;
-	    	border-radius: 2;
-	    	cursor: pointer;
-    	}
-    	
-    	.left {
-	    	float: left;
-    	}
-    	
-    	
-    	.right {
-	    	float: left;
-    	}
-    	
-    	.box .illustration {
-	    	margin: 0;
-	    	border: 0;
-	    	box-shadow: none;
-	    	transition: all 0.3s;
-			transition-timing: ease-in-out;
-    	}
-    	
-    	.box:hover, .platform-toggle:hover {
-	    	background-color: rgba(255,255,255,.8);
-    	}
-    	
-    	.box:hover .illustration {
-			-ms-transform: rotate(7deg); /* IE 9 */
-			-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
-			transform: rotate(7deg);
-    	}
-    	
-    	.box:hover h1 {
-	    	color:#108993;
-    	}
-    	
-    	.box:active, .platform-toggle:active {
-	    	background-color: rgba(196,205,207,.3);
-    	}
-    	
-    	.hr {
-	    	width: 100%;
-	    	border-bottom: 1px solid #CCC;
-	    	clear: both;
-	    	padding-top: 1.5em;
-	    	margin-bottom: 1.5em;
-    	}
-    	
-		a, a:visited {
-		  color: #108993;
-		}
-		
-		.platform {
-			display: none;
-		}
-		
-		.platform-toggle {
-			text-align: center;
-			padding: 20px;
-			margin: 0;
-			border-radius: 2px;
-			text-decoration: none;
-		}
-		
-		a.toggle {
-			text-decoration: none;
-		}
-		
-		.spacer {
-			width: 50%;
-			position: relative;
-			padding:.5em 0;
-		}
-		
-		.spacer .line {
-			width: 50%;
-			border-top:1px dotted #CCC;
-			position: absolute;
-			left: 25%;
-		}
-    
-        #main_content a.hover {
-            text-decoration: none;
+
+        body {
+            background-color: #f2f2f2;
         }
-		
-    
+
+        h1 {
+            font-size: 1.8em;
+            font-weight: 100;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1em;
+        }
+
+        #header_wrap, #footer_wrap {
+            background: #2B3641;
+            border: 0;
+        }
+
+        #footer_wrap {
+            position: fixed;
+            bottom: 0;
+        }
+
+        #main_content_wrap {
+            border: 0;
+        }
+
+        .logo {
+            height: 2.5em;
+            border: 0;
+            box-shadow: none;
+        }
+
+        .box {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            width: 50%;
+            text-align: center;
+            padding-top: 1em;
+            padding-bottom: 0.5em;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: 0;
+        }
+
+        .box.sub {
+            text-align: center;
+            padding: 1em;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: left;
+        }
+
+        .box .illustration {
+            margin: 0;
+            border: 0;
+            box-shadow: none;
+            transition: all 0.3s;
+        }
+
+        .box:hover:hover {
+            background-color: rgba(255, 255, 255, .8);
+        }
+
+        .box:hover .illustration {
+            -ms-transform: rotate(7deg); /* IE 9 */
+            -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+            transform: rotate(7deg);
+        }
+
+        .box:hover h1 {
+            color: #108993;
+        }
+
+        .box:active:active {
+            background-color: rgba(196, 205, 207, .3);
+        }
+
+        .hr {
+            width: 100%;
+            clear: both;
+            padding-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+
+        a, a:visited {
+            color: #108993;
+        }
+
+        .spacer {
+            width: 50%;
+            position: relative;
+            padding: .5em 0;
+        }
+
+        .spacer .line {
+            width: 50%;
+            border-top: 1px dotted #CCC;
+            position: absolute;
+            left: 25%;
+        }
+
     </style>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script>
-	    
-	    $( document ).ready(function() {
- 			$('.platform-toggle').click(function(){
-	 			$('.platform').toggle();
-	 			$('html, body').animate({
-			        scrollTop: $(".platform").offset().top-100
-			    }, 300);
- 			});
-		});
-	    
-    </script>
-    
-  </head>
 
-  <body>
+</head>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/tradable">View on GitHub</a>
-		  <img class="logo" src="tradable_logo_onDark_color.svg">
+<body>
 
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-	      
-	  	<a href="https://github.com/tradable/tradable-ios-sdk">
-	    <div class="left box">
-		    <img class="illustration" src="ios_sdk.svg">
-	        <h1>Tradable iOS</h1>
-	        Tradable iOS SDK
-	    </div>
-		</a>
-
-	    <a href="https://github.com/tradable/tradable-core">
-	    <div class="right box">
-		    <img class="illustration" src="js_sdk.svg">
-    	    <h1>Tradable JavaScript</h1>
-	        Tradable JavaScript SDK
-	    </div>
-	    </a>
-
-	    <div class="left spacer">
-		    <div class="line"></div>
-	    </div>
-	    
-	    <div class="right spacer">
-		    <div class="line"></div>
-	    </div>
-	    
-	  	<a href="ios/docs/index.html"> 
-	    <div class="left box sub">
-	        iOS SDK Docs
-	    </div>
-	  	</a>
-	    
-	  	<a href="js/docs/index.html">
-	    <div class="right box sub">
-	        JavaScript SDK Docs
-	    </div>
-	  	</a>
-        
-		<div class="hr"></div>
-		<a class="toggle" href="#">
-		<div class="platform-toggle" onclick="showPlatform()">
-				Tradable Java Platform API
-		</div>
-		</a>
-
-<div class="platform">
-
-        <h1>
-<a name="tradable-example-apps" class="anchor" href="#tradable-example-apps"><span class="octicon octicon-link"></span></a>Tradable example Apps</h1>
-
-<p>Each project listed on this page includes code that performs some task, ranging from 
-trivial, like printing the user's account Id in an App to more involved like dealing with orders
-sent by a user and monitoring positions or building an algo trading bot.</p>
-
-<h2>
-<a name="list-of-examples" class="anchor" href="#list-of-examples"><span class="octicon octicon-link"></span></a>List of Examples:</h2>
-
-<p>You will find here a list of repositories containing educational/starting points projects. </p>
-
-<h3>
-<a name="standard-apps" class="anchor" href="#standard-apps"><span class="octicon octicon-link"></span></a>Standard Apps:</h3>
-
-<ul>
-<li>
-<a href="https://github.com/tradable/tradable-start-HelloWorld">Hello World Example</a><br>
-Simple Hello World app to get started from a roughly empty project.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-accountID">Account ID</a><br>
-Simple app which displays the use of the <em>com.tradable.api.services.account</em> to display the
-accountID in a JLabel.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-useAccountMetrics">Account Metrics</a><br>
-App displaying the use of the <em>com.tradable.api.services.analytics</em> API to
-display the account Metrics in a few JLabels.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-useEnvironmentService">Environment Service</a><br>
-Learn how to use the <em>com.tradable.api.services.environment.EnvironmentService</em> API to
-identify some information about the user.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-useHistoricMarketData">Historic Market Data</a><br>
-App that prints all the historical times and prices (open, close etc...) for a certain
-Symbol (chosen arbitrarily) at a given frequency between two dates. this is done by using
-the <em>com.tradable.api.services.historicmarketdata</em> API.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-useMarketDepth">Market Depth &amp; VWAP</a><br>
-This app shows what recent volume moved the market and what the price associated to the move
-is. It also uses the service to display how to compute the <a href="http://en.wikipedia.org/wiki/Volume-weighted_average_price">VWAP</a>.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-useInstruments">Instruments</a><br>
-This app uses the <em>com.tradable.api.services.instrument</em> API to show how one would update
-their list of instruments accessible to a user when instrument updates occur.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-JavaFXBrowser">JavaFX Browser</a><br>
-A simple JavaFX browser project. You can use this as a starting point to integrate JavaFX in
-your app.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-np">Send and Manage Orders</a><br>
-A longer example apps than most others. Follow the link and you will find a tutorial on how
-to send and manage orders in the tradable platform.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-useWidgets">tradable Standard Widgets</a><br>
-This app displays in an app most of the widgets you can use from the tradable APIs.</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-OrderEntryWidget">Order Entry pop-up Widget</a><br>
-This app quite simply pops up an order entry widget identical in look and behavior to the
-one in standard Order Entry app available by default in tradable</li>
-<li>
-<a href="https://github.com/tradable/tradable-start-SettingsDialog">Settings Dialog</a><br>
-This is an example of how to implement the settings dialog in tradable</li>
-</ul><h3>
-<a name="algo-apps" class="anchor" href="#algo-apps"><span class="octicon octicon-link"></span></a>Algo Apps:</h3>
-
-<ul>
-<li>
-<a href="https://github.com/tradable/tradable-algo-start-wprIndicator">Williams Percent Range Indicator</a><br>
-This App displays how one can use indicators by creating a WPR on for the platform.</li>
-<li>
-<a href="https://github.com/tradable/tradable-algo-start-SMMA">SMMA Indicator</a><br>
-This is an implementation of the Smoothed Moving Average Indicator as defined <a href="http://www.dailyfx.com/forex_forum/signal-strategy-fxcm-marketscope/237441-smoothed-moving-average-smma.html">here</a>.</li>
-<li>
-<a href="https://github.com/tradable/tradable-algo-start-alligatorIndicator">Alligator Indicator</a>
-This project displays how to use a custom indicator (here the SMMA) as input data in another project.</li>
-<li>
-<a href="https://github.com/tradable/tradable-algo-start-macd">MACD automatic trading strategy</a>
-Use the algo API to create trading bots. This app uses the tradable algo API to implement a
-bot that uses a MACD trading strategy.</li>
-</ul><p>Whether you want to learn how it works by looking at code or start your own App using this code, here is how you go about doing so:</p>
-
-<h2>
-<a name="cloning-and-opening-the-project-in-eclipse" class="anchor" href="#cloning-and-opening-the-project-in-eclipse"><span class="octicon octicon-link"></span></a>Cloning and opening the project in Eclipse</h2>
-
-<ol>
-<li>
-<p>Make sure you are running Eclipse Juno or a later version with the Maven and WindowBuilder plugins installed. If this is not the case, fear not. You can install them quite easily form within Eclipse. For Maven: </p>
-
-<ul>
-<li>Go to Help -&gt; Install New Software...</li>
-<li>If you don't have the juno realeases site set up as a repository. Click Add, name it however you wish, then in the location space write: <a href="http://download.eclipse.org/releases/juno">http://download.eclipse.org/releases/juno</a>. (Of course if you have a later version of Eclipse, the link will be adapted to the name of that version)</li>
-<li>Now in the search bar, search for m2e. Once the results pop up, select the <strong>m2e - Maven Integration for Eclipse</strong> packages from the <em>General Purpose Tool</em> and <em>Collaboration</em> packages. Also select the <strong>Xtend M2E extensions</strong>. Then next -&gt; next -&gt; finish</li>
-</ul>
-<p>For WindowBuilder The procedure is similar:</p>
-
-<ul>
-<li>Go to Help -&gt; Install New Software...</li>
-<li>Using the Juno (or later) repository as for installing the Maven plugin, search for <em>windowbuilder</em> and select the <em>General Purpose Tools</em> package</li>
-<li>You will also need to make sure the SWT plugin is installed. This time search for <em>SWT</em> and select here too the <em>General Purpose Tools</em> package</li>
-<li>Click next -&gt; next -&gt; finish. Then restart Eclipse.</li>
-</ul>
-</li>
-<li>
-<p>Now That you are all setup and that you have made sure that you have setup your eclipse platform to develop tradable apps as per <a href="http://apps.tradable.com/files/tradable%20for%20dummies%20Java%20App%20Guide.pdf">this</a> link. Let's import the project to Eclipse.</p>
-
-<ul>
-<li>
-<p>Open up your Shell (or git Shell) then navigate to your Eclipse Workspace using:   </p>
-
-<pre><code>  $ cd path/to/your/worksapce
-</code></pre>
-</li>
-<li>
-<p>Then clone the git repository using:</p>
-
-<pre><code>  $ git clone https://github.com/tradable/tradable-start-[name_of_start].git [name_of_directory_to_copy_to]
-</code></pre>
-</li>
-<li>
-<p>Once the directory is cloned in your Worskpace, you will probably want to remove the origin remote from your local repo, as you probably will not want to be linked to this repository as no actual work is done on it:</p>
-
-<pre><code>  $ git remote rm origin
-</code></pre>
-</li>
-<li><p>Open up Eclipse and import the project by doing File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects. Then Browse to the directory you just imported from github, select /pom.xml and then press Finish.</p></li>
-</ul>
-<p>That's it. The project should now be opened in Eclipse with the name tradable-start-[name_of_start].</p>
-</li>
-</ol><p>Note: for those of you who do not use or want to use git or github, you can just go to the project's github page: <em><a href="https://github.com/tradable/tradable-start-%5Bname_of_start%5D.git">https://github.com/tradable/tradable-start-[name_of_start].git</a></em> then on this page, click on the Zip button to download the project as a zip file on your computer. Then extract it and rename the extracted folder. You can now do the Eclipse step mentioned above.</p>
-
-<ol>
-<li>You can now go about setting up appropriate names for your project: 
-
-<ul>
-<li>Update the JRE System Library the project uses by right-clicking on JRE System Library and using the latest version available. </li>
-<li>Right click the classes names to rename them by doing refactor -&gt; rename.</li>
-<li>You will have to edit the <strong>src/main/resources/META-INF/MANIFEST.MF</strong> and the <strong>src/main/resources/META-INF/spring/app-context.xml</strong> files as per the link mentioned in point 2 to reflect your project's and/or your company 's name (remember that the "<em>class=</em>" qualifier in the app-context file takes the inverse .com name of your factorie's class as an argument). It is particularly important to rename the <em>Plugin-SymbolicName</em> value in the <em>MANIFEST.MF</em> file, as this is the value that the container will test against to see if the App is already installed in your tradable platform.</li>
-<li>
-<strong>But most importantly, you will have to edit the <em>pom.xml</em> file (preferably using the xml view of Eclipse) and change the GroupId and ArtifactId values.</strong> Remember that the GroupId value should be in inverse .com notation and should reflect the name of the entity you are doing the project for and ArtifactId is quite simply the name of your project.<br>
-</li>
-<li>Last, in your factory class, update the <em>getDisplayName()</em> and <em>getFactoryId()</em> methods so that they return appropriate values.</li>
-</ul>
-</li>
-</ol><p>This will allow you to quickly get acquainted with the presented tradable APIs by examining the functionalities implemented in the example projects. </p>
-
-<p>If you want to have an overall view of our Java API, go <a href="https://developer.tradable.com/tradable-api-docs/reference/packages.html">here</a>.</p>
-      </section>
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/tradable">View on GitHub</a>
+        <a href="https://tradable.com"><img class="logo" src="tradable_logo_onDark_color.svg"></a>
+    </header>
 </div>
-      
- 
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+
+        <a href="https://github.com/tradable/tradable-ios-sdk">
+            <div class="left box">
+                <img class="illustration" src="ios_sdk.svg">
+                <h1>Tradable iOS</h1>
+                Tradable iOS SDK
+            </div>
+        </a>
+
+        <a href="https://github.com/tradable/tradable-core">
+            <div class="right box">
+                <img class="illustration" src="js_sdk.svg">
+                <h1>Tradable JavaScript</h1>
+                Tradable JavaScript SDK
+            </div>
+        </a>
+
+        <div class="left spacer">
+            <div class="line"></div>
+        </div>
+
+        <div class="right spacer">
+            <div class="line"></div>
+        </div>
+
+        <a href="ios/docs/index.html">
+            <div class="left box sub">
+                iOS SDK Docs
+            </div>
+        </a>
+
+        <a href="js/docs/index.html">
+            <div class="right box sub">
+                JavaScript SDK Docs
+            </div>
+        </a>
+
+        <div class="hr"></div>
+
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+    </footer>
+</div>
 
 
-
-
-  </body>
+</body>
 </html>
