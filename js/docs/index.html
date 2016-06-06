@@ -15,7 +15,7 @@
       <div class='fixed md-show fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>tradable-core</h3>
-          <div class='mb1'><code>1.18</code></div>
+          <div class='mb1'><code>1.19</code></div>
           <input
 placeholder='Filter'
 id='filter-input'
@@ -76,6 +76,16 @@ type='text' />
       href='#tradable.authenticateWithWindow'
       class='regular block'>
       .authenticateWithWindow
+    </a>
+    <a
+      href='#tradable.calculatePipDistance'
+      class='regular block'>
+      .calculatePipDistance
+    </a>
+    <a
+      href='#tradable.calculatePositionSize'
+      class='regular block'>
+      .calculatePositionSize
     </a>
     <a
       href='#tradable.cancelOrder'
@@ -318,6 +328,11 @@ type='text' />
       .initializeWithToken
     </a>
     <a
+      href='#tradable.initializingAccount'
+      class='regular block'>
+      .initializingAccount
+    </a>
+    <a
       href='#tradable.modifyOrderPrice'
       class='regular block'>
       .modifyOrderPrice
@@ -398,6 +413,16 @@ type='text' />
       .placeOrderWithProtectionsForAccount
     </a>
     <a
+      href='#tradable.placeProtectedOrder'
+      class='regular block'>
+      .placeProtectedOrder
+    </a>
+    <a
+      href='#tradable.placeProtectedOrderForAccount'
+      class='regular block'>
+      .placeProtectedOrderForAccount
+    </a>
+    <a
       href='#tradable.placeStopOrder'
       class='regular block'>
       .placeStopOrder
@@ -451,11 +476,6 @@ type='text' />
       href='#tradable.setAccountUpdateFrequencyMillis'
       class='regular block'>
       .setAccountUpdateFrequencyMillis
-    </a>
-    <a
-      href='#tradable.setSelectedAccount'
-      class='regular block'>
-      .setSelectedAccount
     </a>
     <a
       href='#tradable.showApprovalPage'
@@ -1119,7 +1139,7 @@ type='text' />
         <div class='collapsible' id='tradable.authenticateWithCredentials'>
           <a href='#tradable.authenticateWithCredentials'>
 <code>
-  .authenticateWithCredentials<span class='gray'>(brokerId, login, password, resolve, reject)</span>
+  .authenticateWithCredentials<span class='gray'>(brokerId, login, password, externalId, resolve, reject)</span>
 </code>
 <div class='force-inline'>
   <p>Gets a token granting access to the account(s) associated with the given login and enables trading</p>
@@ -1129,7 +1149,7 @@ type='text' />
           <div class='collapser border px2 m2'>
 <section class='py2 clearfix'>
   <h2 id='tradable.authenticateWithCredentials' class='mt0'>
-    authenticateWithCredentials<span class='gray'>(brokerId, login, password, resolve, reject)</span>
+    authenticateWithCredentials<span class='gray'>(brokerId, login, password, externalId, resolve, reject)</span>
   </h2>
   <p>Gets a token granting access to the account(s) associated with the given login and enables trading</p>
 
@@ -1153,6 +1173,13 @@ type='text' />
           :
           <div class='force-inline'>
 <p>The password for the account</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>externalId</strong>
+          :
+          <div class='force-inline'>
+<p>Allows the caller to provide an id for the user, so it is possible to link the user identity in the caller&apos;s system with the Tradable account.</p>
 
           </div>
         </li>
@@ -1206,6 +1233,134 @@ type='text' />
           </div>
         </li>
     </ul>
+</section>
+          </div>
+        </div>
+        <div class='collapsible' id='tradable.calculatePipDistance'>
+          <a href='#tradable.calculatePipDistance'>
+<code>
+  .calculatePipDistance<span class='gray'>(instrumentId, priceFrom, priceTo)</span>
+</code>
+<div class='force-inline'>
+  <p>Calculates the distance in Pips/Points between prices.</p>
+
+</div>
+          </a>
+          <div class='collapser border px2 m2'>
+<section class='py2 clearfix'>
+  <h2 id='tradable.calculatePipDistance' class='mt0'>
+    calculatePipDistance<span class='gray'>(instrumentId, priceFrom, priceTo)</span>
+  </h2>
+  <p>Calculates the distance in Pips/Points between prices.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
+          :
+          <div class='force-inline'>
+<p>The instrument id to calculate the position size</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>priceFrom</strong>
+          :
+          <div class='force-inline'>
+<p>Price to calculate the distance from</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>priceTo</strong>
+          :
+          <div class='force-inline'>
+<p>Price to calculate the distance to</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>The pip/point distance</p>
+
+      </div>
+    <h4>Examples</h4>
+<pre class='overflow-auto'><span class="hljs-comment">// In the following example the distance result should be 31</span>
+<span class="hljs-keyword">var</span> pipDistance = tradable.calculatePipDistance(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">1.13571</span>, <span class="hljs-number">1.13881</span>);</pre>
+</section>
+          </div>
+        </div>
+        <div class='collapsible' id='tradable.calculatePositionSize'>
+          <a href='#tradable.calculatePositionSize'>
+<code>
+  .calculatePositionSize<span class='gray'>(instrumentId, risk, riskIsMoney, stopLossInPips, pipValue, equity)</span>
+</code>
+<div class='force-inline'>
+  <p>Calculates a position size for an instrument out of a given risk percentage or amount willing to risk.</p>
+
+</div>
+          </a>
+          <div class='collapser border px2 m2'>
+<section class='py2 clearfix'>
+  <h2 id='tradable.calculatePositionSize' class='mt0'>
+    calculatePositionSize<span class='gray'>(instrumentId, risk, riskIsMoney, stopLossInPips, pipValue, equity)</span>
+  </h2>
+  <p>Calculates a position size for an instrument out of a given risk percentage or amount willing to risk.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
+          :
+          <div class='force-inline'>
+<p>The instrument id to calculate the position size</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>risk</strong>
+          :
+          <div class='force-inline'>
+<p>Percentage of account equity willing to risk or quantity willing to risk</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code> <strong>riskIsMoney</strong>
+          :
+          <div class='force-inline'>
+<p>true if the given risk value is a percentage. false if the given quantity is the amount of money willing to risk</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>stopLossInPips</strong>
+          :
+          <div class='force-inline'>
+<p>Stop loss value in pips/points. It can be calculated using the method &apos;tradable.calculatePipDistance&apos;</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>pipValue</strong>
+          :
+          <div class='force-inline'>
+<p>The current value of one pip for one unit of this instrument converted to the account currency, it is part of the Price object</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>equity</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) The account equity, if not sent it will be taken from the selected account&apos;s last received snapshot</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>Calculated position size</p>
+
+      </div>
+    <h4>Examples</h4>
+<pre class='overflow-auto'><span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSize(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">false</span>, <span class="hljs-number">25</span>, <span class="hljs-number">0.0001</span>);</pre>
 </section>
           </div>
         </div>
@@ -2037,6 +2192,9 @@ type='text' />
   "trackConfiguration": "MULTI",
   "stopLossSupported": true,
   "takeProfitSupported": true,
+  "protectionEntryTypes": {
+    "entryTypes": {}
+  },
   "marketOrdersSupport": {
     "takeProfit": true,
     "stopLoss": true
@@ -2119,6 +2277,9 @@ type='text' />
     "trackConfiguration": "MULTI",
     "stopLossSupported": true,
     "takeProfitSupported": true,
+    "protectionEntryTypes": {
+      "entryTypes": {}
+    },
     "marketOrdersSupport": {
       "takeProfit": true,
       "stopLoss": true
@@ -3146,8 +3307,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -3221,8 +3382,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -3282,10 +3443,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "PENDING",
     "price": 0,
     "lastPrice": 1,
-    "creationDate": 1464178366894,
+    "creationDate": 1465200262188,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": null
   },
   "recentlyCancelled": {
@@ -3298,10 +3461,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "CANCELLED",
     "price": 1.1,
     "lastPrice": 1,
-    "creationDate": 1464178366894,
+    "creationDate": 1465200262192,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": null
   },
   "recentlyExecuted": {
@@ -3314,12 +3479,14 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "EXECUTED",
     "price": 0.9,
     "lastPrice": 1,
-    "creationDate": 1464178366894,
+    "creationDate": 1465200262192,
     "affectedPositions": [
       "1235"
     ],
     "stopLossDistance": null,
     "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": 0.9
   },
   "sequenceId": 647594837
@@ -3387,10 +3554,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "PENDING",
     "price": 0,
     "lastPrice": 1,
-    "creationDate": 1464178366894,
+    "creationDate": 1465200262188,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": null
   },
   "recentlyCancelled": {
@@ -3403,10 +3572,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "CANCELLED",
     "price": 1.1,
     "lastPrice": 1,
-    "creationDate": 1464178366894,
+    "creationDate": 1465200262192,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": null
   },
   "recentlyExecuted": {
@@ -3419,12 +3590,14 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "EXECUTED",
     "price": 0.9,
     "lastPrice": 1,
-    "creationDate": 1464178366894,
+    "creationDate": 1465200262192,
     "affectedPositions": [
       "1235"
     ],
     "stopLossDistance": null,
     "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": 0.9
   },
   "sequenceId": 647594837
@@ -3486,8 +3659,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "lastPrice": 1,
     "creationDate": 1461149630,
     "affectedPositions": {},
-    "stopLossDistance": null,
-    "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": null,
     "sequenceId": 647594837
   }
@@ -3556,8 +3729,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "lastPrice": 1,
     "creationDate": 1461149630,
     "affectedPositions": {},
-    "stopLossDistance": null,
-    "takeProfitDistance": null,
+    "stopLoss": null,
+    "takeProfit": null,
     "executionPrice": null,
     "sequenceId": 647594837
   }
@@ -3770,8 +3943,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": null,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1464178366895,
-    "lastModified": 1464178366895,
+    "creationTime": 1465200262232,
+    "lastModified": 1465200262232,
     "stoploss": null,
     "takeprofit": null
   },
@@ -3788,8 +3961,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": -10,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1464178366895,
-    "lastModified": 1464178366895,
+    "creationTime": 1465200262232,
+    "lastModified": 1465200262232,
     "stoploss": null,
     "takeprofit": null
   },
@@ -3861,8 +4034,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": null,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1464178366895,
-    "lastModified": 1464178366895,
+    "creationTime": 1465200262232,
+    "lastModified": 1465200262232,
     "stoploss": null,
     "takeprofit": null
   },
@@ -3879,8 +4052,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": -10,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1464178366895,
-    "lastModified": 1464178366895,
+    "creationTime": 1465200262232,
+    "lastModified": 1465200262232,
     "stoploss": null,
     "takeprofit": null
   },
@@ -4126,10 +4299,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "PENDING",
       "price": 0,
       "lastPrice": 1,
-      "creationDate": 1464178366869,
+      "creationDate": 1465200262248,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
+      "stopLoss": null,
+      "takeProfit": null,
       "executionPrice": null
     },
     "recentlyCancelled": {
@@ -4142,10 +4317,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "CANCELLED",
       "price": 1.1,
       "lastPrice": 1,
-      "creationDate": 1464178366872,
+      "creationDate": 1465200262248,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
+      "stopLoss": null,
+      "takeProfit": null,
       "executionPrice": null
     },
     "recentlyExecuted": {
@@ -4158,12 +4335,14 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "EXECUTED",
       "price": 0.9,
       "lastPrice": 1,
-      "creationDate": 1464178366872,
+      "creationDate": 1465200262248,
       "affectedPositions": [
         "1235"
       ],
       "stopLossDistance": null,
       "takeProfitDistance": null,
+      "stopLoss": null,
+      "takeProfit": null,
       "executionPrice": 0.9
     },
     "sequenceId": 647594837
@@ -4182,8 +4361,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": null,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1464178366874,
-      "lastModified": 1464178366874,
+      "creationTime": 1465200262248,
+      "lastModified": 1465200262248,
       "stoploss": null,
       "takeprofit": null
     },
@@ -4200,8 +4379,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": -10,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1464178366875,
-      "lastModified": 1464178366875,
+      "creationTime": 1465200262248,
+      "lastModified": 1465200262248,
       "stoploss": null,
       "takeprofit": null
     },
@@ -4301,10 +4480,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "PENDING",
       "price": 0,
       "lastPrice": 1,
-      "creationDate": 1464178366869,
+      "creationDate": 1465200262248,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
+      "stopLoss": null,
+      "takeProfit": null,
       "executionPrice": null
     },
     "recentlyCancelled": {
@@ -4317,10 +4498,12 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "CANCELLED",
       "price": 1.1,
       "lastPrice": 1,
-      "creationDate": 1464178366872,
+      "creationDate": 1465200262248,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
+      "stopLoss": null,
+      "takeProfit": null,
       "executionPrice": null
     },
     "recentlyExecuted": {
@@ -4333,12 +4516,14 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "EXECUTED",
       "price": 0.9,
       "lastPrice": 1,
-      "creationDate": 1464178366872,
+      "creationDate": 1465200262248,
       "affectedPositions": [
         "1235"
       ],
       "stopLossDistance": null,
       "takeProfitDistance": null,
+      "stopLoss": null,
+      "takeProfit": null,
       "executionPrice": 0.9
     },
     "sequenceId": 647594837
@@ -4357,8 +4542,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": null,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1464178366874,
-      "lastModified": 1464178366874,
+      "creationTime": 1465200262248,
+      "lastModified": 1465200262248,
       "stoploss": null,
       "takeprofit": null
     },
@@ -4375,8 +4560,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": -10,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1464178366875,
-      "lastModified": 1464178366875,
+      "creationTime": 1465200262248,
+      "lastModified": 1465200262248,
       "stoploss": null,
       "takeprofit": null
     },
@@ -4513,6 +4698,50 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
         <p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p>
 
       </div>
+</section>
+          </div>
+        </div>
+        <div class='collapsible' id='tradable.initializingAccount'>
+          <a href='#tradable.initializingAccount'>
+<code>
+  .initializingAccount<span class='gray'>(accountId, resolve, reject)</span>
+</code>
+<div class='force-inline'>
+  <p>Sets the account unique id that will be used for account related API calls</p>
+
+</div>
+          </a>
+          <div class='collapser border px2 m2'>
+<section class='py2 clearfix'>
+  <h2 id='tradable.initializingAccount' class='mt0'>
+    initializingAccount<span class='gray'>(accountId, resolve, reject)</span>
+  </h2>
+  <p>Sets the account unique id that will be used for account related API calls</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>accountId</strong>
+          :
+          <div class='force-inline'>
+<p>Account uniqueId</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>resolve</strong>
+          :
+          <div class='force-inline'>
+<p>Success callback for the API call, errors don&apos;t get called through this callback</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>reject</strong>
+          :
+          <div class='force-inline'>
+<p>Error callback for the API call</p>
+
+          </div>
+        </li>
+    </ul>
 </section>
           </div>
         </div>
@@ -4989,8 +5218,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -5085,8 +5314,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -5173,8 +5402,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -5269,8 +5498,8 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -5283,7 +5512,7 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   .placeOrderWithProtections<span class='gray'>(amount, price, side, instrumentId, type, tpDistance, slDistance, resolve, reject)</span>
 </code>
 <div class='force-inline'>
-  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on the selectedAccount</p>
+  <p>[deprecated] Please use &apos;placeProtectedOrder&apos;</p>
 
 </div>
           </a>
@@ -5292,7 +5521,7 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   <h2 id='tradable.placeOrderWithProtections' class='mt0'>
     placeOrderWithProtections<span class='gray'>(amount, price, side, instrumentId, type, tpDistance, slDistance, resolve, reject)</span>
   </h2>
-  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on the selectedAccount</p>
+  <p>[deprecated] Please use &apos;placeProtectedOrder&apos;</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
@@ -5306,7 +5535,7 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>price</strong>
           :
           <div class='force-inline'>
-<p>The trigger price for the order</p>
+<p>The trigger price for the order (0 if MARKET order)</p>
 
           </div>
         </li>
@@ -5367,23 +5596,6 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
         <p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p>
 
       </div>
-    <h4>Examples</h4>
-<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
-  "id": "oteF-6eh4",
-  "instrumentId": "abc123",
-  "side": "BUY",
-  "type": "MARKET",
-  "amount": 10000,
-  "status": "PENDING",
-  "price": 0,
-  "lastPrice": 1,
-  "creationDate": 1461149630,
-  "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
-  "executionPrice": null,
-  "sequenceId": 647594837
-}</pre>
 </section>
           </div>
         </div>
@@ -5393,7 +5605,7 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   .placeOrderWithProtectionsForAccount<span class='gray'>(accountId, amount, price, side, instrumentId, type, tpDistance, slDistance, resolve, reject)</span>
 </code>
 <div class='force-inline'>
-  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on a specific account</p>
+  <p>[deprecated] Please use &apos;placeProtectedOrderForAccount&apos;</p>
 
 </div>
           </a>
@@ -5402,7 +5614,7 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   <h2 id='tradable.placeOrderWithProtectionsForAccount' class='mt0'>
     placeOrderWithProtectionsForAccount<span class='gray'>(accountId, amount, price, side, instrumentId, type, tpDistance, slDistance, resolve, reject)</span>
   </h2>
-  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on a specific account</p>
+  <p>[deprecated] Please use &apos;placeProtectedOrderForAccount&apos;</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
@@ -5423,7 +5635,7 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>price</strong>
           :
           <div class='force-inline'>
-<p>The trigger price for the order</p>
+<p>The trigger price for the order (0 if MARKET order)</p>
 
           </div>
         </li>
@@ -5484,6 +5696,106 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
         <p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p>
 
       </div>
+</section>
+          </div>
+        </div>
+        <div class='collapsible' id='tradable.placeProtectedOrder'>
+          <a href='#tradable.placeProtectedOrder'>
+<code>
+  .placeProtectedOrder<span class='gray'>(amount, price, side, instrumentId, type, takeProfitPrice, stopLossPrice, currentBidOrAskPrice, resolve, reject)</span>
+</code>
+<div class='force-inline'>
+  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on the selected account. Some accounts require an absolute price for the take profit and others require a price distance (See &apos;account.protectionEntryTypes&apos;). This method will send the required entry type and value, i.e. it will calculate the distance from the price and send it if the account only supports the &apos;DISTANCE&apos; entry type or just send the desired take profit or stop loss prices if the &apos;ABSOLUTE&apos; entry type is supported.</p>
+
+</div>
+          </a>
+          <div class='collapser border px2 m2'>
+<section class='py2 clearfix'>
+  <h2 id='tradable.placeProtectedOrder' class='mt0'>
+    placeProtectedOrder<span class='gray'>(amount, price, side, instrumentId, type, takeProfitPrice, stopLossPrice, currentBidOrAskPrice, resolve, reject)</span>
+  </h2>
+  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on the selected account. Some accounts require an absolute price for the take profit and others require a price distance (See &apos;account.protectionEntryTypes&apos;). This method will send the required entry type and value, i.e. it will calculate the distance from the price and send it if the account only supports the &apos;DISTANCE&apos; entry type or just send the desired take profit or stop loss prices if the &apos;ABSOLUTE&apos; entry type is supported.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>amount</strong>
+          :
+          <div class='force-inline'>
+<p>The order amount</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>price</strong>
+          :
+          <div class='force-inline'>
+<p>The trigger price for the order (0 if MARKET order)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>side</strong>
+          :
+          <div class='force-inline'>
+<p>The order side (&apos;BUY&apos; or &apos;SELL&apos;)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
+          :
+          <div class='force-inline'>
+<p>The instrument id for the order</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>type</strong>
+          :
+          <div class='force-inline'>
+<p>Order type (&apos;MARKET&apos;,&apos;LIMIT&apos; or &apos;STOP&apos;)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>takeProfitPrice</strong>
+          :
+          <div class='force-inline'>
+<p>Take profit trigger price (null if not desired)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>stopLossPrice</strong>
+          :
+          <div class='force-inline'>
+<p>Stop loss trigger price (null if not desired)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>currentBidOrAskPrice</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) Used to calculate the distance. For &apos;BUY&apos; orders the ask price for the instrument, for &apos;SELL&apos; orders the bid price. It is only required when &apos;DISTANCE&apos; is the only supported entryType.</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>resolve</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) Success callback for the API call, errors don&apos;t get called through this callback</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>reject</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) Error callback for the API call</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p>
+
+      </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
   "id": "oteF-6eh4",
@@ -5496,8 +5808,132 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
+  "executionPrice": null,
+  "sequenceId": 647594837
+}</pre>
+</section>
+          </div>
+        </div>
+        <div class='collapsible' id='tradable.placeProtectedOrderForAccount'>
+          <a href='#tradable.placeProtectedOrderForAccount'>
+<code>
+  .placeProtectedOrderForAccount<span class='gray'>(accountId, amount, price, side, instrumentId, type, takeProfitPrice, stopLossPrice, currentBidOrAskPrice, resolve, reject)</span>
+</code>
+<div class='force-inline'>
+  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on a specific account. Some accounts require an absolute price for the take profit and others require a price distance (See &apos;account.protectionEntryTypes&apos;). This method will send the required entry type and value, i.e. it will calculate the distance from the price and send it if the account only supports the &apos;DISTANCE&apos; entry type or just send the desired take profit or stop loss prices if the &apos;ABSOLUTE&apos; entry type is supported.</p>
+
+</div>
+          </a>
+          <div class='collapser border px2 m2'>
+<section class='py2 clearfix'>
+  <h2 id='tradable.placeProtectedOrderForAccount' class='mt0'>
+    placeProtectedOrderForAccount<span class='gray'>(accountId, amount, price, side, instrumentId, type, takeProfitPrice, stopLossPrice, currentBidOrAskPrice, resolve, reject)</span>
+  </h2>
+  <p>Place a MARKET, LIMIT or STOP order with Take Profit and/or Stop Loss protections on a specific account. Some accounts require an absolute price for the take profit and others require a price distance (See &apos;account.protectionEntryTypes&apos;). This method will send the required entry type and value, i.e. it will calculate the distance from the price and send it if the account only supports the &apos;DISTANCE&apos; entry type or just send the desired take profit or stop loss prices if the &apos;ABSOLUTE&apos; entry type is supported.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>accountId</strong>
+          :
+          <div class='force-inline'>
+<p>The unique id for the account the request goes to</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>amount</strong>
+          :
+          <div class='force-inline'>
+<p>The order amount</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>price</strong>
+          :
+          <div class='force-inline'>
+<p>The trigger price for the order (0 if MARKET order)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>side</strong>
+          :
+          <div class='force-inline'>
+<p>The order side (&apos;BUY&apos; or &apos;SELL&apos;)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
+          :
+          <div class='force-inline'>
+<p>The instrument id for the order</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>type</strong>
+          :
+          <div class='force-inline'>
+<p>Order type (&apos;MARKET&apos;,&apos;LIMIT&apos; or &apos;STOP&apos;)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>takeProfitPrice</strong>
+          :
+          <div class='force-inline'>
+<p>Take profit trigger price (null if not desired)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>stopLossPrice</strong>
+          :
+          <div class='force-inline'>
+<p>Stop loss trigger price (null if not desired)</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>currentBidOrAskPrice</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) Used to calculate the distance. For &apos;BUY&apos; orders the ask price for the instrument, for &apos;SELL&apos; orders the bid price. It is only required when &apos;DISTANCE&apos; is the only supported entryType.</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>resolve</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) Success callback for the API call, errors don&apos;t get called through this callback</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>reject</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) Error callback for the API call</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>If resolve/reject are not specified it returns a Promise for chaining, otherwise it calls the resolve/reject handlers</p>
+
+      </div>
+    <h4>Examples</h4>
+<pre class='overflow-auto'><p class='example-intro'>This is an example object returned by the callback from this method:</p>{
+  "id": "oteF-6eh4",
+  "instrumentId": "abc123",
+  "side": "BUY",
+  "type": "MARKET",
+  "amount": 10000,
+  "status": "PENDING",
+  "price": 0,
+  "lastPrice": 1,
+  "creationDate": 1461149630,
+  "affectedPositions": {},
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -5585,8 +6021,8 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -5681,8 +6117,8 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   "lastPrice": 1,
   "creationDate": 1461149630,
   "affectedPositions": {},
-  "stopLossDistance": null,
-  "takeProfitDistance": null,
+  "stopLoss": null,
+  "takeProfit": null,
   "executionPrice": null,
   "sequenceId": 647594837
 }</pre>
@@ -6171,50 +6607,6 @@ tradable.searchInstrumentsForAccount(accountId, <span class="hljs-string">"EURUS
           :
           <div class='force-inline'>
 <p>Frequency in milliseconds</p>
-
-          </div>
-        </li>
-    </ul>
-</section>
-          </div>
-        </div>
-        <div class='collapsible' id='tradable.setSelectedAccount'>
-          <a href='#tradable.setSelectedAccount'>
-<code>
-  .setSelectedAccount<span class='gray'>(accountId, resolve, reject)</span>
-</code>
-<div class='force-inline'>
-  <p>Sets the account unique id that will be used for account related API calls</p>
-
-</div>
-          </a>
-          <div class='collapser border px2 m2'>
-<section class='py2 clearfix'>
-  <h2 id='tradable.setSelectedAccount' class='mt0'>
-    setSelectedAccount<span class='gray'>(accountId, resolve, reject)</span>
-  </h2>
-  <p>Sets the account unique id that will be used for account related API calls</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>accountId</strong>
-          :
-          <div class='force-inline'>
-<p>Account uniqueId</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>resolve</strong>
-          :
-          <div class='force-inline'>
-<p>Success callback for the API call, errors don&apos;t get called through this callback</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code> <strong>reject</strong>
-          :
-          <div class='force-inline'>
-<p>Error callback for the API call</p>
 
           </div>
         </li>
