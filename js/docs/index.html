@@ -1360,7 +1360,11 @@ type='text' />
 
       </div>
     <h4>Examples</h4>
-<pre class='overflow-auto'><span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSize(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">false</span>, <span class="hljs-number">25</span>, <span class="hljs-number">0.0001</span>);</pre>
+<pre class='overflow-auto'><span class="hljs-comment">// Calculate the position size for risking 10% of the account's equity with a 25 pips stop loss</span>
+<span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSize(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">false</span>, <span class="hljs-number">25</span>, pipValue);
+
+<span class="hljs-comment">// Calculate the position size for risking 10k of the account's equity with a 25 pips stop loss</span>
+<span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSize(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10000</span>, <span class="hljs-literal">true</span>, <span class="hljs-number">25</span>, pipValue);</pre>
 </section>
           </div>
         </div>
