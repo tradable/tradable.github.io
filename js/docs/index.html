@@ -15,7 +15,7 @@
       <div class='fixed md-show fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>tradable-core</h3>
-          <div class='mb1'><code>1.19</code></div>
+          <div class='mb1'><code>1.19.1</code></div>
           <input
 placeholder='Filter'
 id='filter-input'
@@ -78,14 +78,24 @@ type='text' />
       .authenticateWithWindow
     </a>
     <a
+      href='#tradable.calculateExpectedProfitOrLoss'
+      class='regular block'>
+      .calculateExpectedProfitOrLoss
+    </a>
+    <a
       href='#tradable.calculatePipDistance'
       class='regular block'>
       .calculatePipDistance
     </a>
     <a
-      href='#tradable.calculatePositionSize'
+      href='#tradable.calculatePositionSizeForRiskAmount'
       class='regular block'>
-      .calculatePositionSize
+      .calculatePositionSizeForRiskAmount
+    </a>
+    <a
+      href='#tradable.calculatePositionSizeForRiskPercentage'
+      class='regular block'>
+      .calculatePositionSizeForRiskPercentage
     </a>
     <a
       href='#tradable.cancelOrder'
@@ -1236,6 +1246,61 @@ type='text' />
 </section>
           </div>
         </div>
+        <div class='collapsible' id='tradable.calculateExpectedProfitOrLoss'>
+          <a href='#tradable.calculateExpectedProfitOrLoss'>
+<code>
+  .calculateExpectedProfitOrLoss<span class='gray'>(positionSize, pipDistance, pipValue)</span>
+</code>
+<div class='force-inline'>
+  <p>Calculates the resulting equity profit or loss for a position size if a take profit or stop loss at a Pips/Points distance is hit</p>
+
+</div>
+          </a>
+          <div class='collapser border px2 m2'>
+<section class='py2 clearfix'>
+  <h2 id='tradable.calculateExpectedProfitOrLoss' class='mt0'>
+    calculateExpectedProfitOrLoss<span class='gray'>(positionSize, pipDistance, pipValue)</span>
+  </h2>
+  <p>Calculates the resulting equity profit or loss for a position size if a take profit or stop loss at a Pips/Points distance is hit</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>positionSize</strong>
+          :
+          <div class='force-inline'>
+<p>The position amount</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>pipDistance</strong>
+          :
+          <div class='force-inline'>
+<p>Distance in pips/points. It can be calculated using the method &apos;tradable.calculatePipDistance&apos;</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>pipValue</strong>
+          :
+          <div class='force-inline'>
+<p>The current value of one pip for one unit of this instrument converted to the account currency, it is part of the Price object</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>The expected profit or loss in account currency</p>
+
+      </div>
+    <h4>Examples</h4>
+<pre class='overflow-auto'><span class="hljs-comment">// The pipValue for EURUSD is 0.0001 in a USD account, so if a take profit at 25 pips is hit</span>
+<span class="hljs-comment">// for a 10000 EURUSD position the result should be 25</span>
+<span class="hljs-keyword">var</span> expectedProfit = tradable.calculatePipDistance(<span class="hljs-number">10000</span>, <span class="hljs-number">25</span>, <span class="hljs-number">0.0001</span>);</pre>
+</section>
+          </div>
+        </div>
         <div class='collapsible' id='tradable.calculatePipDistance'>
           <a href='#tradable.calculatePipDistance'>
 <code>
@@ -1290,22 +1355,22 @@ type='text' />
 </section>
           </div>
         </div>
-        <div class='collapsible' id='tradable.calculatePositionSize'>
-          <a href='#tradable.calculatePositionSize'>
+        <div class='collapsible' id='tradable.calculatePositionSizeForRiskAmount'>
+          <a href='#tradable.calculatePositionSizeForRiskAmount'>
 <code>
-  .calculatePositionSize<span class='gray'>(instrumentId, risk, riskIsMoney, stopLossInPips, pipValue, equity)</span>
+  .calculatePositionSizeForRiskAmount<span class='gray'>(instrumentId, riskAmount, stopLossInPips, pipValue, equity)</span>
 </code>
 <div class='force-inline'>
-  <p>Calculates a position size for an instrument out of a given risk percentage or amount willing to risk.</p>
+  <p>Calculates a position size for an instrument out of a given amount willing to risk.</p>
 
 </div>
           </a>
           <div class='collapser border px2 m2'>
 <section class='py2 clearfix'>
-  <h2 id='tradable.calculatePositionSize' class='mt0'>
-    calculatePositionSize<span class='gray'>(instrumentId, risk, riskIsMoney, stopLossInPips, pipValue, equity)</span>
+  <h2 id='tradable.calculatePositionSizeForRiskAmount' class='mt0'>
+    calculatePositionSizeForRiskAmount<span class='gray'>(instrumentId, riskAmount, stopLossInPips, pipValue, equity)</span>
   </h2>
-  <p>Calculates a position size for an instrument out of a given risk percentage or amount willing to risk.</p>
+  <p>Calculates a position size for an instrument out of a given amount willing to risk.</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
@@ -1316,17 +1381,78 @@ type='text' />
 
           </div>
         </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>risk</strong>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>riskAmount</strong>
           :
           <div class='force-inline'>
-<p>Percentage of account equity willing to risk or quantity willing to risk</p>
+<p>Amount of equity (money in account currency) willing to risk</p>
 
           </div>
         </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code> <strong>riskIsMoney</strong>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>stopLossInPips</strong>
           :
           <div class='force-inline'>
-<p>true if the given quantity is the amount of money willing to risk. false if the given risk value is a percentage</p>
+<p>Stop loss value in pips/points. It can be calculated using the method &apos;tradable.calculatePipDistance&apos;</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>pipValue</strong>
+          :
+          <div class='force-inline'>
+<p>The current value of one pip for one unit of this instrument converted to the account currency, it is part of the Price object</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>equity</strong>
+          :
+          <div class='force-inline'>
+<p>(optional) The account equity, if not sent it will be taken from the selected account&apos;s last received snapshot</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>Calculated position size</p>
+
+      </div>
+    <h4>Examples</h4>
+<pre class='overflow-auto'><span class="hljs-comment">// Calculate the position size for risking 10k of the account's equity with a 25 pips stop loss</span>
+<span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSizeForRiskAmount(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10000</span>, <span class="hljs-number">25</span>, pipValue);</pre>
+</section>
+          </div>
+        </div>
+        <div class='collapsible' id='tradable.calculatePositionSizeForRiskPercentage'>
+          <a href='#tradable.calculatePositionSizeForRiskPercentage'>
+<code>
+  .calculatePositionSizeForRiskPercentage<span class='gray'>(instrumentId, riskPercentage, stopLossInPips, pipValue, equity)</span>
+</code>
+<div class='force-inline'>
+  <p>Calculates a position size for an instrument out of a given equity percentage willing to risk.</p>
+
+</div>
+          </a>
+          <div class='collapser border px2 m2'>
+<section class='py2 clearfix'>
+  <h2 id='tradable.calculatePositionSizeForRiskPercentage' class='mt0'>
+    calculatePositionSizeForRiskPercentage<span class='gray'>(instrumentId, riskPercentage, stopLossInPips, pipValue, equity)</span>
+  </h2>
+  <p>Calculates a position size for an instrument out of a given equity percentage willing to risk.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
+          :
+          <div class='force-inline'>
+<p>The instrument id to calculate the position size</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>riskPercentage</strong>
+          :
+          <div class='force-inline'>
+<p>Percentage of account equity willing to risk</p>
 
           </div>
         </li>
@@ -1361,10 +1487,7 @@ type='text' />
       </div>
     <h4>Examples</h4>
 <pre class='overflow-auto'><span class="hljs-comment">// Calculate the position size for risking 10% of the account's equity with a 25 pips stop loss</span>
-<span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSize(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">false</span>, <span class="hljs-number">25</span>, pipValue);
-
-<span class="hljs-comment">// Calculate the position size for risking 10k of the account's equity with a 25 pips stop loss</span>
-<span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSize(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10000</span>, <span class="hljs-literal">true</span>, <span class="hljs-number">25</span>, pipValue);</pre>
+<span class="hljs-keyword">var</span> positionSize = tradable.calculatePositionSize(<span class="hljs-string">"EURUSD"</span>, <span class="hljs-number">10</span>, <span class="hljs-number">25</span>, pipValue);</pre>
 </section>
           </div>
         </div>
@@ -4676,7 +4799,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>expires_in</strong>
           :
           <div class='force-inline'>
-<p>The expiry date (in milliseconds) of the access token.</p>
+<p>The expiry date (in seconds) of the access token.</p>
 
           </div>
         </li>
