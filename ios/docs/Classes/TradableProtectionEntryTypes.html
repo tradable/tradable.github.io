@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TradableAggregation Enum Reference</title>
+    <title>TradableProtectionEntryTypes Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TradableAggregation" class="dashAnchor"></a>
-    <a title="TradableAggregation Enum Reference"></a>
+    <a name="//apple_ref/swift/Class/TradableProtectionEntryTypes" class="dashAnchor"></a>
+    <a title="TradableProtectionEntryTypes Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TradableAggregation Enum Reference
+        TradableProtectionEntryTypes Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -270,14 +270,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TradableAggregation</h1>
+            <h1>TradableProtectionEntryTypes</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TradableAggregation</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradableProtectionEntryTypes</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSCoding</span></code></pre>
 
                 </div>
               </div>
-            <p>Aggregations used for candle requests.</p>
+            <p>Contains a list of protection entry types.</p>
 
           </section>
           <section class="section task-group-section">
@@ -286,9 +286,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation6MINUTEFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/MINUTE" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation6MINUTEFMS0_S0_">MINUTE</a>
+                    <a name="/s:vC11TradableAPI28TradableProtectionEntryTypes10entryTypesGSaOS_27TradableProtectionEntryType_"></a>
+                    <a name="//apple_ref/swift/Property/entryTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI28TradableProtectionEntryTypes10entryTypesGSaOS_27TradableProtectionEntryType_">entryTypes</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -296,14 +296,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>One minute aggregation.</p>
+                        <p>The list of protection entry types.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">MINUTE</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">entryTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">TradableProtectionEntryType</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI28TradableProtectionEntryTypes11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI28TradableProtectionEntryTypes11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simple description of this object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -313,13 +340,20 @@
               </ul>
             </div>
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/NSCoding"></a>
+                <a name="//apple_ref/swift/Section/NSCoding" class="dashAnchor"></a>
+                <a href="#/NSCoding">
+                  <h3 class="section-name">NSCoding</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation12FIVE_MINUTESFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/FIVE_MINUTES" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation12FIVE_MINUTESFMS0_S0_">FIVE_MINUTES</a>
+                    <a name="/s:FC11TradableAPI28TradableProtectionEntryTypescFT5coderCSo7NSCoder_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI28TradableProtectionEntryTypescFT5coderCSo7NSCoder_GSqS0__">init(coder:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -327,30 +361,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Five minutes aggregation.</p>
+                        <p>Creates an object with given parameters. Conforms to NSCoding protocol.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">FIVE_MINUTES</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">required</span> <span class="n">convenience</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation15FIFTEEN_MINUTESFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/FIFTEEN_MINUTES" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation15FIFTEEN_MINUTESFMS0_S0_">FIFTEEN_MINUTES</a>
+                    <a name="/s:FC11TradableAPI28TradableProtectionEntryTypes15encodeWithCoderFCSo7NSCoderT_"></a>
+                    <a name="//apple_ref/swift/Method/encodeWithCoder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI28TradableProtectionEntryTypes15encodeWithCoderFCSo7NSCoderT_">encodeWithCoder(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -358,169 +388,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Fifteen minutes aggregation.</p>
+                        <p>Encoding method, conforming to NSCoding protocol.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">FIFTEEN_MINUTES</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation14THIRTY_MINUTESFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/THIRTY_MINUTES" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation14THIRTY_MINUTESFMS0_S0_">THIRTY_MINUTES</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Thirty minutes aggregation.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">THIRTY_MINUTES</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation4HOURFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/HOUR" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation4HOURFMS0_S0_">HOUR</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>One hour aggregation.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">HOUR</span> <span class="o">=</span> <span class="mi">60</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation3DAYFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/DAY" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation3DAYFMS0_S0_">DAY</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>One day aggregation.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">DAY</span> <span class="o">=</span> <span class="mi">1440</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation4WEEKFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/WEEK" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation4WEEKFMS0_S0_">WEEK</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>One week aggregation.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">WEEK</span> <span class="o">=</span> <span class="mi">10080</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO11TradableAPI19TradableAggregation5MONTHFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/MONTH" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableAggregation5MONTHFMS0_S0_">MONTH</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>One month aggregation.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">MONTH</span> <span class="o">=</span> <span class="mi">40320</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">encodeWithCoder</span><span class="p">(</span><span class="nv">coder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
