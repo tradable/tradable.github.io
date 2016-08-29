@@ -161,6 +161,9 @@
                 <a href="../Classes/TradablePrice.html">TradablePrice</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradablePriceModification.html">TradablePriceModification</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradablePrices.html">TradablePrices</a>
               </li>
               <li class="nav-group-task">
@@ -843,9 +846,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI16TradablePosition28modifySingleProtectionOfTypeFTOS_24TradableSingleProtection21withOrderModificationCS_25TradableOrderModification17completionHandlerGSQFT5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/modifySingleProtectionOfType(_:withOrderModification:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI16TradablePosition28modifySingleProtectionOfTypeFTOS_24TradableSingleProtection21withOrderModificationCS_25TradableOrderModification17completionHandlerGSQFT5errorGSqCS_13TradableError__T___T_">modifySingleProtectionOfType(_:withOrderModification:completionHandler:)</a>
+                    <a class="token" href="#/">modifySingleProtectionOfType(_:withOrderModification:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradablePosition</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI16TradablePosition28modifySingleProtectionOfTypeFTOS_24TradableSingleProtection21withPriceModificationCS_25TradablePriceModification17completionHandlerGSQFT5errorGSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/modifySingleProtectionOfType(_:withPriceModification:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI16TradablePosition28modifySingleProtectionOfTypeFTOS_24TradableSingleProtection21withPriceModificationCS_25TradablePriceModification17completionHandlerGSQFT5errorGSqCS_13TradableError__T___T_">modifySingleProtectionOfType(_:withPriceModification:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -860,7 +890,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifySingleProtectionOfType</span><span class="p">(</span><span class="nv">protectionType</span><span class="p">:</span> <span class="kt"><a href="../Enums/TradableSingleProtection.html">TradableSingleProtection</a></span><span class="p">,</span> <span class="n">withOrderModification</span> <span class="nv">orderModification</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderModification.html">TradableOrderModification</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableError.html">TradableError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">modifySingleProtectionOfType</span><span class="p">(</span><span class="nv">protectionType</span><span class="p">:</span> <span class="kt"><a href="../Enums/TradableSingleProtection.html">TradableSingleProtection</a></span><span class="p">,</span> <span class="n">withPriceModification</span> <span class="nv">priceModification</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradablePriceModification.html">TradablePriceModification</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableError.html">TradableError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -884,12 +914,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>withOrderModification</em>
+                                <em>withPriceModification</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The order modification object containing the changes to be made to a protection.</p>
+                                  <p>The TradablePriceModification object containing the changes to be made to a protection.</p>
 
                                 </div>
                               </td>
@@ -1132,7 +1162,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-08-18)</p>
+          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-08-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

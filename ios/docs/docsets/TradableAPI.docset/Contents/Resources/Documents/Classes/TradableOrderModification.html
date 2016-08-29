@@ -161,6 +161,9 @@
                 <a href="../Classes/TradablePrice.html">TradablePrice</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradablePriceModification.html">TradablePriceModification</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradablePrices.html">TradablePrices</a>
               </li>
               <li class="nav-group-task">
@@ -277,9 +280,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI25TradableOrderModification5priceSd"></a>
+                    <a name="/s:vC11TradableAPI25TradableOrderModification5priceGSqSd_"></a>
                     <a name="//apple_ref/swift/Property/price" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI25TradableOrderModification5priceSd">price</a>
+                    <a class="token" href="#/s:vC11TradableAPI25TradableOrderModification5priceGSqSd_">price</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -287,14 +290,68 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A price the order should be modified with.</p>
+                        <p>The new trigger price (always 0 for a market order). If nil, price will not be modified.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI25TradableOrderModification8stopLossGSqCS_23TradableOrderProtection_"></a>
+                    <a name="//apple_ref/swift/Property/stopLoss" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI25TradableOrderModification8stopLossGSqCS_23TradableOrderProtection_">stopLoss</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The new stop loss, or nil to remove any stop loss on the order.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">stopLoss</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11TradableAPI25TradableOrderModification10takeProfitGSqCS_23TradableOrderProtection_"></a>
+                    <a name="//apple_ref/swift/Property/takeProfit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11TradableAPI25TradableOrderModification10takeProfitGSqCS_23TradableOrderProtection_">takeProfit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The new take profit, or nil to remove any take profit on the order.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">takeProfit</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -355,12 +412,174 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableOrderModificationcFT5priceSd8stopLossGSqCS_23TradableOrderProtection__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(price:stopLoss:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableOrderModificationcFT5priceSd8stopLossGSqCS_23TradableOrderProtection__S0_">init(price:stopLoss:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">stopLoss</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableOrderModificationcFT5priceSd10takeProfitGSqCS_23TradableOrderProtection__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(price:takeProfit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableOrderModificationcFT5priceSd10takeProfitGSqCS_23TradableOrderProtection__S0_">init(price:takeProfit:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">takeProfit</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableOrderModificationcFT5priceSd8stopLossGSqCS_23TradableOrderProtection_10takeProfitGSqS1___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(price:stopLoss:takeProfit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableOrderModificationcFT5priceSd8stopLossGSqCS_23TradableOrderProtection_10takeProfitGSqS1___S0_">init(price:stopLoss:takeProfit:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">stopLoss</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?,</span> <span class="nv">takeProfit</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableOrderModificationcFT8stopLossGSqCS_23TradableOrderProtection__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(stopLoss:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableOrderModificationcFT8stopLossGSqCS_23TradableOrderProtection__S0_">init(stopLoss:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">stopLoss</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableOrderModificationcFT10takeProfitGSqCS_23TradableOrderProtection__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(takeProfit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableOrderModificationcFT10takeProfitGSqCS_23TradableOrderProtection__S0_">init(takeProfit:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">takeProfit</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI25TradableOrderModificationcFT8stopLossGSqCS_23TradableOrderProtection_10takeProfitGSqS1___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(stopLoss:takeProfit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI25TradableOrderModificationcFT8stopLossGSqCS_23TradableOrderProtection_10takeProfitGSqS1___S0_">init(stopLoss:takeProfit:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an object with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">stopLoss</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?,</span> <span class="nv">takeProfit</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrderProtection.html">TradableOrderProtection</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-08-18)</p>
+          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-08-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
