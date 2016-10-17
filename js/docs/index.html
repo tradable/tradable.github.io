@@ -15,7 +15,7 @@
       <div class='fixed md-show fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>tradable-core</h3>
-          <div class='mb1'><code>1.22</code></div>
+          <div class='mb1'><code>1.22.1</code></div>
           <input
 placeholder='Filter'
 id='filter-input'
@@ -2791,7 +2791,8 @@ type='text' />
     },
     "brokerId": -2,
     "brokerName": "Forex Demo Account",
-    "isLive": false
+    "isLive": false,
+    "linkedBrokerId": -1
   },
   "iconURL": "http://www.example.com/myLogo.png",
   "name": "My Tradable App"
@@ -2852,7 +2853,8 @@ type='text' />
     },
     "brokerId": -2,
     "brokerName": "Forex Demo Account",
-    "isLive": false
+    "isLive": false,
+    "linkedBrokerId": -1
   }
 ]</pre>
 </section>
@@ -3096,14 +3098,54 @@ tradable.getCandlesForAccount(actId, id, fromDate.getTime(), <span class="hljs-b
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by this method:</p>{
   "instrumentId": "abc123",
   "brokerageAccountSymbol": "EUR/USD",
-  "decimals": 5,
   "displayName": "EUR/USD",
   "exchangeID": null,
   "maxAmount": 50000000,
   "maxShortAmount": 5000000,
-  "minAmount": 1000,
-  "multipleOfMinAmount": true,
+  "orderSizeIncrements": {
+    "orderSizeIncrementBands": [
+      {
+        "lowerBound": 1,
+        "increment": 1,
+        "decimals": 0
+      },
+      {
+        "lowerBound": 100,
+        "increment": 100,
+        "decimals": 0
+      }
+    ]
+  },
   "pipPrecision": 4,
+  "priceIncrements": {
+    "priceIncrementBands": [
+      {
+        "lowerBound": 0,
+        "increment": 0.05,
+        "decimals": 2
+      },
+      {
+        "lowerBound": 10,
+        "increment": 0.1,
+        "decimals": 1
+      },
+      {
+        "lowerBound": 500,
+        "increment": 0.25,
+        "decimals": 2
+      },
+      {
+        "lowerBound": 1000,
+        "increment": 0.5,
+        "decimals": 1
+      },
+      {
+        "lowerBound": 2500,
+        "increment": 1,
+        "decimals": 0
+      }
+    ]
+  },
   "quoteCurrency": "USD",
   "shortDescription": "",
   "symbol": "EURUSD",
@@ -3150,14 +3192,54 @@ tradable.getCandlesForAccount(actId, id, fromDate.getTime(), <span class="hljs-b
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by this method:</p>{
   "instrumentId": "abc123",
   "brokerageAccountSymbol": "EUR/USD",
-  "decimals": 5,
   "displayName": "EUR/USD",
   "exchangeID": null,
   "maxAmount": 50000000,
   "maxShortAmount": 5000000,
-  "minAmount": 1000,
-  "multipleOfMinAmount": true,
+  "orderSizeIncrements": {
+    "orderSizeIncrementBands": [
+      {
+        "lowerBound": 1,
+        "increment": 1,
+        "decimals": 0
+      },
+      {
+        "lowerBound": 100,
+        "increment": 100,
+        "decimals": 0
+      }
+    ]
+  },
   "pipPrecision": 4,
+  "priceIncrements": {
+    "priceIncrementBands": [
+      {
+        "lowerBound": 0,
+        "increment": 0.05,
+        "decimals": 2
+      },
+      {
+        "lowerBound": 10,
+        "increment": 0.1,
+        "decimals": 1
+      },
+      {
+        "lowerBound": 500,
+        "increment": 0.25,
+        "decimals": 2
+      },
+      {
+        "lowerBound": 1000,
+        "increment": 0.5,
+        "decimals": 1
+      },
+      {
+        "lowerBound": 2500,
+        "increment": 1,
+        "decimals": 0
+      }
+    ]
+  },
   "quoteCurrency": "USD",
   "shortDescription": "",
   "symbol": "EURUSD",
@@ -3204,14 +3286,54 @@ tradable.getCandlesForAccount(actId, id, fromDate.getTime(), <span class="hljs-b
 <pre class='overflow-auto'><p class='example-intro'>This is an example object returned by this method:</p>{
   "instrumentId": "abc123",
   "brokerageAccountSymbol": "EUR/USD",
-  "decimals": 5,
   "displayName": "EUR/USD",
   "exchangeID": null,
   "maxAmount": 50000000,
   "maxShortAmount": 5000000,
-  "minAmount": 1000,
-  "multipleOfMinAmount": true,
+  "orderSizeIncrements": {
+    "orderSizeIncrementBands": [
+      {
+        "lowerBound": 1,
+        "increment": 1,
+        "decimals": 0
+      },
+      {
+        "lowerBound": 100,
+        "increment": 100,
+        "decimals": 0
+      }
+    ]
+  },
   "pipPrecision": 4,
+  "priceIncrements": {
+    "priceIncrementBands": [
+      {
+        "lowerBound": 0,
+        "increment": 0.05,
+        "decimals": 2
+      },
+      {
+        "lowerBound": 10,
+        "increment": 0.1,
+        "decimals": 1
+      },
+      {
+        "lowerBound": 500,
+        "increment": 0.25,
+        "decimals": 2
+      },
+      {
+        "lowerBound": 1000,
+        "increment": 0.5,
+        "decimals": 1
+      },
+      {
+        "lowerBound": 2500,
+        "increment": 1,
+        "decimals": 0
+      }
+    ]
+  },
   "quoteCurrency": "USD",
   "shortDescription": "",
   "symbol": "EURUSD",
@@ -3883,7 +4005,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "PENDING",
     "price": 0,
     "lastPrice": 1,
-    "creationDate": 1474159399316,
+    "creationDate": 1476703340095,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
@@ -3901,7 +4023,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "CANCELLED",
     "price": 1.1,
     "lastPrice": 1,
-    "creationDate": 1474159399316,
+    "creationDate": 1476703340097,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
@@ -3919,7 +4041,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "EXECUTED",
     "price": 0.9,
     "lastPrice": 1,
-    "creationDate": 1474159399316,
+    "creationDate": 1476703340098,
     "affectedPositions": [
       "1235"
     ],
@@ -3994,7 +4116,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "PENDING",
     "price": 0,
     "lastPrice": 1,
-    "creationDate": 1474159399316,
+    "creationDate": 1476703340095,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
@@ -4012,7 +4134,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "CANCELLED",
     "price": 1.1,
     "lastPrice": 1,
-    "creationDate": 1474159399316,
+    "creationDate": 1476703340097,
     "affectedPositions": [],
     "stopLossDistance": null,
     "takeProfitDistance": null,
@@ -4030,7 +4152,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "status": "EXECUTED",
     "price": 0.9,
     "lastPrice": 1,
-    "creationDate": 1474159399316,
+    "creationDate": 1476703340098,
     "affectedPositions": [
       "1235"
     ],
@@ -4383,8 +4505,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": null,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1474159399323,
-    "lastModified": 1474159399323,
+    "creationTime": 1476703340136,
+    "lastModified": 1476703340136,
     "stoploss": null,
     "takeprofit": null
   },
@@ -4401,8 +4523,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": -10,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1474159399323,
-    "lastModified": 1474159399323,
+    "creationTime": 1476703340137,
+    "lastModified": 1476703340137,
     "stoploss": null,
     "takeprofit": null
   },
@@ -4474,8 +4596,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": null,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1474159399323,
-    "lastModified": 1474159399323,
+    "creationTime": 1476703340136,
+    "lastModified": 1476703340136,
     "stoploss": null,
     "takeprofit": null
   },
@@ -4492,8 +4614,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
     "closedNotionalProfit": -10,
     "rolloverFees": null,
     "otherFees": null,
-    "creationTime": 1474159399323,
-    "lastModified": 1474159399323,
+    "creationTime": 1476703340137,
+    "lastModified": 1476703340137,
     "stoploss": null,
     "takeprofit": null
   },
@@ -4739,7 +4861,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "PENDING",
       "price": 0,
       "lastPrice": 1,
-      "creationDate": 1474159399307,
+      "creationDate": 1476703340141,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
@@ -4757,7 +4879,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "CANCELLED",
       "price": 1.1,
       "lastPrice": 1,
-      "creationDate": 1474159399310,
+      "creationDate": 1476703340141,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
@@ -4775,7 +4897,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "EXECUTED",
       "price": 0.9,
       "lastPrice": 1,
-      "creationDate": 1474159399310,
+      "creationDate": 1476703340141,
       "affectedPositions": [
         "1235"
       ],
@@ -4801,8 +4923,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": null,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1474159399312,
-      "lastModified": 1474159399312,
+      "creationTime": 1476703340141,
+      "lastModified": 1476703340141,
       "stoploss": null,
       "takeprofit": null
     },
@@ -4819,8 +4941,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": -10,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1474159399312,
-      "lastModified": 1474159399312,
+      "creationTime": 1476703340141,
+      "lastModified": 1476703340141,
       "stoploss": null,
       "takeprofit": null
     },
@@ -4920,7 +5042,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "PENDING",
       "price": 0,
       "lastPrice": 1,
-      "creationDate": 1474159399307,
+      "creationDate": 1476703340141,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
@@ -4938,7 +5060,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "CANCELLED",
       "price": 1.1,
       "lastPrice": 1,
-      "creationDate": 1474159399310,
+      "creationDate": 1476703340141,
       "affectedPositions": [],
       "stopLossDistance": null,
       "takeProfitDistance": null,
@@ -4956,7 +5078,7 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "status": "EXECUTED",
       "price": 0.9,
       "lastPrice": 1,
-      "creationDate": 1474159399310,
+      "creationDate": 1476703340141,
       "affectedPositions": [
         "1235"
       ],
@@ -4982,8 +5104,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": null,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1474159399312,
-      "lastModified": 1474159399312,
+      "creationTime": 1476703340141,
+      "lastModified": 1476703340141,
       "stoploss": null,
       "takeprofit": null
     },
@@ -5000,8 +5122,8 @@ tradable.getInstrumentsFromIdsForAccount(accountId, [<span class="hljs-string">"
       "closedNotionalProfit": -10,
       "rolloverFees": null,
       "otherFees": null,
-      "creationTime": 1474159399312,
-      "lastModified": 1474159399312,
+      "creationTime": 1476703340141,
+      "lastModified": 1476703340141,
       "stoploss": null,
       "takeprofit": null
     },
@@ -6818,7 +6940,8 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   .roundPrice<span class='gray'>(instrumentId, price)</span>
 </code>
 <div class='force-inline'>
-  
+  <p>Rounds a price for a certain instrument</p>
+
 </div>
           </a>
           <div class='collapser border px2 m2'>
@@ -6826,7 +6949,8 @@ tradable.placeMarketOrderForAccount(accountId, <span class="hljs-number">10000</
   <h2 id='tradable.roundPrice' class='mt0'>
     roundPrice<span class='gray'>(instrumentId, price)</span>
   </h2>
-  
+  <p>Rounds a price for a certain instrument</p>
+
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>instrumentId</strong>
