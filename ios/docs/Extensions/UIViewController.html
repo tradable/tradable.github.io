@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TradablePriceIncrementBand Class Reference</title>
+    <title>UIViewController Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/TradablePriceIncrementBand" class="dashAnchor"></a>
-    <a title="TradablePriceIncrementBand Class Reference"></a>
+    <a name="//apple_ref/swift/Extension/UIViewController" class="dashAnchor"></a>
+    <a title="UIViewController Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">TradableAPI Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">TradableAPI Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TradablePriceIncrementBand Class Reference
+        UIViewController Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -287,14 +287,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TradablePriceIncrementBand</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">TradablePriceIncrementBand</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
-
-                </div>
-              </div>
-            <p>The price increment for a price above the lowerBound (and up to the next band).</p>
+            <h1>UIViewController</h1>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -303,9 +297,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI26TradablePriceIncrementBand10lowerBoundSd"></a>
-                    <a name="//apple_ref/swift/Property/lowerBound" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI26TradablePriceIncrementBand10lowerBoundSd">lowerBound</a>
+                    <a name="/s:FE11TradableAPICSo16UIViewController25tradablePresentOrderEntryFT3forCS_15TradableAccount4withGSqCS_18TradableInstrument_8withSideOS_17TradableOrderSide8delegateGSqPS_26TradableOrderEntryDelegate___T_"></a>
+                    <a name="//apple_ref/swift/Method/tradablePresentOrderEntry(for:with:withSide:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE11TradableAPICSo16UIViewController25tradablePresentOrderEntryFT3forCS_15TradableAccount4withGSqCS_18TradableInstrument_8withSideOS_17TradableOrderSide8delegateGSqPS_26TradableOrderEntryDelegate___T_">tradablePresentOrderEntry(for:with:withSide:delegate:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -313,16 +307,75 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Prices above this lowerBound should be placed in the given increments.</p>
+                        <p>Presents Order Entry widget. Starts prices updates if no such updates are running.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lowerBound</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">tradablePresentOrderEntry</span><span class="p">(</span><span class="k">for</span> <span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableAccount.html">TradableAccount</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">instrument</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableInstrument.html">TradableInstrument</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">withSide</span> <span class="nv">side</span><span class="p">:</span> <span class="kt"><a href="../Enums/TradableOrderSide.html">TradableOrderSide</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">buy</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TradableOrderEntryDelegate.html">TradableOrderEntryDelegate</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the widget should be presented.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instrument</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional, preselected instrument in the widget. If nil, no instrument will be preselected.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>side</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A preselected order side in the widget. Defaults to buy.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional TradableOrderEntryDelegate that will be called when the widget is dismissed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -330,9 +383,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI26TradablePriceIncrementBand9incrementSd"></a>
-                    <a name="//apple_ref/swift/Property/increment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI26TradablePriceIncrementBand9incrementSd">increment</a>
+                    <a name="/s:FE11TradableAPICSo16UIViewController33tradablePresentInstrumentSelectorFT3forCS_15TradableAccount8delegateGSqPS_34TradableInstrumentSelectorDelegate___T_"></a>
+                    <a name="//apple_ref/swift/Method/tradablePresentInstrumentSelector(for:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE11TradableAPICSo16UIViewController33tradablePresentInstrumentSelectorFT3forCS_15TradableAccount8delegateGSqPS_34TradableInstrumentSelectorDelegate___T_">tradablePresentInstrumentSelector(for:delegate:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -340,16 +393,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The price increments for a price above the lowerBound and up to the next band.</p>
+                        <p>Presents Instrument Selector widget.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">increment</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">tradablePresentInstrumentSelector</span><span class="p">(</span><span class="k">for</span> <span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableAccount.html">TradableAccount</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TradableInstrumentSelectorDelegate.html">TradableInstrumentSelectorDelegate</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the widget should be presented.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional TradableInstrumentSelectorDelegate that will handle the widget dismissal with selected instrument.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -357,9 +443,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI26TradablePriceIncrementBand8decimalsSi"></a>
-                    <a name="//apple_ref/swift/Property/decimals" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI26TradablePriceIncrementBand8decimalsSi">decimals</a>
+                    <a name="/s:FE11TradableAPICSo16UIViewController24tradablePresentEditOrderFT3forCS_15TradableAccount4withCS_13TradableOrder8delegateGSqPS_25TradableEditOrderDelegate___T_"></a>
+                    <a name="//apple_ref/swift/Method/tradablePresentEditOrder(for:with:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE11TradableAPICSo16UIViewController24tradablePresentEditOrderFT3forCS_15TradableAccount4withCS_13TradableOrder8delegateGSqPS_25TradableEditOrderDelegate___T_">tradablePresentEditOrder(for:with:delegate:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -367,16 +453,62 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The number of decimals used to format a price in this band.</p>
+                        <p>Presents Edit Order widget. Starts full updates if no such updates are running.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">decimals</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">tradablePresentEditOrder</span><span class="p">(</span><span class="k">for</span> <span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableAccount.html">TradableAccount</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">order</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableOrder.html">TradableOrder</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TradableEditOrderDelegate.html">TradableEditOrderDelegate</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the widget should be presented.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>order</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The order whose details will be displayed and which is to be edited.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional TradableEditOrderDelegate that will be called when the widget is dismissed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -384,9 +516,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11TradableAPI26TradablePriceIncrementBand11descriptionSS"></a>
-                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11TradableAPI26TradablePriceIncrementBand11descriptionSS">description</a>
+                    <a name="/s:FE11TradableAPICSo16UIViewController29tradablePresentPositionDetailFT3forCS_15TradableAccount4withCS_16TradablePosition8delegateGSqPS_30TradablePositionDetailDelegate___T_"></a>
+                    <a name="//apple_ref/swift/Method/tradablePresentPositionDetail(for:with:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE11TradableAPICSo16UIViewController29tradablePresentPositionDetailFT3forCS_15TradableAccount4withCS_16TradablePosition8delegateGSqPS_30TradablePositionDetailDelegate___T_">tradablePresentPositionDetail(for:with:delegate:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -394,16 +526,122 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Simple description of this object.</p>
+                        <p>Presents Position Detail widget. Starts positions updates if no such updates are running.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">tradablePresentPositionDetail</span><span class="p">(</span><span class="k">for</span> <span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableAccount.html">TradableAccount</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">position</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradablePosition.html">TradablePosition</a></span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TradablePositionDetailDelegate.html">TradablePositionDetailDelegate</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the widget should be presented.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The position whose details will be displayed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional TradablePositionDetailDelegate that will be called when the widget is dismissed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE11TradableAPICSo16UIViewController27tradablePresentBrokerSignInFT8forAppIdVs6UInt648delegateGSqPS_28TradableBrokerSignInDelegate___T_"></a>
+                    <a name="//apple_ref/swift/Method/tradablePresentBrokerSignIn(forAppId:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE11TradableAPICSo16UIViewController27tradablePresentBrokerSignInFT8forAppIdVs6UInt648delegateGSqPS_28TradableBrokerSignInDelegate___T_">tradablePresentBrokerSignIn(forAppId:delegate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Presents Broker Sign In widget.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">tradablePresentBrokerSignIn</span><span class="p">(</span><span class="n">forAppId</span> <span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TradableBrokerSignInDelegate.html">TradableBrokerSignInDelegate</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>appId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the app in which the widget is used.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional TradableBrokerSignInDelegate that will be called when the widget is dismissed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
