@@ -202,6 +202,9 @@
                 <a href="../Enums/TradableAggregation.html">TradableAggregation</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/TradableArgumentError.html">TradableArgumentError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/TradableDemoAccountType.html">TradableDemoAccountType</a>
               </li>
               <li class="nav-group-task">
@@ -708,9 +711,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI18TradableInstrument16getPriceDecimalsFT8forPriceSd_Si"></a>
+                    <a name="/s:FC11TradableAPI18TradableInstrument16getPriceDecimalsFzT8forPriceSd_Si"></a>
                     <a name="//apple_ref/swift/Method/getPriceDecimals(forPrice:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrument16getPriceDecimalsFT8forPriceSd_Si">getPriceDecimals(forPrice:)</a>
+                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrument16getPriceDecimalsFzT8forPriceSd_Si">getPriceDecimals(forPrice:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -720,12 +723,18 @@
                       <div class="abstract">
                         <p>Calculates a number of decimals used in price needed to send a correct order for an instrument.</p>
 
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>TradableArgumentError.incorrectPrice if the price is incorrect, i.e. negative.</p>
+
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPriceDecimals</span><span class="p">(</span><span class="n">forPrice</span> <span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPriceDecimals</span><span class="p">(</span><span class="n">forPrice</span> <span class="nv">price</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -751,7 +760,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A number of decimals.</p>
+                        <p>A number of decimals used to format the price.</p>
 
                       </div>
                     </section>
@@ -760,9 +769,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI18TradableInstrument20getOrderSizeDecimalsFT12forOrderSizeSd_Si"></a>
+                    <a name="/s:FC11TradableAPI18TradableInstrument20getOrderSizeDecimalsFzT12forOrderSizeSd_Si"></a>
                     <a name="//apple_ref/swift/Method/getOrderSizeDecimals(forOrderSize:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrument20getOrderSizeDecimalsFT12forOrderSizeSd_Si">getOrderSizeDecimals(forOrderSize:)</a>
+                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrument20getOrderSizeDecimalsFzT12forOrderSizeSd_Si">getOrderSizeDecimals(forOrderSize:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -772,12 +781,18 @@
                       <div class="abstract">
                         <p>Calculates a number of decimals used in order size needed to send a correct order for an instrument.</p>
 
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>TradableArgumentError.incorrectOrderSize if the order size is incorrect, i.e. negative.</p>
+
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOrderSizeDecimals</span><span class="p">(</span><span class="n">forOrderSize</span> <span class="nv">orderSize</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOrderSizeDecimals</span><span class="p">(</span><span class="n">forOrderSize</span> <span class="nv">orderSize</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -803,7 +818,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A number of decimals.</p>
+                        <p>A number of decimals used to format the order size.</p>
 
                       </div>
                     </section>
@@ -913,12 +928,116 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI18TradableInstrument21getNextValidOrderSizeFT13fromOrderSizeSd_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getNextValidOrderSize(fromOrderSize:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrument21getNextValidOrderSizeFT13fromOrderSizeSd_Sd">getNextValidOrderSize(fromOrderSize:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculates the next valid order size for an instrument.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getNextValidOrderSize</span><span class="p">(</span><span class="n">fromOrderSize</span> <span class="nv">orderSize</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orderSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The order size for which the next valid order size should be calculated.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The next valid order size.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI18TradableInstrument25getPreviousValidOrderSizeFT13fromOrderSizeSd_Sd"></a>
+                    <a name="//apple_ref/swift/Method/getPreviousValidOrderSize(fromOrderSize:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI18TradableInstrument25getPreviousValidOrderSizeFT13fromOrderSizeSd_Sd">getPreviousValidOrderSize(fromOrderSize:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculates the previous valid order size for an instrument.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPreviousValidOrderSize</span><span class="p">(</span><span class="n">fromOrderSize</span> <span class="nv">orderSize</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>price</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The order size for which the previous valid order size should be calculated.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The previous valid order size.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-11-10)</p>
+          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-11-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

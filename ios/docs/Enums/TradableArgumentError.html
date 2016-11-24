@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TradableOrderStatus Enum Reference</title>
+    <title>TradableArgumentError Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TradableOrderStatus" class="dashAnchor"></a>
-    <a title="TradableOrderStatus Enum Reference"></a>
+    <a name="//apple_ref/swift/Enum/TradableArgumentError" class="dashAnchor"></a>
+    <a title="TradableArgumentError Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">TradableAPI Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">TradableAPI Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TradableOrderStatus Enum Reference
+        TradableArgumentError Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -290,14 +290,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TradableOrderStatus</h1>
+            <h1>TradableArgumentError</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TradableOrderStatus</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TradableArgumentError</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Error</span></code></pre>
 
                 </div>
               </div>
-            <p>Possible statuses of order.</p>
+            <p>An enumeration for utility class errors.</p>
 
           </section>
           <section class="section task-group-section">
@@ -306,9 +306,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI19TradableOrderStatus7pendingFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/pending" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableOrderStatus7pendingFMS0_S0_">pending</a>
+                    <a name="/s:FO11TradableAPI21TradableArgumentError14incorrectPriceFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/incorrectPrice" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11TradableAPI21TradableArgumentError14incorrectPriceFMS0_S0_">incorrectPrice</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -316,14 +316,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The order with this status is pending; it&rsquo;s not a final status, the order can be cancelled or executed.</p>
+                        <p>Incorrect price error.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">pending</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">incorrectPrice</span></code></pre>
 
                         </div>
                       </div>
@@ -337,9 +337,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO11TradableAPI19TradableOrderStatus8executedFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/executed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableOrderStatus8executedFMS0_S0_">executed</a>
+                    <a name="/s:FO11TradableAPI21TradableArgumentError18incorrectOrderSizeFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/incorrectOrderSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11TradableAPI21TradableArgumentError18incorrectOrderSizeFMS0_S0_">incorrectOrderSize</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -347,45 +347,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The order with this status has been executed; it&rsquo;s a final status.</p>
+                        <p>Incorrect order size error.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">executed</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO11TradableAPI19TradableOrderStatus9cancelledFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/cancelled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO11TradableAPI19TradableOrderStatus9cancelledFMS0_S0_">cancelled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The order with this status has been cancelled; it&rsquo;s a final status.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">cancelled</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">incorrectOrderSize</span></code></pre>
 
                         </div>
                       </div>
