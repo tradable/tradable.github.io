@@ -68,6 +68,9 @@
                 <a href="../Classes/TradableBrokerLogos.html">TradableBrokerLogos</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableCancelSubscriptionRequest.html">TradableCancelSubscriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableCandle.html">TradableCandle</a>
               </li>
               <li class="nav-group-task">
@@ -188,6 +191,15 @@
                 <a href="../Classes/TradableRequestedIndicator.html">TradableRequestedIndicator</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableStartTrialRequest.html">TradableStartTrialRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableSubscriptionRequest.html">TradableSubscriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableSubscriptionResponse.html">TradableSubscriptionResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableTwoFactorAuthenticationChallenge.html">TradableTwoFactorAuthenticationChallenge</a>
               </li>
               <li class="nav-group-task">
@@ -232,10 +244,16 @@
                 <a href="../Enums/TradableOrderType.html">TradableOrderType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/TradablePriceType.html">TradablePriceType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/TradableProtectionEntryType.html">TradableProtectionEntryType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TradableSingleProtection.html">TradableSingleProtection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableSubscriptionStatus.html">TradableSubscriptionStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TradableTrackConfiguration.html">TradableTrackConfiguration</a>
@@ -276,6 +294,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/TradableEventsDelegate.html">TradableEventsDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TradableIndicatorSelectorDelegate.html">TradableIndicatorSelectorDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/TradableInstrumentSelectorDelegate.html">TradableInstrumentSelectorDelegate</a>
@@ -470,7 +491,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>The account type to be used or created (stocks or forex).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -483,7 +503,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>The ID of the app.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -496,7 +515,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>The key of the app.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -545,7 +563,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>OAuth flow app ID.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -558,7 +575,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>OAuth flow redirect URL.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -571,7 +587,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>Optional UIViewController conforming to SFSafariViewControllerDelegate component used to transition to SFSafariViewController with login website. If not specified, system browser will be opened.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -584,9 +599,9 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11TradableAPI8Tradable16authenticateWithFT5appIdVs6UInt643uriSS14viewControllerGSqCSo16UIViewController__T_"></a>
-                    <a name="//apple_ref/swift/Method/authenticateWith(appId:uri:viewController:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11TradableAPI8Tradable16authenticateWithFT5appIdVs6UInt643uriSS14viewControllerGSqCSo16UIViewController__T_">authenticateWith(appId:uri:viewController:)</a>
+                    <a name="/s:FC11TradableAPI8Tradable12authenticateFT9withAppIdVs6UInt643uriSS14viewControllerGSqCSo16UIViewController__T_"></a>
+                    <a name="//apple_ref/swift/Method/authenticate(withAppId:uri:viewController:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable12authenticateFT9withAppIdVs6UInt643uriSS14viewControllerGSqCSo16UIViewController__T_">authenticate(withAppId:uri:viewController:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -601,7 +616,7 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticateWith</span><span class="p">(</span><span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticate</span><span class="p">(</span><span class="n">withAppId</span> <span class="nv">appId</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -618,7 +633,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>OAuth flow app ID.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -631,7 +645,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>OAuth flow redirect URL.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -644,7 +657,6 @@ If the current tokens exist and are not expired, the SDK uses the current tokens
                               <td>
                                 <div>
                                   <p>Optional UIViewController conforming to SFSafariViewControllerDelegate component used to transition to SFSafariViewController with login website. If not specified, system browser will be opened.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -692,7 +704,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The URL containing the information needed in order to create access token.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -739,7 +750,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The access token to activate the API with.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -786,7 +796,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The authentication request to be sent.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -798,8 +807,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableAccessToken object and optional TradableError object.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableAccessToken object and an optional TradableError object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -846,7 +854,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The demo authentication request to be sent.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -858,8 +865,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableAccessToken object and optional TradableError object.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableAccessToken object and an optional TradableError object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -906,7 +912,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The refresh authentication request to be sent.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -918,8 +923,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableAccessToken object and optional TradableError object.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableAccessToken object and an optional TradableError object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -997,6 +1001,332 @@ When the access token is successfully created, tradableReady auth delegate metho
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC11TradableAPI8Tradable10startTrialFT4withCS_25TradableStartTrialRequest10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/startTrial(with:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable10startTrialFT4withCS_25TradableStartTrialRequest10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_">startTrial(with:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Requests starting a trial period in order to get access to trading with the given broker.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startTrial</span><span class="p">(</span><span class="n">with</span> <span class="nv">trialRequest</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableStartTrialRequest.html">TradableStartTrialRequest</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">subscriptionResponse</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableSubscriptionResponse.html">TradableSubscriptionResponse</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableError.html">TradableError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>trialRequest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request for starting the subscription.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with an optional TradableSubscriptionResponse object and an optional TradableError object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable9subscribeFT4withCS_27TradableSubscriptionRequest10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/subscribe(with:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable9subscribeFT4withCS_27TradableSubscriptionRequest10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_">subscribe(with:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Subscribes in order to get access to trading with the given broker.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">with</span> <span class="nv">subscriptionRequest</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableSubscriptionRequest.html">TradableSubscriptionRequest</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">subscriptionResponse</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableSubscriptionResponse.html">TradableSubscriptionResponse</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableError.html">TradableError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>subscriptionRequest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request for starting the subscription.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with an optional TradableSubscriptionResponse object and an optional TradableError object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable19getSubscriptionInfoFT11forBrokerIdSi12andUserLoginSS10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/getSubscriptionInfo(forBrokerId:andUserLogin:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable19getSubscriptionInfoFT11forBrokerIdSi12andUserLoginSS10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_">getSubscriptionInfo(forBrokerId:andUserLogin:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves information on a subscription.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSubscriptionInfo</span><span class="p">(</span><span class="n">forBrokerId</span> <span class="nv">brokerId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">andUserLogin</span> <span class="nv">userLogin</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">subscriptionResponse</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableSubscriptionResponse.html">TradableSubscriptionResponse</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableError.html">TradableError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>brokerId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the broker that the account is at.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userLogin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The login for the account.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with an optional TradableSubscriptionResponse object and an optional TradableError object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable18cancelSubscriptionFT4withCS_33TradableCancelSubscriptionRequest10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/cancelSubscription(with:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable18cancelSubscriptionFT4withCS_33TradableCancelSubscriptionRequest10completionGSQFTGSqCS_28TradableSubscriptionResponse_GSqCS_13TradableError__T___T_">cancelSubscription(with:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels the subscription for the given user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelSubscription</span><span class="p">(</span><span class="n">with</span> <span class="nv">cancelSubscriptionRequest</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableCancelSubscriptionRequest.html">TradableCancelSubscriptionRequest</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">subscriptionResponse</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableSubscriptionResponse.html">TradableSubscriptionResponse</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableError.html">TradableError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancelSubscriptionRequest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request for cancelling the subscription.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with an optional TradableSubscriptionResponse object and an optional TradableError object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11TradableAPI8Tradable21continueTwoFactorAuthFT3forCS_15TradableAccount3forCS_40TradableTwoFactorAuthenticationChallenge4withCS_39TradableTwoFactorAuthenticationResponse10completionGSQFTGSqCS_19TradableAccessToken_GSqCS_13TradableError__T___T_"></a>
+                    <a name="//apple_ref/swift/Method/continueTwoFactorAuth(for:for:with:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11TradableAPI8Tradable21continueTwoFactorAuthFT3forCS_15TradableAccount3forCS_40TradableTwoFactorAuthenticationChallenge4withCS_39TradableTwoFactorAuthenticationResponse10completionGSQFTGSqCS_19TradableAccessToken_GSqCS_13TradableError__T___T_">continueTwoFactorAuth(for:for:with:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to complete two factor authentication.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">continueTwoFactorAuth</span><span class="p">(</span><span class="k">for</span> <span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableAccount.html">TradableAccount</a></span><span class="p">,</span> <span class="k">for</span> <span class="nv">challenge</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableTwoFactorAuthenticationChallenge.html">TradableTwoFactorAuthenticationChallenge</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">twoFactorAuthResponse</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableTwoFactorAuthenticationResponse.html">TradableTwoFactorAuthenticationResponse</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">accessToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableAccessToken.html">TradableAccessToken</a></span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Classes/TradableError.html">TradableError</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The account for which the two factor authentication response is required.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>challenge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The two factor authentication challenge that has been received.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>twoFactorAuthResponse</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The response for the challenge.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be called when the response comes back, with an optional TradableAccessToken object and an optional TradableError object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC11TradableAPI8Tradable10getAppInfoFT8forAppIdVs6UInt6410completionGSQFTGSqCS_11TradableApp_GSqCS_13TradableError__T___T_"></a>
                     <a name="//apple_ref/swift/Method/getAppInfo(forAppId:completion:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11TradableAPI8Tradable10getAppInfoFT8forAppIdVs6UInt6410completionGSQFTGSqCS_11TradableApp_GSqCS_13TradableError__T___T_">getAppInfo(forAppId:completion:)</a>
@@ -1031,7 +1361,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The ID of the app to retrieve information for.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1043,8 +1372,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableApp object and optional TradableError object.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableApp object and an optional TradableError object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1091,7 +1419,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The access token to be used when calling the API.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1103,8 +1430,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableOSUser object and optional TradableError object.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableOSUser object and an optional TradableError object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1151,7 +1477,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The access token to be used when calling the API.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1163,8 +1488,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional TradableAccountList object and optional TradableError object.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableAccountList object and an optional TradableError object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1211,7 +1535,6 @@ When the access token is successfully created, tradableReady auth delegate metho
                               <td>
                                 <div>
                                   <p>The account for which the indicators info should be fetched.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1223,8 +1546,7 @@ When the access token is successfully created, tradableReady auth delegate metho
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with optional list of TradableIndicatorInfo objects and optional TradableError object.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional list of TradableIndicatorInfo objects and an optional TradableError object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1239,8 +1561,8 @@ When the access token is successfully created, tradableReady auth delegate metho
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-12-07)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2017-08-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

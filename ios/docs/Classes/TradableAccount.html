@@ -68,6 +68,9 @@
                 <a href="../Classes/TradableBrokerLogos.html">TradableBrokerLogos</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableCancelSubscriptionRequest.html">TradableCancelSubscriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableCandle.html">TradableCandle</a>
               </li>
               <li class="nav-group-task">
@@ -188,6 +191,15 @@
                 <a href="../Classes/TradableRequestedIndicator.html">TradableRequestedIndicator</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/TradableStartTrialRequest.html">TradableStartTrialRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableSubscriptionRequest.html">TradableSubscriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TradableSubscriptionResponse.html">TradableSubscriptionResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/TradableTwoFactorAuthenticationChallenge.html">TradableTwoFactorAuthenticationChallenge</a>
               </li>
               <li class="nav-group-task">
@@ -232,10 +244,16 @@
                 <a href="../Enums/TradableOrderType.html">TradableOrderType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/TradablePriceType.html">TradablePriceType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/TradableProtectionEntryType.html">TradableProtectionEntryType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TradableSingleProtection.html">TradableSingleProtection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TradableSubscriptionStatus.html">TradableSubscriptionStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TradableTrackConfiguration.html">TradableTrackConfiguration</a>
@@ -276,6 +294,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/TradableEventsDelegate.html">TradableEventsDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TradableIndicatorSelectorDelegate.html">TradableIndicatorSelectorDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/TradableInstrumentSelectorDelegate.html">TradableInstrumentSelectorDelegate</a>
@@ -916,7 +937,6 @@
                               <td>
                                 <div>
                                   <p>The type of the updates.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -929,7 +949,6 @@
                               <td>
                                 <div>
                                   <p>The frequency of the updates.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -942,7 +961,6 @@
                               <td>
                                 <div>
                                   <p>The request that should be used for updates.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1016,7 +1034,6 @@
                               <td>
                                 <div>
                                   <p>The request that should be used for updates. Replaces the previous request that was in use for this account.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1063,7 +1080,6 @@
                               <td>
                                 <div>
                                   <p>The instrument for which the updates should be started.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1076,7 +1092,6 @@
                               <td>
                                 <div>
                                   <p>The aggregation (in minutes) for which the updates should be started.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1089,7 +1104,6 @@
                               <td>
                                 <div>
                                   <p>A Unix timestamp in milliseconds, specifies since when should the candles be requested. Cannot be greater than the current timestamp.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1163,7 +1177,6 @@
                               <td>
                                 <div>
                                   <p>The request that should be used to fetch the snapshot.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1176,7 +1189,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional TradableAccountSnapshot object and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1223,7 +1235,6 @@
                               <td>
                                 <div>
                                   <p>The request that should be used to fetch the prices.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1236,7 +1247,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional array of TradablePrice objects and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1283,7 +1293,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional array of TradableMetrics objects and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1330,7 +1339,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional TradableOrders object and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1377,7 +1385,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional list of TradableOrder objects and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1424,7 +1431,6 @@
                               <td>
                                 <div>
                                   <p>The ID of the order that should be fetched.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1437,7 +1443,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional TradableOrder object and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1484,7 +1489,6 @@
                               <td>
                                 <div>
                                   <p>The order command object, containing information about the order that should be issued.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1496,8 +1500,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with an optional TradableOrder object and an optional TradableError object. TradableOrder is an order that will have been created. Getting it back in the closure doesn’t mean that the order has been executed; check its status in tradableOrdersUpdated delegate method.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableOrder object and an optional TradableError object. TradableOrder is an order that will have been created. Getting it back in the closure doesn&rsquo;t mean that the order has been executed; check its status in tradableOrdersUpdated delegate method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1544,7 +1547,6 @@
                               <td>
                                 <div>
                                   <p>The instrument for which the order should be issued.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1557,7 +1559,6 @@
                               <td>
                                 <div>
                                   <p>The amount of the order.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1570,7 +1571,6 @@
                               <td>
                                 <div>
                                   <p>The side of the order.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1583,7 +1583,6 @@
                               <td>
                                 <div>
                                   <p>An optional TradableOrderStatusDelegate to notify when the order status changes.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1595,8 +1594,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with an optional TradableOrder object and an optional TradableError object. TradableOrder is an order that will have been created. Getting it back in the closure doesn’t mean that the order has been executed; check its status in tradableOrdersUpdated delegate method.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableOrder object and an optional TradableError object. TradableOrder is an order that will have been created. Getting it back in the closure doesn&rsquo;t mean that the order has been executed; check its status in tradableOrdersUpdated delegate method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1643,7 +1641,6 @@
                               <td>
                                 <div>
                                   <p>The instrument for which the order should be issued.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1656,7 +1653,6 @@
                               <td>
                                 <div>
                                   <p>The amount of the order.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1669,7 +1665,6 @@
                               <td>
                                 <div>
                                   <p>The side of the order.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1682,7 +1677,6 @@
                               <td>
                                 <div>
                                   <p>An optional take profit protection.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1695,7 +1689,6 @@
                               <td>
                                 <div>
                                   <p>An optional stop loss protection.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1708,7 +1701,6 @@
                               <td>
                                 <div>
                                   <p>An optional TradableOrderStatusDelegate to notify when the order status changes.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1720,8 +1712,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with an optional TradableOrder object and an optional TradableError object. TradableOrder is an order that will have been created. Getting it back in the closure doesn’t mean that the order has been executed; check its status in tradableOrdersUpdated delegate method.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableOrder object and an optional TradableError object. TradableOrder is an order that will have been created. Getting it back in the closure doesn&rsquo;t mean that the order has been executed; check its status in tradableOrdersUpdated delegate method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1768,7 +1759,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional TradablePositions object and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1815,7 +1805,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional list of TradablePosition objects and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1862,7 +1851,6 @@
                               <td>
                                 <div>
                                   <p>The ID of the position that should be fetched.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1875,7 +1863,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional TradablePosition object and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1899,7 +1886,6 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets candles.</p>
-
 <div class="aside aside-remark">
     <p class="aside-title">Remark</p>
     <p>This method is recursive.</p>
@@ -1928,7 +1914,6 @@
                               <td>
                                 <div>
                                   <p>The candle request object containing information about the candles that should be fetched.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1941,7 +1926,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional TradableCandleResponse object and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1988,7 +1972,6 @@
                               <td>
                                 <div>
                                   <p>The instrument for which the candles should be retrieved.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2001,7 +1984,6 @@
                               <td>
                                 <div>
                                   <p>The candle aggregation.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2014,7 +1996,6 @@
                               <td>
                                 <div>
                                   <p>The number of sessions to retrieve. Must be greater than 0.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2027,7 +2008,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional dictionary of UInt64 to list of TradableCandle objects and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2074,7 +2054,6 @@
                               <td>
                                 <div>
                                   <p>The request to be made.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2087,7 +2066,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional list of TradableLastSessionClose objects and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2134,7 +2112,6 @@
                               <td>
                                 <div>
                                   <p>The phrase that the instruments will be searched for.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2146,8 +2123,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The closure to be called when the response comes back, with an optional TradableInstrumentSearchResults object and an optional TradableError object. If nil, the results will be returned using current searchDelegate’s tradableInstrumentSearchResultsReceived method.</p>
-
+                                  <p>The closure to be called when the response comes back, with an optional TradableInstrumentSearchResults object and an optional TradableError object. If nil, the results will be returned using current searchDelegate&rsquo;s tradableInstrumentSearchResultsReceived method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2194,7 +2170,6 @@
                               <td>
                                 <div>
                                   <p>The request object containing a list of instrument IDs for which the instruments should be retrieved.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2207,7 +2182,6 @@
                               <td>
                                 <div>
                                   <p>The closure to be called when the response comes back, with an optional TradableInstrumentList object and an optional TradableError object.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -2287,8 +2261,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2016-12-07)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="https://www.tradable.com" target="_blank" rel="external">Tradable</a>. All rights reserved. (Last updated: 2017-08-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
